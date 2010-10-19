@@ -1,0 +1,533 @@
+#!/usr/bin/env ruby
+
+# this here dirty script was written by wet@petalphile.com
+# for fellow aquatic plant nerds.  As long as you keep 
+# this notice you can do what you want with it.  But 
+# if you have ideas or make it better, please let me 
+# know.  I'll probably want to help, like to learn,
+# and like new ideas.
+#
+# :) - c
+
+
+require 'rubygems'
+require 'sinatra'
+require 'haml'
+
+set :environment, :production 
+#set :bind, 'localhost'
+
+COMPOUNDS =  ['KNO3','KH2PO4','KCl','K2SO4','CaCl2.2H2O','CaSO4','CaMg(CO3)2','MgSO4.7H2O','Plantex CSM+B',"Miller\'s MicroPlex",'Rexolin APN','Fe Gluconate','DTPA Fe (10%)','EDTA Fe (12.5%)', 'EDDHA Fe (6%)', 'MnSO4.H2O']
+
+get '/' do
+	haml :ask
+end
+ 
+post '/' do
+  cons 			= Hash.new
+  @results		= Hash.new
+
+# the Stuff while trying to limit what's global
+  @tank_vol		= Float(params["tank_vol"]) || 0
+  @tank_units		= params["tank_units"]
+  @comp 		= params["compound"]
+  @dose_method		= params["method"]
+    
+  @dose_units		= params["dose_units"]
+  calc_for		= params["calc_for"]
+
+  
+
+# i just need this later
+  @tank_vol_orig=@tank_vol
+  
+
+  if (@tank_units =~ /gal/)
+    @tank_vol = @tank_vol * 3.78541178
+    @tank_vol = Float(@tank_vol)
+  end
+
+# pushing compounds into an array of concentrations
+# then, if known, its teaspoon concentration in mg
+  if (@comp=~/DTPA/)
+    cons['Fe']=0.1
+    tsp_con=4290
+    @element='Fe'
+  elsif (@comp=~/KNO3/)
+    cons['NO3']=0.6133
+    cons['N']=0.138539
+    cons['K']=0.3867
+    tsp_con=5200
+    @element="NO3"
+  elsif (@comp=~/KH2PO4/)
+    cons['PO4']=0.6979
+    cons['P']=0.227605
+    cons['K']=0.2873
+    tsp_con=5600
+    @element="PO4"
+  elsif (@comp=~/KCl/)
+    cons['K']=0.524447
+    cons['Cl']=0.475553
+    tsp_con=4500
+    @element="K"
+  elsif (@comp=~/K2SO4/)
+    cons['K']=0.448736
+    cons['S']=0.18401
+    tsp_con=6400
+    @element="K"
+  elsif (@comp=~/Rexolin/)
+    cons['Fe']=0.06
+    cons['Mn']=0.024
+    cons['Cu']=0.0025
+    tsp_con=3300
+    @element="Fe"
+  elsif (@comp=~/EDTA/)
+    cons['Fe']=0.125
+    tsp_con=5100
+    @element="Fe"
+  elsif (@comp=~/Gluconate/)
+    cons['Fe']=0.1246
+    tsp_con=2440
+    @element="Fe"
+  elsif (@comp=~/EDDHA/)
+    cons['Fe']=0.06
+    tsp_con=2420
+    @element="Fe"
+  elsif (@comp=~/Plantex/)
+    cons['Fe']=0.0653
+    cons['Mn']=0.0187
+    cons['Cu']=0.009
+    tsp_con=4300
+    @element="Fe"
+  elsif (@comp=~/Micro/)
+    cons['Fe']=0.04
+    cons['Mn']=0.04
+    cons['Cu']=0.015
+    tsp_con=3720
+    @element="Fe"
+  elsif (@comp=~/MnSO4/)
+    cons['Mn']=0.325
+    @element="Mn"
+    tsp_con=7490
+  elsif (@comp=~/CaMg/)
+    cons['Ca']=0.2173
+    cons['Mg']=0.1318
+    cons['dKH from CO3']=0.6509/10.7
+    cons['dGH as CaO equivalent']=0.3491 * 0.714657631954351 / 10
+    @element="Ca"
+    tsp_con=14150
+  elsif (@comp=~/CaCl2/)
+    cons['Ca']=0.27262091014216722
+    cons['Cl']=0.4823209305489423
+    cons['dGH as CaO equivalent']=0.27262091014216722 * 0.714657631954351 / 10
+    @element="Ca"
+    tsp_con=3600
+  elsif (@comp=~/MgSO4/)
+    cons['Mg']=0.0986124
+    cons['S']=0.130101
+    cons['dGH as CaO equivalent (same for Mg here)']=0.0986124 * 0.714657631954351 / 10
+    @element="Mg"
+    tsp_con=5100
+  elsif (@comp=~/CaSO4/)
+    cons['Ca']=0.2943881298663141
+    cons['S']=0.2355369472601734
+    cons['dGH as CaO equivalent']=0.2943881298663141 * 0.714657631954351 / 10
+    @element="Ca"
+  end
+
+# calculations on the onClick optional menus
+  if (calc_for =~ /dump/)
+    @dose_amount	= Float(params["dose_amount"])
+  elsif (calc_for =~ /target/)
+    @target_amount 	= Float(params["target_amount"])
+    @dose_amount	= 0
+  end	
+
+  if (@dose_method =~ /sol/)
+    @sol_vol		= Float(params["sol_volume"])
+    @sol_dose		= Float(params["sol_dose"]) 
+    dose_calc 		= @dose_amount * @sol_dose / @sol_vol
+  else
+    @sol_vol 		= 0
+    @sol_dose		= 0
+    dose_calc 		= @dose_amount
+  end
+
+#convert from tsp to mg
+  if (@dose_units =~ /tsp/)
+    dose_calc *= tsp_con
+  elsif (@dose_units =~ /^g$/)
+    dose_calc *= 1000
+  end
+
+#convert solutions 
+
+#two forms
+
+  if (calc_for =~ /dump/)
+    cons.each do |con,value|
+      pie="#{value}"
+      pie=Float(pie)
+      @results["#{con}"] = dose_calc * pie / @tank_vol
+      @results["#{con}"] = sprintf("%.3f", @results["#{con}"])
+    end
+    @target_amount = @results["#{@element}"]
+    @mydose=@dose_amount
+  
+  elsif (calc_for =~ /target/)
+    pie=Float(cons["#{@element}"])
+    @mydose = @target_amount * @tank_vol / pie
+    @mydose = sprintf("%.2f", @mydose)
+    @mydose = Float(@mydose)
+    if (@dose_method=~ /sol/ && calc_for =~ /target/)
+      @dose_amount = @mydose * @sol_vol / @sol_dose
+    else
+      @dose_amount = @mydose
+    end
+    cons.each do |conc,values|
+      pie="#{values}"
+      pie=Float(pie)
+      @results["#{conc}"] = @mydose * pie / @tank_vol
+      @results["#{conc}"] = sprintf("%.3f", @results["#{conc}"])
+    end
+    @dose_amount = @dose_amount / 1000
+  end
+  if ( @element =~ /N|P|K|Ca|Mg|Fe$/ )
+
+# fancy graphs
+
+# constants for ranges from various methods
+	
+# The Estimative Index
+  @range=Hash.new()
+  @range["NO3"]=Hash.new()
+  @range["PO4"]=Hash.new()
+  @range["K"]=Hash.new()
+  @range["Ca"]=Hash.new()
+  @range["Mg"]=Hash.new()
+  @range["Fe"]=Hash.new()
+  @range["NO3"].store("EI", Hash.new())
+  @range["PO4"].store("EI", Hash.new())
+  @range["K"].store("EI", Hash.new())
+  @range["Ca"].store("EI", Hash.new())
+  @range["Mg"].store("EI", Hash.new())
+  @range["Fe"].store("EI", Hash.new())
+  @range["NO3"].store("PPS", Hash.new())
+  @range["PO4"].store("PPS", Hash.new())
+  @range["K"].store("PPS", Hash.new())
+  @range["Mg"].store("PPS", Hash.new())
+  @range["Ca"].store("PPS", Hash.new())
+  @range["Fe"].store("PPS", Hash.new())
+  @range["NO3"].store("Walstad", Hash.new())
+  @range["PO4"].store("Walstad", Hash.new())
+  @range["K"].store("Walstad", Hash.new())
+  @range["Ca"].store("Walstad", Hash.new())
+  @range["Mg"].store("Walstad", Hash.new())
+  @range["Fe"].store("Walstad", Hash.new())
+  
+  @range["NO3"].fetch("EI").store("low",5)
+  @range["NO3"].fetch("EI").store("margin",25)
+  @range["NO3"].fetch("EI").store("high",30)
+  @range["PO4"].fetch("EI").store("low",1)
+  @range["PO4"].fetch("EI").store("margin",2)
+  @range["PO4"].fetch("EI").store("high",3)
+  @range["K"].fetch("EI").store("low",10)
+  @range["K"].fetch("EI").store("margin",20)
+  @range["K"].fetch("EI").store("high",30)
+  @range["Ca"].fetch("EI").store("low",15)
+  @range["Ca"].fetch("EI").store("margin",15)
+  @range["Ca"].fetch("EI").store("high",30)
+  @range["Mg"].fetch("EI").store("low",5)
+  @range["Mg"].fetch("EI").store("margin",5)
+  @range["Mg"].fetch("EI").store("high",10)
+  @range["Fe"].fetch("EI").store("low",0.1)
+  @range["Fe"].fetch("EI").store("margin",0.4)
+  @range["Fe"].fetch("EI").store("high",0.5)
+  
+# Perpetual Preservation System
+  @range["NO3"].fetch("PPS").store("low",5)
+  @range["NO3"].fetch("PPS").store("margin",5)
+  @range["NO3"].fetch("PPS").store("high",10)
+  @range["PO4"].fetch("PPS").store("low",0.1)
+  @range["PO4"].fetch("PPS").store("margin",0.9)
+  @range["PO4"].fetch("PPS").store("high",1)
+  @range["K"].fetch("PPS").store("low",5)
+  @range["K"].fetch("PPS").store("margin",15)
+  @range["K"].fetch("PPS").store("high",20)
+  @range["Mg"].fetch("PPS").store("low",2)
+  @range["Mg"].fetch("PPS").store("margin",3)
+  @range["Mg"].fetch("PPS").store("high",5)
+  @range["Ca"].fetch("PPS").store("low",20)
+  @range["Ca"].fetch("PPS").store("margin",10)
+  @range["Ca"].fetch("PPS").store("high",30)
+  @range["Fe"].fetch("PPS").store("low",0.01)
+  @range["Fe"].fetch("PPS").store("margin",0.09)
+  @range["Fe"].fetch("PPS").store("high",0.1)
+
+# Walstad
+  @range["NO3"].fetch("Walstad").store("low",0.443)
+  @range["NO3"].fetch("Walstad").store("margin",0.11)
+  @range["NO3"].fetch("Walstad").store("high",0.55)
+  @range["PO4"].fetch("Walstad").store("low",0.061)
+  @range["PO4"].fetch("Walstad").store("margin",0.012)
+  @range["PO4"].fetch("Walstad").store("high",0.073)
+  @range["K"].fetch("Walstad").store("low",2)
+  @range["K"].fetch("Walstad").store("margin",0.4)
+  @range["K"].fetch("Walstad").store("high",2.4)
+  @range["Mg"].fetch("Walstad").store("low",9)
+  @range["Mg"].fetch("Walstad").store("margin",1.8)
+  @range["Mg"].fetch("Walstad").store("high",10.8)
+  @range["Ca"].fetch("Walstad").store("low",28)
+  @range["Ca"].fetch("Walstad").store("margin",6)
+  @range["Ca"].fetch("Walstad").store("high",34)
+  @range["Fe"].fetch("Walstad").store("low",0.06)
+  @range["Fe"].fetch("Walstad").store("margin",0.012)
+  @range["Fe"].fetch("Walstad").store("high",0.072)
+
+  pie=Float(@results["#{@element}"])
+# if the data is smaller than our largest range above...
+  if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
+# we know the div will be 300 pixels wide.  So, let's get an amount for ppm per pixel
+    pie=Float(@range["#{@element}"]["EI"]["high"])
+  else
+    pie=Float(@results["#{@element}"])
+  end
+  @pixel_max=pie * 1.25
+  @pixel_per_ppm=300/@pixel_max
+  if @pixel_max > 1
+  	@pixel_max=@pixel_max.to_int
+  else
+	@pixel_max=100 * @pixel_max.to_f / 100
+  end
+#    @ppm_per_pixel.to_f
+#  end  
+  @range.each do |compound,method|
+	method.each do |specific,value|
+		value.each do |wtf,realvalue|
+   			value[wtf]=realvalue.to_f * @pixel_per_ppm
+			value[wtf]=value[wtf].to_int
+			if ( value[wtf] < 4 )
+				value[wtf] = 3
+			end
+   		end
+	end
+  end 
+  @results_pixel=@results["#{@element}"].to_f * @pixel_per_ppm
+  @results_pixel=@results_pixel.to_int
+ end 
+  
+  if (calc_for =~ /dump/)
+  	haml :dump
+  else
+        haml :target
+  end  
+
+end
+
+get '/dry' do
+  haml :dry
+end
+
+error do
+  ':('
+end
+
+ 
+#  %input{:type => "select", :name => "compound", :values=>['KNO3','KH2PO4','K2HPO4','KCl','K2SO4']}
+ 
+  #  <option value="kno3">KNO3</option>  
+  # <option value="k2hpo4">K2HPO4</option>  
+  # <option value="kh2po4">KH2PO4</option>  
+  # <option value="k2so4">K2SO4</option>  
+  # <option value="kcl">KCl</option>  
+  # <option value="plantex">Plantex CSM+B</option>  
+  # <option value="microplex">Miller's Microplex</option>  
+__END__
+
+@@ layout
+%html
+  %head
+    %title Yet Another Nutrient Calculator
+    <meta name="google-site-verification" content="myGZDO_VKmO0z1LnbxckrPQYcS_bEXo3m3NYjqdkAf4" />
+  %body
+    #header
+   
+    #content
+    =yield
+    %footer
+      %p
+      %a(href='/')Start over
+      %br
+      %a(href='http://wet.biggiantnerds.com') Back to wet.biggiantnerds.com
+
+@@ ask
+
+%p Yet Another Nutrient Calculator
+%form{:action => "/", :method => "post"}
+  %p 
+  %label My aquarium is 
+  %input{:type => "text", :name => "tank_vol", :length => 4, :size => 4}
+  %input{:type => "radio", :name => "tank_units", :value=> "gal"}
+  gal
+  %input{:type => "radio", :name => "tank_units", :value=> "L"}
+  L
+  %p 
+  %label I'm dosing with
+  <select name="compound">
+  - COMPOUNDS.each do |c| 
+    <option value="#{c}">#{c}</option>
+  </select>
+  %p 
+  %label using
+  %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
+  a solution
+  %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
+  dry dosing
+  %br
+  #sol{:style => 'display:none'}
+    %label while using a
+    %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500}
+    mL container
+    %br
+    %label with doses of   
+    %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5}
+    mL
+    %br
+    if you are calculating for dose below,
+    %br
+    add that amount to this container
+  %p 
+  %label and I'm calculating for
+  %br
+  %input{:type => "radio", :name=> "calc_for", :value=> "target", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
+  what dose to reach a target
+  %br
+  %input{:type => "radio", :name=> "calc_for", :value=> "dump", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
+  the result of my dose
+  %br
+  #dump{:style => 'display:none'}
+    I am adding
+    %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}
+    %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
+    mg
+    %input{:type => "radio", :name=> "dose_units", :value=> "g"}
+    g
+    %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
+    tsp 
+    
+  #target{:style => 'display:none'}
+    My target is
+    %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4}
+    ppm
+
+
+  %p
+  %input{:type => "submit", :value => "Gimmie!"}
+
+
+@@ dump
+%p
+Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your<br> 
+- if @sol_vol > 0
+  #{@sol_vol} mL container, with doses of #{@sol_dose} mL<br>
+  into a
+#{@tank_vol_orig} #{@tank_units} tank gives:<br><br>
+- @results.each do |result,result_value| 
+  - if result =~ /dKH|dGH/
+    #{result} = #{result_value}<br>
+  - else
+    #{result} = #{result_value}ppm<br>
+%br
+Relative #{@element} ppm for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
+%br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
+%br
+<div style="position: relative; float:top; width: 330px; height: 35px;">
+<div style="position: absolute; top:1px; left: 15px; width:300px;">
+<div style="position: absolute; top:7px; left: 0; width:300px;">
+<hr width=100%>
+</div>
+<div style="position: absolute; top:4px; left: #{@range[@element]['EI']['low']}px; width:  #{@range[@element]['EI']['margin']}px; height: 20px; background-color: blue; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
+<div style="position: absolute; top:7px; left:  #{@range[@element]['PPS']['low']}px; width: #{@range[@element]['PPS']['margin']}px; height: 14px; background-color: orange; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
+<div style="position: absolute; top:2px; left:  #{@range[@element]['Walstad']['low']}px; width: #{@range[@element]['Walstad']['margin']}px; height: 24px; background-color: green; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
+<div style="position: absolute; top:1px; left:  #{@results_pixel}px; width: 4px; height: 26px; background-color: red; fiter:alpha(opacity=1); -moz-opacity:1; center">
+</div>
+</div>
+</div>
+<div style="position: relative; float:top; width: 330px; height: 50px">
+<div style="position:relative; float:left; left: 10px; height 15px">
+0
+</div>
+<div style="position:relative; float:right; right:10px; height 15px">
+#{@pixel_max}
+</div>
+</div>
+</div>
+%b Want to model long term effects of<br> #{@element} dosing? Click 
+%a(href="http://wet.biggiantnerds.com/ei/con_v_time.pl?stuff=#{@element};dose=#{@target_amount}")here!
+
+
+@@ target
+%p
+To reach your target of #{@target_amount} ppm #{@element},
+%br you'll need to add #{@dose_amount} grams of #{@comp} 
+- if @sol_vol > 0 
+  into your #{@sol_vol} mL container.<br>
+  Each #{@sol_dose} mL of that mix into #{@tank_vol_orig} #{@tank_units} is:<br><br>
+- if @sol_vol == 0
+  to #{@tank_vol_orig} #{@tank_units} for:<br><br>
+- @results.each do |result,result_value| 
+  - if result =~ /dKH|dGH/
+    #{result} = #{result_value}<br>
+  - else
+    #{result} = #{result_value}ppm<br>
+%br
+Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
+%br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
+%br
+<div style="position: relative; float:top; width: 330px; height: 35px;">
+<div style="position: absolute; top:1px; left: 15px; width:300px;">
+<div style="position: absolute; top:7px; left: 0; width: 300px">
+<hr width=100%>
+</div>
+<div style="position: absolute; top:4px; left: #{@range[@element]['EI']['low']}px; width:  #{@range[@element]['EI']['margin']}px; height: 20px; background-color: blue; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
+<div style="position: absolute; top:7px; left:  #{@range[@element]['PPS']['low']}px; width: #{@range[@element]['PPS']['margin']}px; height: 14px; background-color: orange; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
+<div style="position: absolute; top:2px; left:  #{@range[@element]['Walstad']['low']}px; width: #{@range[@element]['Walstad']['margin']}px; height: 24px; background-color: green; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
+<div style="position: absolute; top:1px; left:  #{@results_pixel}px; width: 4px; height: 26px; background-color: red; fiter:alpha(opacity=1); -moz-opacity:1; center">
+</div>
+</div>
+</div>
+
+<div style="position: relative; float:top; width: 330px; height: 50px;">
+<div style="position:relative; float:left; left: 10px">
+0
+</div>
+<div style="position:relative; float:right; right:10px">
+#{@pixel_max}
+</div>
+</div>
+</div>
+%p
+%b Want to model long term effects of<br> #{@element} dosing? Click 
+%a(href="http://wet.biggiantnerds.com/ei/con_v_time.pl?stuff=#{@element};dose=#{@target_amount}")here!
+
+@@ graph
+
+
+
+
+
+
+@@ pie
+<div style="position:relative; float:top; center">
+<a href="http://sites.google.com/site/aquaticplantfertilizer/" target="_blank">PPS-Pro</a>
+</div>
+
+<div style="position: relative; float:top; center">
+<a href="http://www.google.com/url?sa=t&source=web&cd=1&ved=0CBIQFjAA&url=http%3A%2F%2Fwww.barrreport.com%2Fshowthread.php%2F62-The-Estimative-Index-of-Dosing-or-No-Need-for-Test-Kits&rct=j&q=estimative%20index%20barrreport.com&ei=LBC2TLvEBoepnQefj7lq&usg=AFQjCNHmd_TfT0HZYwEaf2PXhHN1dV065w" target="_blank">EI</a>
+</div>
