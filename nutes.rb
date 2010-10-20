@@ -13,6 +13,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+<<<<<<< HEAD:nutes.rb
+require 'yaml'
+=======
+>>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
 
 set :environment, :production 
 #set :bind, 'localhost'
@@ -47,6 +51,10 @@ post '/' do
     @tank_vol = Float(@tank_vol)
   end
 
+<<<<<<< HEAD:nutes.rb
+## needs to be pulled out of this file.
+=======
+>>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
 # pushing compounds into an array of concentrations
 # then, if known, its teaspoon concentration in mg
   if (@comp=~/DTPA/)
@@ -192,6 +200,21 @@ post '/' do
     end
     @dose_amount = @dose_amount / 1000
   end
+<<<<<<< HEAD:nutes.rb
+
+# fancy graphs -- we're showing ranges recommended by various well regarded methods
+#   vs what we just calculated.
+
+# this yml file has The Estimative Index, PPS-Pro, and Walstad recommended values
+  @range = YAML.load_file 'graph_ppmconstants.yml'
+
+  pie=Float(@results["#{@element}"])
+
+# if the data is smaller than our largest range above...
+  if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
+
+# we know the div will be 300 pixels wide.  So, let's get an amount for pixel per ppm
+=======
   if ( @element =~ /N|P|K|Ca|Mg|Fe$/ )
 
 # fancy graphs
@@ -288,19 +311,32 @@ post '/' do
 # if the data is smaller than our largest range above...
   if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
 # we know the div will be 300 pixels wide.  So, let's get an amount for ppm per pixel
+>>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
     pie=Float(@range["#{@element}"]["EI"]["high"])
   else
     pie=Float(@results["#{@element}"])
   end
+<<<<<<< HEAD:nutes.rb
+# this will be our ppm at the highest pixel
   @pixel_max=pie * 1.25
   @pixel_per_ppm=300/@pixel_max
+# and convert the pixel/ppm to integers so our graph does not break
+=======
+  @pixel_max=pie * 1.25
+  @pixel_per_ppm=300/@pixel_max
+>>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
   if @pixel_max > 1
   	@pixel_max=@pixel_max.to_int
   else
 	@pixel_max=100 * @pixel_max.to_f / 100
   end
+<<<<<<< HEAD:nutes.rb
+  
+# we convert everything in our range from ppm to pixels, standardized off that ppm/pixel
+=======
 #    @ppm_per_pixel.to_f
 #  end  
+>>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
   @range.each do |compound,method|
 	method.each do |specific,value|
 		value.each do |wtf,realvalue|
@@ -314,8 +350,13 @@ post '/' do
   end 
   @results_pixel=@results["#{@element}"].to_f * @pixel_per_ppm
   @results_pixel=@results_pixel.to_int
+<<<<<<< HEAD:nutes.rb
+  
+# and we finally display all of it.
+=======
  end 
   
+>>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
   if (calc_for =~ /dump/)
   	haml :dump
   else
