@@ -13,10 +13,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
-<<<<<<< HEAD:nutes.rb
 require 'yaml'
-=======
->>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
 
 set :environment, :production 
 #set :bind, 'localhost'
@@ -51,10 +48,7 @@ post '/' do
     @tank_vol = Float(@tank_vol)
   end
 
-<<<<<<< HEAD:nutes.rb
 ## needs to be pulled out of this file.
-=======
->>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
 # pushing compounds into an array of concentrations
 # then, if known, its teaspoon concentration in mg
   if (@comp=~/DTPA/)
@@ -200,7 +194,6 @@ post '/' do
     end
     @dose_amount = @dose_amount / 1000
   end
-<<<<<<< HEAD:nutes.rb
 
 # fancy graphs -- we're showing ranges recommended by various well regarded methods
 #   vs what we just calculated.
@@ -208,135 +201,25 @@ post '/' do
 # this yml file has The Estimative Index, PPS-Pro, and Walstad recommended values
   @range = YAML.load_file 'graph_ppmconstants.yml'
 
-  pie=Float(@results["#{@element}"])
-
 # if the data is smaller than our largest range above...
   if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
 
 # we know the div will be 300 pixels wide.  So, let's get an amount for pixel per ppm
-=======
-  if ( @element =~ /N|P|K|Ca|Mg|Fe$/ )
-
-# fancy graphs
-
-# constants for ranges from various methods
-	
-# The Estimative Index
-  @range=Hash.new()
-  @range["NO3"]=Hash.new()
-  @range["PO4"]=Hash.new()
-  @range["K"]=Hash.new()
-  @range["Ca"]=Hash.new()
-  @range["Mg"]=Hash.new()
-  @range["Fe"]=Hash.new()
-  @range["NO3"].store("EI", Hash.new())
-  @range["PO4"].store("EI", Hash.new())
-  @range["K"].store("EI", Hash.new())
-  @range["Ca"].store("EI", Hash.new())
-  @range["Mg"].store("EI", Hash.new())
-  @range["Fe"].store("EI", Hash.new())
-  @range["NO3"].store("PPS", Hash.new())
-  @range["PO4"].store("PPS", Hash.new())
-  @range["K"].store("PPS", Hash.new())
-  @range["Mg"].store("PPS", Hash.new())
-  @range["Ca"].store("PPS", Hash.new())
-  @range["Fe"].store("PPS", Hash.new())
-  @range["NO3"].store("Walstad", Hash.new())
-  @range["PO4"].store("Walstad", Hash.new())
-  @range["K"].store("Walstad", Hash.new())
-  @range["Ca"].store("Walstad", Hash.new())
-  @range["Mg"].store("Walstad", Hash.new())
-  @range["Fe"].store("Walstad", Hash.new())
-  
-  @range["NO3"].fetch("EI").store("low",5)
-  @range["NO3"].fetch("EI").store("margin",25)
-  @range["NO3"].fetch("EI").store("high",30)
-  @range["PO4"].fetch("EI").store("low",1)
-  @range["PO4"].fetch("EI").store("margin",2)
-  @range["PO4"].fetch("EI").store("high",3)
-  @range["K"].fetch("EI").store("low",10)
-  @range["K"].fetch("EI").store("margin",20)
-  @range["K"].fetch("EI").store("high",30)
-  @range["Ca"].fetch("EI").store("low",15)
-  @range["Ca"].fetch("EI").store("margin",15)
-  @range["Ca"].fetch("EI").store("high",30)
-  @range["Mg"].fetch("EI").store("low",5)
-  @range["Mg"].fetch("EI").store("margin",5)
-  @range["Mg"].fetch("EI").store("high",10)
-  @range["Fe"].fetch("EI").store("low",0.1)
-  @range["Fe"].fetch("EI").store("margin",0.4)
-  @range["Fe"].fetch("EI").store("high",0.5)
-  
-# Perpetual Preservation System
-  @range["NO3"].fetch("PPS").store("low",5)
-  @range["NO3"].fetch("PPS").store("margin",5)
-  @range["NO3"].fetch("PPS").store("high",10)
-  @range["PO4"].fetch("PPS").store("low",0.1)
-  @range["PO4"].fetch("PPS").store("margin",0.9)
-  @range["PO4"].fetch("PPS").store("high",1)
-  @range["K"].fetch("PPS").store("low",5)
-  @range["K"].fetch("PPS").store("margin",15)
-  @range["K"].fetch("PPS").store("high",20)
-  @range["Mg"].fetch("PPS").store("low",2)
-  @range["Mg"].fetch("PPS").store("margin",3)
-  @range["Mg"].fetch("PPS").store("high",5)
-  @range["Ca"].fetch("PPS").store("low",20)
-  @range["Ca"].fetch("PPS").store("margin",10)
-  @range["Ca"].fetch("PPS").store("high",30)
-  @range["Fe"].fetch("PPS").store("low",0.01)
-  @range["Fe"].fetch("PPS").store("margin",0.09)
-  @range["Fe"].fetch("PPS").store("high",0.1)
-
-# Walstad
-  @range["NO3"].fetch("Walstad").store("low",0.443)
-  @range["NO3"].fetch("Walstad").store("margin",0.11)
-  @range["NO3"].fetch("Walstad").store("high",0.55)
-  @range["PO4"].fetch("Walstad").store("low",0.061)
-  @range["PO4"].fetch("Walstad").store("margin",0.012)
-  @range["PO4"].fetch("Walstad").store("high",0.073)
-  @range["K"].fetch("Walstad").store("low",2)
-  @range["K"].fetch("Walstad").store("margin",0.4)
-  @range["K"].fetch("Walstad").store("high",2.4)
-  @range["Mg"].fetch("Walstad").store("low",9)
-  @range["Mg"].fetch("Walstad").store("margin",1.8)
-  @range["Mg"].fetch("Walstad").store("high",10.8)
-  @range["Ca"].fetch("Walstad").store("low",28)
-  @range["Ca"].fetch("Walstad").store("margin",6)
-  @range["Ca"].fetch("Walstad").store("high",34)
-  @range["Fe"].fetch("Walstad").store("low",0.06)
-  @range["Fe"].fetch("Walstad").store("margin",0.012)
-  @range["Fe"].fetch("Walstad").store("high",0.072)
-
-  pie=Float(@results["#{@element}"])
-# if the data is smaller than our largest range above...
-  if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
-# we know the div will be 300 pixels wide.  So, let's get an amount for ppm per pixel
->>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
     pie=Float(@range["#{@element}"]["EI"]["high"])
   else
     pie=Float(@results["#{@element}"])
   end
-<<<<<<< HEAD:nutes.rb
 # this will be our ppm at the highest pixel
   @pixel_max=pie * 1.25
   @pixel_per_ppm=300/@pixel_max
 # and convert the pixel/ppm to integers so our graph does not break
-=======
-  @pixel_max=pie * 1.25
-  @pixel_per_ppm=300/@pixel_max
->>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
   if @pixel_max > 1
   	@pixel_max=@pixel_max.to_int
   else
 	@pixel_max=100 * @pixel_max.to_f / 100
   end
-<<<<<<< HEAD:nutes.rb
   
 # we convert everything in our range from ppm to pixels, standardized off that ppm/pixel
-=======
-#    @ppm_per_pixel.to_f
-#  end  
->>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
   @range.each do |compound,method|
 	method.each do |specific,value|
 		value.each do |wtf,realvalue|
@@ -350,13 +233,8 @@ post '/' do
   end 
   @results_pixel=@results["#{@element}"].to_f * @pixel_per_ppm
   @results_pixel=@results_pixel.to_int
-<<<<<<< HEAD:nutes.rb
   
 # and we finally display all of it.
-=======
- end 
-  
->>>>>>> c34ecb9a2076f731b27e38b77c982065742a87a1:nutes.rb
   if (calc_for =~ /dump/)
   	haml :dump
   else
@@ -557,18 +435,3 @@ Relative #{@element} for <font color="green">Walstad</font>, <font color="orange
 %b Want to model long term effects of<br> #{@element} dosing? Click 
 %a(href="http://wet.biggiantnerds.com/ei/con_v_time.pl?stuff=#{@element};dose=#{@target_amount}")here!
 
-@@ graph
-
-
-
-
-
-
-@@ pie
-<div style="position:relative; float:top; center">
-<a href="http://sites.google.com/site/aquaticplantfertilizer/" target="_blank">PPS-Pro</a>
-</div>
-
-<div style="position: relative; float:top; center">
-<a href="http://www.google.com/url?sa=t&source=web&cd=1&ved=0CBIQFjAA&url=http%3A%2F%2Fwww.barrreport.com%2Fshowthread.php%2F62-The-Estimative-Index-of-Dosing-or-No-Need-for-Test-Kits&rct=j&q=estimative%20index%20barrreport.com&ei=LBC2TLvEBoepnQefj7lq&usg=AFQjCNHmd_TfT0HZYwEaf2PXhHN1dV065w" target="_blank">EI</a>
-</div>
