@@ -9,7 +9,6 @@
 #
 # :) - c
 
-
 require 'rubygems'
 require 'sinatra'
 require 'haml'
@@ -18,7 +17,9 @@ require 'yaml'
 set :environment, :production 
 #set :bind, 'localhost'
 
-COMPOUNDS =  ['KNO3','KH2PO4','KCl','K2SO4','CaCl2.2H2O','CaSO4','CaMg(CO3)2','MgSO4.7H2O','Plantex CSM+B',"Miller\'s MicroPlex",'Rexolin APN','Fe Gluconate','DTPA Fe (10%)','EDTA Fe (12.5%)', 'EDDHA Fe (6%)', 'MnSO4.H2O']
+# the constants array is every compound we support
+constants = YAML.load_file 'compound_constants.yml'
+COMPOUNDS =  constants.keys.sort
 
 get '/' do
 	haml :ask
@@ -48,95 +49,17 @@ post '/' do
     @tank_vol = Float(@tank_vol)
   end
 
-## needs to be pulled out of this file.
-# pushing compounds into an array of concentrations
-# then, if known, its teaspoon concentration in mg
-  if (@comp=~/DTPA/)
-    cons['Fe']=0.1
-    tsp_con=4290
-    @element='Fe'
-  elsif (@comp=~/KNO3/)
-    cons['NO3']=0.6133
-    cons['N']=0.138539
-    cons['K']=0.3867
-    tsp_con=5200
-    @element="NO3"
-  elsif (@comp=~/KH2PO4/)
-    cons['PO4']=0.6979
-    cons['P']=0.227605
-    cons['K']=0.2873
-    tsp_con=5600
-    @element="PO4"
-  elsif (@comp=~/KCl/)
-    cons['K']=0.524447
-    cons['Cl']=0.475553
-    tsp_con=4500
-    @element="K"
-  elsif (@comp=~/K2SO4/)
-    cons['K']=0.448736
-    cons['S']=0.18401
-    tsp_con=6400
-    @element="K"
-  elsif (@comp=~/Rexolin/)
-    cons['Fe']=0.06
-    cons['Mn']=0.024
-    cons['Cu']=0.0025
-    tsp_con=3300
-    @element="Fe"
-  elsif (@comp=~/EDTA/)
-    cons['Fe']=0.125
-    tsp_con=5100
-    @element="Fe"
-  elsif (@comp=~/Gluconate/)
-    cons['Fe']=0.1246
-    tsp_con=2440
-    @element="Fe"
-  elsif (@comp=~/EDDHA/)
-    cons['Fe']=0.06
-    tsp_con=2420
-    @element="Fe"
-  elsif (@comp=~/Plantex/)
-    cons['Fe']=0.0653
-    cons['Mn']=0.0187
-    cons['Cu']=0.009
-    tsp_con=4300
-    @element="Fe"
-  elsif (@comp=~/Micro/)
-    cons['Fe']=0.04
-    cons['Mn']=0.04
-    cons['Cu']=0.015
-    tsp_con=3720
-    @element="Fe"
-  elsif (@comp=~/MnSO4/)
-    cons['Mn']=0.325
-    @element="Mn"
-    tsp_con=7490
-  elsif (@comp=~/CaMg/)
-    cons['Ca']=0.2173
-    cons['Mg']=0.1318
-    cons['dKH from CO3']=0.6509/10.7
-    cons['dGH as CaO equivalent']=0.3491 * 0.714657631954351 / 10
-    @element="Ca"
-    tsp_con=14150
-  elsif (@comp=~/CaCl2/)
-    cons['Ca']=0.27262091014216722
-    cons['Cl']=0.4823209305489423
-    cons['dGH as CaO equivalent']=0.27262091014216722 * 0.714657631954351 / 10
-    @element="Ca"
-    tsp_con=3600
-  elsif (@comp=~/MgSO4/)
-    cons['Mg']=0.0986124
-    cons['S']=0.130101
-    cons['dGH as CaO equivalent (same for Mg here)']=0.0986124 * 0.714657631954351 / 10
-    @element="Mg"
-    tsp_con=5100
-  elsif (@comp=~/CaSO4/)
-    cons['Ca']=0.2943881298663141
-    cons['S']=0.2355369472601734
-    cons['dGH as CaO equivalent']=0.2943881298663141 * 0.714657631954351 / 10
-    @element="Ca"
+# we'll populate everything from the constants hash we created earlier
+  pop=constants[@comp]
+  pop.each do |junk,value|
+    if (junk =~ /tsp/)
+      tsp_con = Float(value)
+    elsif (junk =~ /target/)
+      @element = value
+    else
+      cons["#{junk}"]=Float("#{value}")
+    end
   end
-
 # calculations on the onClick optional menus
   if (calc_for =~ /dump/)
     @dose_amount	= Float(params["dose_amount"])
