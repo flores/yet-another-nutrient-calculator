@@ -1,0 +1,62 @@
+%p Yet Another Nutrient Calculator
+%form{:action => "/", :method => "post"}
+  %p 
+  %label My aquarium is 
+  %input{:type => "text", :name => "tank_vol", :length => 4, :size => 4}
+  %input{:type => "radio", :name => "tank_units", :value=> "gal"}
+  gal
+  %input{:type => "radio", :name => "tank_units", :value=> "L"}
+  L
+  %p 
+  %label I'm dosing with
+  <select name="compound">
+  - COMPOUNDS.each do |c| 
+    <option value="#{c}">#{c}</option>
+  </select>
+  %p 
+  %label using
+  %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
+  a solution
+  %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
+  dry dosing
+  %br
+  #sol{:style => 'display:none'}
+    %label while using a
+    %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500}
+    mL container
+    %br
+    %label with doses of   
+    %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5}
+    mL
+    %br
+    if you are calculating for dose below,
+    %br
+    add that amount to this container
+  %p 
+  %label and I'm calculating for
+  %br
+  %input{:type => "radio", :name=> "calc_for", :value=> "target", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
+  what dose to reach a target
+  %br
+  %input{:type => "radio", :name=> "calc_for", :value=> "dump", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
+  the result of my dose
+  %br
+  #dump{:style => 'display:none'}
+    I am adding
+    %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}
+    %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
+    mg
+    %input{:type => "radio", :name=> "dose_units", :value=> "g"}
+    g
+    %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
+    tsp 
+    
+  #target{:style => 'display:none'}
+    My target is
+    %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4}
+    ppm
+
+
+  %p
+  %input{:type => "submit", :value => "Gimmie!"}
+

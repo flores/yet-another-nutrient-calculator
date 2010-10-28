@@ -1,0 +1,13 @@
+%html
+  %head
+    %title Yet Another Nutrient Calculator
+  %body
+    #header
+   
+    #content
+    =yield
+    %footer
+      %p
+      %a(href='/')Start over
+      %br
+      %a(href='http://wet.biggiantnerds.com') Back to wet.biggiantnerds.com
