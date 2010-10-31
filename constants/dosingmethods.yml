@@ -9,75 +9,75 @@ NO3:
     margin:  25
     high:    30
   PPS:
-    low:    5
+    low:     5
     margin:  5
     high:    10
   Walstad:
-    low:    0.443
+    low:     0.443
     margin:  0.11
     high:    0.553  
 PO4:
   EI:
-    low:    1
+    low:     1
     margin:  2
     high:    3
   PPS:
-    low:    0.1
-    margin: 0.9
+    low:     0.1
+    margin:  0.9
     high:    1
   Walstad:
-    low:    0.061
+    low:     0.061
     margin:  0.012
     high:    0.073
 K:
   EI:
-    low:    10
+    low:     10
     margin:  20
     high:    30
   PPS:
-    low:    5
+    low:     5
     margin:  15
     high:    20
   Walstad:
-    low:    2
+    low:     2
     margin:  0.4
     high:    2.4
 Ca:
   EI:
-    low:    15
+    low:     15
     margin:  15
     high:    30
   PPS:
-    low:    20
+    low:     20
     margin:  10
     high:    30
   Walstad:
-    low:    28
+    low:     28
     margin:  6
     high:    34
 Mg:
   EI:
-    low:    5
+    low:     5
     margin:  5
     high:    10
   PPS:
-    low:    2
+    low:     2
     margin:  3
     high:    5
   Walstad:
-    low:    2
+    low:     2
     margin:  0.4
     high:    2.4
 Fe:
   EI:
-    low:    0.1
+    low:     0.1
     margin:  0.4
     high:    0.5
   PPS:
-    low:    0.01
+    low:     0.01
     margin:  0.09
     high:    0.1
   Walstad:
-    low:    0.06
+    low:     0.06
     margin:  0.012
     high:    0.072
