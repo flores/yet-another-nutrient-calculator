@@ -18,7 +18,7 @@ set :environment, :production
 #set :bind, 'localhost'
 
 # the constants array is every compound we support
-constants = YAML.load_file 'compound_constants.yml'
+constants = YAML.load_file 'constants/compounds.yml'
 COMPOUNDS =  constants.keys.sort
 
 get '/' do
@@ -37,8 +37,6 @@ post '/' do
     
   @dose_units		= params["dose_units"]
   calc_for		= params["calc_for"]
-
-  
 
 # i just need this later
   @tank_vol_orig=@tank_vol
@@ -122,7 +120,7 @@ post '/' do
 #   vs what we just calculated.
 
 # this yml file has The Estimative Index, PPS-Pro, and Walstad recommended values
-  @range = YAML.load_file 'graph_ppmconstants.yml'
+  @range = YAML.load_file 'constants/dosingmethods.yml'
 
 # if the data is smaller than our largest range above...
   if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )

@@ -15,90 +15,90 @@ KH2PO4:
   P:      0.227605
   K:      0.2873
   tsp:    5600
-  target:  PO4  
+  target: PO4  
 KCl:
   K:      0.524447
-  Cl:      0.18401
+  Cl:     0.18401
   tsp:    4500
-  target:  K
+  target: K
 K2SO4:
   K:      0.448736
   S:      0.18401
   tsp:    6400
   target: K
 CaCl2.2H2O:
-  Ca:      0.27262091014216722
-  Cl:      0.4823209305489423
-  dGH as CaO:    0.0194830614063441
+  Ca:     0.27262091014216722
+  Cl:     0.4823209305489423
+  dGH:    0.0194830614063441
   tsp:    3600
-  target:  Ca 
+  target: Ca 
 CaSO4:
-  Ca:      0.2943881298663141
+  Ca:     0.2943881298663141
   S:      0.2355369472601734
-  dGH as CaO:  0.021038672376573
+  dGH:    0.021038672376573
   tsp:    3100
-  target:  Ca
+  target: Ca
 CaMg(CO3)2:
-  Ca:      0.2173
-  Mg:      0.1318
-  dKH:    0.6509/10.7
+  Ca:     0.2173
+  Mg:     0.1318
+  dKH:    0.0608317757
   dGH:    0.0249486979315264
   tsp:    14150
-  target:  Ca
+  target: Ca
 MgSO4.7H2O:
-  Mg:      0.0986124
+  Mg:     0.0986124
   S:      0.130101
   dGH:    0.00704741042653352
   tsp:    5100
-  target:  Mg
+  target: Mg
 Plantex CSM+B:
-  Fe:      0.0653
-  Mn:      0.0187
-  Cu:      0.009
-  Mg:      0.014
-  Zn:      0.0037
-  Mo:      0.005
+  Fe:     0.0653
+  Mn:     0.0187
+  Cu:     0.009
+  Mg:     0.014
+  Zn:     0.0037
+  Mo:     0.005
   B:      0.0118
   dGH:    0.00100052068473609
   tsp:    4300
-  target:  Fe
+  target: Fe
 Miller's MicroPlex:
-  Fe:      0.04
-  Mn:      0.04
-  Mg:      0.0543
-  Zn:      0.014
-  Mo:      0.001
+  Fe:     0.04
+  Mn:     0.04
+  Mg:     0.0543
+  Zn:     0.014
+  Mo:     0.001
   B:      0.005
-  Co:      0.0005
+  Co:     0.0005
   dGH:    0.00388059094151213
   tsp:    3720
-  target:  Fe
+  target: Fe
 Rexolin APN:
-  Fe:      0.06
-  Mn:      0.024
-  Cu:      0.0025
-  Mo:      0.0025
-  Zn:      0.013
+  Fe:     0.06
+  Mn:     0.024
+  Cu:     0.0025
+  Mo:     0.0025
+  Zn:     0.013
   B:      0.011
   tsp:    3300
-  target:  Fe
+  target: Fe
 Fe Gluconate:
-  Fe:      0.1246
+  Fe:     0.1246
   tsp:    2440
-  target:  Fe
+  target: Fe
 DTPA Fe:
   Fe:     0.1
   tsp:    4290
   target: Fe
 EDTA Fe:
-  Fe:      0.125
+  Fe:     0.125
   tsp:    5100
-  target:  Fe    
+  target: Fe    
 EDDHA Fe (6%):
-  Fe:      0.06
+  Fe:     0.06
   tsp:    2420
-  target:  Fe
+  target: Fe
 MnSO4.H2O:
-  Mn:      0.0325
+  Mn:     0.0325
   tsp:    7490
-  target:  Mn
+  target: Mn
