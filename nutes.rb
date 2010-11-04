@@ -52,13 +52,15 @@ post '/' do
   pop.each do |junk,value|
     if (junk =~ /tsp/)
       tsp_con = Float("#{value}")
+    elsif (junk =~ /sol/)
+      @solubility = value
     elsif (junk =~ /target/)
       @element = value
     else
       cons["#{junk}"]=Float("#{value}")
     end
   end
-# calculations on the onClick optional menus
+# calculations on the onClick optional menu
   if (calc_for =~ /dump/)
     @dose_amount	= Float(params["dose_amount"])
   elsif (calc_for =~ /target/)
@@ -79,11 +81,14 @@ post '/' do
 #convert from tsp to mg
   if (@dose_units =~ /tsp/)
     dose_calc *= constants[@comp]['tsp']
+    sol_check = @dose_amount * constants[@comp]['tsp']
   elsif (@dose_units =~ /^g$/)
     dose_calc *= 1000
+    sol_check = @dose_amount * 1000
+  else
+    sol_check = 0
   end
 
-#convert solutions 
 
 #two forms
 
@@ -104,6 +109,7 @@ post '/' do
     @mydose = Float(@mydose)
     if (@dose_method=~ /sol/ && calc_for =~ /target/)
       @dose_amount = @mydose * @sol_vol / @sol_dose
+      sol_check    = @dose_amount
     else
       @dose_amount = @mydose
     end
@@ -115,6 +121,17 @@ post '/' do
     end
     @dose_amount = @dose_amount / 1000
   end
+
+
+#check solubility
+  if (constants[@comp]['sol'] && (@sol_vol > 1))
+    sol_ref = constants[@comp]['sol'] * 0.8
+    sol_check = sol_check / @sol_vol
+    if ( sol_ref <  sol_check )
+	@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{constants[@comp]['sol']} mg/mL.  You should adjust your dose.</font><br>"
+    end
+  end
+
 
 # fancy graphs -- we're showing ranges recommended by various well regarded methods
 #   vs what we just calculated.
@@ -168,5 +185,20 @@ error do
   ':('
 end
 
+__END__
  
+@@ layout
+%html
+  %head
+    %title Yet Another Nutrient Calculator
+  %body
+    #header
+   
+    #content
+    =yield
+    %footer
+      %p
+      %a(href='/')Start over
+      %br
+      %a(href='http://wet.biggiantnerds.com') Back to wet.biggiantnerds.com
 

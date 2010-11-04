@@ -11,7 +11,7 @@ To reach your target of #{@target_amount} ppm #{@element},
     #{result} = #{result_value}<br>
   - else
     #{result} = #{result_value}ppm<br>
-%br
+%br #{@sol_error}
 Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
 %br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
 %br
@@ -42,5 +42,5 @@ Relative #{@element} for <font color="green">Walstad</font>, <font color="orange
 </div>
 %p
 %b Want to model long term effects of<br> #{@element} dosing? Click 
-%a(href="http://wet.biggiantnerds.com/ei/con_v_time.pl?stuff=#{@element};dose=#{@target_amount}")here!
+%a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!
 
