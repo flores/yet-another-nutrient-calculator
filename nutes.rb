@@ -15,6 +15,7 @@ require 'haml'
 require 'yaml'
 
 set :environment, :production 
+set :port, '1234'
 #set :bind, 'localhost'
 
 # the constants array is every compound we support
