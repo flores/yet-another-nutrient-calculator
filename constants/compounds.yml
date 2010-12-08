@@ -58,6 +58,20 @@ CaMg(CO3)2:
   dGH:    0.0249486979315264
   tsp:    14150
   target: Ca
+Ca(NO3)2:
+  Ca:     0.24425
+  NO3:    0.75575
+  dGH:    0.0280428876
+  tsp:    12520
+  sol:    121
+  target: Ca    
+5Ca(NO3)2.NH4NO3.10H2O:
+  Ca:     0.18543984009179916
+  N as NH4 and NO3:    0.1555440395328608
+  dGH:    0.0212907619
+  tsp:    9480
+  sol:    271
+  target: Ca
 MgSO4.7H2O:
   Mg:     0.0986124
   S:      0.130101
