@@ -6,12 +6,15 @@ To reach your target of #{@target_amount} ppm #{@element},
   Each #{@sol_dose} mL of that mix into #{@tank_vol_orig} #{@tank_units} is:<br><br>
 - if @sol_vol == 0
   to #{@tank_vol_orig} #{@tank_units} for:<br><br>
-- @results.each do |result,result_value| 
-  - if result =~ /dKH|dGH/
-    #{result} = #{result_value}<br>
-  - else
-    #{result} = #{result_value}ppm<br>
-%br #{@sol_error}
+%table{:width => 330}
+  %tr
+    %th Element
+    %th ppm/degrees
+  - @results.sort.each do |result,result_value|
+    %tr  
+      %td{:align=> "center"} #{result}
+      %td{:align=> "center"} #{result_value}
+%br #{@toxic} #{@sol_error}
 Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
 %br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
 %br

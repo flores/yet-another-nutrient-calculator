@@ -4,12 +4,15 @@ Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your<br>
   #{@sol_vol} mL container, with doses of #{@sol_dose} mL<br>
   into a
 #{@tank_vol_orig} #{@tank_units} tank gives:<br><br>
-- @results.each do |result,result_value| 
-  - if result =~ /dKH|dGH/
-    #{result} = #{result_value}<br>
-  - else
-    #{result} = #{result_value}ppm<br>
-%br #{@sol_error} 
+%table{:width => 330}
+  %tr
+    %th Element
+    %th ppm/degrees
+  - @results.sort.each do |result,result_value|
+    %tr
+      %td{:align=> "center"} #{result}
+      %td{:align=> "center"} #{result_value}
+%br #{@toxic} #{@sol_error}
 Relative #{@element} ppm for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
 %br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
 %br
