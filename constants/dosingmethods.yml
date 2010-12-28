@@ -81,3 +81,16 @@ Fe:
     low:     0.06
     margin:  0.012
     high:    0.072
+Mn:
+  EI:
+    low:     0.1
+    margin:  0.4
+    high:    0.5
+  PPS:
+    low:     0.01
+    margin:  0.09
+    high:    0.1
+  Walstad:
+    low:     0.06
+    margin:  0.012
+    high:    0.072
