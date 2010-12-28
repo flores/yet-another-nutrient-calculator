@@ -15,7 +15,7 @@ require 'haml'
 require 'yaml'
 
 set :environment, :production 
-set :port, '1234'
+#set :port, '1234'
 #set :bind, 'localhost'
 
 # the constants array is every compound we support
@@ -61,6 +61,7 @@ post '/' do
       cons["#{junk}"]=Float("#{value}")
     end
   end
+
 # calculations on the onClick optional menu
   if (calc_for =~ /dump/)
     @dose_amount	= Float(params["dose_amount"])
@@ -123,13 +124,20 @@ post '/' do
     @dose_amount = @dose_amount / 1000
   end
 
-
 #check solubility
   if (constants[@comp]['sol'] && (@sol_vol > 1))
     sol_ref = constants[@comp]['sol'] * 0.8
     sol_check = sol_check / @sol_vol
     if ( sol_ref <  sol_check )
-	@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{constants[@comp]['sol']} mg/mL.  You should adjust your dose.</font><br>"
+	@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{constants[@comp]['sol']} mg/mL.<br>You should adjust your dose.</font><br>"
+    end
+  end
+
+#copper toxicity
+  if (constants[@comp]['Cu'])
+    if(@results['Cu'].to_f >= 0.17)
+	percent_toxic = ( ( ( @results['Cu'].to_f - 0.17 ) / 0.17 ) * 100 ).to_i
+	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended for<br>sensitive fish and inverts.</font> <a href='http://bit.ly/gzfehZ' target='_blank'>MSDS for Copper Sulfate</a><br>"
     end
   end
 
@@ -141,6 +149,9 @@ post '/' do
   @range = YAML.load_file 'constants/dosingmethods.yml'
 
 # if the data is smaller than our largest range above...
+  unless ( @range["#{@element}"]["EI"]["high"] )
+	@range["#{@element}"]["EI"]["high"] = 0
+  end
   if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
 
 # we know the div will be 300 pixels wide.  So, let's get an amount for pixel per ppm
