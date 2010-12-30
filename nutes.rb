@@ -135,9 +135,9 @@ post '/' do
 
 #copper toxicity
   if (constants[@comp]['Cu'])
-    if(@results['Cu'].to_f >= 0.17)
+    if(@results['Cu'].to_f >= 0.072)
 	percent_toxic = ( ( ( @results['Cu'].to_f - 0.17 ) / 0.17 ) * 100 ).to_i
-	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended for<br>sensitive fish and inverts.</font> <a href='http://bit.ly/gzfehZ' target='_blank'>MSDS for Copper Sulfate</a><br>"
+	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended for<br>the most sensitive inverts.</font> <a href='https://github.com/flores/yet-another-nutrient-calculator/wiki/Copper(Cu)' target='_blank'>More information is here</a><br>"
     end
   end
 
