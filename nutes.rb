@@ -13,9 +13,10 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'yaml'
+require 'rdiscount'
 
 set :environment, :production 
-#set :port, '1234'
+#set :port, '4000'
 #set :bind, 'localhost'
 
 # the constants array is every compound we support
@@ -62,9 +63,18 @@ post '/' do
     end
   end
 
+# is dose amount a fraction?
+
+
 # calculations on the onClick optional menu
   if (calc_for =~ /dump/)
-    @dose_amount	= Float(params["dose_amount"])
+    @dose_amount	= params["dose_amount"]
+    if (@dose_amount =~ /^(\d+)\/(\d+)$/)
+	num = $1.to_f
+	den = $2.to_f
+	@dose_amount = num / den
+    end
+    @dose_amount = @dose_amount.to_f
   elsif (calc_for =~ /target/)
     @target_amount 	= Float(params["target_amount"])
     @dose_amount	= 0
@@ -97,9 +107,9 @@ post '/' do
   if (calc_for =~ /dump/)
     cons.each do |con,value|
       pie="#{value}"
-      pie=Float(pie)
+      pie=pie.to_f
       @results["#{con}"] = dose_calc * pie / @tank_vol
-      @results["#{con}"] = sprintf("%.3f", @results["#{con}"])
+      @results["#{con}"] = sprintf("%.2f", @results["#{con}"])
     end
     @target_amount = @results["#{@element}"]
     @mydose=@dose_amount
@@ -117,11 +127,12 @@ post '/' do
     end
     cons.each do |conc,values|
       pie="#{values}"
-      pie=Float(pie)
+      pie=pie.to_f
       @results["#{conc}"] = @mydose * pie / @tank_vol
-      @results["#{conc}"] = sprintf("%.3f", @results["#{conc}"])
+      @results["#{conc}"] = sprintf("%.2f", @results["#{conc}"])
     end
     @dose_amount = @dose_amount / 1000
+    @dose_units = 'grams'
   end
 
 #check solubility
@@ -135,9 +146,16 @@ post '/' do
 
 #copper toxicity
   if (constants[@comp]['Cu'])
-    if(@results['Cu'].to_f >= 0.072)
-	percent_toxic = ( ( ( @results['Cu'].to_f - 0.17 ) / 0.17 ) * 100 ).to_i
-	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended for<br>the most sensitive inverts.</font> <a href='https://github.com/flores/yet-another-nutrient-calculator/wiki/Copper(Cu)' target='_blank'>More information is here</a><br>"
+    if(@results['Cu'].to_f > 0.072)
+	toxic = ( @results['Cu'].to_f - 0.072 ) / 0.072 
+	less_dose = @dose_amount - ( @dose_amount * 0.072 / @results['Cu'].to_f )
+	if (@dose_amount =~ /\./)
+		less_dose = less_dose.round_to(3)
+	else
+		less_dose = less_dose.to_i
+	end
+	percent_toxic = (toxic * 100).to_i
+	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here.</a><br>"
     end
   end
 
@@ -193,24 +211,13 @@ post '/' do
 
 end
 
+get '/cu' do
+  markdown :cu
+end
+
 error do
   ':('
 end
 
 __END__
  
-@@ layout
-%html
-  %head
-    %title Yet Another Nutrient Calculator
-  %body
-    #header
-   
-    #content
-    =yield
-    %footer
-      %p
-      %a(href='/')Start over
-      %br
-      %a(href='http://wet.biggiantnerds.com') Back to wet.biggiantnerds.com
-
