@@ -1,7 +1,7 @@
-@@ layout
 %html
   %head
     %title Yet Another Nutrient Calculator
+    <meta name="viewport" content="width=800" />
   %body
     #header
    

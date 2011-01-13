@@ -1,7 +1,8 @@
 # used for constants for input compounds
 # compound
-  # elements
+  # elements = concencentration by mass
   # tsp = teaspoon concentrations in milligrams
+  # sol = maximum solubility in terms of mg/mL
   # target = most useful macro or micronutrient for our users
 ---
 KNO3:

@@ -1,3 +1,4 @@
+
 You have been directed to this page because you have [calculated a dose] higher than recommended levels for copper in tanks with sensitive inverts (specifically Caridina sp. -- fancy freshwater/brackish shrimp)
 
 [calculated a dose]: http://calc.petalphile.com
@@ -5,13 +6,13 @@ You have been directed to this page because you have [calculated a dose] higher 
 Why you should care
 -------------------------------
 
-Copper (Cu) is a micronutrient and heavy metal required for healthy plant growth, but is also highly toxic to inverts and fish, both in freshwater and saltwater.  It is also effective in killing many parasites and is common in medications.  
-Cu is unique in that once it is introduced to a system (aquarium), it will be measurable and constant until either the plants (and trimming) or removal of material (substrate, etc) reduces levels.  Too high levels of copper will result in death, while high (but not lethal) concentrations any lead to sensory loss or, at the least, behavioral changes.
+Copper (Cu) is a micronutrient and heavy metal required for healthy plant growth, but is also highly toxic to inverts and fish, both in freshwater and saltwater.  It is also effective in killing many parasites and is common in medications.  [1]
+Cu is unique in that once it is introduced to a system (aquarium), it will be measurable and constant until either the plants (and trimming) or removal of material (substrate, etc) reduces levels.  Too high levels of copper will result in death, while high (but not lethal) concentrations any lead to sensory loss or, at the least, behavioral changes. [1]
 
 What levels are safe
 ------------------------------
 
-Pesticides and medications use scientific study to determine lethal concentrations (LC) for Copper by animal species.  They then recommend safe levels as half that lethal concentration (LC50).  Here is a chart for common species:
+Pesticides and medications use scientific study to determine lethal concentrations (LC) for Copper by animal species.  They then recommend safe levels as half that lethal concentration (LC50).  Here is a chart for common species [1],[2]:
 
 <table>
  <th>Common Name (not inclusive)</th>
@@ -79,7 +80,11 @@ Pesticides and medications use scientific study to determine lethal concentratio
 </tr>
 </table>
 
-However, like all heavy metals these thresholds can be raised -- reducing toxicity -- at higher pH (and by extension carbonate hardness), but we do not recommend you change pH and KH so that you can dose more copper.  Inbreeding and unhealthy fish can also reduce these thresholds -- increasing the possibility of toxicity.  The numbers above are simply guides.
+However, like all heavy metals these thresholds can be raised -- reducing toxicity -- at higher pH (and by extension carbonate hardness), but we do not recommend you change pH and KH so that you can dose more copper.  Inbreeding and unhealthy fish can also reduce these thresholds -- increasing the possibility of toxicity. [4]
+
+Additionally none of these studies take into account the many other variables that could be present in our aquariums, and while the species above are common to our aquariums, to date there has not been a definitive study on ornamental shrimp in the aquarium and their thresholds for Cu. Some folks, notably Tom Barr, feel we should not model Cu toxicity at all until this data is collected. [5]
+
+However, this alert and page is meant to guide you, aquarist, using the collective studies of scientists and experts in their field.  This is all simply a guide and you should exercise your best judgement.
 
 What should you do next
 ------------------------------------
@@ -105,6 +110,17 @@ References
 
 [Effect of temperature on copper toxicity and hematological responses in the neotropical fish Prochilodus scrofa at low and high pH]:http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6T4D-4GHSGDN-2&_user=10&_coverDate=01/20/2006&_rdoc=1&_fmt=high&_orig=search&_origin=search&_sort=d&_docanchor=&view=c&_searchStrId=1592124473&_rerunOrigin=google&_acct=C000050221&_version=1&_urlVersion=0&_userid=10&md5=51b1c2ddb2549fce5c39eb391a76a812&searchtype=a
 
+[1]:http://www.sciencedirect.com/science?_ob=ArticleURL&_udi=B6T4D-4GHSGDN-2&_user=10&_coverDate=01/20/2006&_rdoc=1&_fmt=high&_orig=search&_origin=search&_sort=d&_docanchor=&view=c&_searchStrId=1592124473&_rerunOrigin=google&_acct=C000050221&_version=1&_urlVersion=0&_userid=10&md5=51b1c2ddb2549fce5c39eb391a76a812&searchtype=a
+
 [PAN Pesticides Database (Crustaceans)]: http://www.pesticideinfo.org/List_AquireAcuteSum.jsp?Rec_Id=PC33538&Taxa_Group=Crustaceans&offset=0
+[2]: http://www.pesticideinfo.org/List_AquireAcuteSum.jsp?Rec_Id=PC33538&Taxa_Group=Crustaceans&offset=0
 
 [PAN Pesticides Database (Fish)]: http://www.pesticideinfo.org/List_AquireAcuteSum.jsp?Rec_Id=PC33538&Taxa_Group=Fish&offset=0
+[3]: http://www.pesticideinfo.org/List_AquireAcuteSum.jsp?Rec_Id=PC33538&Taxa_Group=Fish&offset=0
+
+[4]: http://www.barrreport.com/showthread.php/7234-Wet-s-EI-modeling-dosing-calculator/page9
+
+[5]: http://www.barrreport.com/showthread.php/7234-Wet-s-EI-modeling-dosing-calculator/page11
+
+</body>
+</html>
