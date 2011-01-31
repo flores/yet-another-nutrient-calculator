@@ -122,5 +122,3 @@ References
 
 [5]: http://www.barrreport.com/showthread.php/7234-Wet-s-EI-modeling-dosing-calculator/page11
 
-</body>
-</html>
