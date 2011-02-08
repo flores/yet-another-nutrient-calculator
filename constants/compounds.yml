@@ -1,4 +1,4 @@
-# used for constants for input compounds
+# used for constants for input compounds by calc.petalphile.com
 # compound
   # elements = concencentration by mass
   # tsp = teaspoon concentrations in milligrams
@@ -65,7 +65,7 @@ Ca(NO3)2.4H2O:
   dGH:    0.019485262
   tsp:    12520
   sol:    121
-  target: Ca    
+  target: Ca   
 5Ca(NO3)2.NH4NO3.10H2O:
   Ca:     0.18543984009179916
   N as NH4 and NO3:    0.1555440395328608
@@ -118,19 +118,20 @@ Fe Gluconate:
   tsp:    2440
   target: Fe
 DTPA Fe (11%):
-  Fe:     0.l1
-  tsp:    4430
+  Fe:     0.11
+  tsp:    3870
   target: Fe
 DTPA Fe (10%):
   Fe:     0.1
   tsp:    4290
   target: Fe
 EDTA Fe:
-  Fe:     0.125
+  Fe:     0.130
   tsp:    5100
-  target: Fe    
+  sol:    90
+  target: Fe
 EDDHA Fe (6%):
-  Fe:     0.06
+  Fe:	  0.06
   tsp:    2420
   target: Fe
 MnSO4.H2O:
