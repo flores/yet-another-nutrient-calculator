@@ -80,6 +80,15 @@ MgSO4.7H2O:
   tsp:    5100
   sol:    710
   target: Mg
+PlantedTanks.com.uk Trace:
+  Fe:     0.084
+  Mn:     0.0182
+  Zn:     0.0116
+  B:      0.0105
+  Mo:     0.0015
+  Cu:     0.0023
+  tsp:    6000
+  target: Fe
 Plantex CSM+B:
   Fe:     0.0653
   Mn:     0.0187
