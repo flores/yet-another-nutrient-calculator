@@ -12,13 +12,27 @@ KNO3:
   tsp:    5200
   sol:    360
   target: NO3
+K2HPO4:
+  PO4:    0.545271861
+  P:      0.177837745
+  K:      0.448963656
+  tsp:    5800
+  sol:    1492
+  target: PO4
 KH2PO4:
   PO4:    0.6979
   P:      0.227605
   K:      0.2873
   tsp:    5600
   sol:    220
-  target: PO4  
+  target: PO4
+K3PO4:
+  PO4:    0.447416
+  P:      0.145925
+  K:      0.552596
+  tsp:    6000
+  sol:    900
+  target: PO4
 KCl:
   K:      0.524447
   Cl:     0.18401
@@ -144,7 +158,8 @@ EDDHA Fe (6%):
   tsp:    2420
   target: Fe
 MnSO4.H2O:
-  Mn:     0.0325
+  Mn:     0.32503845698733876
+  S:      0.18971719323157025  
   tsp:    7490
   sol:    393
   target: Mn
