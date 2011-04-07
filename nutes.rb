@@ -14,10 +14,11 @@ require 'sinatra'
 require 'haml'
 require 'yaml'
 require 'rdiscount'
+require 'thin'
 
 set :environment, :production 
 #set :port, '4000'
-#set :bind, 'localhost'
+set :bind, 'localhost'
 
 # the constants array is every compound we support
 constants = YAML.load_file 'constants/compounds.yml'
@@ -144,6 +145,14 @@ post '/' do
     end
   end
 
+#K3PO4 is tricky
+  if (@comp =~ /K3PO4/ )
+	@toxic="K3PO4 in solution tends to raise pH due to<br/>
+the nature of KOH, a strong base. <br/>
+ray-the-pilot explains this for us gardeners here:<br/>
+<a href='http://bit.ly/ev7txA'>'K3PO4 instead of KH2PO4?' at Aquatic Plant Central'</a></br>"
+  end
+  
 #copper toxicity
   if (constants[@comp]['Cu'])
     if(@results['Cu'].to_f > 0.072)
