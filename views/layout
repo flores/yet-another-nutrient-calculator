@@ -1,14 +1,15 @@
 %html
   %head
     %title Yet Another Nutrient Calculator
-    <meta name="viewport" content="width=800" />
   %body
+    <div style="position: relative; float:top; width: 330px; height: relative; center">
     #header
-   
-    #content
+      <center>Yet Another Nutrient Calculator</center>
     =yield
+    </div>
     %footer
-      %p
+      <div style="position: relative; float:top; width: 330px; height: 50px; center">
       %a(href='/')Start over
       %br
       %a(href='http://petalphile.com') Back to petalphile.com
+      <div>

@@ -1,11 +1,13 @@
 %p
-To reach your target of #{@target_amount} ppm #{@element},
-%br you'll need to add #{@dose_amount} grams of #{@comp} 
+<div style="position: relative; float:top; width: 330px; height: relative; center">
+<center>
+To reach your target of #{@target_amount}ppm #{@element},
+you'll need to add #{@dose_amount}grams of #{@comp}
 - if @sol_vol > 0 
   into your #{@sol_vol} mL container.<br>
   Each #{@sol_dose} mL of that mix into #{@tank_vol_orig} #{@tank_units} is:<br><br>
 - if @sol_vol == 0
-  to #{@tank_vol_orig} #{@tank_units} for:<br><br>
+  to #{@tank_vol_orig} #{@tank_units} for:<center><br/>
 %table{:width => 330}
   %tr
     %th Element
@@ -15,9 +17,11 @@ To reach your target of #{@target_amount} ppm #{@element},
       %td{:align=> "center"} #{result}
       %td{:align=> "center"} #{result_value}
 %br #{@toxic} #{@sol_error}
-Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
-%br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
-%br
+</div>
+<div style="position: relative; float:top; width: 330px; height: 50px; center">
+<center>Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
+the <font color="blue">Estimative Index</font>, and <font color="red">you</font>:</center>
+</div>
 <div style="position: relative; float:top; width: 330px; height: 35px;">
 <div style="position: absolute; top:1px; left: 15px; width:300px;">
 <div style="position: absolute; top:7px; left: 0; width: 300px">
@@ -38,12 +42,16 @@ Relative #{@element} for <font color="green">Walstad</font>, <font color="orange
 <div style="position:relative; float:left; left: 10px">
 0
 </div>
-<div style="position:relative; float:right; right:10px">
+<div style="position:absolute; top:20; left: #{@results_pixel-2}px; height 30px; width 100px; center">
+<center><font color="red">#{@results[@element]}</font></center>
+</div>
+<div style="position:absolute; top:0px; right:10px; height 15px">
 #{@pixel_max}
 </div>
 </div>
 </div>
 %p
-%b Want to model long term effects of<br> #{@element} dosing? Click 
-%a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!
-
+<div style="position: relative; float:top; width: 330px; height: 50px;">
+%b <center>Want to model long term effects of #{@element} dosing? Click 
+%a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!</center>
+</div>

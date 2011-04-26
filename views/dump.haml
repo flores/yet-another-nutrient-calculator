@@ -1,9 +1,10 @@
 %p
-Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your<br> 
+<div style="position: relative; float:top; width: 330px; height: relative; center">
+<center>Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your 
 - if @sol_vol > 0
-  #{@sol_vol} mL container, with doses of #{@sol_dose} mL<br>
+  #{@sol_vol} mL container, with doses of #{@sol_dose} mL 
   into a
-#{@tank_vol_orig} #{@tank_units} tank gives:<br><br>
+#{@tank_vol_orig}#{@tank_units} tank gives:</center><br/>
 %table{:width => 330}
   %tr
     %th Element
@@ -13,9 +14,16 @@ Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your<br>
       %td{:align=> "center"} #{result}
       %td{:align=> "center"} #{result_value}
 %br #{@toxic} #{@sol_error}
+</div>
+<div style="position: relative; float:top; width: 330px; height: 50px; center">
+<center>
 Relative #{@element} ppm for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
-%br the <font color="blue">Estimative Index</font>, and <font color="red">you</font></center>
-%br
+the <font color="blue">Estimative Index</font>, and <font color="red">you</font>:
+</center>
+</div>
+<div style="position: relative; float:top; width: 330px; height: 15px; center">
+<center>#{@element} ppm</center>
+</div>
 <div style="position: relative; float:top; width: 330px; height: 35px;">
 <div style="position: absolute; top:1px; left: 15px; width:300px;">
 <div style="position: absolute; top:7px; left: 0; width:300px;">
@@ -35,11 +43,15 @@ Relative #{@element} ppm for <font color="green">Walstad</font>, <font color="or
 <div style="position:relative; float:left; left: 10px; height 15px">
 0
 </div>
-<div style="position:relative; float:right; right:10px; height 15px">
+<div style="position:absolute; top:20; left: #{@results_pixel - 2}px; height 30px; width 100px">
+<center><font color="red">#{@results[@element]}</font></center>
+</div>
+<div style="position:absolute; top:0px; right:10px; height 15px">
 #{@pixel_max}
 </div>
 </div>
 </div>
-%b Want to model long term effects of<br> #{@element} dosing? Click 
-%a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!
-
+<div style="position: relative; float:top; width: 330px; height: 50px; center">
+%b <center>Want to model long term effects of #{@element} dosing? Click 
+%a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!</center>
+</div>
