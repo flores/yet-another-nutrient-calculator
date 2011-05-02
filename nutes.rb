@@ -164,10 +164,16 @@ ray-the-pilot explains this for us gardeners here:<br/>
 		less_dose = less_dose.to_i
 	end
 	percent_toxic = (toxic * 100).to_i
-	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here.</a><br>"
+	@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here</a>.<br />"
     end
   end
 
+# EDDHA tints the water red  
+  if (@comp =~ /EDDHA/)
+	if (@results['Fe'].to_f > 0.002)
+		@toxic = "<font color='red'>Be aware that EDDHA will tint the water pink to red<br /> at even moderate doses.</font><br />You can check out a video of a 0.2ppm dose <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.<br />"
+	end
+  end
 
 # fancy graphs -- we're showing ranges recommended by various well regarded methods
 #   vs what we just calculated.

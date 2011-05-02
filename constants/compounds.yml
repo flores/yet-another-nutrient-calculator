@@ -154,7 +154,7 @@ EDTA Fe:
   sol:    90
   target: Fe
 EDDHA Fe (6%):
-  Fe:	  0.06
+  Fe:     0.06
   tsp:    2420
   target: Fe
 MnSO4.H2O:
