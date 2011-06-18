@@ -7,13 +7,11 @@
     %script{:type => "text/javascript", :src=>"http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"}
   %body{:align => "center"}
     .yield
-      %div{"data-role" => :page}
-        .header{"data-role" => :header}
-          Yet Another Nutrient Calculator
+      %div{"data-role" => :page, "data-theme" => :d}
+        %div{"data-role" => :header, :class => "ui-bar"}
+          %h1 yet another (mobile) nutrient calculator
         %div{"data-role" => :content}
           =yield
-    .footer{"data-role" => :footer}
-      %p 
-      %a(href='/')Start over
-      %br
-      %a(href='http://petalphile.com') Back to petalphile.com
+        %div{"data-role" => :footer, :class => "ui-bar"}
+          %a(href='http://calc.petalphile.com/' data-ajax="false" rel="external")non-mobile calc
+          %a(href='http://petalphile.com')petalphile.com
