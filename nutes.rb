@@ -248,7 +248,7 @@ get '/cu' do
 end
 
 error do
-  ':('
+  haml :error
 end
 
 __END__
