@@ -2,14 +2,13 @@
   %head
     %title Yet Another Nutrient Calculator
   %body
-    <div style="position: relative; float:top; width: 330px; height: relative; center">
-    #header
-      <center>Yet Another Nutrient Calculator</center>
+    #header 
+    #yield 
     =yield
-    </div>
-    %footer
-      <div style="position: relative; float:top; width: 330px; height: 50px; center">
+    #footer
+      %p 
       %a(href='/')Start over
       %br
+      %a(href="/mobile")Mobile site
+      %br
       %a(href='http://petalphile.com') Back to petalphile.com
-      <div>

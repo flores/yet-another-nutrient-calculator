@@ -227,11 +227,12 @@ end
 		@results_pixel=@results_pixel.to_int
 		
 	# and we finally display all of it.  mobile and non-mobile have separate uis
-		if ( request.user_agent =~ /iphone|webos|mobile/i )
+		if ( @env["User-Agent"]  =~ /iphone|webos|mobile/i  || @env["HTTP_USER_AGENT"] =~ /iphone|webos|mobile/i )
+			set :haml, :layout => :layout_mobile
 			if (calc_for =~ /dump/)
-		  		haml :dump_mobile, :layout => :layout_mobile
+		  		haml :dump_mobile
 			else
-				haml :target_mobile, :layout => :layout_mobile
+				haml :target_mobile
 			end
 		else
 			if (calc_for =~ /dump/)

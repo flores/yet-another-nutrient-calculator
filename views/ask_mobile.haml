@@ -15,33 +15,37 @@
     </select>
   %div{"data-role" => :fieldcontain}
     %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
-      dosing
+      %label{:for => "method"} dosing
+      %br
       %input{:type => "radio", :name=> "method", :id => "asolution", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
       %label{:for => "asolution"}solution
       %input{:type => "radio", :name=> "method", :id => "adry", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
       %label{:for => "adry"}dry
       #sol{"data-role" => :fieldcontain, :style => 'display:none'}
         while using a
+        %br
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
         %input{:type => "text", :name=> "sol_volume", :id=> "sol_volume", :length => 4, :size => 4, :value => 500}mL container
         %label{:for => "sol_dose"} with doses of   
         %input{:type => "text", :name=> "sol_dose", :id=> "sol_dose", :length => 4, :size => 4, :value => 5}mL
   %div{"data-role" => :fieldcontain}
-    %fieldset{"data-role" => "controlgroup"}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
       and I'm calculating for
+      %br
       %input{:type => "radio", :name=> "calc_for", :value=> "target", :id=>"atarget", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
       %label{:for => "atarget"}what dose to reach a target
       %input{:type => "radio", :name=> "calc_for", :value=> "dump", :id=>"adump",:onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
       %label{:for => "adump"}the result of my dose
       #dump{"data-role" => :fieldcontain, :style => 'display:none'}
-        I am adding
-        %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}
-        %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
-        mg
-        %input{:type => "radio", :name=> "dose_units", :value=> "g"}
-        g
-        %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
-        tsp 
+        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %label{:for => "dose_amount"} I am adding
+          %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}
+          %input{:type => "radio", :name=> "dose_units", :value=> "mg",:id=> "mg"}
+          %label{:for => "mg"}mg
+          %input{:type => "radio", :name=> "dose_units", :value=> "g", :id=> "g"}
+          %label{:for => "g"}g
+          %input{:type => "radio", :name=> "dose_units", :value=> "tsp", :id=> "tsp"}
+          %label{:for => "tsp"}tsp 
       #target{"data-role" => :fieldcontain, :style => 'display:none'}
         My target is
         %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4}
