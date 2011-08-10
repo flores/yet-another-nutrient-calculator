@@ -127,6 +127,15 @@ Miller's MicroPlex:
   dGH:    0.00388059094151213
   tsp:    3720
   target: Fe
+Dutch Nutrient Formula:
+  Fe:     0.07
+  B:      0.013
+  Mn:     0.02
+  Zn:     0.004
+  Cu:     0.001
+  Mo:     0.006
+  tsp:    3600
+  target: Fe
 Rexolin APN:
   Fe:     0.06
   Mn:     0.024
