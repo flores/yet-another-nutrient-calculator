@@ -1,4 +1,3 @@
-<div data-role="fieldcontain">
 <div style="position: relative; float:top; height: relative; center">
 <center>Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your 
 - if @sol_vol > 0
@@ -15,6 +14,7 @@
       %td{:align=> "center"} #{result_value}
 %br
 <center> #{@toxic} #{@sol_error} </center>
+<center> #{@method_instruct} </center>
 </div>
 <div style="position: relative; float:top; height: 50px; center">
 <center>
@@ -40,7 +40,6 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 </div>
 </div>
 </div>
-</div>
 <div style="position: absolute; float:top; height: 50px; align: center">
 <div style="position:relative; float:left; left: 10px; height 15px">
 0
@@ -48,7 +47,7 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 <div style="position:absolute; top:20; left: #{@results_pixel - 2}px; height 30px; width 100px">
 <center><font color="red">#{@results[@element]}</font></center>
 </div>
-<div style="position:absolute; top:0px; left:290px; height 15px">
+<div style="position:absolute; top:0px; left:300px; height 15px">
 #{@pixel_max}
 </div>
 </div>

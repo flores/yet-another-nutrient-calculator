@@ -17,6 +17,7 @@ you'll need to add #{@dose_amount}grams of #{@comp}
       %td{:align=> "center"} #{result}
       %td{:align=> "center"} #{result_value}
 %br <center>#{@toxic} #{@sol_error}</center>
+<center> #{@method_instruct} </center>
 </div>
 <div style="position: relative; float:top; height: 50px; center">
 <center>Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
@@ -45,7 +46,7 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 <div style="position:absolute; top:20; left: #{@results_pixel-2}px; height 30px; width 100px; center">
 <center><font color="red">#{@results[@element]}</font></center>
 </div>
-<div style="position:absolute; top:0px; right:290px; height 15px">
+<div style="position:absolute; top:0px; left:290px; height 15px">
 #{@pixel_max}
 </div>
 </div>
