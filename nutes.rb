@@ -51,8 +51,8 @@ end
 		calc_for		= params["calc_for"]
 	
 	# i just need this later
-		@tank_vol_orig=@tank_vol
-		
+		@tank_vol_orig		= @tank_vol
+		@method_instruct	= ""	
 	
 		if (@tank_units =~ /gal/)
 		  @tank_vol = @tank_vol * 3.78541178
@@ -77,20 +77,29 @@ end
 	
 	
 	# calculations on the onClick optional menu
-		if (calc_for =~ /dump/)
+		if (calc_for == 'dump')
 		  @dose_amount	= params["dose_amount"]
 		  if (@dose_amount =~ /^(\d+)\/(\d+)$/)
-		num = $1.to_f
-		den = $2.to_f
-		@dose_amount = num / den
+		    num = $1.to_f
+		    den = $2.to_f
+		    @dose_amount = num / den
 		  end
 		  @dose_amount = @dose_amount.to_f
-		elsif (calc_for =~ /target/)
+		elsif (calc_for == 'target')
 		  @target_amount 	= Float(params["target_amount"])
-		  @dose_amount	= 0
+		  @dose_amount	 	= 0
+		else
+        # this yml file has The Estimative Index, PPS-Pro, and Walstad recommended values
+                  @standard = YAML.load_file 'constants/dosingmethods.yml'
+                  if (calc_for == 'ei')
+                    @target_amount      = @standard["#{@element}"]["EI"]["method"] 
+                  elsif (calc_for == "pps")
+                    @target_amount      = @standard["#{@element}"]["PPS"]["method"] 
+                    @method_instruct	= "We've calculated for PPS-Pro's daily dose.<br />The recommended range below is for a stabilized mature tank.<br />"
+                  end
 		end	
 	
-		if (@dose_method =~ /sol/)
+		if (@dose_method == 'sol')
 		  @sol_vol		= Float(params["sol_volume"])
 		  @sol_dose		= Float(params["sol_dose"]) 
 		  dose_calc 		= @dose_amount * @sol_dose / @sol_vol
@@ -124,12 +133,12 @@ end
 		  @target_amount = @results["#{@element}"]
 		  @mydose=@dose_amount
 		
-		elsif (calc_for =~ /target/)
+		elsif (calc_for =~ /target|ei|pps/)
 		  pie=Float(cons["#{@element}"])
 		  @mydose = @target_amount * @tank_vol / pie
 		  @mydose = sprintf("%.2f", @mydose)
 		  @mydose = Float(@mydose)
-		  if (@dose_method=~ /sol/ && calc_for =~ /target/)
+		  if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps/)
 		    @dose_amount = @mydose * @sol_vol / @sol_dose
 		    sol_check    = @dose_amount
 		  else
@@ -150,13 +159,13 @@ end
 		  sol_ref = constants[@comp]['sol'] * 0.8
 		  sol_check = sol_check / @sol_vol
 		  if ( sol_ref <  sol_check )
-		@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{constants[@comp]['sol']} mg/mL.<br>You should adjust your dose.</font><br>"
+		    @sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{constants[@comp]['sol']} mg/mL.<br>You should adjust your dose.</font><br>"
 		  end
 		end
 	
 	#K3PO4 is tricky
 		if (@comp =~ /K3PO4/ )
-		@toxic="K3PO4 in solution tends to raise pH due to<br/>
+		  @toxic="K3PO4 in solution tends to raise pH due to<br/>
 	the nature of KOH, a strong base. <br/>
 	ray-the-pilot explains this for us gardeners here:<br/>
 	<a href='http://bit.ly/ev7txA'>'K3PO4 instead of KH2PO4?' at Aquatic Plant Central'</a></br>"
@@ -165,23 +174,23 @@ end
 	#copper toxicity
 		if (constants[@comp]['Cu'])
 		  if(@results['Cu'].to_f > 0.072)
-		toxic = ( @results['Cu'].to_f - 0.072 ) / 0.072 
-		less_dose = @dose_amount - ( @dose_amount * 0.072 / @results['Cu'].to_f )
-		if (@dose_amount =~ /\./)
+		    toxic = ( @results['Cu'].to_f - 0.072 ) / 0.072 
+		    less_dose = @dose_amount - ( @dose_amount * 0.072 / @results['Cu'].to_f )
+		    if (@dose_amount =~ /\./)
 			less_dose = less_dose.round_to(3)
-		else
+		    else
 			less_dose = less_dose.to_i
-		end
-		percent_toxic = (toxic * 100).to_i
-		@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here</a>.<br />"
+		    end
+		    percent_toxic = (toxic * 100).to_i
+		    @toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here</a>.<br />"
 		  end
 		end
 	
 	# EDDHA tints the water red  
 		if (@comp =~ /EDDHA/)
-		if (@results['Fe'].to_f > 0.002)
+		  if (@results['Fe'].to_f > 0.002)
 			@toxic = "<font color='red'>Be aware that EDDHA will tint the water pink to red<br /> at even moderate doses.</font><br />You can check out a video of a 0.2ppm dose <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.<br />"
-		end
+		  end
 		end
 	
 	# fancy graphs -- we're showing ranges recommended by various well regarded methods

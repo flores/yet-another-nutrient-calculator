@@ -41,6 +41,12 @@
   %input{:type => "radio", :name=> "calc_for", :value=> "dump", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
   the result of my dose
   %br
+  %input{:type => "radio", :name=> "calc_for", :value=> "ei", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
+  The Estimative Index
+  %br
+  %input{:type => "radio", :name=> "calc_for", :value=> "pps", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
+  The Perpetual Preservation System
+  %br
   #dump{:style => 'display:none'}
     I am adding
     %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}

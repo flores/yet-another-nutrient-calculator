@@ -5,91 +5,105 @@
 ---
 NO3: 
   EI:
+    method:  7.5
     low:     5
-    margin:  25
     high:    30
+    margin:  25
   PPS:
+    method:  1
     low:     5
-    margin:  5
     high:    10
+    margin:  9
   Walstad:
     low:     0.443
-    margin:  0.11
     high:    0.553  
+    margin:  0.11
 PO4:
   EI:
+    method:  1.75
     low:     1
-    margin:  2
     high:    3
+    margin:  2
   PPS:
+    method:  0.1
     low:     0.1
-    margin:  0.9
     high:    1
+    margin:  0.9
   Walstad:
     low:     0.061
-    margin:  0.012
     high:    0.073
+    margin:  0.012
 K:
   EI:
+    method:  8.5
     low:     10
-    margin:  20
     high:    30
+    margin:  20
   PPS:
-    low:     5
-    margin:  15
+    method:  1.33
+    low:     1
     high:    20
+    margin:  15
   Walstad:
     low:     2
     margin:  0.4
     high:    2.4
 Ca:
   EI:
+    method:  15
     low:     15
+    high:    30
     margin:  15
-    high:    30
   PPS:
+    method:  0.4
     low:     20
-    margin:  10
     high:    30
+    margin:  10
   Walstad:
     low:     28
-    margin:  6
     high:    34
+    margin:  6
 Mg:
   EI:
+    method:  5
     low:     5
-    margin:  5
     high:    10
+    margin:  5
   PPS:
+    method:  0.1
     low:     2
-    margin:  3
     high:    5
+    margin:  3
   Walstad:
     low:     2
-    margin:  0.4
     high:    2.4
+    margin:  0.4
 Fe:
   EI:
+    method:  0.2
     low:     0.1
-    margin:  0.4
     high:    0.5
+    margin:  0.4
   PPS:
+    method:  0.1
     low:     0.01
-    margin:  0.09
     high:    0.1
+    margin:  0.09
   Walstad:
     low:     0.06
-    margin:  0.012
     high:    0.072
+    margin:  0.012
 Mn:
   EI:
+    method:  0.1
     low:     0.1
-    margin:  0.4
     high:    0.5
+    margin:  0.4
   PPS:
+    method:  0.1
     low:     0.01
-    margin:  0.09
     high:    0.1
+    margin:  0.09
   Walstad:
     low:     0.06
     margin:  0.012
