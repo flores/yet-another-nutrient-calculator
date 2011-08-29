@@ -97,9 +97,10 @@ end
                     @target_amount      = @standard["#{@element}"]["PPS"]["method"] 
                     @method_instruct	= "We've calculated for PPS-Pro's daily dose.<br />The recommended range below is for a stabilized mature tank.<br />"
                   end
+		  @dose_amount		= 0
 		end	
 	
-		if (@dose_method == 'sol')
+		if (@dose_method =~ /sol/)
 		  @sol_vol		= Float(params["sol_volume"])
 		  @sol_dose		= Float(params["sol_dose"]) 
 		  dose_calc 		= @dose_amount * @sol_dose / @sol_vol
