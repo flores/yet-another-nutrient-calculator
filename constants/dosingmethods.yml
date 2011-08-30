@@ -18,6 +18,11 @@ NO3:
     low:     0.443
     high:    0.553  
     margin:  0.11
+  PMDD:
+    method:  1.4
+    low:     1
+    high:    5
+    margin:  4
 PO4:
   EI:
     method:  1.75
@@ -33,6 +38,11 @@ PO4:
     low:     0.061
     high:    0.073
     margin:  0.012
+  PMDD:
+    method:  0
+    low:     0
+    high:    0
+    margin:  0
 K:
   EI:
     method:  8.5
@@ -48,6 +58,11 @@ K:
     low:     2
     margin:  0.4
     high:    2.4
+  PMDD:
+    method:  3
+    low:     2.4
+    high:    3.6
+    margin:  1.2
 Ca:
   EI:
     method:  15
@@ -63,6 +78,11 @@ Ca:
     low:     28
     high:    34
     margin:  6
+  PMDD:
+    method:  0
+    low:     0
+    high:    0
+    margin:  0
 Mg:
   EI:
     method:  5
@@ -78,6 +98,11 @@ Mg:
     low:     2
     high:    2.4
     margin:  0.4
+  PMDD:
+    method:  0.2
+    low:     0.16
+    high:    0.24
+    margin:  0.08
 Fe:
   EI:
     method:  0.2
@@ -93,6 +118,11 @@ Fe:
     low:     0.06
     high:    0.072
     margin:  0.012
+  PMDD:
+    method:  0.1
+    low:     0.08
+    high:    0.12
+    margin:  0.04
 Mn:
   EI:
     method:  0.1
@@ -108,3 +138,8 @@ Mn:
     low:     0.06
     margin:  0.012
     high:    0.072
+  PMDD:
+    method:  0.029
+    low:     0.023
+    high:    0.035
+    margin:  0.012

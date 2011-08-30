@@ -96,6 +96,11 @@ end
                   elsif (calc_for == "pps")
                     @target_amount      = @standard["#{@element}"]["PPS"]["method"] 
                     @method_instruct	= "We've calculated for PPS-Pro's daily dose.<br />The recommended range below is for a stabilized mature tank.<br />"
+		  elsif (calc_for == "pmdd")
+		    @target_amount	= @standard["#{@element}"]["PMDD"]["method"]
+		    if (@target_amount == 0)
+		      @method_instruct  = "PMDD does not dose #{@element}.<br />(But maybe you should.)<br />"
+                    end
                   end
 		  @dose_amount		= 0
 		end	
@@ -134,12 +139,12 @@ end
 		  @target_amount = @results["#{@element}"]
 		  @mydose=@dose_amount
 		
-		elsif (calc_for =~ /target|ei|pps/)
+		elsif (calc_for =~ /target|ei|pps|pmdd/)
 		  pie=Float(cons["#{@element}"])
 		  @mydose = @target_amount * @tank_vol / pie
 		  @mydose = sprintf("%.2f", @mydose)
 		  @mydose = Float(@mydose)
-		  if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps/)
+		  if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps|pmdd/)
 		    @dose_amount = @mydose * @sol_vol / @sol_dose
 		    sol_check    = @dose_amount
 		  else
