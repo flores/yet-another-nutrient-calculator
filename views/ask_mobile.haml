@@ -29,17 +29,19 @@
         %label{:for => "sol_dose"} with doses of   
         %input{:type => "text", :name=> "sol_dose", :id=> "sol_dose", :length => 4, :size => 4, :value => 5}mL
   %div{"data-role" => :fieldcontain}
-    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal", "align" => "center"}
+    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal", "text-align" => "center"}
       and I'm calculating for
       %br
       %input{:type => "radio", :name=> "calc_for", :value=> "target", :id=>"atarget", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
-      %label{:for => "atarget"}what dose to reach a target
+      %label{:for => "atarget"}a target
       %input{:type => "radio", :name=> "calc_for", :value=> "dump", :id=>"adose", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
-      %label{:for => "adose"}the result of my dose
+      %label{:for => "adose"}my dose
       %input{:type => "radio", :name=> "calc_for", :value=> "ei", :id=>"aei", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
       %label{:for => "aei"}EI
       %input{:type => "radio", :name=> "calc_for", :value=> "pps", :id=>"apps", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
       %label{:for => "apps"}PPS-Pro
+      %input{:type => "radio", :name=> "calc_for", :value=> "pmdd", :id=>"apmdd", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
+      %label{:for => "apmdd"}PMDD
       #dump{"data-role" => :fieldcontain, :style => 'display:none'}
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %label{:for => "dose_amount"} I am adding

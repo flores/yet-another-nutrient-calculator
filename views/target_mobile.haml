@@ -20,7 +20,7 @@ you'll need to add #{@dose_amount}grams of #{@comp}
 <center> #{@method_instruct} </center>
 </div>
 <div style="position: relative; float:top; height: 50px; center">
-<center>Relative #{@element} for <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
+<center>Relative #{@element} for <font color="purple">PMDD</font>, <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
 the <font color="blue">Estimative Index</font>, and <font color="red">you</font>:</center>
 </div>
 <div style="position: relative; float:top; height: 35px;">
@@ -34,6 +34,8 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 </div>
 <div style="position: absolute; top:2px; left:  #{@range[@element]['Walstad']['low']}px; width: #{@range[@element]['Walstad']['margin']}px; height: 24px; background-color: green; fiter:alpha(opacity=50); opacity:.5; center">
 </div>
+<div style="position: absolute; top:5px; left:  #{@range[@element]['PMDD']['low']}px; width: #{@range[@element]['PMDD']['margin']}px; height: 18px; background-color: purple; fiter:alpha(opacity=50); opacity:.5; center">
+</div>
 <div style="position: absolute; top:1px; left:  #{@results_pixel}px; width: 4px; height: 26px; background-color: red; fiter:alpha(opacity=1); -moz-opacity:1; center">
 </div>
 </div>
@@ -46,7 +48,7 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 <div style="position:absolute; top:20; left: #{@results_pixel-2}px; height 30px; width 100px; center">
 <center><font color="red">#{@results[@element]}</font></center>
 </div>
-<div style="position:absolute; top:0px; left:290px; height 15px">
+<div style="position:absolute; top:0px; left:300px; height 15px">
 #{@pixel_max}
 </div>
 </div>
