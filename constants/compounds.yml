@@ -155,6 +155,7 @@ Rexolin BRA:
   Mn:     0.0248
   Zn:     0.0338
   tsp:    3500
+  sol:    200
   target: Fe
 Fe Gluconate:
   Fe:     0.1246
