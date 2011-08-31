@@ -73,12 +73,11 @@ end
 		  end
 		end
 	
-	# is dose amount a fraction?
-	
 	
 	# calculations on the onClick optional menu
 		if (calc_for == 'dump')
 		  @dose_amount	= params["dose_amount"]
+	# is dose amount a fraction?
 		  if (@dose_amount =~ /^(\d+)\/(\d+)$/)
 		    num = $1.to_f
 		    den = $2.to_f
@@ -207,10 +206,10 @@ end
 	
 	# if the data is smaller than our largest range above...
 		unless ( @range["#{@element}"]["EI"]["high"] )
-		@range["#{@element}"]["EI"]["high"] = 0
+		  @range["#{@element}"]["EI"]["high"] = 0
 		end
+		
 		if ( ( @results["#{@element}"].to_f ) <  ( @range["#{@element}"]["EI"]["high"].to_f ) )
-	
 	# we know the div will be 300 pixels wide.  So, let's get an amount for pixel per ppm
 		  pie=Float(@range["#{@element}"]["EI"]["high"])
 		else
@@ -228,15 +227,15 @@ end
 		
 	# we convert everything in our range from ppm to pixels, standardized off that ppm/pixel
 		@range.each do |compound,method|
-		method.each do |specific,value|
-			value.each do |wtf,realvalue|
+			method.each do |specific,value|
+				value.each do |wtf,realvalue|
 		 			value[wtf]=realvalue.to_f * @pixel_per_ppm
-				value[wtf]=value[wtf].to_int
-				if ( value[wtf] < 4 )
-					value[wtf] = 3
-				end
+					value[wtf]=value[wtf].to_int
+					if ( value[wtf] < 4 )
+						value[wtf] = 3
+					end
 		 		end
-		end
+			end
 		end 
 		@results_pixel=@results["#{@element}"].to_f * @pixel_per_ppm
 		@results_pixel=@results_pixel.to_int
