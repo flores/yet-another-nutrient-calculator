@@ -1,7 +1,8 @@
-# used to build the graph
 # nutrient
-  # method (EI = Tom Barr's Estimative Index, PPS = Edward's Perpetual Preservation System, and Walstad = Diana Walstad's Natural Aquariums)
-    # low and high values (or +/- 20% if an exact value) for given nutrient.
+  # method (EI = Tom Barr's Estimative Index, PPS = Edward's Perpetual Preservation System, Walstad = Diana Walstad's Natural Aquariums, PMDD = Poor Man's Dupla Drops)
+    # method: recommended dosing for automatic calculation
+    # low and high values (or +/- 20% if an exact value) for given nutrient (for graphs)
+    # margin: high - low (for graphs)
 ---
 NO3: 
   EI:
