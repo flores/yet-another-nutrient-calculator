@@ -145,6 +145,17 @@ Rexolin APN:
   B:      0.011
   tsp:    3300
   target: Fe
+Rexolin BRA:
+  K:      0.0963
+  Fe:     0.0266
+  S:      0.0128
+  Mg:     0.0086
+  B:      0.021
+  Cu:     0.0036
+  Mn:     0.0248
+  Zn:     0.0338
+  tsp:    3500
+  target: Fe
 Fe Gluconate:
   Fe:     0.1246
   tsp:    2440
