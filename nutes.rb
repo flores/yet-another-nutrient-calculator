@@ -42,7 +42,7 @@ end
 		@results		= Hash.new
 	
 	# the Stuff while trying to limit what's global
-		@tank_vol		= Float(params["tank_vol"]) || 0
+		@tank_vol		= Float(params["tank_vol"].sub(/,/, '.')) || 0
 		@tank_units		= params["tank_units"]
 		@comp 		= params["compound"]
 		@dose_method		= params["method"]
@@ -76,7 +76,7 @@ end
 	
 	# calculations on the onClick optional menu
 		if (calc_for == 'dump')
-		  @dose_amount	= params["dose_amount"]
+		  @dose_amount	= params["dose_amount"].sub(/,/, '.')
 	# is dose amount a fraction?
 		  if (@dose_amount =~ /^(\d+)\/(\d+)$/)
 		    num = $1.to_f
@@ -85,7 +85,7 @@ end
 		  end
 		  @dose_amount = @dose_amount.to_f
 		elsif (calc_for == 'target')
-		  @target_amount 	= Float(params["target_amount"])
+		  @target_amount 	= Float(params["target_amount"].sub(/,/, '.'))
 		  @dose_amount	 	= 0
 		else
         # this yml file has The Estimative Index, PPS-Pro, and Walstad recommended values
@@ -105,8 +105,8 @@ end
 		end	
 	
 		if (@dose_method =~ /sol/)
-		  @sol_vol		= Float(params["sol_volume"])
-		  @sol_dose		= Float(params["sol_dose"]) 
+		  @sol_vol		= Float(params["sol_volume"].sub(/,/, '.'))
+		  @sol_dose		= Float(params["sol_dose"].sub(/,/, '.')) 
 		  dose_calc 		= @dose_amount * @sol_dose / @sol_vol
 		else
 		  @sol_vol 		= 0
