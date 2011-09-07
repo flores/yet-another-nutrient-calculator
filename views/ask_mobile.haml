@@ -10,7 +10,7 @@
   %div{"data-role" => :fieldcontain}
     %label{:for => "compound"}I'm dosing with
     <select name="compound" id="compound">
-    - COMPOUNDS.each do |c| 
+    - COMPOUNDS.keys.sort.each do |c| 
       <option value="#{c}">#{c}</option>
     </select>
   %div{"data-role" => :fieldcontain}

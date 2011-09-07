@@ -16,9 +16,10 @@ class YANC < Sinatra::Base
 		haml :ask
 	end
 	
-	#get '/mobile' do
-	#	haml :ask_mobile, :layout => :layout_mobile
-	#end
+	get '/mobile' do
+		@mobile = 'true'
+		haml :ask_mobile, :layout => :layout_mobile
+	end
 	 
 	["/","/mobile"].each do |path|
 		post path do
@@ -28,7 +29,7 @@ class YANC < Sinatra::Base
 		# the Stuff while trying to limit what's global
 			@tank_vol		= Float(params["tank_vol"].sub(/,/, '.')) || 0
 			@tank_units		= params["tank_units"]
-			@comp 		= params["compound"]
+			@comp 			= params["compound"]
 			@dose_method		= params["method"]
 			  
 			@dose_units		= params["dose_units"]
@@ -221,20 +222,20 @@ class YANC < Sinatra::Base
 			@results_pixel=@results_pixel.to_int
 			
 		# and we finally display all of it.  mobile and non-mobile have separate uis
-	#		if ( @env["User-Agent"]  =~ /iphone|webos|mobile/i  || @env["HTTP_USER_AGENT"] =~ /iphone|webos|mobile/i )
-	#			set :haml, :layout => :layout_mobile
-	#			if (calc_for =~ /dump/)
-	#		  		haml :dump_mobile
-	#			else
-	#				haml :target_mobile
-	#			end
-	#		else
+			if ( @mobile )
+				set :haml, :layout => :layout_mobile
+				if (calc_for =~ /dump/)
+			  		haml :dump_mobile, :layout => :layout_mobile
+				else
+					haml :target_mobile, :layout => :layout_mobile
+				end
+			else
 				if (calc_for =~ /dump/)
 			  		haml :dump
 				else
 					haml :target
 				end
-	#		end  
+			end  
 		end
 	end
 	
