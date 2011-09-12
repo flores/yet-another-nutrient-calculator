@@ -242,6 +242,10 @@ class YANC < Sinatra::Base
 	get '/cu' do
 	  markdown :cu
 	end
+
+        not_found do
+          haml :404
+        end
 	
 	error do
 	  haml :error
