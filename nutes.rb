@@ -243,8 +243,12 @@ class YANC < Sinatra::Base
 	  markdown :cu
 	end
 
+	get '/yanc.css' do
+	  File.read(File.join('public', 'yanc.css'))
+	end
+
         not_found do
-          haml :404
+          haml :not_found
         end
 	
 	error do
