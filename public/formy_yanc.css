@@ -9,8 +9,8 @@
 fieldset, form, label, legend, div, submit
  { margin:0;padding:0;border:0;font-weight:normal;font-size:100%;font-family: georgia,serif;vertical-align:baseline; }
 
-footer
- { margin:0;padding:0;border:0;font-weight:normal;font-size:1em;font-family: georgia,serif;vertical-align:baseline; }
+#footer
+ { padding:0;border:0;font-weight:normal;font-size:0.9em;font-family: georgia,serif;vertical-align:baseline; }
 
 /* 
 	Structural
@@ -63,8 +63,10 @@ select
 input[type="text"]
 	{ border: 1px solid #666; }
 
-input[type="submit"]
+input[id="ask"]
 	{  margin-left: 5em; background-color: #fff; color: #000; width:20em; }
+input[id="results"]
+	{  margin-left: 2em; background-color: #fff; color: #000; width:20em; }
 
 input[type="checkbox"]
 	{ color: #000; }
