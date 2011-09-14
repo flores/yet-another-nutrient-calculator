@@ -6,8 +6,11 @@
 *
  { font-family: georgia,serif; vertical-align:baseline; }
 
-fieldset, form, label, legend, div
+fieldset, form, label, legend, div, submit
  { margin:0;padding:0;border:0;font-weight:normal;font-size:100%;font-family: georgia,serif;vertical-align:baseline; }
+
+footer
+ { margin:0;padding:0;border:0;font-weight:normal;font-size:1em;font-family: georgia,serif;vertical-align:baseline; }
 
 /* 
 	Structural
@@ -24,9 +27,10 @@ legend
 label	 
 	{ float:left; width:9em; display:block; clear:left; margin-right:1em; text-align:right;  cursor:hand; }
 
+/*
 textarea, input, select, label, button, optgroup
 	{ margin-top:5px; }
-
+*/
 
 input[type="checkbox"] ,input[type="radio"]
 	{ margin-bottom:7px; }	
@@ -60,7 +64,7 @@ input[type="text"]
 	{ border: 1px solid #666; }
 
 input[type="submit"]
-	{  background-color: #ccc; color: #000; }
+	{  margin-left: 5em; background-color: #fff; color: #000; width:20em; }
 
 input[type="checkbox"]
 	{ color: #000; }
