@@ -1,12 +1,11 @@
 require 'rubygems'
-require 'sinatra/async'
+require 'sinatra'
 require 'haml'
 require 'rdiscount'
 require 'thin'
 	
 class YANC < Sinatra::Base	
 
-	register Sinatra::Async
 
 	get '/', :agent => /iphone|webos|mobile/i do
 		redirect '/mobile'
@@ -23,6 +22,9 @@ class YANC < Sinatra::Base
 	 
 	["/","/mobile"].each do |path|
 		post path do
+
+		# dosing standards
+			METHODS = YAML.load_file 'constants/dosingmethods.yml'
 			cons 			= Hash.new
 			@results		= Hash.new
 		
@@ -74,15 +76,19 @@ class YANC < Sinatra::Base
 				@dose_amount	 	= 0
 			else
 				if (calc_for == 'ei')
-					@target_amount			= METHODS[@element]["EI"]["method"] 
+					@target_amount		= METHODS[@element]["EI"]["method"] 
+					@method_instruct	= "Classic EI depends on good CO2, good circulation, and lots of water changes.<br />Light past moderation is not so important.<br />"
 				elsif (calc_for == "pps")
-					@target_amount			= METHODS[@element]["PPS"]["method"] 
+					@target_amount		= METHODS[@element]["PPS"]["method"] 
 					@method_instruct	= "We've calculated for PPS-Pro's daily dose.<br />The recommended range below is for a stabilized mature tank.<br />"
 				elsif (calc_for == "pmdd")
-					@target_amount	= METHODS[@element]["PMDD"]["method"]
+					@target_amount		= METHODS[@element]["PMDD"]["method"]
 					if (@target_amount == 0)
-						@method_instruct	= "PMDD does not dose #{@element}.<br />(But maybe you should.)<br />"
+						@method_instruct = "PMDD does not dose #{@element}.<br />(But maybe you should.)<br />"
 					end
+				elsif (calc_for == "wet")
+					@target_amount  	= METHODS[@element]["Wet"]["method"]
+					@method_instruct 	= "This is basically EI.  Under high light, trim often and keep the CO2 high and steady.<br />Trim and water change often.<br />"
 				end
 				@dose_amount		= 0
 			end	
@@ -121,12 +127,12 @@ class YANC < Sinatra::Base
 				@target_amount = @results["#{@element}"]
 				@mydose=@dose_amount
 			
-			elsif (calc_for =~ /target|ei|pps|pmdd/)
+			elsif (calc_for =~ /target|ei|pps|pmdd|wet/)
 				pie=Float(cons["#{@element}"])
 				@mydose = @target_amount * @tank_vol / pie
 				@mydose = sprintf("%.2f", @mydose)
 				@mydose = Float(@mydose)
-				if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps|pmdd/)
+				if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps|pmdd|wet/)
 					@dose_amount = @mydose * @sol_vol / @sol_dose
 					sol_check		= @dose_amount
 				else
@@ -138,8 +144,13 @@ class YANC < Sinatra::Base
 					@results["#{conc}"] = @mydose * pie / @tank_vol
 					@results["#{conc}"] = sprintf("%.2f", @results["#{conc}"])
 				end
-				@dose_amount = @dose_amount / 1000
-				@dose_units = 'grams'
+				if (@dose_amount.to_i > 1000)
+					@dose_amount = sprintf("%.3f", @dose_amount / 1000)
+					@dose_units = 'grams'
+				else
+					@dose_amount = @dose_amount.to_i
+					@dose_units = 'mg'
+				end
 			end
 		
 		#check solubility
@@ -207,6 +218,9 @@ class YANC < Sinatra::Base
 			
 		# we convert everything in our range from ppm to pixels, standardized off that ppm/pixel
 			METHODS.each do |compound,method|
+				if (method == "Wet")
+					next
+				end
 				method.each do |specific,value|
 					value.each do |wtf,realvalue|
 			 			value[wtf]=realvalue.to_f * @pixel_per_ppm

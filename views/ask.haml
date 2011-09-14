@@ -10,8 +10,11 @@
   %p 
   %label I'm dosing with
   <select name="compound">
-  - COMPOUNDS.keys.sort.each do |c| 
-    <option value="#{c}">#{c}</option>
+  - COMPOUNDS.keys.sort.each do |c|
+    - if ( c =~ /KNO3/ )
+      %option{:value=>"#{c}", :selected=>'selected'} #{c}
+    -else
+      %option{:value=>"#{c}"} #{c}
   </select>
   %p 
   %label using
@@ -34,9 +37,9 @@
     %select{:name=> "calc_for", :onchange=>"showDiv(this.value);"}
       %option{:value=> "target"} what dose to reach a target
       %option{:value=> "dump"} the result of my dose
-      %option{:value=> "ei"} The Estimative Index
-      %option{:value=> "pps"} The Perpetual Preservation Sysytem
-      %option{:value=> "pmdd"} Poor Man's Dosing Drops
+      %option{:value=> "ei", :selected=> "selected"} The Estimative Index
+      %option{:value=> "pps"} Perpetual Preservation System
+      %option{:value=> "wet"} wet's high light tank
   #dump{:style => 'display:none'}
     %label I am adding
     %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}
@@ -46,7 +49,7 @@
     g
     %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
     tsp 
-  #target{:style => 'display:block'}
+  #target{:style => 'display:none'}
     %label My target is
     %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4} 
     ppm
