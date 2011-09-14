@@ -242,8 +242,8 @@ class YANC < Sinatra::Base
 		markdown :cu
 	end
 
-	get '/yanc.css' do
-		File.read(File.join('public', 'yanc.css'))
+	get '/formy_yanc.css' do
+		File.read(File.join('public', 'formy_yanc.css'))
 	end
 
 	not_found do
