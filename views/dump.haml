@@ -54,7 +54,13 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 </div>
 </div>
 </div>
-<div style="position: relative; float:top; width: 330px; height: 50px; center">
-%b <center>Want to model long term effects of #{@element} dosing? Click 
+<div style="position: relative; float:top; width: 330px; height: 100px; align:center">
+%form{:action => "/", :method => "get", :id=>"yanc"}
+  %input{:type=> "submit", :value=>"Start over", :id=>"results"}
+%br
+%br
+<center>Want to model long term effects of #{@element} dosing? Click 
 %a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!</center>
 </div>
+%p
+%p
