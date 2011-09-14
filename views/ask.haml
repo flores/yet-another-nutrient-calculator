@@ -28,29 +28,17 @@
     %label with doses of   
     %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5}
     mL
-    %br
-    if you are calculating for dose below,
-    %br
-    add that amount to this container
   %p 
   %label and I'm calculating for
-  %br
-  %input{:type => "radio", :name=> "calc_for", :value=> "target", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
-  what dose to reach a target
-  %br
-  %input{:type => "radio", :name=> "calc_for", :value=> "dump", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
-  the result of my dose
-  %br
-  %input{:type => "radio", :name=> "calc_for", :value=> "ei", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
-  The Estimative Index
-  %br
-  %input{:type => "radio", :name=> "calc_for", :value=> "pps", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
-  The Perpetual Preservation System
-  %br
-  %input{:type => "radio", :name=> "calc_for", :value=> "pmdd", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
-  Poor Man's Dosing Drops
+  %p
+    %select{:name=> "calc_for", :onchange=>"showDiv(this.value);"}
+      %option{:value=> "target"} what dose to reach a target
+      %option{:value=> "dump"} the result of my dose
+      %option{:value=> "ei"} The Estimative Index
+      %option{:value=> "pps"} The Perpetual Preservation Sysytem
+      %option{:value=> "pmdd"} Poor Man's Dosing Drops
   #dump{:style => 'display:none'}
-    I am adding
+    %label I am adding
     %input{:type => "int", :name=> "dose_amount", :length => 4, :size => 4}
     %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
     mg
@@ -58,13 +46,10 @@
     g
     %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
     tsp 
-    
-  #target{:style => 'display:none'}
-    My target is
-    %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4}
+  #target{:style => 'display:block'}
+    %label My target is
+    %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4} 
     ppm
-
-
   %p
   %input{:type => "submit", :value => "Gimmie!"}
 
