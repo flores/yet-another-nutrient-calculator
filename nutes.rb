@@ -77,7 +77,7 @@ class YANC < Sinatra::Base
 			else
 				if (calc_for == 'ei')
 					@target_amount		= METHODS[@element]["EI"]["method"] 
-					@method_instruct	= "Classic EI depends on good CO2, good circulation, and lots of water changes.<br />Light past moderation is not so important.<br />"
+					@method_instruct	= "Classic EI depends on good CO2, good circulation, and regular water changes.<br />Light past moderation is not so important.<br />"
 				elsif (calc_for == "pps")
 					@target_amount		= METHODS[@element]["PPS"]["method"] 
 					@method_instruct	= "We've calculated for PPS-Pro's daily dose.<br />The recommended range below is for a stabilized mature tank.<br />"
@@ -88,7 +88,7 @@ class YANC < Sinatra::Base
 					end
 				elsif (calc_for == "wet")
 					@target_amount  	= METHODS[@element]["Wet"]["method"]
-					@method_instruct 	= "This is basically EI.  Under high light, trim often and keep the CO2 high and steady.<br />Trim and water change often.<br />"
+					@method_instruct 	= "This is basically EI.  Under high light, be prepared to trim often,<br />change water often, and keep the CO2 high and steady."
 				end
 				@dose_amount		= 0
 			end	
@@ -254,6 +254,10 @@ class YANC < Sinatra::Base
 	
 	get '/cu' do
 		markdown :cu
+	end
+
+	get '/readme' do
+		markdown :README
 	end
 
 	get '/formy_yanc.css' do
