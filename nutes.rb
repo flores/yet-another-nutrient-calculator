@@ -130,7 +130,7 @@ class YANC < Sinatra::Base
 			elsif (calc_for =~ /target|ei|pps|pmdd|wet/)
 				pie=Float(cons["#{@element}"])
 				@mydose = @target_amount * @tank_vol / pie
-				@mydose = sprintf("%.2f", @mydose)
+				#@mydose = sprintf("%.2f", @mydose)
 				@mydose = Float(@mydose)
 				if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps|pmdd|wet/)
 					@dose_amount = @mydose * @sol_vol / @sol_dose
