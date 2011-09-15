@@ -6,7 +6,7 @@
 ---
 NO3: 
   EI:
-    method:  7.5
+    method:  6
     low:     5
     high:    30
     margin:  25
