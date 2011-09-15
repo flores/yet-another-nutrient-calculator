@@ -23,13 +23,13 @@
   %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
   dry dosing
   %br
-  #sol{:style => 'display:none', :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
+  #sol{:style => 'display:none'}
     %label while using a
-    %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500}
+    %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
     mL container
     %br
     %label with doses of
-    %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5}
+    %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
     mL
   %p 
   %label and I'm calculating for
