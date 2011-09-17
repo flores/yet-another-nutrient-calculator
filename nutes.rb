@@ -144,7 +144,11 @@ class YANC < Sinatra::Base
 					pie="#{value}"
 					pie=pie.to_f
 					@results["#{con}"] = dose_calc * pie / @tank_vol
-					@results["#{con}"] = sprintf("%.2f", @results["#{con}"])
+                                        if ( @results["#{conc}"] > 0.00 )
+                                                @results["#{conc}"] = (@results["#{con}"].to_f * 10**2).round.to_f / 10**2
+                                        else
+                                                @results["#{conc}"] = (@results["#{con}"].to_f * 10**4).round.to_f / 10**4
+                                        end
 				end
 				@target_amount = @results["#{@element}"]
 				@mydose=@dose_amount
@@ -164,10 +168,15 @@ class YANC < Sinatra::Base
 					pie="#{values}"
 					pie=pie.to_f
 					@results["#{conc}"] = @mydose * pie / @tank_vol
-					@results["#{conc}"] = sprintf("%.2f", @results["#{conc}"])
+					if ( @results["#{conc}"] > 0.00 )
+						@results["#{conc}"] = (@results["#{con}"].to_f * 10**2).round.to_f / 10**2 
+					else
+						@results["#{conc}"] = (@results["#{con}"].to_f * 10**4).round.to_f / 10**4
+					end
 				end
 				if (@dose_amount.to_i > 1000)
-					@dose_amount = sprintf("%.3f", @dose_amount / 1000)
+					@dose_amount = @dose_amount / 1000
+					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
 					@dose_units = 'grams'
 				else
 					@dose_amount = @dose_amount.to_i
