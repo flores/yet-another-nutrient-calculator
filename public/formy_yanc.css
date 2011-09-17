@@ -66,7 +66,7 @@ input[type="text"]
 input[id="ask"]
 	{  margin-left: 5em; background-color: #fff; color: #000; width:20em; }
 input[id="results"]
-	{  margin-left: 2em; background-color: #fff; color: #000; width:20em; }
+	{  margin-left: 0; background-color: #fff; color: #000; width:330px; }
 
 input[type="checkbox"]
 	{ color: #000; }
