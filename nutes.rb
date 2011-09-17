@@ -65,10 +65,17 @@ class YANC < Sinatra::Base
 			if (calc_for == 'dump')
 				@dose_amount	= params["dose_amount"].sub(/,/, '.')
 		# is dose amount a fraction?
-				if (@dose_amount =~ /^(\d+)\/(\d+)$/)
-					num = $1.to_f
+				if (@dose_amount =~ /^(\d+\s?\d*)\/(\d+)$/)
+					num = $1
 					den = $2.to_f
-					@dose_amount = num / den
+					if ( num =~ /^(\d+)\s(.+)/ )
+						wholenumber = $1.to_i;
+						num = $2.to_f;
+						@dose_amount = wholenumber + ( num / den )
+					else
+						num.to_i
+						@dose_amount = num/den
+					end
 				end
 				@dose_amount = @dose_amount.to_f
 			elsif (calc_for == 'target')
