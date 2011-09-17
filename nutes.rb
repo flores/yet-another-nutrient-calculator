@@ -37,6 +37,20 @@ class YANC < Sinatra::Base
 			@dose_units		= params["dose_units"]
 			calc_for		= params["calc_for"]
 		
+		# maybe tank volume is a fraction	
+			if (@tank_vol =~ /^(\d+\s*\d?)\/(\d+)$/)
+				num = $1
+				den = $2.to_f
+				if ( num =~ /^(\d+)\s+(\d+)$/ )
+					wholenumber = $1.to_i;
+					num = $2.to_f;
+			i		@tank_vol = wholenumber + ( num / den )
+				else
+					num.to_i
+					@tank_vol = num/den
+				end
+			end
+		
 		# i just need this later
 			@tank_vol_orig		= @tank_vol
 			@method_instruct	= ""	
@@ -65,16 +79,17 @@ class YANC < Sinatra::Base
 			if (calc_for == 'dump')
 				@dose_amount	= params["dose_amount"].sub(/,/, '.')
 		# is dose amount a fraction?
-				if (@dose_amount =~ /^(\d+\s?\d*)\/(\d+)$/)
+				if (@dose_amount =~ /^(\d+\s*\d?)\/(\d+)$/)
+					puts "i got here";
 					num = $1
 					den = $2.to_f
-					if ( num =~ /^(\d+)\s(.+)/ )
+					if ( num =~ /^(\d+)\s+(\d?)/ )
+						puts "then here"
 						wholenumber = $1.to_i;
 						num = $2.to_f;
 						@dose_amount = wholenumber + ( num / den )
 					else
-						num.to_i
-						@dose_amount = num/den
+						@dose_amount = num.to_f/den
 					end
 				end
 				@dose_amount = @dose_amount.to_f
