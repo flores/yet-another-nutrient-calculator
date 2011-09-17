@@ -94,6 +94,26 @@ MgSO4.7H2O:
   tsp:    5100
   sol:    710
   target: Mg
+Mg(NO3)2.6H2O:
+  Mg:     0.0947932
+  NO3:    0.483650546
+  N:      0.109258
+  tsp:    7320
+  sol:    1250
+  target: NO3
+AF's MacroMicro Mix:
+  K:      0.233
+  N:      0.0343
+  NO3:    0.152
+  S:      0.0877
+  Mg:     0.0268
+  Fe:     0.0134
+  Mn:     0.00383
+  Mo:     0.000102
+  Cu:     0.000184
+  Zn:     0.000758
+  tsp:    5250
+  target: NO3
 PlantedTanksUK Trace:
   Fe:     0.084
   Mn:     0.0182
