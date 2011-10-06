@@ -3,8 +3,51 @@
   # elements = concentration in solution
 ---
 RootMedic Macro:
-  N:      0.02
-  NO3 equiv: 0.088
-  P2O5:   0.004
-  K2O:    0.11
-  target: N
+  N:      2
+  NO3:    8.8
+  P:      0.17
+  P2O5:   0.4
+  PO4:    0.52
+  K2O:    11
+  K:      9.1
+  urea:   yes
+  target: NO3
+RootMedic Micro:
+  Fe:     1.16
+  Mn:     0.06
+  Cu:     0.001
+  Zn:     0.004
+  B:      0.014
+  Mo:     0.0006
+  Mg:     0.017
+  Ca:     0.14
+  Cl:     1.1
+  target: Fe
+Pfertz K:
+  K2O:    5.1
+  K:      4.2
+  target: K
+Pfertz N:
+  N:      1.75
+  K2O:    5
+  K:      4.15
+  urea:   yes
+  target: NO3
+Pfertz P:
+  P2O5:   0.3
+  P:      0.13
+  PO4:    0.39
+  K2O:    0.25
+  K:      0.21
+  target: PO4
+Pfertz Micros:
+  B:      0.0051
+  Co:     0.002
+  Cu:     0.00005
+  Fe:     0.054
+  Mn:     0.0068
+  Mo:     0.0008
+  Ni:     0.00005
+  S:      0.0043
+  Zn:     0.00044
+  target: Fe

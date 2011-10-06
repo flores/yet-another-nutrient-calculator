@@ -4,14 +4,10 @@ require 'haml'
 require 'rdiscount'
 require 'thin'
 
-# these libs
-require 'conversions'
-load Conversions
+require 'lib/conversions'
+include Conversions
 
 class YANC < Sinatra::Base
-	get '/', :agent => /iphone|webos|mobile/i do
-		redirect '/mobile'
-	end
 
 	["/","/non-mobile"].each do |path|
 		get path do
@@ -22,28 +18,45 @@ class YANC < Sinatra::Base
 
 		# dosing standards
 			METHODS = YAML.load_file 'constants/dosingmethods.yml'
-			cons 			= Hash.new
 			@results		= Hash.new
 		
 		# the Stuff while trying to limit what's global
 			tank_vol_calc		= Float(params["tank_vol"].sub(/,/, '.')) || 0
 			@tank_units		= params["tank_units"]
-			@comp 			= params["compound"]
-			@dose_method		= params["method"]
-				
-			@dose_units		= params["dose_units"
-			calc_for		= params["calc_for"]
 			
-			@method_instruct	= ""	
+				
+
+			source			= params["source"]
+			
+			@method_instruct	= ""
+			urea			= ""
 		
-		# i just need this later
 			@tank_vol_orig		= tank_vol_calc
+			tank_vol 		= to_Liters(tank_vol_calc,@tank_units)
+	
+			cons 			= Hash.new
+	
+			if ( source =~ /diy/ )
+				concentrations 	= COMPOUNDS
+				@comp		= params["compound"]
+				@dose_method	= params["method"]
+				@dose_units    	= params["dose_units"]
+				@dose_amount	= params["dose_amount"]
+				@target_amount	= params["target_amount"].sub(/,/, '.').to_f
+				calc_for	= params["calc_for"]
+			else
+				concentrations 	= COMMERCIAL
+				@comp		= params["premix"]
+				@dose_method	= params["premix_method"]
+				@dose_units    	= params["premix_dose_units"]
+				@dose_amount	= params["premix_dose_amount"]
+				@target_amount	= params["premix_target_amount"].sub(/,/, '.').to_f
+				calc_for	= params["premix_calc_for"]
+			end
 		
-			@tank_vol = to_Liters(tank_vol_calc,@tank_units)
-		
-		
-		# we'll populate everything from the constants hash we created earlier
-			pop=COMPOUNDS[@comp]
+		# we'll populate everything from the constants hash [ cons ]
+			
+			pop=concentrations[@comp]
 			pop.each do |junk,value|
 				if (junk =~ /tsp/)
 					tsp_con = Float("#{value}")
@@ -51,15 +64,21 @@ class YANC < Sinatra::Base
 					@solubility = value
 				elsif (junk =~ /target/)
 					@element = value
+				elsif (junk =~ /urea/)
+					urea = 'yes'
 				else
-					cons["#{junk}"]=Float("#{value}")
+					if (source =~ /diy/)
+						cons["#{junk}"]=Float("#{value}")
+					else
+						cons["#{junk}"]=Float("#{value}")
+					end
 				end
 			end
 		
 			
 		# calculations on the onClick optional menu
-			if (calc_for == 'dump')
-				@dose_amount	= params["dose_amount"].sub(/,/, '.')
+			if (calc_for =~ /dump/)
+				@dose_amount	= @dose_amount.sub(/,/, '.')
 		# is dose amount a fraction?
 				if (@dose_amount =~ /^(\d+\s*\d?)\/(\d+)$/)
 					num = $1
@@ -73,9 +92,9 @@ class YANC < Sinatra::Base
 					end
 				end
 				@dose_amount = @dose_amount.to_f
-			elsif (calc_for == 'target')
-				@target_amount 	= Float(params["target_amount"].sub(/,/, '.'))
-				@dose_amount	 	= 0
+			elsif (calc_for =~ /target/)
+				@target_amount 	= @target_amount
+				@dose_amount	= 0
 			else
                   # some warnings dependent on method
 				if (calc_for == 'ei')
@@ -95,8 +114,8 @@ class YANC < Sinatra::Base
 				end
 				@dose_amount		= 0
 			end	
-		
-			if (@dose_method =~ /sol/ )
+
+			if (@dose_method =~ /sol/ && source =~ /diy/)
 				@sol_vol		= Float(params["sol_volume"].sub(/,/, '.'))
 				@sol_dose		= Float(params["sol_dose"].sub(/,/, '.')) 
 				dose_calc 		= @dose_amount * @sol_dose / @sol_vol
@@ -107,7 +126,7 @@ class YANC < Sinatra::Base
 			end
 
 			if (@dose_units =~ /tsp/)
-				sol_check = @dose_amount * COMPOUNDS[@comp]['tsp']
+				sol_check = @dose_amount * concentrations[@comp]['tsp']
 			elsif (@dose_units =~ /^g$/)
 				sol_check = @dose_amount * 1000
 			else
@@ -115,27 +134,24 @@ class YANC < Sinatra::Base
 			end
 
 			dose_calc = to_mg(dose_calc,@dose_units)
-		
-		
-		#two forms
-		
+
 			if (calc_for =~ /dump/)
 				cons.each do |conc,value|
 					pie="#{value}"
 					pie=pie.to_f
-					@results["#{conc}"] = dose_calc * pie / @tank_vol
-                                        if ( @results["#{conc}"] > 0.005 )
-                                                @results["#{conc}"] = sprintf( '%.2f', @results["#{conc}"] )
-                                        else
-                                                @results["#{conc}"] = sprintf( '%.4f', @results["#{conc}"] )
-                                        end
+					@results["#{conc}"] = dose_calc * pie / tank_vol
+       	                                 if ( @results["#{conc}"] > 0.005 )
+       	                                         @results["#{conc}"] = sprintf( '%.2f', @results["#{conc}"] )
+               	                        else
+                       	                        @results["#{conc}"] = sprintf( '%.4f', @results["#{conc}"] )
+                               	        end
 				end
 				@target_amount = @results["#{@element}"]
 				@mydose=@dose_amount
 			
-			elsif (calc_for =~ /target|ei|pps|pmdd|wet/)
+			else (calc_for =~ /target|ei|pps|pmdd|wet/)
 				pie=Float(cons["#{@element}"])
-				@mydose = @target_amount * @tank_vol / pie
+				@mydose = @target_amount * tank_vol / pie
 				#@mydose = sprintf("%.2f", @mydose)
 				@mydose = Float(@mydose)
 				if (@dose_method=~ /sol/)
@@ -147,29 +163,42 @@ class YANC < Sinatra::Base
 				cons.each do |conc,values|
 					pie="#{values}"
 					pie=pie.to_f
-					@results["#{conc}"] = @mydose * pie / @tank_vol
+					@results["#{conc}"] = @mydose * pie / tank_vol
                                         if ( @results["#{conc}"] > 0.005 )
                                                 @results["#{conc}"] = sprintf( '%.2f', @results["#{conc}"] )
                                         else
                                                 @results["#{conc}"] = sprintf( '%.4f', @results["#{conc}"] )
                                         end
 				end
+
+				
 				if (@dose_amount.to_i > 1000)
-					@dose_amount = @dose_amount / 1000
+					if (source =~ /diy/)
+						@dose_amount = @dose_amount / 1000
+						@dose_units = 'grams'
+					else
+						@dose_amount = @dose_amount / 100
+						@dose_units = 'Liters'
+					end
 					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
-					@dose_units = 'grams'
 				else
 					@dose_amount = @dose_amount.to_i
-					@dose_units = 'mg'
+					if (source =~ /diy/)
+						@dose_units = 'mg'
+					else
+						@dose_amount = @dose_amount / 10
+						@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
+						@dose_units  = 'mL'
+					end
 				end
 			end
 		
 		#check solubility
-			if (COMPOUNDS[@comp]['sol'] && (@sol_vol > 1))
-				sol_ref = COMPOUNDS[@comp]['sol'] * 0.8
+			if (concentrations[@comp]['sol'] && (@sol_vol > 1))
+				sol_ref = concentrations[@comp]['sol'] * 0.8
 				sol_check = sol_check / @sol_vol
 				if ( sol_ref <	sol_check )
-					@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{COMPOUNDS[@comp]['sol']} mg/mL.<br>You should adjust your dose.</font><br>"
+					@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{concentrations[@comp]['sol']} mg/mL.<br>You should adjust your dose.</font><br>"
 				end
 			end
 		
@@ -182,7 +211,7 @@ class YANC < Sinatra::Base
 			end
 			
 		#copper toxicity
-			if (COMPOUNDS[@comp]['Cu'])
+			if (concentrations[@comp]['Cu'])
 				if(@results['Cu'].to_f > 0.072)
 					toxic = ( @results['Cu'].to_f - 0.072 ) / 0.072 
 					less_dose = @dose_amount - ( @dose_amount * 0.072 / @results['Cu'].to_f )
@@ -194,6 +223,10 @@ class YANC < Sinatra::Base
 					percent_toxic = (toxic * 100).to_i
 					@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here</a>.<br />"
 				end
+			end
+
+			if (urea == "yes")
+				@toxic = "this product has some unknown percentage of N as Urea and as NO3.  The calculation and chart below works off NO3 equivalents."
 			end
 		
 		# EDDHA tints the water red	
@@ -276,4 +309,3 @@ class YANC < Sinatra::Base
 end	
 
 __END__
-	 

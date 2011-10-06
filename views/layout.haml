@@ -8,7 +8,9 @@
     %script{'type'=>"text/javascript"}
       function showDiv(method) {
       document.getElementById('dump').style.display = "none";
+      document.getElementById('premix_dump').style.display = "none";
       document.getElementById('target').style.display = "none";
+      document.getElementById('premix_target').style.display = "none";
       if (method && document.getElementById(method)) {
       document.getElementById(method).style.display = "block";
       }

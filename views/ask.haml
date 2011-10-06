@@ -9,13 +9,13 @@
   L
   %p
   %label using
-  %input{:type => "radio", :name => "source", :value=> "diy", :onClick => "document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';", :checked => "" }
+  %input{:type => "radio", :name => "source", :value=> "diy", :onClick => "document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';"}
   diy
   %input{:type => "radio", :name => "source", :value=> "premixed", :onClick => "document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';"}
   premixed
   fertilizers
   %p
-  #diy{:style => 'display:block'}
+  #diy{:style => 'display:none'}
     %label I'm dosing with
     <select name="compound">
     - COMPOUNDS.keys.sort.each do |c|
@@ -79,12 +79,16 @@
     #premix_dump{:style => 'display:none'}
       %label I am adding
       %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => "examples: 1/2, 0.5, 1"}
+      %input{:type => "radio", :name=> "premix_dose_units", :value=> "mL"}
       mL
+      %input{:type => "radio", :name=> "premix_dose_units", :value=> "caps"}
+      capfulls
+      %input{:type => "radio", :name=> "premix_dose_units", :value=> "pumps"}
+      pumps
     #premix_target{:style => 'display:none'}
       %label My target is
       %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4} 
       ppm
-  #premix{:style => 'display:none'}
   %p
   %input{:type => "submit", :value => "Gimmie!", :id => "ask"}
   %p

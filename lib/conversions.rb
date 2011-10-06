@@ -18,7 +18,7 @@ module Conversions
 
 		if (units =~ /gal/)
 			vol = (vol * 3.78541178)
-		elsif (units =~ /^(milli|m)L?/
+		elsif (units =~ /^(milli|m)L?/)
 			vol = vol / 1000
 		end
 
@@ -26,11 +26,19 @@ module Conversions
 	end
 
 	def to_mg(mass,units)
+		mass = mass.to_f
 		if (units =~ /teaspoon|tsp/)
 			mass *= COMPOUNDS[@comp]['tsp']
 		elsif (units =~ /^g(rams)?$/)
 			mass *= 1000
+		elsif (units =~ /^(milli|m)L?/)
+			mass *= 10
+		elsif (units =~ /pump/)
+			mass *= 12
+		elsif (units =~ /cap/)
+			mass *= 50 
 		end
+		return mass
 	end
 end
 
