@@ -7,52 +7,84 @@
   gal
   %input{:type => "radio", :name => "tank_units", :value=> "L"}
   L
-  %p 
-  %label I'm dosing with
-  <select name="compound">
-  - COMPOUNDS.keys.sort.each do |c|
-    - if ( c =~ /KNO3/ )
-      %option{:value=>"#{c}", :selected=>'selected'} #{c}
-    -else
-      %option{:value=>"#{c}"} #{c}
-  </select>
-  %p 
-  %label using
-  %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
-  a solution
-  %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
-  dry dosing
-  %br
-  #sol{:style => 'display:none'}
-    %label while using a
-    %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
-    mL container
-    %br
-    %label with doses of
-    %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
-    mL
-  %p 
-  %label and I'm calculating for
   %p
-    %select{:name=> "calc_for", :onchange=>"showDiv(this.value);"}
-      %option{:value=> "target"} what dose to reach a target
-      %option{:value=> "dump"} the result of my dose
-      %option{:value=> "ei", :selected=> "selected"} The Estimative Index
-      %option{:value=> "pps"} Perpetual Preservation System
-      %option{:value=> "wet"} wet's high light tank
-  #dump{:style => 'display:none'}
-    %label I am adding
-    %input{:type => "int", :name=> "dose_amount", :length => 6, :size => 6, :title => "examples: 1/8, 1.25, or 2,50"}
-    %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
-    mg
-    %input{:type => "radio", :name=> "dose_units", :value=> "g"}
-    g
-    %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
-    tsp 
-  #target{:style => 'display:none'}
-    %label My target is
-    %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4} 
-    ppm
+  %label using
+  %input{:type => "radio", :name => "source", :value=> "diy", :onClick => "document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';", :checked => "" }
+  diy
+  %input{:type => "radio", :name => "source", :value=> "premixed", :onClick => "document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';"}
+  premixed
+  fertilizers
+  %p
+  #diy{:style => 'display:block'}
+    %label I'm dosing with
+    <select name="compound">
+    - COMPOUNDS.keys.sort.each do |c|
+      - if ( c =~ /KNO3/ )
+        %option{:value=>"#{c}", :selected=>'selected'} #{c}
+      -else
+        %option{:value=>"#{c}"} #{c}
+    </select>
+    %p 
+    %label using
+    %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
+    a solution
+    %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
+    dry dosing
+    %br
+    #sol{:style => 'display:none'}
+      %label while using a
+      %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
+      mL container
+      %br
+      %label with doses of
+      %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
+      mL
+    %p 
+    %label and I'm calculating for
+    %p
+      %select{:name=> "calc_for", :onchange=>"showDiv(this.value);"}
+        %option{:value=> "target"} what dose to reach a target
+        %option{:value=> "dump"} the result of my dose
+        %option{:value=> "ei", :selected=> "selected"} The Estimative Index
+        %option{:value=> "pps"} Perpetual Preservation System
+        %option{:value=> "wet"} wet's high light tank
+    #dump{:style => 'display:none'}
+      %label I am adding
+      %input{:type => "int", :name=> "dose_amount", :length => 6, :size => 6, :title => "examples: 1/8, 1.25, or 2,50"}
+      %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
+      mg
+      %input{:type => "radio", :name=> "dose_units", :value=> "g"}
+      g
+      %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
+      tsp 
+    #target{:style => 'display:none'}
+      %label My target is
+      %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4} 
+      ppm
+  #premix{:style => 'display:none'}
+    %label I'm dosing with
+    <select name="premix">
+    - COMMERCIAL.keys.sort.each do |c|
+      %option{:value=>"#{c}"} #{c}
+    </select>
+    %p
+    %label and I'm calculating for
+    %p
+      %select{:name=> "premix_calc_for", :onchange=>"showDiv(this.value);"}
+        %option{:value=> "premix_target"} what dose to reach a target
+        %option{:value=> "premix_dump"} the result of my dose
+        %option{:value=> "ei", :selected=> "selected"} The Estimative Index
+        %option{:value=> "pps"} Perpetual Preservation System
+        %option{:value=> "wet"} wet's high light tank
+    #premix_dump{:style => 'display:none'}
+      %label I am adding
+      %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => "examples: 1/2, 0.5, 1"}
+      mL
+    #premix_target{:style => 'display:none'}
+      %label My target is
+      %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4} 
+      ppm
+  #premix{:style => 'display:none'}
   %p
   %input{:type => "submit", :value => "Gimmie!", :id => "ask"}
   %p

@@ -1,0 +1,10 @@
+# used for constants for calc.petalphile.com
+# commercial product name
+  # elements = concentration in solution
+---
+RootMedic Macro:
+  N:      0.02
+  NO3 equiv: 0.088
+  P2O5:   0.004
+  K2O:    0.11
+  target: N
