@@ -3,24 +3,21 @@ require 'sinatra'
 require 'haml'
 require 'rdiscount'
 require 'thin'
-	
-class YANC < Sinatra::Base	
 
+# these libs
+require 'conversions'
+load Conversions
 
+class YANC < Sinatra::Base
 	get '/', :agent => /iphone|webos|mobile/i do
 		redirect '/mobile'
 	end
-		 
-	get '/' do
-		haml :ask
-	end
-	
-	get '/mobile' do
-		@mobile = 'true'
-		haml :ask_mobile, :layout => :layout_mobile
-	end
-	 
-	["/","/mobile"].each do |path|
+
+	["/","/non-mobile"].each do |path|
+		get path do
+			haml :ask
+		end
+			
 		post path do
 
 		# dosing standards
@@ -29,36 +26,21 @@ class YANC < Sinatra::Base
 			@results		= Hash.new
 		
 		# the Stuff while trying to limit what's global
-			@tank_vol		= Float(params["tank_vol"].sub(/,/, '.')) || 0
+			tank_vol_calc		= Float(params["tank_vol"].sub(/,/, '.')) || 0
 			@tank_units		= params["tank_units"]
 			@comp 			= params["compound"]
 			@dose_method		= params["method"]
 				
-			@dose_units		= params["dose_units"]
+			@dose_units		= params["dose_units"
 			calc_for		= params["calc_for"]
-		
-		# maybe tank volume is a fraction	
-			if (@tank_vol =~ /^(\d+\s*\d?)\/(\d+)$/)
-				num = $1
-				den = $2.to_f
-				if ( num =~ /^(\d+)\s+(\d+)$/ )
-					wholenumber = $1.to_i;
-					num = $2.to_f;
-			i		@tank_vol = wholenumber + ( num / den )
-				else
-					num.to_i
-					@tank_vol = num/den
-				end
-			end
-		
-		# i just need this later
-			@tank_vol_orig		= @tank_vol
+			
 			@method_instruct	= ""	
 		
-			if (@tank_units =~ /gal/)
-				@tank_vol = @tank_vol * 3.78541178
-				@tank_vol = Float(@tank_vol)
-			end
+		# i just need this later
+			@tank_vol_orig		= tank_vol_calc
+		
+			@tank_vol = to_Liters(tank_vol_calc,@tank_units)
+		
 		
 		# we'll populate everything from the constants hash we created earlier
 			pop=COMPOUNDS[@comp]
@@ -74,17 +56,15 @@ class YANC < Sinatra::Base
 				end
 			end
 		
-		
+			
 		# calculations on the onClick optional menu
 			if (calc_for == 'dump')
 				@dose_amount	= params["dose_amount"].sub(/,/, '.')
 		# is dose amount a fraction?
 				if (@dose_amount =~ /^(\d+\s*\d?)\/(\d+)$/)
-					puts "i got here";
 					num = $1
 					den = $2.to_f
 					if ( num =~ /^(\d+)\s+(\d?)/ )
-						puts "then here"
 						wholenumber = $1.to_i;
 						num = $2.to_f;
 						@dose_amount = wholenumber + ( num / den )
@@ -97,6 +77,7 @@ class YANC < Sinatra::Base
 				@target_amount 	= Float(params["target_amount"].sub(/,/, '.'))
 				@dose_amount	 	= 0
 			else
+                  # some warnings dependent on method
 				if (calc_for == 'ei')
 					@target_amount		= METHODS[@element]["EI"]["method"] 
 					@method_instruct	= "Classic EI depends on good CO2, good circulation, and regular water changes.<br />Light past moderation is not so important.<br />"
@@ -115,7 +96,7 @@ class YANC < Sinatra::Base
 				@dose_amount		= 0
 			end	
 		
-			if (@dose_method =~ /sol/)
+			if (@dose_method =~ /sol/ )
 				@sol_vol		= Float(params["sol_volume"].sub(/,/, '.'))
 				@sol_dose		= Float(params["sol_dose"].sub(/,/, '.')) 
 				dose_calc 		= @dose_amount * @sol_dose / @sol_vol
@@ -124,30 +105,29 @@ class YANC < Sinatra::Base
 				@sol_dose		= 0
 				dose_calc 		= @dose_amount
 			end
-		
-		#convert from tsp to mg
+
 			if (@dose_units =~ /tsp/)
-				dose_calc *= COMPOUNDS[@comp]['tsp']
 				sol_check = @dose_amount * COMPOUNDS[@comp]['tsp']
 			elsif (@dose_units =~ /^g$/)
-				dose_calc *= 1000
 				sol_check = @dose_amount * 1000
 			else
 				sol_check = 0
 			end
+
+			dose_calc = to_mg(dose_calc,@dose_units)
 		
 		
 		#two forms
 		
 			if (calc_for =~ /dump/)
-				cons.each do |con,value|
+				cons.each do |conc,value|
 					pie="#{value}"
 					pie=pie.to_f
-					@results["#{con}"] = dose_calc * pie / @tank_vol
-                                        if ( @results["#{conc}"] > 0.00 )
-                                                @results["#{conc}"] = (@results["#{con}"].to_f * 10**2).round.to_f / 10**2
+					@results["#{conc}"] = dose_calc * pie / @tank_vol
+                                        if ( @results["#{conc}"] > 0.005 )
+                                                @results["#{conc}"] = sprintf( '%.2f', @results["#{conc}"] )
                                         else
-                                                @results["#{conc}"] = (@results["#{con}"].to_f * 10**4).round.to_f / 10**4
+                                                @results["#{conc}"] = sprintf( '%.4f', @results["#{conc}"] )
                                         end
 				end
 				@target_amount = @results["#{@element}"]
@@ -158,21 +138,21 @@ class YANC < Sinatra::Base
 				@mydose = @target_amount * @tank_vol / pie
 				#@mydose = sprintf("%.2f", @mydose)
 				@mydose = Float(@mydose)
-				if (@dose_method=~ /sol/ && calc_for =~ /target|ei|pps|pmdd|wet/)
-					@dose_amount = @mydose * @sol_vol / @sol_dose
-					sol_check		= @dose_amount
+				if (@dose_method=~ /sol/)
+					@dose_amount 	= @mydose * @sol_vol / @sol_dose
+					sol_check	= @dose_amount
 				else
-					@dose_amount = @mydose
+					@dose_amount 	= @mydose
 				end
 				cons.each do |conc,values|
 					pie="#{values}"
 					pie=pie.to_f
 					@results["#{conc}"] = @mydose * pie / @tank_vol
-					if ( @results["#{conc}"] > 0.00 )
-						@results["#{conc}"] = (@results["#{con}"].to_f * 10**2).round.to_f / 10**2 
-					else
-						@results["#{conc}"] = (@results["#{con}"].to_f * 10**4).round.to_f / 10**4
-					end
+                                        if ( @results["#{conc}"] > 0.005 )
+                                                @results["#{conc}"] = sprintf( '%.2f', @results["#{conc}"] )
+                                        else
+                                                @results["#{conc}"] = sprintf( '%.4f', @results["#{conc}"] )
+                                        end
 				end
 				if (@dose_amount.to_i > 1000)
 					@dose_amount = @dose_amount / 1000
@@ -265,21 +245,11 @@ class YANC < Sinatra::Base
 			@results_pixel=@results["#{@element}"].to_f * @pixel_per_ppm
 			@results_pixel=@results_pixel.to_int
 			
-		# and we finally display all of it.	mobile and non-mobile have separate uis
-			if ( @mobile )
-				set :haml, :layout => :layout_mobile
-				if (calc_for =~ /dump/)
-					haml :dump_mobile, :layout => :layout_mobile
-				else
-					haml :target_mobile, :layout => :layout_mobile
-				end
+			if (calc_for =~ /dump/)
+				haml :dump
 			else
-				if (calc_for =~ /dump/)
-					haml :dump
-				else
-					haml :target
-				end
-			end	
+				haml :target
+			end
 		end
 	end
 	
