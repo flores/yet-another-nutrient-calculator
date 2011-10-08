@@ -89,12 +89,12 @@
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %label{:for => "premix_dose_amount"} I am adding
           %input{:type => "int", :name=> "premix_dose_amount", :length => 4, :size => 4}
-          %input{:type => "radio", :name=> "premix_dose_units", :value=> "mg",:id=> "pmg"}
-          %label{:for => "pmg"}mg
-          %input{:type => "radio", :name=> "premix_dose_units", :value=> "g", :id=> "pg"}
-          %label{:for => "pg"}g
-          %input{:type => "radio", :name=> "premix_dose_units", :value=> "tsp", :id=> "ptsp"}
-          %label{:for => "ptsp"}tsp 
+          %input{:type => "radio", :name=> "premix_dose_units", :value=> "mL",:id=> "pmL"}
+          %label{:for => "pmL"}mL
+          %input{:type => "radio", :name=> "premix_dose_units", :value=> "caps", :id=> "pcaps"}
+          %label{:for => "pcaps"}capfulls
+          %input{:type => "radio", :name=> "premix_dose_units", :value=> "pumps", :id=> "pumps"}
+          %label{:for => "pumps"}pumps 
       #premix_target{"data-role" => :fieldcontain, :style => 'display:none'}
         My target is
         %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4}
