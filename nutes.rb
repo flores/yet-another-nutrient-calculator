@@ -121,6 +121,10 @@ class YANC < Sinatra::Base
 				end
 				@dose_amount		= 0
 			end	
+                
+			if (@comp =~ /ADA/)
+				@method_instruct		= "ADA analysis courtesy of Plantbrain/Tom Barr<br />available at <a href='http://barrreport.com'>The Barr Report</a> <br /> <br /> #{@method_instuct}"
+			end
 
 			if (@dose_method =~ /sol/ && source =~ /diy/)
 				@sol_vol		= Float(params["sol_volume"].sub(/,/, '.'))

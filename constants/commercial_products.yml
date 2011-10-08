@@ -2,6 +2,106 @@
 # commercial product name
   # elements = concentration in solution
 ---
+Tropica Plant Nutrition +:
+  N:      1.34
+  NO3:    5.90
+  P:      0.10
+  PO4:    0.3065
+  K:      1.03
+  Mg:     0.39
+  S:      0.91
+  B:      0.004
+  Cu:     0.006
+  Fe:     0.07
+  Mn:     0.002
+  Mo:     0.002
+  Zn:     0.002
+  urea:   yes
+  target: NO3
+Tropica Plant Nutrition:
+  K:      0.79
+  Mg:     0.39
+  S:      1.01
+  Fe:     0.07
+  Mn:     0.04
+  B:      0.004
+  Cu:     0.0006
+  Mo:     0.002
+  Zn:     0.002
+  target: Fe
+Flourish Comprehensive:
+  N:      0.07
+  NO3:    0.308
+  P2O5:   0.01
+  P:      0.0044
+  PO4:    0.013
+  K2O:    0.37
+  K:      0.307
+  Ca:     0.14
+  Mg:     0.11
+  S:      0.2773
+  B:      0.009
+  Cl:     1.15
+  Co:     0.004
+  Cu:     0.0001
+  Fe:     0.32
+  Mn:     0.0118
+  Mo:     0.0009
+  Na:     0.13
+  Zn:     0.0007
+  target: Fe
+Flourish Iron:
+  Fe:     1.0
+  target: Fe
+Flourish Potassium:
+  K2O:    5.8
+  K:      4.8
+  target: K
+Flourish Phosphorus:
+  K2O:    0.2
+  K:      0.166
+  P2O5:   0.2
+  P:      0.0872
+  PO4:    0.267
+  target: PO4
+Flourish Nitrogen:
+  N:      1.5
+  NO3:    6.6
+  K2O:    2
+  K:      1.66
+  urea:   yes
+  target: NO3
+ADA Green Brighty lights:
+  K:      0.24
+  N:      0.166
+  NO3:    0.4340
+  NH4:    0.0865
+  PO4:    0.39
+  P:      0.127
+  target: NO3
+ADA Green Brighty shade:
+  K:      0.31
+  N:      0.108
+  NO3:    0.4385
+  NH4:    0.0108
+  PO4:    0.24
+  P:      0.0784
+  target: NO3
+ADA Green Brighty step 1:
+  K:      0.0084
+  Fe:     0.019
+  target: Fe
+ADA Green Brighty step 2:
+  K:      0.0081
+  Fe:     0.031
+  target: Fe
+ADA Green Brighty step 3:
+  K:      0.0970
+  Fe:     0.034
+  target: Fe
+ADA Bright K:
+  K:      6.8
+  target: K
 RootMedic Macro:
   N:      2
   NO3:    8.8
