@@ -11,6 +11,7 @@ RootMedic Macro:
   K2O:    11
   K:      9.1
   urea:   yes
+  pump:   0.5
   target: NO3
 RootMedic Micro:
   Fe:     1.16
@@ -22,6 +23,7 @@ RootMedic Micro:
   Mg:     0.017
   Ca:     0.14
   Cl:     1.1
+  pump:   0.5
   target: Fe
 Pfertz K:
   K2O:    5.1

@@ -7,41 +7,49 @@
       %label{:for => "gal"} gal
       %input{:type => "radio", :name => "tank_units", :value=> "L", :id=> "L"}
       %label{:for => "L"} L
-  %div{"data-role" => :fieldcontain}
-    %label{:for => "compound"}I'm dosing with
-    <select name="compound" id="compound">
-    - COMPOUNDS.keys.sort.each do |c| 
-      <option value="#{c}">#{c}</option>
-    </select>
-  %div{"data-role" => :fieldcontain}
-    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
-      %label{:for => "method"} dosing
-      %br
-      %input{:type => "radio", :name=> "method", :id => "asolution", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
-      %label{:for => "asolution"}solution
-      %input{:type => "radio", :name=> "method", :id => "adry", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
-      %label{:for => "adry"}dry
-      #sol{"data-role" => :fieldcontain, :style => 'display:none'}
-        while using a
+  %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
+    %label{:for => "source"}my fertilizers are
+    %br
+    %input{:type => "radio", :name => "source", :id => "adiy", :value=> "diy", :onClick => "document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';"}
+    %label{:for => "adiy"} diy
+    %input{:type => "radio", :name => "source", :id => "apremix", :value=> "premix", :onClick => "document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';"}
+    %label{:for => "apremix"} premixed 
+  #diy{:style => 'display:none'}
+    %div{"data-role" => :fieldcontain}
+      %label{:for => "compound"}I'm dosing with
+      <select name="compound" id="compound">
+      - COMPOUNDS.keys.sort.each do |c| 
+        <option value="#{c}">#{c}</option>
+      </select>
+    %div{"data-role" => :fieldcontain}
+      %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+        %label{:for => "method"} dosing
         %br
-        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %input{:type => "text", :name=> "sol_volume", :id=> "sol_volume", :length => 4, :size => 4, :value => 500}mL container
-        %label{:for => "sol_dose"} with doses of   
-        %input{:type => "text", :name=> "sol_dose", :id=> "sol_dose", :length => 4, :size => 4, :value => 5}mL
-  %div{"data-role" => :fieldcontain}
-    %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal", "text-align" => "center"}
-      and I'm calculating for
-      %br
-      %input{:type => "radio", :name=> "calc_for", :value=> "target", :id=>"atarget", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
-      %label{:for => "atarget"}a target
-      %input{:type => "radio", :name=> "calc_for", :value=> "dump", :id=>"adose", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
-      %label{:for => "adose"}my dose
-      %input{:type => "radio", :name=> "calc_for", :value=> "ei", :id=>"aei", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
-      %label{:for => "aei"}EI
-      %input{:type => "radio", :name=> "calc_for", :value=> "pps", :id=>"apps", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
-      %label{:for => "apps"}PPS-Pro
-      %input{:type => "radio", :name=> "calc_for", :value=> "pmdd", :id=>"apmdd", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
-      %label{:for => "apmdd"}PMDD
+        %input{:type => "radio", :name=> "method", :id => "asolution", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
+        %label{:for => "asolution"}solution
+        %input{:type => "radio", :name=> "method", :id => "adry", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
+        %label{:for => "adry"}dry
+        #sol{"data-role" => :fieldcontain, :style => 'display:none'}
+          while using a
+          %br
+          %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %input{:type => "text", :name=> "sol_volume", :id=> "sol_volume", :length => 4, :size => 4, :value => 500}mL container
+          %label{:for => "sol_dose"} with doses of   
+          %input{:type => "text", :name=> "sol_dose", :id=> "sol_dose", :length => 4, :size => 4, :value => 5}mL
+    %div{"data-role" => :fieldcontain}
+      %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal", "text-align" => "center"}
+        and I'm calculating for
+        %br
+        %input{:type => "radio", :name=> "calc_for", :value=> "target", :id=>"atarget", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='block';"}
+        %label{:for => "atarget"}a target
+        %input{:type => "radio", :name=> "calc_for", :value=> "dump", :id=>"adose", :onClick => "document.getElementById('target').style.display='none';document.getElementById('dump').style.display='block';"}
+        %label{:for => "adose"}my dose
+        %input{:type => "radio", :name=> "calc_for", :value=> "ei", :id=>"aei", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
+        %label{:for => "aei"}EI
+        %input{:type => "radio", :name=> "calc_for", :value=> "pps", :id=>"apps", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
+        %label{:for => "apps"}PPS-Pro
+        %input{:type => "radio", :name=> "calc_for", :value=> "pmdd", :id=>"apmdd", :onClick => "document.getElementById('dump').style.display='none';document.getElementById('target').style.display='none';"}
+        %label{:for => "apmdd"}PMDD
       #dump{"data-role" => :fieldcontain, :style => 'display:none'}
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %label{:for => "dose_amount"} I am adding
@@ -55,5 +63,40 @@
       #target{"data-role" => :fieldcontain, :style => 'display:none'}
         My target is
         %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4}
+        ppm
+  #premix{:style => 'display:none'}
+    %div{"data-role" => :fieldcontain}
+      %label{:for => "premix"}I'm dosing with
+      <select name="premix" id="premix">
+      - COMMERCIAL.keys.sort.each do |c| 
+        <option value="#{c}">#{c}</option>
+      </select>
+    %div{"data-role" => :fieldcontain}
+      %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal", "text-align" => "center"}
+        and I'm calculating for
+        %br
+        %input{:type => "radio", :name=> "premix_calc_for", :value=> "target", :id=>"patarget", :onClick => "document.getElementById('premix_dump').style.display='none';document.getElementById('premix_target').style.display='block';"}
+        %label{:for => "patarget"}a target
+        %input{:type => "radio", :name=> "premix_calc_for", :value=> "dump", :id=>"padose", :onClick => "document.getElementById('premix_target').style.display='none';document.getElementById('premix_dump').style.display='block';"}
+        %label{:for => "padose"}my dose
+        %input{:type => "radio", :name=> "premix_calc_for", :value=> "ei", :id=>"paei", :onClick => "document.getElementById('premix_dump').style.display='none';document.getElementById('premix_target').style.display='none';"}
+        %label{:for => "paei"}EI
+        %input{:type => "radio", :name=> "premix_calc_for", :value=> "pps", :id=>"papps", :onClick => "document.getElementById('premix_dump').style.display='none';document.getElementById('premix_target').style.display='none';"}
+        %label{:for => "papps"}PPS-Pro
+        %input{:type => "radio", :name=> "premix_calc_for", :value=> "pmdd", :id=>"papmdd", :onClick => "document.getElementById('premix_dump').style.display='none';document.getElementById('premix_target').style.display='none';"}
+        %label{:for => "papmdd"}PMDD
+      #premix_dump{"data-role" => :fieldcontain, :style => 'display:none'}
+        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %label{:for => "premix_dose_amount"} I am adding
+          %input{:type => "int", :name=> "premix_dose_amount", :length => 4, :size => 4}
+          %input{:type => "radio", :name=> "premix_dose_units", :value=> "mg",:id=> "pmg"}
+          %label{:for => "pmg"}mg
+          %input{:type => "radio", :name=> "premix_dose_units", :value=> "g", :id=> "pg"}
+          %label{:for => "pg"}g
+          %input{:type => "radio", :name=> "premix_dose_units", :value=> "tsp", :id=> "ptsp"}
+          %label{:for => "ptsp"}tsp 
+      #premix_target{"data-role" => :fieldcontain, :style => 'display:none'}
+        My target is
+        %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4}
         ppm
   %input{:type => "submit", :value => "Gimmie!"}

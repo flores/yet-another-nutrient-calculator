@@ -26,10 +26,45 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+    %script{'type'=>"text/javascript"}
+      onload=function () {
+      var source = document.getElementsByName('source');
+      for (i=0; i < source.length; i++) {
+      pie = source[i];
+      if (pie.checked) {
+      showDiv(pie.value);
+      }
+      }
+      
+      var method = document.getElementsByName('method');
+      for (i=0; i < method.length; i++) {
+      pie = method[i];
+      if (pie.checked) {
+      showDiv(pie.value);
+      }
+      }
+      
+      var calc_for = document.getElementById('calc_for1');
+      if (calc_for.selectedIndex) {
+      pie = calc_for.selectedIndex;
+      showDiv(calc_for.options[pie].value);
+      }
+      
+      var premix_calc_for = document.getElementById('premix_calc_for');
+      if (premix_calc_for.selectedIndex) {
+      pie = premix_calc_for.selectedIndex;
+      showDiv(premix_calc_for.options[pie].value);
+      }
+      }
   %body
     #header 
-    #yield 
+    #yield
     =yield
+    %noscript
+      This calculator requires javascript for many of the input fields, but unfortunately your browser does not allow javascript.
+      %p
+      Please enable javascript if you'd like to mess around with this thing.
+      %p
     #footer
       %a(href='/')Start over
       %br

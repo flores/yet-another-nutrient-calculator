@@ -11,7 +11,7 @@
   %label using
   %input{:type => "radio", :name => "source", :value=> "diy", :onClick => "document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';"}
   diy
-  %input{:type => "radio", :name => "source", :value=> "premixed", :onClick => "document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';"}
+  %input{:type => "radio", :name => "source", :value=> "premix", :onClick => "document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';"}
   premixed
   fertilizers
   %p
@@ -26,12 +26,12 @@
     </select>
     %p 
     %label using
-    %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('sol').style.display='block';"}
+    %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('solution').style.display='block';"}
     a solution
-    %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('sol').style.display='none';"}
+    %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('solution').style.display='none';"}
     dry dosing
     %br
-    #sol{:style => 'display:none'}
+    #solution{:style => 'display:none'}
       %label while using a
       %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
       mL container
@@ -42,7 +42,7 @@
     %p 
     %label and I'm calculating for
     %p
-      %select{:name=> "calc_for", :onchange=>"showDiv(this.value);"}
+      %select{:name=> "calc_for", :id=> "calc_for1", :onChange=>"showDiv(this.value);"}
         %option{:value=> "target"} what dose to reach a target
         %option{:value=> "dump"} the result of my dose
         %option{:value=> "ei", :selected=> "selected"} The Estimative Index
@@ -70,7 +70,7 @@
     %p
     %label and I'm calculating for
     %p
-      %select{:name=> "premix_calc_for", :onchange=>"showDiv(this.value);"}
+      %select{:name=> "premix_calc_for", :id=> "premix_calc_for", :onChange=>"showDiv(this.value);"}
         %option{:value=> "premix_target"} what dose to reach a target
         %option{:value=> "premix_dump"} the result of my dose
         %option{:value=> "ei", :selected=> "selected"} The Estimative Index

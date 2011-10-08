@@ -5,6 +5,19 @@
     %link(rel="stylesheet" href="http://cdn.petalphile.com/javascript/jquery.mobile-1.0a1.min.css")
     %script{:type => "text/javascript", :src=>"http://cdn.petalphile.com/javascript/jquery-1.5.2.min.js"}
     %script{:type => "text/javascript", :src=>"http://cdn.petalphile.com/javascript/jquery.mobile-1.0a1.min.js"}
+    %meta{'name'=>"keywords", 'http-equiv'=>"keywords", 'content'=>"planted, aquarium, fertilizer, ferts, calculator, KNO3, K2HPO4, KH2PO4, K3PO4, KCl, K2SO4, CaCl2.2H2O, CaSO4.1/2H2O, CaSO4.2H2O, CaMg(CO3)2, Ca(NO3)2.4H2O, 5Ca(NO3)2.NH4NO3.10H2O, MgSO4.7H2O, PlantedTanksUK Trace, Plantex CSM+B, Millers MicroPlex, Dutch Nutrient Formula, Rexolin APN, Rexolin BRA, Fe Gluconate, DTPA Fe (11%), DTPA Fe (10%), EDTA Fe, EDDHA Fe (6%), MnSO4.H2O, CO2, fish, plants, diy, horticulture, aquaculture, aquascaping, estimative index, pps-pro, perpetual preservation system, pmdd, ei, copper, cu, toxic, toxicity, shrimp"}
+    %meta{'name'=>"description", 'http-equiv'=>"description", 'content'=>"Mobile planted aquarium fertilizer calculator"}
+    %script{'type'=>"text/javascript"}
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-25702552-1']);
+      _gaq.push(['_setDomainName', 'petalphile.com']);
+      _gaq.push(['_setAllowHash', false]);
+      _gaq.push(['_trackPageview']);
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
   %body{:align => "center"}
     .yield
     %center
@@ -14,5 +27,5 @@
         %div{"data-role" => :content}
           =yield
         %div{"data-role" => :footer, :class => "ui-bar"}
-          %a(href='http://calc.petalphile.com/' data-ajax="false" rel="external")non-mobile calc
+          %a(href='http://calc.petalphile.com/non-mobile' data-ajax="false" rel="external")non-mobile calc
           %a(href='http://petalphile.com')petalphile.com

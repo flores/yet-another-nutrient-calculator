@@ -8,7 +8,11 @@ require 'lib/conversions'
 include Conversions
 
 class YANC < Sinatra::Base
+        get '/', :agent => /iphone|webos|mobile/i do
+                redirect '/mobile'
+        end
 
+        
 	["/","/non-mobile"].each do |path|
 		get path do
 			haml :ask
@@ -30,6 +34,7 @@ class YANC < Sinatra::Base
 			
 			@method_instruct	= ""
 			urea			= ""
+                        pump			= ""
 		
 			@tank_vol_orig		= tank_vol_calc
 			tank_vol 		= to_Liters(tank_vol_calc,@tank_units)
@@ -66,6 +71,8 @@ class YANC < Sinatra::Base
 					@element = value
 				elsif (junk =~ /urea/)
 					urea = 'yes'
+                                elsif (junk =~ /pump/)
+                                        pump = value
 				else
 					if (source =~ /diy/)
 						cons["#{junk}"]=Float("#{value}")
@@ -133,7 +140,11 @@ class YANC < Sinatra::Base
 				sol_check = 0
 			end
 
-			dose_calc = to_mg(dose_calc,@dose_units)
+			if (@comp =~/RootMedic/ && @dose_units =~ /pump/)
+				dose_calc = dose_calc * 5
+			else
+				dose_calc = to_mg(dose_calc,@dose_units)
+			end
 
 			if (calc_for =~ /dump/)
 				cons.each do |conc,value|
@@ -181,15 +192,23 @@ class YANC < Sinatra::Base
 						@dose_units = 'Liters'
 					end
 					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
+				elsif (@dose_amount.to_i < 10)
+					@dose_amount = (@dose_amount.to_f * 10**2).round.to_f / 10**2
+					if (source =~ /diy/)
+						@dose_units = 'mg'
+					else
+						@dose_amount = @dose_amount / 10
+						@dose_units  = 'mL'
+					end
 				else
 					@dose_amount = @dose_amount.to_i
 					if (source =~ /diy/)
 						@dose_units = 'mg'
 					else
 						@dose_amount = @dose_amount / 10
-						@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
 						@dose_units  = 'mL'
 					end
+					
 				end
 			end
 		
