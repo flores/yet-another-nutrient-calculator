@@ -31,7 +31,7 @@ module Conversions
 			mass *= COMPOUNDS[@comp]['tsp']
 		elsif (units =~ /^g(rams)?$/)
 			mass *= 1000
-		elsif (units =~ /^(milli|m)L?/)
+		elsif (units =~ /^(milli|m)L/)
 			mass *= 10
 		elsif (units =~ /pump/)
 			mass *= 12

@@ -187,15 +187,14 @@ class YANC < Sinatra::Base
 				end
 
 				
-				if (@dose_amount.to_i > 1000)
-					if (source =~ /diy/)
-						@dose_amount = @dose_amount / 1000
-						@dose_units = 'grams'
-					else
-						@dose_amount = @dose_amount / 100
-						@dose_units = 'Liters'
-					end
+				if (@dose_amount.to_i > 1000 && source =~ /diy/)
+					@dose_amount = @dose_amount / 1000
 					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
+					@dose_units  = 'grams'
+				elsif (@dose_amount.to_i > 10000 && source =~ /premix/)
+					@dose_amount = @dose_amount / 10000
+					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
+					@dose_units  = 'L'
 				elsif (@dose_amount.to_i < 10)
 					@dose_amount = (@dose_amount.to_f * 10**2).round.to_f / 10**2
 					if (source =~ /diy/)
