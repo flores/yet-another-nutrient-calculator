@@ -178,7 +178,7 @@ Rexolin BRA:
   tsp:    3500
   sol:    200
   target: Fe
-Fe Gluconate:
+Fe Gluconate (12.46%):
   Fe:     0.1246
   tsp:    2440
   target: Fe
@@ -190,7 +190,7 @@ DTPA Fe (10%):
   Fe:     0.1
   tsp:    4290
   target: Fe
-EDTA Fe:
+EDTA Fe (13%):
   Fe:     0.130
   tsp:    5100
   sol:    90
