@@ -123,7 +123,7 @@ class YANC < Sinatra::Base
 			end	
                 
 			if (@comp =~ /ADA/)
-				@method_instruct		= "ADA analysis courtesy of Plantbrain/Tom Barr<br />available at <a href='http://barrreport.com'>The Barr Report</a> <br /> <br /> #{@method_instuct}"
+				@method_instruct		= "ADA's fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted.<br /> <br />ADA analysis courtesy of Plantbrain/Tom Barr<br />available at <a href='http://barrreport.com'>The Barr Report</a> <br /> <br /> #{@method_instuct}"
 			end
 
 			if (@dose_method =~ /sol/ && source =~ /diy/)
