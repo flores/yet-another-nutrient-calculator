@@ -117,7 +117,13 @@ class YANC < Sinatra::Base
 					end
 				elsif (calc_for == "wet")
 					@target_amount  	= METHODS[@element]["Wet"]["method"]
-					@method_instruct 	= "This is basically EI.  Under high light, be prepared to trim often,<br />change water often, and keep the CO2 high and steady."
+					@method_instruct 	= "This is basically EI with my personal daily dosing.  Under high light, be prepared to trim often,<br />change water often, and keep the CO2 high and steady."
+				elsif (calc_for == "ei_low")
+					@target_amount          = METHODS[@element]["EI_low"]["method"]
+					@method_instruct	= "This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks."
+				elsif (calc_for =="ei_daily")
+					@target_amount		= METHODS[@element]["EI_daily"]["method"]
+                                        @method_instruct        = "This is traditional EI, just reduced for daily dosing"
 				end
 				@dose_amount		= 0
 			end	
@@ -164,7 +170,7 @@ class YANC < Sinatra::Base
 				@target_amount = @results["#{@element}"]
 				@mydose=@dose_amount
 			
-			else (calc_for =~ /target|ei|pps|pmdd|wet/)
+			else (calc_for =~ /target|ei|pps|pmdd|wet|daily|low/)
 				pie=Float(cons["#{@element}"])
 				@mydose = @target_amount * tank_vol / pie
 				#@mydose = sprintf("%.2f", @mydose)

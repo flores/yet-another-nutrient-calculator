@@ -25,10 +25,14 @@ NO3:
     high:    5
     margin:  4
   Wet:
-    method:  7
+    method:  3
     low:     1
     high:    30
     margin:  29
+  EI_low:
+    method:  10
+  EI_daily:
+    method:  2.5
 PO4:
   EI:
     method:  1.75
@@ -50,10 +54,14 @@ PO4:
     high:    0
     margin:  0
   Wet:
-    method:  3
+    method:  1
     low:     1
     high:    5
     margin:  4
+  EI_low:
+    method:  1
+  EI_daily:
+    method:  0.75
 K:
   EI:
     method:  8.5
@@ -75,10 +83,14 @@ K:
     high:    3.6
     margin:  1.2
   Wet:
-    method:  5
+    method:  3
     low:     1
     high:    20
     margin:  19
+  EI_low:
+    method:  10
+  EI_daily:
+    method:  4
 Ca:
   EI:
     method:  15
@@ -100,10 +112,14 @@ Ca:
     high:    0
     margin:  0
   Wet:
-    method:  10
+    method:  2
     low:     0
     high:    0
     margin:  0
+  EI_low:
+    method:  15
+  EI_daily:
+    method:  10
 Mg:
   EI:
     method:  5
@@ -125,10 +141,14 @@ Mg:
     high:    0.24
     margin:  0.08
   Wet:
-    method:  3
+    method:  0.5
     low:     0
     high:    0
     margin:  0
+  EI_low:
+    method:  5
+  EI_daily:
+    method:  3
 Fe:
   EI:
     method:  0.2
@@ -154,6 +174,10 @@ Fe:
     high:    0.5
     low:     0.1
     margin:  0.4
+  EI_low:
+    method:  0.2
+  EI_daily:
+    method:  0.2
 Mn:
   EI:
     method:  0.1
@@ -179,3 +203,7 @@ Mn:
     high:    0.5
     low:     0.1
     margin:  0.4
+  EI_low:
+    method:  0.1
+  EI_daily:
+    method:  0.1
