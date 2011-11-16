@@ -1,3 +1,6 @@
+##\ -p 8080
+$:.unshift "#{File.dirname(__FILE__)}"
+
 require 'rubygems'
 require 'yaml'
 require 'nutes'
