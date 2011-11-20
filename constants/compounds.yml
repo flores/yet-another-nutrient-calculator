@@ -148,6 +148,15 @@ Miller's MicroPlex:
   dGH:    0.0124374302
   tsp:    3720
   target: Fe
+Plant-Prod Chelated:
+  Fe:     0.07
+  Fe as EDTA: 0.05
+  Fe as DTPA: 0.02
+  Mn:     0.02
+  Zn:     0.004
+  Cu:     0.001
+  tsp:    3600
+  target: Fe
 Dutch Nutrient Formula:
   Fe:     0.07
   B:      0.013
