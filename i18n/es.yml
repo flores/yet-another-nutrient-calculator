@@ -1,0 +1,66 @@
+units:
+  ppm: ppm
+  us_gal: US gal
+  imp_gal: Imp gal
+  Liter: L
+  milliliter: mL
+  five_milliter: tsp/caps
+  pump_bottle: pumps
+  grams: g
+  milligrams: mg
+input:
+  aquarium: Mi acuario es
+  source:
+    text: usando
+    diy: diy
+    commercial: pre-mezclado
+    label: fertilizantes
+  diy:
+    text: Estoy cultivando
+    method_text: usando
+    solution: una solution
+    dry: cultivo seco
+  solution:
+    text: usando un
+    container: contenedor
+    dose: con porciones de
+  method:
+    text: y estoy calculando un
+    target: dosis para alcanzar
+    dose: los resultados de mi cultivo
+    ei: El inidice de estimaciones
+    ei_daily: EI diario
+    ei_low: EI suave/semanal
+    pps: Sistema de preservation constante
+    pmdd: PMDD
+  dose: Estoy agregando
+  target: My objetivo es
+output:
+  dose: Tu agregado de \1 para tu
+  dose_solution: contenedor, con dosis de \1 para tu
+  dose_end: acuario agregando
+  target: para alcanzar un objetivo de \1 necesitaras agregar \2 de \3 para tu 
+  target_solution: contenedor.  Agregar \1 de esa mezcla para tu
+  dose_: acuario
+warnings:
+  solubility: La solubilidad de \1 a temperature ambiente es \2.  Deberas ajustar tu dosis.
+  k3po4: K3PO4 en solution tiende a incrementar el pH debido a la naturaleza de KOH, con una base fuerte. ray-the-pilot exaplica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>
+  eddha: Ten presente que EDDHA puede tenir el agua de rojo inclusive usando dosis moderadas.  Puede ver este video de una dosis de 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aqui</a>.
+  urea: Este producto tiene un porcentage desconocido de N como Urea y NO3.  El calculo y la tabla abajo funciona con equivalentes a NO3.
+  cu: Tu dosis de Cu es \1 % de la recomendada para peces sensibles e invertido. Puedes considerar reducir tu dosis de \2 por una de \3 <a href='http://y.[petalphile.com/cu' target='_blank'>Mas informacion acerca de la toxicidad del Cu aqui</a>
+chart:
+  text: Relativo \1 para 
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: El inidice de estimaciones
+  user: y tu
+  long_term_chart: Quieres modelar efectos a largo plazo con dosis de \1? Haz Clic \2 aqui!
+methods_text:  
+  ei: Un EI adecuado depende de un buen CO2, buena circulacion, y cambios regulares de agua.  Moderaciones pasadas no son tan importantes.
+  ei_daily: Este EI tradicional es reducido a dosis diarias.
+  ei_low: Es es EI disenado para una onza de agua a baja luz. Para la mayor parte de los tanques, los rangos de EI abajo son a lo largo del tiempo.
+  pps: Hemos calculado para una dosis diaria de PPS-Pro. La recomendacion referida abajo es para tanques profesionales.
+  pmdd: PMDD no es una dosis \1. Pero deberias.
+  ada: La fertilizacion de sistemas ADA incluye sustratos ricos en nutrientes, mientras que los fertilizantes liquidos suplen las columnas de agua hasta que el substrato es consumido por completo. El analisis de ADA es una cortesia de Plantbrain/Tom Barr y puede ser encontrado en <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+  
