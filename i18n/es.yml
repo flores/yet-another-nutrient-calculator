@@ -69,4 +69,4 @@ misc:
   calc: Yet Another Nutrient Calculator
   error: There was an error! Please only use numbers in all visible input fields.
   restart: Start over
-  locales: languages 
+  translations: Translate
