@@ -1,22 +1,22 @@
 %h3 Yet Another Nutrient Calculator
-%form{:action => "/", :method => "post", :id=>"yanc"}
+%form{:action => "#{request.url}", :method => "post", :id=>"yanc"}
   %p 
-  %label My aquarium is 
+  %label= t.input.aquarium
   %input{:type => "text", :name => "tank_vol", :length => 4, :size => 4}
   %input{:type => "radio", :name => "tank_units", :value=> "gal"}
-  gal
+  =t.units.us_gal
   %input{:type => "radio", :name => "tank_units", :value=> "L"}
-  L
+  =t.units.Liter
   %p
-  %label using
+  %label= t.input.source.text
   %input{:type => "radio", :name => "source", :value=> "diy", :onClick => "document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';"}
-  diy
+  =t.input.source.diy
   %input{:type => "radio", :name => "source", :value=> "premix", :onClick => "document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';"}
-  premixed
-  fertilizers
+  =t.input.source.commercial
+  =t.input.source.label
   %p
   #diy{:style => 'display:none'}
-    %label I'm dosing with
+    %label= t.input.diy.text
     <select name="compound">
     - COMPOUNDS.keys.sort.each do |c|
       - if ( c =~ /KNO3/ )
@@ -25,74 +25,75 @@
         %option{:value=>"#{c}"} #{c}
     </select>
     %p 
-    %label using
+    %label= t.input.diy.method_text
     %input{:type => "radio", :name=> "method", :value=> "solution", :onClick => "document.getElementById('solution').style.display='block';"}
-    a solution
+    =t.input.diy.solution
     %input{:type => "radio", :name=> "method", :value=> "dry", :onClick => "document.getElementById('solution').style.display='none';"}
-    dry dosing
+    =t.input.diy.dry
     %br
     #solution{:style => 'display:none'}
-      %label while using a
+      %label= t.input.solution.text
       %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
-      mL container
+      = t.units.milliliter
+      = t.input.solution.container
       %br
-      %label with doses of
+      %label= t.input.solution.dose
       %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
-      mL
-    %p 
-    %label and I'm calculating for
-    %p
+      = t.units.milliliter
+    %br
+    %label= t.input.dosing_method.text
+    %br
       %select{:name=> "calc_for", :id=> "calc_for1", :onChange=>"showDiv(this.value);"}
-        %option{:value=> "target"} what dose to reach a target
-        %option{:value=> "dump"} the result of my dose
-        %option{:value=> "ei", :selected=> "selected"} The Estimative Index
-        %option{:value=> "ei_daily"} EI daily
-        %option{:value=> "ei_low"} EI low light
-        %option{:value=> "pps"} Perpetual Preservation System
-        %option{:value=> "wet"} wet's high light tank
+        %option{:value=> "target"}= t.input.dosing_method.target
+        %option{:value=> "dump"}= t.input.dosing_method.dose
+        %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
+        %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
+        %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
+        %option{:value=> "pps"}= t.input.dosing_method.pps
+        %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
     #dump{:style => 'display:none'}
-      %label I am adding
+      %label= t.input.dose
       %input{:type => "int", :name=> "dose_amount", :length => 6, :size => 6, :title => "examples: 1/8, 1.25, or 2,50"}
       %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
-      mg
+      =t.units.milligrams
       %input{:type => "radio", :name=> "dose_units", :value=> "g"}
-      g
+      =t.units.grams
       %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
-      tsp 
+      =t.units.five_milliter
     #target{:style => 'display:none'}
-      %label My target is
+      %label= t.input.target
       %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4} 
-      ppm
+      =t.units.ppm
   #premix{:style => 'display:none'}
-    %label I'm dosing with
+    %label= t.input.diy.text
     <select name="premix">
     - COMMERCIAL.keys.sort.each do |c|
       %option{:value=>"#{c}"} #{c}
     </select>
     %p
-    %label and I'm calculating for
+    %label= t.input.dosing_method.text
     %p
       %select{:name=> "premix_calc_for", :id=> "premix_calc_for", :onChange=>"showDiv(this.value);"}
-        %option{:value=> "premix_target"} what dose to reach a target
-        %option{:value=> "premix_dump"} the result of my dose
-        %option{:value=> "ei", :selected=> "selected"} The Estimative Index
-        %option{:value=> "ei_daily"} EI daily
-        %option{:value=> "ei_low"} EI low light
-        %option{:value=> "pps"} Perpetual Preservation System
-        %option{:value=> "wet"} wet's high light tank
+        %option{:value=> "premix_target"}= t.input.dosing_method.target
+        %option{:value=> "premix_dump"}= t.input.dosing_method.dose
+        %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
+        %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
+        %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
+        %option{:value=> "pps"}= t.input.dosing_method.ei_pps
+        %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
     #premix_dump{:style => 'display:none'}
-      %label I am adding
+      %label= t.input.dose
       %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => "examples: 1/2, 0.5, 1"}
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "mL"}
-      mL
+      = t.units.milliliters
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "caps"}
-      capfulls
+      = t.five_milliter
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "pumps"}
-      pumps
+      = t.units.pump_bottle
     #premix_target{:style => 'display:none'}
-      %label My target is
+      %label= t.input.target
       %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4} 
-      ppm
+      = t.units.ppm
   %p
   %input{:type => "submit", :value => "Gimmie!", :id => "ask"}
   %p

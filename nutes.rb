@@ -1,19 +1,15 @@
-require 'rubygems'
-require 'sinatra'
-require 'haml'
-require 'rdiscount'
-require 'thin'
-
 require 'lib/conversions'
 include Conversions
 
 class YANC < Sinatra::Base
-        get '/', :agent => /iphone|webos|mobile/i do
+	register Sinatra::R18n
+	set :root, File.dirname(__FILE__)
+
+	get '/', :agent => /iphone|webos|mobile/i do
                 redirect '/mobile'
         end
 
-        
-	["/","/non-mobile"].each do |path|
+	["/","/:locale/","/:locale/non-mobile"].each do |path|
 		get path do
 			haml :ask
 		end
@@ -82,7 +78,7 @@ class YANC < Sinatra::Base
 				end
 			end
 		
-			
+			@method_instruct = ''
 		# calculations on the onClick optional menu
 			if (calc_for =~ /dump/)
 				@dose_amount	= @dose_amount.sub(/,/, '.')
@@ -106,30 +102,29 @@ class YANC < Sinatra::Base
                   # some warnings dependent on method
 				if (calc_for == 'ei')
 					@target_amount		= METHODS[@element]["EI"]["method"] 
-					@method_instruct	= "Classic EI depends on good CO2, good circulation, and regular water changes.<br />Light past moderation is not so important.<br />"
+					@method_instruct	= t.methods_text.ei
 				elsif (calc_for == "pps")
 					@target_amount		= METHODS[@element]["PPS"]["method"] 
-					@method_instruct	= "We've calculated for PPS-Pro's daily dose.<br />The recommended range below is for a stabilized mature tank.<br />"
+					@method_instruct	= t.methods_text.pps
 				elsif (calc_for == "pmdd")
 					@target_amount		= METHODS[@element]["PMDD"]["method"]
 					if (@target_amount == 0)
-						@method_instruct = "PMDD does not dose #{@element}.<br />(But maybe you should.)<br />"
+						@method_instruct = t.methods_text.pmdd(@element)
 					end
 				elsif (calc_for == "wet")
 					@target_amount  	= METHODS[@element]["Wet"]["method"]
-					@method_instruct 	= "This is basically EI with my personal daily dosing.  Under high light, be prepared to trim often,<br />change water often, and keep the CO2 high and steady."
 				elsif (calc_for == "ei_low")
 					@target_amount          = METHODS[@element]["EI_low"]["method"]
-					@method_instruct	= "This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks."
+					@method_instruct	= t.methods_text.ei_low
 				elsif (calc_for =="ei_daily")
 					@target_amount		= METHODS[@element]["EI_daily"]["method"]
-                                        @method_instruct        = "This is traditional EI, just reduced for daily dosing"
+                                        @method_instruct        = t.methods_text.ei_daily 
 				end
 				@dose_amount		= 0
 			end	
                 
 			if (@comp =~ /ADA/)
-				@method_instruct		= "ADA's fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted.<br /> <br />ADA analysis courtesy of Plantbrain/Tom Barr<br />available at <a href='http://barrreport.com'>The Barr Report</a> <br /> <br /> #{@method_instuct}"
+				@method_instruct		= @method_instruct + "<br /> <br />" + t.methods_text.ada
 			end
 
 			if (@dose_method =~ /sol/ && source =~ /diy/)
@@ -226,16 +221,13 @@ class YANC < Sinatra::Base
 				sol_ref = concentrations[@comp]['sol'] * 0.8
 				sol_check = sol_check / @sol_vol
 				if ( sol_ref <	sol_check )
-					@sol_error = "<font color='red'>#{@comp}'s solubility at room temperature<br>is #{concentrations[@comp]['sol']} mg/mL.<br>You should adjust your dose.</font><br>"
+					@sol_error = t.warnings.solubility(@comp, "#{concentrations[@comp]['sol']} #{t.units.milligrams}/#{t.units.milliliters}")
 				end
 			end
 		
 		#K3PO4 is tricky
 			if (@comp =~ /K3PO4/ )
-				@toxic="K3PO4 in solution tends to raise pH due to<br/>
-		the nature of KOH, a strong base. <br/>
-		ray-the-pilot explains this for us gardeners here:<br/>
-		<a href='http://bit.ly/ev7txA'>'K3PO4 instead of KH2PO4?' at Aquatic Plant Central'</a></br>"
+				@toxic = t.warnings.k3po4
 			end
 			
 		#copper toxicity
@@ -249,18 +241,18 @@ class YANC < Sinatra::Base
 						less_dose = less_dose.to_i
 					end
 					percent_toxic = (toxic * 100).to_i
-					@toxic = "<font color='red'>Your Cu dose is #{percent_toxic}% more than recommended<br />for sensitive fish and inverts. Consider<br />reducing your #{@comp} dose by #{less_dose} #{@dose_units}.</font><br /><a href='/cu' target='_blank'>Read more about Cu toxicity here</a>.<br />"
+					@toxic = t.warnings.cu(percent_toxic, @comp, "#{less_dose} #{@dose_units}")
 				end
 			end
 
 			if (urea == "yes")
-				@toxic = "this product has some unknown percentage of N as Urea and as NO3.  The calculation and chart below works off NO3 equivalents."
+				@toxic = t.warnings.urea
 			end
 		
 		# EDDHA tints the water red	
 			if (@comp =~ /EDDHA/)
 				if (@results['Fe'].to_f > 0.002)
-					@toxic = "<font color='red'>Be aware that EDDHA will tint the water pink to red<br /> at even moderate doses.</font><br />You can check out a video of a 0.2ppm dose <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.<br />"
+					@toxic = t.warnings.eddha 
 				end
 			end
 		
