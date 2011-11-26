@@ -66,7 +66,7 @@ methods_text:
   pmdd: PMDD does not dose %1. But maybe you should.
   ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc:
-  title: Yet Another Nutrient Calculator
-  error: There was an error! Please only use numbers in all input fields.  You may use decimals or fractions (ex: 0.75 or .75 or 0,75 or 3/4) or whole numbers (1 or 1.0).
+  calc: Yet Another Nutrient Calculator
+  error: There was an error! Please ensure all visible fields only contain numbers.
   restart: Start over
   locales: languages
