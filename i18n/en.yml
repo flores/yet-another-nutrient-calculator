@@ -64,7 +64,7 @@ methods_text:
   ei_low: This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.
   pps: We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.
   pmdd: PMDD does not dose %1. But maybe you should.
-  ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+  ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc:
   calc: Yet Another Nutrient Calculator
   restart: Start over
