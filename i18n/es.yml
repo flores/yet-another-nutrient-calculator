@@ -11,11 +11,11 @@ units:
   grams: g
   milligrams: mg
 input:
-  aquarium: Mi acuario es
+  aquarium: Mi acuario esta
   source:
     text: usando
     diy: diy
-    commercial: pre-mezclado
+    commercial: pre-mezclado de
     label: fertilizantes
   diy:
     text: Estoy cultivando
@@ -27,7 +27,7 @@ input:
     container: contenedor
     dose: con porciones de
   dosing_method:
-    text: y estoy calculando un
+    text: y estoy calculando
     target: dosis para alcanzar
     dose: los resultados de mi cultivo
     ei: El inidice de estimaciones
