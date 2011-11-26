@@ -1,0 +1,76 @@
+units:
+  element: Element
+  ppm: mg/l
+  degree: grad
+  us_gal: gal SUA
+  imp_gal: gal UK
+  Liter: L
+  milliliter: mL
+  five_milliter: linguriţă
+  pump_bottle: pompe
+  grams: g
+  milligrams: mg
+input:
+  aquarium: Acvariul meu are
+  source:
+    text: folosind
+    diy: diy
+    commercial: comercial
+    label: fertilizant
+  diy:
+    text: Dozez
+    method_text: folosind
+    solution: o soluţie
+    dry: pulberi
+  solution:
+    text: folosind
+    container: container
+    dose: cu doze de
+  dosing_method:
+    text: şi calculez pentru
+    target: ce doză ca să ajung la o ţintă
+    dose: rezultatul dozei mele
+    ei: Estimative Index
+    ei_daily: EI zilnic
+    ei_low: EI lumină scăzută/săptămânal
+    pps: Perpetual Preservation System
+    pmdd: PMDD
+  dose: adaug
+  target: ţinta mea este
+output:
+  dose: Adăugarea de %1 la containerul 
+  dose_solution: tău, cu doze de %1
+  dose_end: în acvariu adaugă 
+  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în 
+  target_solution: containerul tău.  Adaugă %1 din acest amestec în 
+  target_end: acvariul tău ca să rezulte
+warnings:
+  solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui să-ţi ajustezi doza.
+  k3po4: K3PO4 în soluţie are tendinţa de a ridica pH-ul datorită naturii substanţei KOH, o bază puternică. ray-the-pilot explică asta pentru noi grădinarii <a href='http://bit.ly/ev7txA' target='_blank'>pe forumul APC</a>.
+  eddha: Ai grijă că EDDHA colorează apa în roz spre roşu chiar la doze moderate.  Poţi să vezi un video al unei doze de 0.2mg/l <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aici</a>.
+  urea: Acest produs are un procent necunoscut de N ca uree şi ca NO3.  Calculul şi graficul de mai jos lucrează cu echivalent NO3.
+  cu: Doza ta de Cu este %1 % mai mare decât se recomandă pentru peşti sensibili şi nevertebrate. Gândeşte-te să reduci doza de %2 cu %3. <a href='http://y.[petalphile.com/cu' target='_blank'>Mai multe detalii aici despre toxicitatea Cu.</a>
+chart:
+  text: Concentraţiile %1 relative pentru 
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: Estimative Index
+  user: doza ta
+  long_term_chart: Vrei să modelezi efectele pe termen lung ale dozării %1? Click %2 aici!
+methods_text:  
+  ei: EI clasic depinde de dozare bună de CO2, circulaţie bună a apei, şi schimburi regulate de apă.  Lumina peste un nivel moderat nu este aşa de importantă.
+  ei_daily: Acesta este EI tradiţional redus la dozări zilnice.
+  ei_low: Acesta este EI scalat pentru dozare o dată pe săptămână la lumină slabă. Intervalele EI de mai jos sunt în timp pentru majoritatea acvariilor.
+  pps: Am calculat pentru o doză PPS zilnică.  Intervalul recomandat de mai jos este pentru un acvariu matur, stabilizat.
+  pmdd: PMDD nu dozează %1. Dar poate tu ar trebui.
+  ada: Sistemul de fertilizare ADA include substart bogat în nutrienţi, iar fertilizanţii lor lichizi suplimentează coloana de apă până când substratul este epuizat. Analiza elementară a ADA este oferită de Plantbrain/Tom Barr şi este disponibilă pe <a href='http://barrreport.com' target='_blank'>The Barr Report</a>.
+misc:
+  calc: Yet Another Nutrient Calculator
+  restart: De la început
+  submit_button: Dă-mi!
+  translations: Traduceri
+  contribute: Adaugă o traducere
+  mobile_link: Site-ul mobil
+  noscript: Acest calculator are nevoie de Javascript ca să funcţioneze corect.
+  error: Am întâlnit o eroare! Te rog foloseşte doar numere (3, 3.0, 3/4, 0,75, etc) şi asigură-te că ai răspuns la toate întrebările vizibile.
