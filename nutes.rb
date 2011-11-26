@@ -221,7 +221,7 @@ class YANC < Sinatra::Base
 				sol_ref = concentrations[@comp]['sol'] * 0.8
 				sol_check = sol_check / @sol_vol
 				if ( sol_ref <	sol_check )
-					@sol_error = t.warnings.solubility(@comp, "#{concentrations[@comp]['sol']} #{t.units.milligrams}/#{t.units.milliliters}")
+					@sol_error = t.warnings.solubility(@comp, "#{concentrations[@comp]['sol']} #{t.units.milligrams}/#{t.units.milliliter}")
 				end
 			end
 		

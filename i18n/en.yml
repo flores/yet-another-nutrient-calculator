@@ -1,5 +1,7 @@
 units:
+  element: Element
   ppm: ppm
+  degree: degree
   us_gal: US gal
   imp_gal: Imp gal
   Liter: L
@@ -41,7 +43,7 @@ output:
   dose_end: aquarium adds 
   target: To reach your target of %1 you will need to add %2 of %3 to your 
   target_solution: container.  Add %1 of that mix to your
-  dose_: aquarium to yield
+  target_end: aquarium to yield
 warnings:
   solubility: The solubility of %1 at room temperature is %2.  You should adjust your dose.
   k3po4: K3PO4 in solution tends to raise pH due to the nature of KOH, a strong base. ray-the-pilot explains this for us gardeners <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>
@@ -63,4 +65,8 @@ methods_text:
   pps: We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.
   pmdd: PMDD does not dose %1. But maybe you should.
   ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
-  
+misc:
+  title: Yet Another Nutrient Calculator
+  error: There was an error! Please only use numbers in all input fields.  You may use decimals or fractions (ex: 0.75 or .75 or 0,75 or 3/4) or whole numbers (1 or 1.0).
+  restart: Start over
+  locales: languages

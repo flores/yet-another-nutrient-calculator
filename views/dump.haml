@@ -1,26 +1,26 @@
 %p
 <div style="position: relative; float:top; width: 330px; height: relative; center">
-<center>Your dose of #{@dose_amount} #{@dose_units} #{@comp} into your 
+<center>#{t.output.dose("#{@dose_amount} #{@dose_units}#{@comp}")} 
 - if @sol_vol > 0
-  #{@sol_vol} mL container, with doses of #{@sol_dose} mL 
-  into a
-#{@tank_vol_orig}#{@tank_units} tank gives:</center><br/>
+  #{@sol_vol} mL #{t.output.dose_solution("#{@sol_dose}#{t.units.milliliter}")}
+#{@tank_vol_orig}#{@tank_units} #{t.output.dose_end}</center><br/>
 %table{:width => 330}
   %tr
-    %th Element
-    %th ppm/degrees
+    %th= t.units.element
+    %th #{t.units.ppm}/#{t.units.degree}
   - @results.sort.each do |result,result_value|
     %tr
       %td{:align=> "center"} #{result}
       %td{:align=> "center"} #{result_value}
-%br <center> #{@toxic} #{@sol_error} </center>
+%br <center><font color="red">#{@toxic} #{@sol_error}</font></center>
 %br <center> #{@method_instruct} </center>
 %br
 </div>
 <div style="position: relative; float:top; width: 330px; height: 75px; center">
 <center>
-Relative #{@element} ppm for <font color="purple">PMDD</font>, <font color="green">Walstad</font>, <font color="orange">PPS-Pro</font>,
-the <font color="blue">Estimative Index</font>, and <font color="red">you</font>:
+= t.chart.text(@element + t.units.ppm) 
+<font color="purple">#{t.chart.pmdd}</font>, <font color="green">#{t.chart.walstad}</font>, <font color="orange">#{t.chart.pps}</font>,
+<font color="blue">#{t.chart.ei}</font>, <font color="red">#{t.chart.user}</font>:
 </center>
 </div>
 <div style="position: relative; float:top; width: 330px; height: 15px; center">
@@ -51,7 +51,7 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
 <center><font color="red">#{@results[@element]}</font></center>
 </div>
 <div style="position:absolute; top:0px; right:10px; height 15px">
-#{@pixel_max}
+#{@pixel_max} #{t.units.ppm}
 </div>
 </div>
 </div>
@@ -60,8 +60,10 @@ the <font color="blue">Estimative Index</font>, and <font color="red">you</font>
   %input{:type=> "submit", :value=>"Start over", :id=>"results"}
 %br
 %br
-<center>Want to model long term effects of #{@element} dosing? Click 
-%a(href="http://ei.petalphile.com/?stuff=#{@element};dose=#{@target_amount}")here!</center>
+<center>
+#{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
+</a>
+</center>
 </div>
 %p
 %p
