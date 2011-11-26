@@ -1,4 +1,3 @@
-%h3 Yet Another Nutrient Calculator
 %form{:action => "#{request.url}", :method => "post", :id=>"yanc"}
   %p 
   %label= t.input.aquarium
@@ -85,9 +84,9 @@
       %label= t.input.dose
       %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => "examples: 1/2, 0.5, 1"}
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "mL"}
-      = t.units.milliliters
+      = t.units.milliliter
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "caps"}
-      = t.five_milliter
+      = t.units.five_milliter
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "pumps"}
       = t.units.pump_bottle
     #premix_target{:style => 'display:none'}

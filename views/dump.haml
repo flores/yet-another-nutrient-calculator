@@ -1,6 +1,6 @@
 %p
 <div style="position: relative; float:top; width: 330px; height: relative; center">
-<center>#{t.output.dose("#{@dose_amount} #{@dose_units}#{@comp}")} 
+<center>#{t.output.dose("#{@dose_amount} #{@dose_units} #{@comp}")} 
 - if @sol_vol > 0
   #{@sol_vol} mL #{t.output.dose_solution("#{@sol_dose}#{t.units.milliliter}")}
 #{@tank_vol_orig}#{@tank_units} #{t.output.dose_end}</center><br/>
@@ -54,16 +54,13 @@
 #{@pixel_max} #{t.units.ppm}
 </div>
 </div>
-</div>
-<div style="position: relative; float:top; width: 330px; height: 100px; align:center">
+<div style="float:top; width: 330px; height: 100px; align:center">
 %form{:action => "/", :method => "get", :id=>"yanc"}
   %input{:type=> "submit", :value=>"Start over", :id=>"results"}
 %br
 %br
-<center>
 #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
 </a>
-</center>
 </div>
 %p
 %p

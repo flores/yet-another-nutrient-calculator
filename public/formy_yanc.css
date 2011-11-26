@@ -4,13 +4,19 @@
 */
 
 *
- { font-family: georgia,serif; vertical-align:baseline; }
+ { font-family: "Myriad Pro", Arial, sans-serif; }
 
-fieldset, form, label, legend, div, submit
- { margin:0;padding:0;border:0;font-weight:normal;font-size:100%;font-family: georgia,serif;vertical-align:baseline; }
+#yield {
+    width: 30em; 
+    margin: 0 auto; 
+    margin-top: 3em;
+  }
+
+fieldset, form, label, legend, submit, div, yanc
+ { font-weight:normal;font-size:100%; vertical-align:baseline; }
 
 #footer
- { padding:0;border:0;font-weight:normal;font-size:0.9em;font-family: georgia,serif;vertical-align:baseline; }
+ { padding:0;border:0;font-weight:normal;font-size:0.9em; vertical-align:baseline; text-align: left}
 
 /* 
 	Structural
@@ -58,7 +64,7 @@ textarea:focus, input[type="text"]:focus
 	{ border: 2px solid #666; }
 
 select
-	{  background-color: #fff; color: #000; font-weight:normal;font-size:100%;font-family: georgia,serif;vertical-align:baseline; }
+	{  background-color: #fff; color: #000; font-weight:normal;font-size:100%; }
 
 input[type="text"]
 	{ border: 1px solid #666; }
@@ -75,7 +81,7 @@ input[type="radio"]
 	{  background-color: #fff; color: #000; }
 
 option
-	{ background-color:#fff; color:#000; font-weight:normal; font-size:100% ;font-family: georgia,serif; }
+	{ background-color:#fff; color:#000; font-weight:normal; font-size:100% ; }
 
 optgroup
 	{ background-color:#ccc; color:#000; }

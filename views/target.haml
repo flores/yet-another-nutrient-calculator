@@ -1,8 +1,8 @@
 %p
 <div style="position: relative; float:top; width: 330px; height: relative; center">
-<center>#{t.output.target("#{@dose_amount} #{@dose_units}#{@comp}")} 
+<center>#{t.output.target(@target_amount.to_s + t.units.ppm, @dose_amount.to_s + @dose_units, @comp)} 
 - if @sol_vol > 0
-  #{@sol_vol} mL #{t.output.target_solution("#{@sol_dose}#{t.units.milliliter}")}
+  #{@sol_vol} mL #{t.output.target_solution("#{@sol_dose}#{t.units.milliliter} ")}
 #{@tank_vol_orig}#{@tank_units} #{t.output.target_end}</center><br/>
 %table{:width => 330}
   %tr
@@ -54,16 +54,13 @@
 #{@pixel_max} #{t.units.ppm}
 </div>
 </div>
-</div>
-<div style="position: relative; float:top; width: 330px; height: 100px; align:center">
+<div style="float:top; width: 330px; height: 100px;">
 %form{:action => "/", :method => "get", :id=>"yanc"}
   %input{:type=> "submit", :value=>"Start over", :id=>"results"}
 %br
 %br
-<center>
 #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
 </a>
-</center>
 </div>
 %p
 %p

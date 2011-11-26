@@ -1,7 +1,7 @@
 %html
   %head
-    %title Yet Another Nutrient Calculator
-    %link(rel="stylesheet" href="http://cdn.petalphile.com/css/formy_yanc.css" type="text/css")
+    %title Yet Another Nutrient Calculator - Testing Site
+    %link(rel="stylesheet" href="http://alpha.calc.petalphile.com/formy_yanc.css" type="text/css")
     %meta{'name'=>"keywords", 'http-equiv'=>"keywords", 'content'=>"planted, aquarium, fertilizer, ferts, calculator, KNO3, K2HPO4, KH2PO4, K3PO4, KCl, K2SO4, CaCl2.2H2O, CaSO4.1/2H2O, CaSO4.2H2O, CaMg(CO3)2, Ca(NO3)2.4H2O, 5Ca(NO3)2.NH4NO3.10H2O, MgSO4.7H2O, PlantedTanksUK Trace, Plantex CSM+B, Millers MicroPlex, Dutch Nutrient Formula, Rexolin APN, Rexolin BRA, Fe Gluconate, DTPA Fe (11%), DTPA Fe (10%), EDTA Fe, EDDHA Fe (6%), MnSO4.H2O, CO2, fish, plants, diy, horticulture, aquaculture, aquascaping, estimative index, pps-pro, perpetual preservation system, pmdd, ei, copper, cu, toxic, toxicity, shrimp"}
     %meta{'name'=>"description", 'http-equiv'=>"description", 'content'=>"Calculators for all aspects of planted aquariums, including DIY fertilizers, dosing for every major method, CO2, and pictures."}
     //%script{'src'=>"http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"}
@@ -57,9 +57,8 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    #header 
-    #yield
-    =yield
+    %h3 Yet Another Nutrient Calculator - Testing Site!
+    #yield=yield
     %noscript
       This calculator requires javascript for many of the input fields, but unfortunately your browser does not allow javascript.
       %p
@@ -69,10 +68,11 @@
       %a(href='/')Start over
       %br
       %a(href="/mobile")Mobile site
-      %br
-      %a(href='http://petalphile.com')petalphile.com
-      %p this calculator is available in
+      %p this calculator is also available in
       %ul
         - r18n.available_locales.each do |locale|
           %li
             %a(href="/#{locale.code}/")#{locale.title}
+      %br
+      %p
+        %a(href='http://petalphile.com')petalphile.com
