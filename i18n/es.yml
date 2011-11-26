@@ -11,7 +11,7 @@ units:
   grams: g
   milligrams: mg
 input:
-  aquarium: Mi acuario esta
+  aquarium: Mi acuario es de
   source:
     text: usando
     diy: diy
