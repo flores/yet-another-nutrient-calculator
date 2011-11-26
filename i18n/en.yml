@@ -67,7 +67,10 @@ methods_text:
   ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc:
   calc: Yet Another Nutrient Calculator
-  error: There was an error! Please ensure all visible fields only contain numbers.
   restart: Start over
+  submit_button: Gimmie
   translations: Translations
-  contribute: Contribute a new translation
+  contribute: Contribute a translation
+  mobile_link: Mobile Site
+  noscript: This calculator requires Javascript to work correctly.
+  error: There was an error! Please only use numbers (3, 3.0, 3/4, 0,75, etc) and make sure all visible questions are answered.

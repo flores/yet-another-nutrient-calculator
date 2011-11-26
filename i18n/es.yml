@@ -67,7 +67,10 @@ methods_text:
   ada: La fertilizacion de sistemas ADA incluye sustratos ricos en nutrientes, mientras que los fertilizantes liquidos suplen las columnas de agua hasta que el substrato es consumido por completo. El analisis de ADA es una cortesia de Plantbrain/Tom Barr y puede ser encontrado en <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc:
   calc: Yet Another Nutrient Calculator
-  error: There was an error! Please only use numbers in all visible input fields.
   restart: Start over
+  submit_button: Gimmie
   translations: Translations
-  contribute: Contribute a new translation
+  contribute: Contribute a translation
+  mobile_link: Mobile Site
+  noscript: This calculator requires Javascript to work correctly.
+  error: There was an error! Please only use numbers (3, 3.0, 3/4, 0,75, etc) and make sure all visible questions are answered.
