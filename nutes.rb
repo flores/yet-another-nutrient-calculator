@@ -313,9 +313,17 @@ class YANC < Sinatra::Base
 	get '/readme' do
 		markdown :README
 	end
+	
+	get '/contribute_translation' do
+		markdown :contribute_translation
+	end
 
 	get '/formy_yanc.css' do
 		File.read(File.join('public', 'formy_yanc.css'))
+	end
+
+	get '/markdown.css' do
+		File.read(File.join('public', 'markdown.css'))
 	end
 
 	not_found do

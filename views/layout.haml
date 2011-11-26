@@ -61,7 +61,7 @@
       })();
   %body
     %h3= t.misc.calc
-    %p= Testing/Alpha site!
+    %p Testing/Alpha site!
     #yield= yield
     %noscript= t.misc.noscript
     #footer
@@ -73,6 +73,7 @@
         - r18n.available_locales.each do |locale|
           %li
             %a(href="/#{locale.code}/")#{locale.title}
+      %a(href="/contribute_translation")= t.misc.contribute
       %br
       %p
         %a(href='http://petalphile.com')petalphile.com
