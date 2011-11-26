@@ -66,11 +66,11 @@ methods_text:
   pmdd: PMDD no es una dosis %1. Pero deberias.
   ada: La fertilizacion de sistemas ADA incluye sustratos ricos en nutrientes, mientras que los fertilizantes liquidos suplen las columnas de agua hasta que el substrato es consumido por completo. El analisis de ADA es una cortesia de Plantbrain/Tom Barr y puede ser encontrado en <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc:
-  calc: Yet Another Nutrient Calculator
-  restart: Start over
-  submit_button: Gimmie
-  translations: Translations
-  contribute: Contribute a translation
-  mobile_link: Mobile Site
-  noscript: This calculator requires Javascript to work correctly.
-  error: There was an error! Please only use numbers (3, 3.0, 3/4, 0,75, etc) and make sure all visible questions are answered.
+  calc: Una Calculadora de Nutrientes Mas
+  restart: Comenzar de nuevo
+  submit_button: Calcular
+  translations: Traducciones
+  contribute: Contribuye con las traducciones
+  mobile_link: Sitio Web para Moviles
+  noscript: Para el funcionamiento correcto de este Calculadora web se require que Javascript este habilitado.
+  error: Hubo un error! Por favor solo use los numeros (3, 3.0, 3/4, 0,75, etc) y asegurese que todas la informacion requerida a sido ingresada correctamente.
