@@ -24,7 +24,7 @@ input:
     text: while using a
     container: container
     dose: with doses of
-  method:
+  dosing_method:
     text: and I am calculating for
     target: what dose to reach a target
     dose: the result of my dose
@@ -36,31 +36,31 @@ input:
   dose: I am adding
   target: My target is
 output:
-  dose: Your addition of \1 to your 
-  dose_solution: container, with doses of \1 to your
+  dose: Your addition of %1 to your 
+  dose_solution: container, with doses of %1 to your
   dose_end: aquarium adds 
-  target: To reach your target of \1 you will need to add \2 of \3 to your 
-  target_solution: container.  Add \1 of that mix to your
+  target: To reach your target of %1 you will need to add %2 of %3 to your 
+  target_solution: container.  Add %1 of that mix to your
   dose_: aquarium to yield
 warnings:
-  solubility: The solubility of \1 at room temperature is \2.  You should adjust your dose.
+  solubility: The solubility of %1 at room temperature is %2.  You should adjust your dose.
   k3po4: K3PO4 in solution tends to raise pH due to the nature of KOH, a strong base. ray-the-pilot explains this for us gardeners <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>
   eddha: Be aware that EDDHA will tint the water pink to red at even moderate doses.  You can check out a video of a 0.2ppm dose <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.
   urea: This product has some unknown percentage of N as Urea and as NO3.  The calculation and chart below works with NO3 equivalents.
-  cu: Your Cu dose is \1 % more than recommended for sensitive fish and inverts. Consider reducing your \2 dose by \3 <a href='http://y.[petalphile.com/cu' target='_blank'>Read more about Cu toxicity here</a>
+  cu: Your Cu dose is %1 % more than recommended for sensitive fish and inverts. Consider reducing your %2 dose by %3 <a href='http://y.[petalphile.com/cu' target='_blank'>Read more about Cu toxicity here</a>
 chart:
-  text: Relative \1 for 
+  text: Relative %1 for 
   pmdd: PMDD
   walstad: Walstad
   pps: PPS-Pro
   ei: The Estimative Index
   user: and you
-  long_term_chart: Want to model long term effects of \1 dosing? Click \2 here!
+  long_term_chart: Want to model long term effects of %1 dosing? Click %2 here!
 methods_text:  
   ei: Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.
   ei_daily: This is traditional EI reduced to daily dosing levels.
   ei_low: This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.
   pps: We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.
-  pmdd: PMDD does not dose \1. But maybe you should.
+  pmdd: PMDD does not dose %1. But maybe you should.
   ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
   
