@@ -46,7 +46,7 @@ output:
   dose_end: acuario agregando
   target: Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente de 
   target_solution: Agregar %1 de esa mezcla en tu acuario de 
-  target_end: para conseguir:
+  target_end: para conseguir
 warnings:
   solubility: La solubilidad de %1 a temperature ambiente es %2.  Deberas ajustar tu dosis.
   k3po4: El K3PO4 disuelto en una solución tiende a incrementar el pH debido a la naturaleza del KOH, que es una base fuerte. ray-the-pilot explica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>
