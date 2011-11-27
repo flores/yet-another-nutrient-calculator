@@ -26,6 +26,7 @@ input:
     text: while using a
     container: container
     dose: with doses of
+    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
   dosing_method:
     text: and I am calculating for
     target: what dose to reach a target
@@ -35,7 +36,9 @@ input:
     ei_low: EI low light/weekly
     pps: Perpetual Preservation System
     pmdd: PMDD
-  dose: I am adding
+  dose: 
+    text: I am adding
+    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
   target: My target is
 output:
   dose: Your addition of %1 to your 

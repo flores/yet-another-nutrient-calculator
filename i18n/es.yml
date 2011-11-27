@@ -1,42 +1,45 @@
 units:
-  element: Elemento
+  element: Elemento/Compuesto
   ppm: ppm
   degree: grado
-  us_gal: US gal
-  imp_gal: Imp gal
+  us_gal: galones internacionales (USA)
+  imp_gal: galones imperiales (UK)
   Liter: L
   milliliter: mL
-  five_milliter: tsp/caps
+  five_milliter: cucharilla de té/tapón/5 ml
   pump_bottle: pumps
   grams: g
   milligrams: mg
 input:
   aquarium: Mi acuario es de
   source:
-    text: usando
-    diy: diy
-    commercial: pre-mezclado de
+    text: uso fertilizantes 
+    diy: hágalo usted mismo
+    commercial: producto comercial
     label: fertilizantes
   diy:
-    text: Estoy cultivando
+    text: Estoy añadiendo
     method_text: usando
-    solution: una solution
-    dry: cultivo seco
+    solution: disuelto en solución
+    dry: compuesto seco
   solution:
-    text: usando un
-    container: contenedor
-    dose: con porciones de
+    text: usando un recipiente de
+    container: 
+    dose: añadiendo dosis de 
+    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
   dosing_method:
     text: y estoy calculando
-    target: dosis para alcanzar
-    dose: los resultados de mi cultivo
-    ei: El inidice de estimaciones
-    ei_daily: EI diario
-    ei_low: EI suave/semanal
-    pps: Sistema de preservation constante
-    pmdd: PMDD
-  dose: Estoy agregando
-  target: My objetivo es
+    target: dosis necesaria para alcanzar una concentración concreta
+    dose: resultados de lo que estoy añadiendo
+    ei: Método EI (Indice Estimativo)
+    ei_daily: Método EI diario
+    ei_low: Método EI suave/semanal
+    pps: Método de preservación constante (PPS)
+    pmdd: Método PMDD
+  dose: 
+    text: Estoy añadiendo
+    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
+  target: Mi objetivo es
 output:
   dose: Tu agregado de %1 para tu
   dose_solution: contenedor, con dosis de %1 para tu

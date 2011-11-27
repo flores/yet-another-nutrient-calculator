@@ -32,7 +32,7 @@
     %br
     #solution{:style => 'display:none'}
       %label= t.input.solution.text
-      %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
+      %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => t.input.solution.tooltip}
       = t.units.milliliter
       = t.input.solution.container
       %br
@@ -51,8 +51,8 @@
         %option{:value=> "pps"}= t.input.dosing_method.pps
         %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
     #dump{:style => 'display:none'}
-      %label= t.input.dose
-      %input{:type => "int", :name=> "dose_amount", :length => 6, :size => 6, :title => "examples: 1/8, 1.25, or 2,50"}
+      %label= t.input.dose.text
+      %input{:type => "int", :name=> "dose_amount", :length => 6, :size => 6, :title => t.input.dose.tooltip}
       %input{:type => "radio", :name=> "dose_units", :value=> "mg"}
       =t.units.milligrams
       %input{:type => "radio", :name=> "dose_units", :value=> "g"}
@@ -78,11 +78,11 @@
         %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
         %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
         %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
-        %option{:value=> "pps"}= t.input.dosing_method.ei_pps
+        %option{:value=> "pps"}= t.input.dosing_method.pps
         %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
     #premix_dump{:style => 'display:none'}
-      %label= t.input.dose
-      %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => "examples: 1/2, 0.5, 1"}
+      %label= t.input.dose.text
+      %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => t.input.dose.tooltip}
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "mL"}
       = t.units.milliliter
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "caps"}

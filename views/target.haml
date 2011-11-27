@@ -55,8 +55,8 @@
 </div>
 </div>
 <div style="float:top; width: 330px; height: 100px;">
-%form{:action => "/", :method => "get", :id=>"yanc"}
-  %input{:type=> "submit", :value=>"Start over", :id=>"results"}
+%form{:action => request.url, :method => "get", :id=>"yanc"}
+  %input{:type=> "submit", :value=> t.misc.restart, :id=>"results"}
 %br
 %br
 #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}

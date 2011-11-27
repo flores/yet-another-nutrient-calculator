@@ -26,6 +26,7 @@ input:
     text: într-un recipient de 
     container: 
     dose: cu doze de
+    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution
   dosing_method:
     text: şi calculez 
     target: ce doză ca să ajung la o ţintă
@@ -35,11 +36,13 @@ input:
     ei_low: EI lumină scăzută/săptămânal
     pps: Perpetual Preservation System
     pmdd: PMDD
-  dose: adaug
+  dose: 
+    text: adaug
+    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
   target: ţinta mea este
 output:
   dose: Adăugarea de %1 la recipientul tău de
-  dose_solution: , cu doze de %1, în acvariul de 
+  dose_solution: cu doze de %1, în acvariul de 
   dose_end: adaugă 
   target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în 
   target_solution: recipientul tău.  Adaugă %1 din acest amestec în acvariul tău de 
@@ -49,7 +52,7 @@ warnings:
   k3po4: K3PO4 în soluţie are tendinţa de a ridica pH-ul datorită naturii substanţei KOH, o bază puternică. ray-the-pilot explică asta pentru noi grădinarii <a href='http://bit.ly/ev7txA' target='_blank'>pe forumul APC</a>.
   eddha: Ai grijă că EDDHA colorează apa în roz spre roşu chiar la doze moderate.  Poţi să vezi un video al unei doze de 0.2mg/l <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aici</a>.
   urea: Acest produs are un procent necunoscut de N ca uree şi ca NO3.  Calculul şi graficul de mai jos lucrează cu echivalent NO3.
-  cu: Doza ta de Cu este %1 % mai mare decât se recomandă pentru peşti sensibili şi nevertebrate. Gândeşte-te să reduci doza de %2 cu %3. <a href='http://y.[petalphile.com/cu' target='_blank'>Mai multe detalii aici despre toxicitatea Cu.</a>
+  cu: Doza ta de Cu este %1 % mai mare decât se recomandă pentru peşti sensibili şi nevertebrate. Gândeşte-te să reduci doza de %2 cu %3. <a href='http://y.petalphile.com/cu' target='_blank'>Mai multe detalii aici despre toxicitatea Cu.</a>
 chart:
   text: Concentraţiile %1 relative pentru 
   pmdd: PMDD
