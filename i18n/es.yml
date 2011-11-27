@@ -16,7 +16,7 @@ input:
     text: uso fertilizantes 
     diy: hágalo usted mismo
     commercial: producto comercial
-    label: 
+    label: " "
   diy:
     text: Estoy añadiendo
     method_text: usando
