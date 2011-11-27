@@ -31,9 +31,9 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 	    solution: a solution
 	    dry: dry dosing
 	  solution:
-	    text: while using a
+	    text: My solution container is
 	    container: container
-	    dose: with doses of
+	    dose: and each dose is
 	    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
 	  dosing_method:
 	    text: and I am calculating for
@@ -44,7 +44,7 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 	    ei_low: EI low light/weekly
 	    pps: Perpetual Preservation System
 	    pmdd: PMDD
-	  dose:
+	  dose: 
 	    text: I am adding
 	    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
 	  target: My target is
@@ -75,7 +75,7 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 	  ei_low: This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.
 	  pps: We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.
 	  pmdd: PMDD does not dose %1. But maybe you should.
-	  ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depeleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+	  ada: The ADA fertilization system includes nutrient-rich substrate, while their liquid fertilizers supplement the water column until the substrate is depleted. The ADA elemental analysis is courtesy of Plantbrain/Tom Barr and is available at <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 	misc:
 	  calc: Yet Another Nutrient Calculator
 	  restart: Start over
@@ -91,90 +91,90 @@ Notice some stuff has placeholders (%1, %2, etc) or links (<a href...) -- please
 ## Examples
 
 ### Spanish
-Spanish translation file contributed by [jagg81](http://github.com/jagg81).
+Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/es.yml) contributed by [DanielSev](http://www.barrreport.com/member.php/34196-DanielSev) and [jagg81](http://github.com/jagg81).
 
 	units:
-	  element: Elemento
+	  element: Elemento/Compuesto
 	  ppm: ppm
 	  degree: grado
-	  us_gal: US gal
-	  imp_gal: Imp gal
+	  us_gal: galones internacionales (USA)
+	  imp_gal: galones imperiales (UK)
 	  Liter: L
 	  milliliter: mL
-	  five_milliter: tsp/caps
+	  five_milliter: cucharilla de té/tapón/5 ml
 	  pump_bottle: pumps
 	  grams: g
 	  milligrams: mg
 	input:
 	  aquarium: Mi acuario es de
 	  source:
-	    text: usando
-	    diy: diy
-	    commercial: pre-mezclado de
-	    label: fertilizantes
+	    text: uso fertilizantes 
+	    diy: hágalo usted mismo
+	    commercial: producto comercial
+	    label: " "
 	  diy:
-	    text: Estoy cultivando
+	    text: Estoy añadiendo
 	    method_text: usando
-	    solution: una solution
-	    dry: cultivo seco
+	    solution: disuelto en solución
+	    dry: compuesto seco
 	  solution:
-	    text: usando un
-	    container: contenedor
-	    dose: con porciones de
-	    tooltip: pending
+	    text: usando un recipiente de
+	    container: 
+	    dose: añadiendo dosis de 
+	    tooltip: Si en la lista de opciones inferior se especifica "resultados de lo que estoy añadiendo" esta será la dosis que se añada a la solución.
 	  dosing_method:
 	    text: y estoy calculando
-	    target: dosis para alcanzar
-	    dose: los resultados de mi cultivo
-	    ei: El inidice de estimaciones
-	    ei_daily: EI diario
-	    ei_low: EI suave/semanal
-	    pps: Sistema de preservation constante
-	    pmdd: PMDD
+	    target: dosis necesaria para alcanzar una concentración concreta
+	    dose: resultados de lo que estoy añadiendo
+	    ei: Método EI (Indice Estimativo)
+	    ei_daily: Método EI diario
+	    ei_low: Método EI para niveles bajos de luz/semanal
+	    pps: Método de preservación constante (PPS)
+	    pmdd: Método PMDD
 	  dose: 
-	    text: Estoy agregando
-	    tooltip: pending
-	  target: My objetivo es
+	    text: Estoy añadiendo
+	    tooltip: Puedes usar números formateados como 1/8, 1.25, 2,50, or 3
+	  target: Mi objetivo es
 	output:
 	  dose: Tu agregado de %1 para tu
 	  dose_solution: contenedor, con dosis de %1 para tu
 	  dose_end: acuario agregando
-	  target: para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 para tu 
-	  target_solution: contenedor.  Agregar %1 de esa mezcla para tu
-	  target_end: acuario
+	  target: Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente de 
+	  target_solution: Agregar %1 de esa mezcla en tu acuario de 
+	  target_end: para conseguir
 	warnings:
 	  solubility: La solubilidad de %1 a temperature ambiente es %2.  Deberas ajustar tu dosis.
-	  k3po4: K3PO4 en solution tiende a incrementar el pH debido a la naturaleza de KOH, con una base fuerte. ray-the-pilot exaplica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>
-	  eddha: Ten presente que EDDHA puede tenir el agua de rojo inclusive usando dosis moderadas.  Puede ver este video de una dosis de 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aqui</a>.
-	  urea: Este producto tiene un porcentage desconocido de N como Urea y NO3.  El calculo y la tabla abajo funciona con equivalentes a NO3.
-	  cu: Tu dosis de Cu es %1 % de la recomendada para peces sensibles e invertido. Puedes considerar reducir tu dosis de %2 por una de %3 <a href='http://y.[petalphile.com/cu' target='_blank'>Mas informacion acerca de la toxicidad del Cu aqui</a>
+	  k3po4: El K3PO4 disuelto en una solución tiende a incrementar el pH debido a la naturaleza del KOH, que es una base fuerte. ray-the-pilot explica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>
+	  eddha: Ten presente que el EDDHA puede tenir el agua de rojo incluso usando dosis moderadas.  Puede ver este video de una dosis de 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aqui</a>.
+	  urea: Este producto tiene un porcentage desconocido de N como Urea y NO3.  El calculo y la tabla  de abajo funciona con equivalentes a NO3.
+	  cu: Tu dosis de Cu es %1 % de la recomendada para peces sensibles e invertebrados. Puedes considerar reducir tu dosis de %2 por una de %3 <a href='http://y.[petalphile.com/cu' target='_blank'>Mas información acerca de la toxicidad del Cu aqui</a>
 	chart:
-	  text: Relativo %1 para 
+	  text: Concentraciones relativas %1 para los métodos 
 	  pmdd: PMDD
 	  walstad: Walstad
 	  pps: PPS-Pro
-	  ei: El inidice de estimaciones
-	  user: y tu
-	  long_term_chart: Quieres modelar efectos a largo plazo con dosis de %1? Haz Clic %2 aqui!
+	  ei: El Indice Estimativo
+	  user: y tu dosificación
+	  long_term_chart: Quieres modelar los efectos a largo plazo de tus dosis de %1? Haz Clic %2 aqui!
 	methods_text:  
-	  ei: Un EI adecuado depende de un buen CO2, buena circulacion, y cambios regulares de agua.  Moderaciones pasadas no son tan importantes.
-	  ei_daily: Este EI tradicional es reducido a dosis diarias.
-	  ei_low: Es es EI disenado para una onza de agua a baja luz. Para la mayor parte de los tanques, los rangos de EI abajo son a lo largo del tiempo.
-	  pps: Hemos calculado para una dosis diaria de PPS-Pro. La recomendacion referida abajo es para tanques profesionales.
-	  pmdd: PMDD no es una dosis %1. Pero deberias.
-	  ada: La fertilizacion de sistemas ADA incluye sustratos ricos en nutrientes, mientras que los fertilizantes liquidos suplen las columnas de agua hasta que el substrato es consumido por completo. El analisis de ADA es una cortesia de Plantbrain/Tom Barr y puede ser encontrado en <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+	  ei: El éxito del método EI depende de un buen nivel de CO2, buena circulacion, y cambios regulares de agua. La cantidad de luz pasado un cierto nivel moderado no es tan importantes.
+	  ei_daily: Este es el método EI tradicional reducido a dosis diarias.
+	  ei_low: Es es el método EI para acuarios con poca luz y dosificación semanal. Para la mayor parte de los tanques, los rangos de EI abajo son a lo largo del tiempo.
+	  pps: Hemos calculado para una dosis diaria de PPS-Pro. El rango recomendado más abajo es para tanques maduros y estables.
+	  pmdd: El método PMDD no dosifica %1. Sin embargo, quizás deberías considerar hacerlo tu.
+	  ada: La fertilizacion de sistemas ADA incluye sustratos ricos en nutrientes, mientras que los fertilizantes liquidos añaden un suplemento a la columna de agua hasta que el substrato es consumido por completo. El analisis de ADA es una cortesia de Plantbrain/Tom Barr y puede ser encontrado en <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 	misc:
 	  calc: Una Calculadora de Nutrientes Mas
 	  restart: Comenzar de nuevo
 	  submit_button: Calcular
 	  translations: Traducciones
-	  contribute: Contribuye con las traducciones
-	  mobile_link: Sitio Web para Moviles
-	  noscript: Para el funcionamiento correcto de este Calculadora web se require que Javascript este habilitado.
-	  error: Hubo un error! Por favor solo use los numeros (3, 3.0, 3/4, 0,75, etc) y asegurese que todas la informacion requerida a sido ingresada correctamente.
+	  contribute: Contribuye a las traducciones
+	  mobile_link: Sitio Web para Móviles
+	  noscript: Para el funcionamiento correcto de esta Calculadora web se require que Javascript este habilitado.
+	  error: Hubo un error! Por favor solo use los numeros (3, 3.0, 3/4, 0,75, etc) y asegurese que todas la informacion requerida ha sido ingresada correctamente.
 
 ### Romanian
-Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
+Romanian file [ro.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/ro.yml) contributed by [Florin Ilia](https://github.com/FlorinI).
 
 	units:
 	  element: Element
@@ -184,7 +184,7 @@ Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
 	  imp_gal: gal UK
 	  Liter: L
 	  milliliter: mL
-	  five_milliter: linguriÅ£Äƒ
+	  five_milliter: linguriţe
 	  pump_bottle: pompe
 	  grams: g
 	  milligrams: mg
@@ -193,73 +193,73 @@ Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
 	  source:
 	    text: folosind
 	    diy: diy
-	    commercial: comercial
-	    label: fertilizant
+	    commercial: fertilizant 
+	    label: comercial 
 	  diy:
-	    text: Dozez
+	    text: dozez
 	    method_text: folosind
-	    solution: o soluÅ£ie
-	    dry: pulberi
+	    solution: o soluţie
+	    dry: pulbere
 	  solution:
-	    text: folosind
-	    container: container
+	    text: într-un recipient de 
+	    container: 
 	    dose: cu doze de
-	    tooltip: pending
+	    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution
 	  dosing_method:
-	    text: ÅŸi calculez pentru
-	    target: ce dozÄƒ ca sÄƒ ajung la o Å£intÄƒ
+	    text: şi calculez 
+	    target: ce doză ca să ajung la o ţintă
 	    dose: rezultatul dozei mele
 	    ei: Estimative Index
 	    ei_daily: EI zilnic
-	    ei_low: EI luminÄƒ scÄƒzutÄƒ/sÄƒptÄƒmÃ¢nal
+	    ei_low: EI lumină scăzută/săptămânal
 	    pps: Perpetual Preservation System
 	    pmdd: PMDD
 	  dose: 
 	    text: adaug
-	    tooltip: pending
-	  target: Å£inta mea este
+	    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
+	  target: ţinta mea este
 	output:
-	  dose: AdÄƒugarea de %1 la containerul 
-	  dose_solution: tÄƒu, cu doze de %1
-	  dose_end: Ã®n acvariu adaugÄƒ 
-	  target: Ca sÄƒ-Å£i atingi Å£inta de %1 trebuie sÄƒ adaugi %2 %3 Ã®n 
-	  target_solution: containerul tÄƒu.  AdaugÄƒ %1 din acest amestec Ã®n 
-	  target_end: acvariul tÄƒu ca sÄƒ rezulte
+	  dose: Adăugarea de %1 la recipientul tău de
+	  dose_solution: cu doze de %1, în acvariul de 
+	  dose_end: adaugă 
+	  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în 
+	  target_solution: recipientul tău.  Adaugă %1 din acest amestec în acvariul tău de 
+	  target_end: ca să rezulte
 	warnings:
-	  solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui sÄƒ-Å£i ajustezi doza.
-	  k3po4: K3PO4 Ã®n soluÅ£ie are tendinÅ£a de a ridica pH-ul datoritÄƒ naturii substanÅ£ei KOH, o bazÄƒ puternicÄƒ. ray-the-pilot explicÄƒ asta pentru noi grÄƒdinarii <a href='http://bit.ly/ev7txA' target='_blank'>pe forumul APC</a>.
-	  eddha: Ai grijÄƒ cÄƒ EDDHA coloreazÄƒ apa Ã®n roz spre roÅŸu chiar la doze moderate.  PoÅ£i sÄƒ vezi un video al unei doze de 0.2mg/l <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aici</a>.
-	  urea: Acest produs are un procent necunoscut de N ca uree ÅŸi ca NO3.  Calculul ÅŸi graficul de mai jos lucreazÄƒ cu echivalent NO3.
-	  cu: Doza ta de Cu este %1 % mai mare decÃ¢t se recomandÄƒ pentru peÅŸti sensibili ÅŸi nevertebrate. GÃ¢ndeÅŸte-te sÄƒ reduci doza de %2 cu %3. <a href='http://y.[petalphile.com/cu' target='_blank'>Mai multe detalii aici despre toxicitatea Cu.</a>
+	  solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui să-ţi ajustezi doza.
+	  k3po4: K3PO4 în soluţie are tendinţa de a ridica pH-ul datorită naturii substanţei KOH, o bază puternică. ray-the-pilot explică asta pentru noi grădinarii <a href='http://bit.ly/ev7txA' target='_blank'>pe forumul APC</a>.
+	  eddha: Ai grijă că EDDHA colorează apa în roz spre roşu chiar la doze moderate.  Poţi să vezi un video al unei doze de 0.2mg/l <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aici</a>.
+	  urea: Acest produs are un procent necunoscut de N ca uree şi ca NO3.  Calculul şi graficul de mai jos lucrează cu echivalent NO3.
+	  cu: Doza ta de Cu este %1 % mai mare decât se recomandă pentru peşti sensibili şi nevertebrate. Gândeşte-te să reduci doza de %2 cu %3. <a href='http://y.petalphile.com/cu' target='_blank'>Mai multe detalii aici despre toxicitatea Cu.</a>
 	chart:
-	  text: ConcentraÅ£iile %1 relative pentru 
+	  text: Concentraţiile %1 relative pentru 
 	  pmdd: PMDD
 	  walstad: Walstad
 	  pps: PPS-Pro
 	  ei: Estimative Index
 	  user: doza ta
-	  long_term_chart: Vrei sÄƒ modelezi efectele pe termen lung ale dozÄƒrii %1? Click %2 aici!
+	  long_term_chart: Vrei să modelezi efectele pe termen lung ale dozării %1? Click %2 aici!
 	methods_text:  
-	  ei: EI clasic depinde de dozare bunÄƒ de CO2, circulaÅ£ie bunÄƒ a apei, ÅŸi schimburi regulate de apÄƒ.  Lumina peste un nivel moderat nu este aÅŸa de importantÄƒ.
-	  ei_daily: Acesta este EI tradiÅ£ional redus la dozÄƒri zilnice.
-	  ei_low: Acesta este EI scalat pentru dozare o datÄƒ pe sÄƒptÄƒmÃ¢nÄƒ la luminÄƒ slabÄƒ. Intervalele EI de mai jos sunt Ã®n timp pentru majoritatea acvariilor.
-	  pps: Am calculat pentru o dozÄƒ PPS zilnicÄƒ.  Intervalul recomandat de mai jos este pentru un acvariu matur, stabilizat.
-	  pmdd: PMDD nu dozeazÄƒ %1. Dar poate tu ar trebui.
-	  ada: Sistemul de fertilizare ADA include substart bogat Ã®n nutrienÅ£i, iar fertilizanÅ£ii lor lichizi suplimenteazÄƒ coloana de apÄƒ pÃ¢nÄƒ cÃ¢nd substratul este epuizat. Analiza elementarÄƒ a ADA este oferitÄƒ de Plantbrain/Tom Barr ÅŸi este disponibilÄƒ pe <a href='http://barrreport.com' target='_blank'>The Barr Report</a>.
+	  ei: EI clasic depinde de dozarea bună de CO2, circulaţia bună a apei, şi schimburi regulate de apă.  Lumina peste un nivel moderat nu este aşa de importantă.
+	  ei_daily: Acesta este EI tradiţional calculat pentru dozări zilnice.
+	  ei_low: Acesta este EI scalat pentru dozare o dată pe săptămână la lumină slabă. Intervalele EI de mai jos sunt în timp pentru majoritatea acvariilor.
+	  pps: Am calculat pentru o doză PPS zilnică.  Intervalul recomandat de mai jos este pentru un acvariu matur, stabilizat.
+	  pmdd: PMDD nu dozează %1. Dar poate tu ar trebui.
+	  ada: Sistemul de fertilizare ADA include substrat bogat în nutrienţi, iar fertilizanţii lor lichizi suplimentează coloana de apă până când substratul este epuizat. Analiza elementară a ADA este oferită de Plantbrain/Tom Barr şi este disponibilă pe <a href='http://barrreport.com' target='_blank'>The Barr Report</a>.
 	misc:
 	  calc: Yet Another Nutrient Calculator
-	  restart: De la Ã®nceput
-	  submit_button: DÄƒ-mi!
+	  restart: De la început
+	  submit_button: Dă-mi!
 	  translations: Traduceri
-	  contribute: AdaugÄƒ o traducere
+	  contribute: Adaugă o traducere
 	  mobile_link: Site-ul mobil
-	  noscript: Acest calculator are nevoie de Javascript ca sÄƒ funcÅ£ioneze corect.
-	  error: Am Ã®ntÃ¢lnit o eroare! Te rog foloseÅŸte doar numere (3, 3.0, 3/4, 0,75, etc) ÅŸi asigurÄƒ-te cÄƒ ai rÄƒspuns la toate Ã®ntrebÄƒrile vizibile.
+	  noscript: Acest calculator are nevoie de Javascript ca să funcţioneze corect.
+	  error: Am întâlnit o eroare! Te rog foloseşte doar numere (3, 3.0, 3/4, 0,75, etc) şi asigură-te că ai răspuns la toate întrebările vizibile.
 
 ## How to contribute your translation
 
-* Fork this project on [GitHub](https://github.com/flores/yet-another-nutrient-calculator). You can either edit [i18n/template.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/template.yml) or make a standard git commit, then make a pull request, and you will then get a public commit to this open source project.  
-* [Paste](http://contact.petalphile.com) your translation via a web form. I will credit you via the name and email address on the form.
+* Fork this project on [GitHub](https://github.com/flores/yet-another-nutrient-calculator). You can make a regular old Git commit or edit an existing translation via GitHub's fancy web form.  For new translations, please feel free to edit [i18n/template.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/template.yml).    
+* [Paste](http://contact.petalphile.com) your translation via a web form. I will credit you via the name and email address on the form.  Please let me know the language in the subject line.
 
 ## Goals
 
