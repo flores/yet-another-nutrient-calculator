@@ -1,0 +1,76 @@
+units:
+  element:
+  ppm:
+  degree:
+  us_gal:
+  imp_gal:
+  Liter:
+  milliliter:
+  five_milliter:
+  pump_bottle:
+  grams:
+  milligrams:
+input:
+  aquarium:
+  source:
+    text:
+    diy:
+    commercial:
+    label:
+  diy:
+    text:
+    method_text:
+    solution:
+    dry:
+  solution:
+    text:
+    container:
+    dose:
+  dosing_method:
+    text:
+    target:
+    dose:
+    ei:
+    ei_daily:
+    ei_low:
+    pps:
+    pmdd:
+  dose:
+  target:
+output:
+  dose:
+  dose_solution:
+  dose_end:
+  target:
+  target_solution:
+  target_end:
+warnings:
+  solubility:
+  k3po4: 
+  eddha: 
+  urea:
+  cu: 
+chart:
+  text:
+  pmdd:
+  walstad:
+  pps:
+  ei:
+  user:
+  long_term_chart:
+methods_text:
+  ei:
+  ei_daily:
+  ei_low:
+  pps:
+  pmdd:
+  ada:
+misc:
+  calc:
+  restart:
+  submit_button:
+  translations:
+  contribute:
+  mobile_link:
+  noscript:
+  error:
