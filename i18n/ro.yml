@@ -26,7 +26,7 @@ input:
     text: într-un recipient de 
     container: 
     dose: cu doze de
-    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution
+    tooltip: dacă mai jos alegi "rezultatul dozei mele", aceea e doza care se adaugă în această soluţie
   dosing_method:
     text: şi calculez 
     target: ce doză ca să ajung la o ţintă
@@ -38,14 +38,14 @@ input:
     pmdd: PMDD
   dose: 
     text: adaug
-    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
+    tooltip: poţi folosi numere ca 1/8, 1.25, 2,50, sau 3
   target: ţinta mea este
 output:
   dose: Adăugarea de %1 la recipientul tău de
   dose_solution: cu doze de %1, în acvariul de 
   dose_end: adaugă 
-  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în 
-  target_solution: recipientul tău.  Adaugă %1 din acest amestec în acvariul tău de 
+  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în recipientul tău de 
+  target_solution: .  Adaugă %1 din acest amestec în acvariul tău de 
   target_end: ca să rezulte
 warnings:
   solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui să-ţi ajustezi doza.
@@ -60,11 +60,11 @@ chart:
   pps: PPS-Pro
   ei: Estimative Index
   user: doza ta
-  long_term_chart: Vrei să modelezi efectele pe termen lung ale dozării %1? Click %2 aici!
+  long_term_chart: Vrei să modelezi efectele pe termen lung ale dozării %1? Apasă %2 aici!
 methods_text:  
   ei: EI clasic depinde de dozarea bună de CO2, circulaţia bună a apei, şi schimburi regulate de apă.  Lumina peste un nivel moderat nu este aşa de importantă.
   ei_daily: Acesta este EI tradiţional calculat pentru dozări zilnice.
-  ei_low: Acesta este EI scalat pentru dozare o dată pe săptămână la lumină slabă. Intervalele EI de mai jos sunt în timp pentru majoritatea acvariilor.
+  ei_low: Acesta este EI scalat pentru dozare o dată pe săptămână la lumină slabă. Majoritatea acvariilor dozate cu EI parcurg intervalele EI de mai jos, în timp.
   pps: Am calculat pentru o doză PPS zilnică.  Intervalul recomandat de mai jos este pentru un acvariu matur, stabilizat.
   pmdd: PMDD nu dozează %1. Dar poate tu ar trebui.
   ada: Sistemul de fertilizare ADA include substrat bogat în nutrienţi, iar fertilizanţii lor lichizi suplimentează coloana de apă până când substratul este epuizat. Analiza elementară a ADA este oferită de Plantbrain/Tom Barr şi este disponibilă pe <a href='http://barrreport.com' target='_blank'>The Barr Report</a>.
