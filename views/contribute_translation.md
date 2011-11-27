@@ -249,8 +249,12 @@ Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
 
 ## How to contribute your translation
 
-* Fork this project on [GitHub](https://github.com/flores/yet-another-nutrient-calculator). You will get a public commit to this open source project!
+* Fork this project on [GitHub](https://github.com/flores/yet-another-nutrient-calculator). You can either edit [i18n/template.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/template.yml) or make a standard git commit, then make a pull request, and you will then get a public commit to this open source project.  
 * [Paste](http://contact.petalphile.com) your translation via a web form. I will credit you via the name and email address on the form.
+
+## Goals
+
+The goal here is simply to build the best nutrient calculator for our hobby, ever.  Unlike other projects, these calculators are open source and will be around long after I or any individual site or hobbyist is gone from the hobby.  While these projects will always be free on [petalphile.com](http://petalphile.com), they have already been used in such applications as [Mistergreen's Fertilizer Calculator](http://itunes.apple.com/app/mistergreens-aquarium-fertilizer/id446259633) and [patw's Excel spreadsheet](http://www.aquaticplantenthusiasts.com/diy-projects/4322-stock-solution-spreadsheet-stocksolpro.html).  This calculator, with your help, will always be updated and improved upon over the years, forever.
 
 ## Thanks!
 

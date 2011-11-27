@@ -65,14 +65,17 @@
     #yield= yield
     %noscript= t.misc.noscript
     #footer
-      %a(href='/')= t.misc.restart
+      %a(href="#{request.url}")= t.misc.restart
       %br
       %a(href="/mobile")= t.misc.mobile_link
       %p= t.misc.translations
       %ul
-        - r18n.available_locales.each do |locale|
-          %li
-            %a(href="/#{locale.code}/")#{locale.title}
+        %li
+          %a(href="/en/")English
+        %li
+          %a(href="/es/")Español
+        %li
+          %a(href="/ro/")Română
       %a(href="/contribute_translation")= t.misc.contribute
       %br
       %p
