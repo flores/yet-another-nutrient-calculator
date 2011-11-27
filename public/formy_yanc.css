@@ -7,9 +7,9 @@
  { font-family: "Myriad Pro", Arial, sans-serif; }
 
 #yield {
-    width: 30em; 
-    margin: 0 auto; 
+    margin: auto; 
     margin-top: 3em;
+    max-width: 50em;
   }
 
 fieldset, form, label, legend, submit, div, yanc
@@ -31,7 +31,7 @@ legend
 
 
 label	 
-	{ float:left; width:9em; display:block; clear:left; margin-right:1em; text-align:right;  cursor:hand; }
+	{ float:left; display:block; width: 10em; margin-right:1em; text-align:right;  cursor:hand; }
 
 /*
 textarea, input, select, label, button, optgroup
@@ -70,7 +70,7 @@ input[type="text"]
 	{ border: 1px solid #666; }
 
 input[id="ask"]
-	{  margin-left: 5em; background-color: #fff; color: #000; width:20em; }
+	{  margin-left: 10em; background-color: #fff; color: #000; width:20em; }
 input[id="results"]
 	{  margin-left: 0; background-color: #fff; color: #000; width:330px; }
 
