@@ -6,7 +6,7 @@ units:
   imp_gal: gal UK
   Liter: L
   milliliter: mL
-  five_milliter: linguriţă
+  five_milliter: linguriţe
   pump_bottle: pompe
   grams: g
   milligrams: mg
@@ -15,19 +15,19 @@ input:
   source:
     text: folosind
     diy: diy
-    commercial: comercial
-    label: fertilizant
+    commercial: fertilizant 
+    label: comercial 
   diy:
-    text: Dozez
+    text: dozez
     method_text: folosind
     solution: o soluţie
-    dry: pulberi
+    dry: pulbere
   solution:
-    text: folosind
-    container: container
+    text: într-un recipient de 
+    container: 
     dose: cu doze de
   dosing_method:
-    text: şi calculez pentru
+    text: şi calculez 
     target: ce doză ca să ajung la o ţintă
     dose: rezultatul dozei mele
     ei: Estimative Index
@@ -38,12 +38,12 @@ input:
   dose: adaug
   target: ţinta mea este
 output:
-  dose: Adăugarea de %1 la containerul 
-  dose_solution: tău, cu doze de %1
-  dose_end: în acvariu adaugă 
+  dose: Adăugarea de %1 la recipientul tău de
+  dose_solution: , cu doze de %1, în acvariul de 
+  dose_end: adaugă 
   target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în 
-  target_solution: containerul tău.  Adaugă %1 din acest amestec în 
-  target_end: acvariul tău ca să rezulte
+  target_solution: recipientul tău.  Adaugă %1 din acest amestec în acvariul tău de 
+  target_end: ca să rezulte
 warnings:
   solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui să-ţi ajustezi doza.
   k3po4: K3PO4 în soluţie are tendinţa de a ridica pH-ul datorită naturii substanţei KOH, o bază puternică. ray-the-pilot explică asta pentru noi grădinarii <a href='http://bit.ly/ev7txA' target='_blank'>pe forumul APC</a>.
@@ -59,12 +59,12 @@ chart:
   user: doza ta
   long_term_chart: Vrei să modelezi efectele pe termen lung ale dozării %1? Click %2 aici!
 methods_text:  
-  ei: EI clasic depinde de dozare bună de CO2, circulaţie bună a apei, şi schimburi regulate de apă.  Lumina peste un nivel moderat nu este aşa de importantă.
-  ei_daily: Acesta este EI tradiţional redus la dozări zilnice.
+  ei: EI clasic depinde de dozarea bună de CO2, circulaţia bună a apei, şi schimburi regulate de apă.  Lumina peste un nivel moderat nu este aşa de importantă.
+  ei_daily: Acesta este EI tradiţional calculat pentru dozări zilnice.
   ei_low: Acesta este EI scalat pentru dozare o dată pe săptămână la lumină slabă. Intervalele EI de mai jos sunt în timp pentru majoritatea acvariilor.
   pps: Am calculat pentru o doză PPS zilnică.  Intervalul recomandat de mai jos este pentru un acvariu matur, stabilizat.
   pmdd: PMDD nu dozează %1. Dar poate tu ar trebui.
-  ada: Sistemul de fertilizare ADA include substart bogat în nutrienţi, iar fertilizanţii lor lichizi suplimentează coloana de apă până când substratul este epuizat. Analiza elementară a ADA este oferită de Plantbrain/Tom Barr şi este disponibilă pe <a href='http://barrreport.com' target='_blank'>The Barr Report</a>.
+  ada: Sistemul de fertilizare ADA include substrat bogat în nutrienţi, iar fertilizanţii lor lichizi suplimentează coloana de apă până când substratul este epuizat. Analiza elementară a ADA este oferită de Plantbrain/Tom Barr şi este disponibilă pe <a href='http://barrreport.com' target='_blank'>The Barr Report</a>.
 misc:
   calc: Yet Another Nutrient Calculator
   restart: De la început
