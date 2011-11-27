@@ -26,6 +26,7 @@ input:
     text: usando un recipiente de
     container: 
     dose: añadiendo dosis de 
+    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
   dosing_method:
     text: y estoy calculando
     target: dosis necesaria para alcanzar una concentración concreta
@@ -35,7 +36,9 @@ input:
     ei_low: Método EI suave/semanal
     pps: Método de preservación constante (PPS)
     pmdd: Método PMDD
-  dose: Estoy añadiendo
+  dose: 
+    text: Estoy añadiendo
+    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
   target: Mi objetivo es
 output:
   dose: Tu agregado de %1 para tu

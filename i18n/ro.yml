@@ -26,6 +26,7 @@ input:
     text: într-un recipient de 
     container: 
     dose: cu doze de
+    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution
   dosing_method:
     text: şi calculez 
     target: ce doză ca să ajung la o ţintă
@@ -35,7 +36,9 @@ input:
     ei_low: EI lumină scăzută/săptămânal
     pps: Perpetual Preservation System
     pmdd: PMDD
-  dose: adaug
+  dose: 
+    text: adaug
+    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
   target: ţinta mea este
 output:
   dose: Adăugarea de %1 la recipientul tău de

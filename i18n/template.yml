@@ -26,6 +26,7 @@ input:
     text:
     container:
     dose:
+    tooltip:
   dosing_method:
     text:
     target:
@@ -36,6 +37,8 @@ input:
     pps:
     pmdd:
   dose:
+    text:
+    tooltip:
   target:
 output:
   dose:
