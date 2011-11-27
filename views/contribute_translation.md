@@ -34,6 +34,7 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 	    text: while using a
 	    container: container
 	    dose: with doses of
+	    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
 	  dosing_method:
 	    text: and I am calculating for
 	    target: what dose to reach a target
@@ -43,7 +44,9 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 	    ei_low: EI low light/weekly
 	    pps: Perpetual Preservation System
 	    pmdd: PMDD
-	  dose: I am adding
+	  dose:
+	    text: I am adding
+	    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
 	  target: My target is
 	output:
 	  dose: Your addition of %1 to your 
@@ -118,6 +121,7 @@ Spanish translation file contributed by [jagg81](http://github.com/jagg81).
 	    text: usando un
 	    container: contenedor
 	    dose: con porciones de
+	    tooltip: pending
 	  dosing_method:
 	    text: y estoy calculando
 	    target: dosis para alcanzar
@@ -127,7 +131,9 @@ Spanish translation file contributed by [jagg81](http://github.com/jagg81).
 	    ei_low: EI suave/semanal
 	    pps: Sistema de preservation constante
 	    pmdd: PMDD
-	  dose: Estoy agregando
+	  dose: 
+	    text: Estoy agregando
+	    tooltip: pending
 	  target: My objetivo es
 	output:
 	  dose: Tu agregado de %1 para tu
@@ -198,6 +204,7 @@ Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
 	    text: folosind
 	    container: container
 	    dose: cu doze de
+	    tooltip: pending
 	  dosing_method:
 	    text: ÅŸi calculez pentru
 	    target: ce dozÄƒ ca sÄƒ ajung la o Å£intÄƒ
@@ -207,7 +214,9 @@ Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
 	    ei_low: EI luminÄƒ scÄƒzutÄƒ/sÄƒptÄƒmÃ¢nal
 	    pps: Perpetual Preservation System
 	    pmdd: PMDD
-	  dose: adaug
+	  dose: 
+	    text: adaug
+	    tooltip: pending
 	  target: Å£inta mea este
 	output:
 	  dose: AdÄƒugarea de %1 la containerul 
@@ -254,7 +263,7 @@ Romanian file contributed by [Florin Ilia](https://github.com/FlorinI).
 
 ## Goals
 
-The goal here is simply to build the best nutrient calculator for our hobby, ever.  Unlike other projects, these calculators are open source and will be around long after I or any individual site or hobbyist is gone from the hobby.  While these projects will always be free on [petalphile.com](http://petalphile.com), they have already been used in such applications as [Mistergreen's Fertilizer Calculator](http://itunes.apple.com/app/mistergreens-aquarium-fertilizer/id446259633) and [patw's Excel spreadsheet](http://www.aquaticplantenthusiasts.com/diy-projects/4322-stock-solution-spreadsheet-stocksolpro.html).  This calculator, with your help, will always be updated and improved upon over the years, forever.
+The goal here is to ambitiously build the best nutrient calculators for our hobby, ever.  Unlike other projects, these calculators are open source and will be improved long after any individual or site is gone from the hobby.  This calculator, with your help, will always be updated and improved upon over the years.
 
 ## Thanks!
 

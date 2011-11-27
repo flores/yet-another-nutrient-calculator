@@ -23,9 +23,9 @@ input:
     solution: a solution
     dry: dry dosing
   solution:
-    text: while using a
+    text: My solution container is
     container: container
-    dose: with doses of
+    dose: and each dose is
     tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
   dosing_method:
     text: and I am calculating for
