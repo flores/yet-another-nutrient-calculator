@@ -31,38 +31,38 @@ input:
     text: und ich berechne
     target: welche Dosierung um ein bestimmtes Niveau zu erreichen
     dose: das Ergebnis der Dosierung
-    ei: der Estimative Index
+    ei: den Estimativen Index
     ei_daily: EI taeglich
     ei_low: EI geringes Licht/woechentliche Dosierung
     pps: Perpetual Preservation System
     pmdd: PMDD
   dose: 
     text: Ich fuege hinzu
-    tooltip: Du kannst nummern wie 1/8, 1.25, 2,50, or 3 verwenden
+    tooltip: Du kannst Nummern wie z.B. 1/8, 1.25, 2,50, or 3 verwenden
   target: Mein Zielniveau ist
 output:
   dose: Das Hinzufuegen von %1 zu Deinem 
-  dose_solution: Behaelter, mit Dosierung von %1 zu Deinem
-  dose_end: Aquarium fuegt hinzu 
-  target: Um das Zielniveau von %1 zu erreichen, must Du hinzufuegen %2 von %3 zu Deinem 
-  target_solution: Behaelter. Fuege %1 von dem Mix zu Deinem
-  target_end: Aquarium um zu erreichen
+  dose_solution: Behaelter, und Dosierung von %1 in Dein
+  dose_end: Aquarium erhoeht die Konzentration um 
+  target: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 zu Deinem 
+  target_solution: Behaelter hinzufuegen. Fuege %1 von der Loesung zu Deinem
+  target_end: Aquarium um die folgende Konzentration zu erreichen
 warnings:
-  solubility: Die Loeslichkeit von %1 bei Raumtemperatur ist %2. Du solltest Deine Dosierung entsprechend verringern.
-  k3po4: K3PO4 Loesung hebt den pH Wert weil KOH eine starke base ist. ray-the-pilot erklaert das fuer uns Gaertner <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a> 
+  solubility: Die Loeslichkeit von %1 bei Raumtemperatur ist %2. Du solltest die Konzentration entsprechend verringern.
+  k3po4: K3PO4 Loesung hebt den pH Wert an weil KOH eine starke Base ist. ray-the-pilot erklaert das fuer uns Gaertner <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a> 
   eddha: EDDHA faerbt das Wasser rosa bis rot selbst in maessiger Dosierung. Hier ist ein Video einer 0.2ppm Dosierung <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.
-  urea: Dieses Produkt hat eine unbekannte Menge von N als Urea und als NO3. Die Rechnung und Graphic unten funktionieren nur mit NO3 Equivalenten.
+  urea: Dieses Produkt hat eine unbekannte Menge von N als Urea und als NO3. Die Berechnung und Graphic unten funktionieren nur mit NO3 Equivalenten.
   cu: Deine Cu Dosierung ist %1 % mehr als empfohlen fuer empfindliche Fische und Wirbellose. Reduziere Deine %2 Dosierung um %3 <a href='http://y.petalphile.com/cu' target='_blank'>Hier gibts mehr ueber Cu Vergiftungen zu lesen</a>
 chart:
-  text: Relativ %1 fuer 
+  text: Relative %1 fuer 
   pmdd: PMDD
-  walstad: Walstad
+  walstad: Walstad Methode
   pps: PPS-Pro
-  ei: Der Estimative Index
-  user: Und Du
+  ei: den Estimativen Index
+  user: Dein Aquarium
   long_term_chart: Moechtest Du Langzeiteffekte von %1 Dosierung sehen? Klick %2 hier!
 methods_text: 
-  ei: Der klassische EI besteht auf gutem CO2 Konzentration, guter Wasserzirkulation, und regelmaessigem Wasserwechsel. Lichtstaerke ueber mittleren Niveau ist nicht erforderlich.
+  ei: Der klassische EI beinhaltet gute CO2 Konzentration, ausreichende Wasserzirkulation, und regelmaessige Wasserwechsel. Lichtstaerke ueber mittleren Niveau ist nicht erforderlich.
   ei_daily: Das ist der klassische EI reduziert fuer taegliche Dosierung.
   ei_low: Das ist EI angepasst fuer woechentliche Dosierung bei geringen Lichtstaerken. Die EI Ergebnisse unten stimmen fuer die meisten Aquarien.
   pps: Wir haben das PPS-Pro fuer eine taegliche Dosierung berechnet. Der empfohlene Bereich ist fuer ein eingefahrenes, stabiles Aquarium angemessen.
@@ -76,4 +76,4 @@ misc:
   contribute: Contribute a translation
   mobile_link: Mobile Webseite
   noscript: Dieser Rechner erfordert JavaScript um richtig zu arbeiten.
-  error: Ein Fehler ist aufgetreten! Bitte verwende nur Nummern (3, 3.0, 3/4, 0,75, etc) und schau nach dass alle Fragen beantwortet sind.
+  error: Ein Fehler ist aufgetreten! Bitte verwende nur Nummern (3, 3.0, 3/4, 0,75, etc) und ueberpruefe dass alle Fragen beantwortet sind.
