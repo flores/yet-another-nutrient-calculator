@@ -44,7 +44,7 @@ output:
   dose: Tu agregado de %1 para tu
   dose_solution: contenedor, con dosis de %1 para tu
   dose_end: acuario agregando
-  target: Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente de 
+  target: Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente/acuario de 
   target_solution: Agregar %1 de esa mezcla en tu acuario de 
   target_end: para conseguir
 warnings:
