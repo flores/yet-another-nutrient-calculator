@@ -213,7 +213,7 @@ class YANC < Sinatra::Base
 					end
 				end
 				if (@tank_units =~ /gal/)
-					@tank_units = t.units.gal
+					@tank_units = t.units.us_gal
 				elsif (@tank_units =~ /L/)
 					@tank_units = t.units.Liter
 				end
