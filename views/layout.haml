@@ -61,9 +61,13 @@
       })();
   %body
     %h3= t.misc.calc
-    %p Testing/Alpha site!
+    %p 
+      Testing/Alpha site! Go 
+      %a(href='http://calc.petalphile.com')here
+      for the stable version.
     #yield= yield
     %noscript= t.misc.noscript
+    %p
     #footer
       %a(href="#{request.url}")= t.misc.restart
       %br
