@@ -43,10 +43,8 @@ input:
 output:
   dose:
   dose_solution:
-  dose_end:
   target:
   target_solution:
-  target_end:
 warnings:
   solubility:
   k3po4: 
