@@ -41,9 +41,9 @@ input:
     tooltip: poţi folosi numere ca 1/8, 1.25, 2,50, sau 3
   target: ţinta mea este
 output:
-  dose: Adăugarea de %1 la recipientul tău de %2 adaugă
-  dose_solution: Adăugarea de %1 la recipientul tău de %2 cu doze de %3, în acvariul de %4 adaugă 
-  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 în recipientul tău de %3 ca să rezulte
+  dose: Adăugarea de %1 în acvariul tău de %2 adaugă
+  dose_solution: Adăugarea de %1 la recipientul tău de %2, cu doze de %3, în acvariul de %4 adaugă 
+  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 în acvariul tău de %3 ca să rezulte
   target_solution: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 în recipientul tău de %3.  Adaugă %4 din acest amestec în acvariul tău de %5 ca să rezulte
 warnings:
   solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui să-ţi ajustezi doza.
@@ -52,7 +52,7 @@ warnings:
   urea: Acest produs are un procent necunoscut de N ca uree şi ca NO3.  Calculul şi graficul de mai jos lucrează cu echivalent NO3.
   cu: Doza ta de Cu este %1 % mai mare decât se recomandă pentru peşti sensibili şi nevertebrate. Gândeşte-te să reduci doza de %2 cu %3. <a href='http://y.petalphile.com/cu' target='_blank'>Mai multe detalii aici despre toxicitatea Cu.</a>
 chart:
-  text: Concentraţiile %1 relative pentru 
+  text: Intervalele relative de concentraţie %1 pentru 
   pmdd: PMDD
   walstad: Walstad
   pps: PPS-Pro
