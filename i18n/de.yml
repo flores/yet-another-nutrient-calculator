@@ -43,7 +43,7 @@ input:
 output:
   dose: Das Hinzufuegen von %1 zu Deinem %2 Aquarium erhoeht die Konzentration um
   dose_solution: Das Hinzufuegen von %1 zu Deinem %2 Behaelter, und Dosierung von %3 in Dein %4 Aquarium erhoeht die Konzentration um
-  target: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 Aquarium um die folgende Konzentration zu erreichen
+  target: Um das Zielniveau von %1 zu erreichen, must Du %2 in Dein %3 Aquarium aufloesen um die folgende Konzentration zu erreichen
   target_solution: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 zu Deinem Behaelter hinzufuegen. Fuege %4 von der Loesung zu Deinem %5 Aquarium um die folgende Konzentration zu erreichen
 warnings:
   solubility: Die Loeslichkeit von %1 bei Raumtemperatur ist %2. Du solltest die Konzentration entsprechend verringern.
