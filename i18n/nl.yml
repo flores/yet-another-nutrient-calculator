@@ -41,12 +41,10 @@ input:
     tooltip: Je kunt getallen gebruiken zoals 1/8, 1.25, 2,50, or 3
   target: Mijn doel is
 output:
-  dose: Je toevoeging van %1 aan jouw
-  dose_solution: fles, met doseringen van %1 aan jouw
-  dose_end: aquarium voegt toe
-  target: Om je doel te bereiken van %1 moet je toevoegen %2 van %3 aan jouw
-  target_solution: fles. Voeg %1 van deze mix aan jouw
-  target_end: aquarium toe om de gewenste hoeveelheid te bereiken.
+  dose: Je toevoeging van %1 aan jouw %2 aquarium voegt toe
+  dose_solution: Je toevoeging van %1 aan jouw %2 fles, met doseringen van %3 aan jouw %4 aquarium voegt toe
+  target: Om je doel te bereiken van %1 moet je toevoegen %2 van %3 aquarium toe om de gewenste hoeveelheid te bereiken.
+  target_solution: Om je doel te bereiken van %1 moet je toevoegen %2 van %3 aan jouw fles. Voeg %4 van deze mix aan jouw %5 aquarium toe om de gewenste hoeveelheid te bereiken.
 warnings:
   solubility: Het oplossend vermogen van %1 op kamertemperatuur is %2. Je moet de verhouding aanpassen.
   k3po4: Opgeloste K3PO4 werkt pH verhogend door KOH, a sterk basische stof. ray-the-pilot legt dit voor ons uit  <a href='http://bit.ly/ev7txA' target='_blank'>op APC</a>

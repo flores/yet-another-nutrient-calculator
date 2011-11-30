@@ -41,12 +41,10 @@ input:
     tooltip: Puedes usar números formateados como 1/8, 1.25, 2,50, or 3
   target: Mi objetivo es
 output:
-  dose: Tu agregado de %1 para tu
-  dose_solution: contenedor, con dosis de %1 para tu
-  dose_end: acuario agregando
+  dose: Tu agregado de %1 para tu %2 acuario agregando
+  dose_solution: Tu agregado de %1 para tu %2 contenedor, con dosis de %3 para tu %4 acuario agregando
   target: Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente/acuario de 
-  target_solution: Agregar %1 de esa mezcla en tu acuario de 
-  target_end: para conseguir
+  target_solution: Para alcanzar un objetivo de %1 necesitaras agregar %2 de %3 en tu recipiente. Agregar %4 de esa mezcla en tu acuario de %5 
 warnings:
   solubility: La solubilidad de %1 a temperature ambiente es %2.  Deberas ajustar tu dosis.
   k3po4: El K3PO4 disuelto en una solución tiende a incrementar el pH debido a la naturaleza del KOH, que es una base fuerte. ray-the-pilot explica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>

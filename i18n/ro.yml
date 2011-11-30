@@ -41,12 +41,10 @@ input:
     tooltip: poţi folosi numere ca 1/8, 1.25, 2,50, sau 3
   target: ţinta mea este
 output:
-  dose: Adăugarea de %1 la recipientul tău de
-  dose_solution: cu doze de %1, în acvariul de 
-  dose_end: adaugă 
-  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 %3 în recipientul tău de 
-  target_solution: .  Adaugă %1 din acest amestec în acvariul tău de 
-  target_end: ca să rezulte
+  dose: Adăugarea de %1 la recipientul tău de %2 adaugă
+  dose_solution: Adăugarea de %1 la recipientul tău de %2 cu doze de %3, în acvariul de %4 adaugă 
+  target: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 în recipientul tău de %3 ca să rezulte
+  target_solution: Ca să-ţi atingi ţinta de %1 trebuie să adaugi %2 în recipientul tău de %3.  Adaugă %4 din acest amestec în acvariul tău de %5 ca să rezulte
 warnings:
   solubility: Solubilitatea pentru %1 la temperatura camerei este %2.  Ar trebui să-ţi ajustezi doza.
   k3po4: K3PO4 în soluţie are tendinţa de a ridica pH-ul datorită naturii substanţei KOH, o bază puternică. ray-the-pilot explică asta pentru noi grădinarii <a href='http://bit.ly/ev7txA' target='_blank'>pe forumul APC</a>.

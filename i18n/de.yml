@@ -41,12 +41,10 @@ input:
     tooltip: Du kannst Nummern wie z.B. 1/8, 1.25, 2,50, or 3 verwenden
   target: Mein Zielniveau ist
 output:
-  dose: Das Hinzufuegen von %1 zu Deinem 
-  dose_solution: Behaelter, und Dosierung von %1 in Dein
-  dose_end: Aquarium erhoeht die Konzentration um 
-  target: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 zu Deinem 
-  target_solution: Behaelter hinzufuegen. Fuege %1 von der Loesung zu Deinem
-  target_end: Aquarium um die folgende Konzentration zu erreichen
+  dose: Das Hinzufuegen von %1 zu Deinem %2 Aquarium erhoeht die Konzentration um
+  dose_solution: Das Hinzufuegen von %1 zu Deinem %2 Behaelter, und Dosierung von %3 in Dein %4 Aquarium erhoeht die Konzentration um
+  target: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 Aquarium um die folgende Konzentration zu erreichen
+  target_solution: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 zu Deinem Behaelter hinzufuegen. Fuege %4 von der Loesung zu Deinem %5 Aquarium um die folgende Konzentration zu erreichen
 warnings:
   solubility: Die Loeslichkeit von %1 bei Raumtemperatur ist %2. Du solltest die Konzentration entsprechend verringern.
   k3po4: K3PO4 Loesung hebt den pH Wert an weil KOH eine starke Base ist. ray-the-pilot erklaert das fuer uns Gaertner <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a> 
