@@ -88,9 +88,10 @@
       = t.units.pump_bottle
     #premix_target{:style => 'display:none'}
       %label= t.input.target
-      %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4} 
+      %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4}
       = t.units.ppm
   %p
-  %input{:type => "submit", :value => t.misc.submit_button, :id => "ask"}
+  %center
+    %input{:type => "submit", :value => t.misc.submit_button, :id => "ask", :onclick=> "_gaq.push(['_trackPageview', '/yanc_submit']);"}
   %p
   %p

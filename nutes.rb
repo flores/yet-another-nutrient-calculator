@@ -5,9 +5,6 @@ class YANC < Sinatra::Base
 	register Sinatra::R18n
 	set :root, File.dirname(__FILE__)
 
-	get '/', :agent => /iphone|webos|mobile/i do
-                redirect '/mobile'
-        end
 
 	["/","/:locale/","/:locale/non-mobile/"].each do |path|
 		get path do
@@ -274,7 +271,7 @@ class YANC < Sinatra::Base
 				pie=Float(@results[@element])
 			end
 		# this will be our ppm at the highest pixel
-			@pixel_max=pie * 1.25
+			@pixel_max=pie * 1.1
 			@pixel_per_ppm=300/@pixel_max
 		# and convert the pixel/ppm to integers so our graph does not break
 			if @pixel_max > 1
@@ -302,9 +299,9 @@ class YANC < Sinatra::Base
 			@results_pixel=@results_pixel.to_int
 			
 			if (calc_for =~ /dump/)
-				haml :dump
+				haml :dump, :layout => false
 			else
-				haml :target
+				haml :target, :layout => false
 			end
 		end
 	end
@@ -326,6 +323,10 @@ class YANC < Sinatra::Base
 	end
 
 	get '/markdown.css' do
+		File.read(File.join('public', 'markdown.css'))
+	end
+
+	get '/ga.js' do
 		File.read(File.join('public', 'markdown.css'))
 	end
 
