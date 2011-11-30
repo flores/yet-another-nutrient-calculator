@@ -23,9 +23,9 @@ input:
     solution: a solution
     dry: dry dosing
   solution:
-    text: while using a
+    text: My solution container is
     container: container
-    dose: with doses of
+    dose: and each dose is
     tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
   dosing_method:
     text: and I am calculating for
@@ -41,12 +41,10 @@ input:
     tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
   target: My target is
 output:
-  dose: Your addition of %1 to your 
-  dose_solution: container, with doses of %1 to your
-  dose_end: aquarium adds 
-  target: To reach your target of %1 you will need to add %2 of %3 to your 
-  target_solution: container.  Add %1 of that mix to your
-  target_end: aquarium to yield
+  dose: Your addition of %1 to your %2 aquarium adds
+  dose_solution: Your addition of %1 to your %2 container, with doses of %3 to your %4 aquarium adds 
+  target: To reach your target of %1 you will need to add %2 to your %3 aquarium to yield
+  target_solution: To reach your target of %1 you will need to add %2 to your %3 dosing container.  Add %4 of that mix to your %5 aquarium to yield
 warnings:
   solubility: The solubility of %1 at room temperature is %2.  You should adjust your dose.
   k3po4: K3PO4 in solution tends to raise pH due to the nature of KOH, a strong base. ray-the-pilot explains this for us gardeners <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>

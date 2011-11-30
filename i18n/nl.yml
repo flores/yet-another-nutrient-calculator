@@ -1,0 +1,77 @@
+units:
+  element: Element
+  ppm: ppm
+  degree: graden
+  us_gal: Amerikaanse gallons
+  imp_gal: Engelse gallons
+  Liter: L
+  milliliter: mL
+  five_milliter: theelepel/flessendop 5ml.
+  pump_bottle: pompt
+  grams: g
+  milligrams: mg
+input:
+  aquarium: Mijn aquarium is
+  source:
+    text: gebruikt
+    diy: zelf gemengd
+    commercial: commercieel product
+    label: voedingsstoffen
+  diy:
+    text: Ik doseer met
+    method_text: gebruikmakend van
+    solution: een oplossing
+    dry: droge stof
+  solution:
+    text: Mijn bak met de oplossing is
+    container: bak
+    dose: en elke dosering is
+    tooltip: Als je het onderstaande resultaat kiest, dan is dat de hoeveelheid die in deze oplossing moet.
+  dosing_method:
+    text: en ik bereken voor
+    target: welke dosering om een bepaalde hoeveelheid te bereiken
+    dose: het resultaat van mijn dosering
+    ei: De Estimative Index
+    ei_daily: EI dagelijks
+    ei_low: EI weinig licht/wekelijks
+    pps: Perpetual Preservation System
+    pmdd: PMDD
+  dose:
+    text: Ik voeg toe
+    tooltip: Je kunt getallen gebruiken zoals 1/8, 1.25, 2,50, or 3
+  target: Mijn doel is
+output:
+  dose: Je toevoeging van %1 aan jouw %2 aquarium voegt toe
+  dose_solution: Je toevoeging van %1 aan jouw %2 fles, met doseringen van %3 aan jouw %4 aquarium voegt toe
+  target: Om je doel te bereiken van %1 moet je toevoegen %2 van %3 aquarium toe om de gewenste hoeveelheid te bereiken.
+  target_solution: Om je doel te bereiken van %1 moet je toevoegen %2 van %3 aan jouw fles. Voeg %4 van deze mix aan jouw %5 aquarium toe om de gewenste hoeveelheid te bereiken.
+warnings:
+  solubility: Het oplossend vermogen van %1 op kamertemperatuur is %2. Je moet de verhouding aanpassen.
+  k3po4: Opgeloste K3PO4 werkt pH verhogend door KOH, a sterk basische stof. ray-the-pilot legt dit voor ons uit  <a href='http://bit.ly/ev7txA' target='_blank'>op APC</a>
+  eddha: Let op dat EDDHA het water roze tot rood zal kleuren, zelfs bij gemiddelde doseringen. Je kunt een video zien van een 0.2 mg/l dosering <a href='http://www.youtube.com/watch?v=3DZCTu8ClcMKc' target='_blank'>hier</a>.
+  urea: Dit product heeft een onbekende hoeveelheid N als Urea en als NO3. De berekening en kaart hieronder werkt met NO3 gelijken.
+  cu: Je Cu dosering is %1 % meer dan aanbevolen voor gevoelige vissen en ongewervelden.  Overdenk je dosering te verminderen van %2 dosering door %3 <a href='http://y.[petalphile.com/cu' target='_blank'>Lees hier meer over kopervergiftiging</a>
+chart:
+  text: Relatief %1 voor
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: The Estimative Index
+  user: en jouw
+  long_term_chart: Wil je lange termijn gevolgen zien van %1 dosering? Klik %2 hier!
+methods_text:
+  ei: Classic EI is afhankelijk van genoeg CO2, goede doorstroming en regelmatige waterwissels. Licht is van mindere betekenis.
+  ei_daily: Dit is de traditionele EI met dagelijkse doseringen.
+  ei_low: Dit is EI voor 1x per week dosering in het geval dat er weinig licht wordt gebruikt. Het EI bereik hieronder is over langere tijd voor de meeste aquariums.
+  pps: We hebben berekend voor een dagelijkse PPS-Pro dosering. Het aanbevolen bereik is voor een stabiel volwassen aquarium.
+  pmdd: Bij PMDD wordt %1 niet gedoseerd. Maar misschien zou je dat wel moeten doen.
+  ada: Het ADA voedingssysteem bevat een voedingsbodem, en hun vloeibare voeding ondersteunt de voeding in het water totdat de voedingsbodem is uitgewerkt. De elementaire analyse van deze voedingsbodem is gemaakt door Tom Barr en is beschikbaar op <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+misc:
+  calc: Nog een calculator voor het berekenen van voedingsstoffen
+  restart: Begin opnieuw
+  submit_button: Geef mij
+  translations: Vertalingen
+  contribute: Draag een vertaling bij
+  mobile_link: Mobiele Site
+  noscript: Deze calculator heeft Javascript nodig om goed te werken.
+  error: Er is een fout opgetreden! Gebruik alleen een getallenformaat als (3, 3.0, 3/4, 0,75, etc) en zorg dat alle zichtbare vragen zijn beantwoord

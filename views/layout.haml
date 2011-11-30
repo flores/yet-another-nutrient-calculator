@@ -1,10 +1,21 @@
 %html
   %head
     %title #{t.misc.calc} - Alpha/Testing
+    %script(type="text/javascript" src="http://cdn.petalphile.com/javascript/jquery-1.4.4.min.js")
+    %script(type="text/javascript" src="http://cdn.petalphile.com/javascript/jquery.form.js")
     %link(rel="stylesheet" href="http://alpha.calc.petalphile.com/formy_yanc.css" type="text/css")
     %meta{'name'=>"keywords", 'http-equiv'=>"keywords", 'content'=>"planted, aquarium, fertilizer, ferts, calculator, KNO3, K2HPO4, KH2PO4, K3PO4, KCl, K2SO4, CaCl2.2H2O, CaSO4.1/2H2O, CaSO4.2H2O, CaMg(CO3)2, Ca(NO3)2.4H2O, 5Ca(NO3)2.NH4NO3.10H2O, MgSO4.7H2O, PlantedTanksUK Trace, Plantex CSM+B, Millers MicroPlex, Dutch Nutrient Formula, Rexolin APN, Rexolin BRA, Fe Gluconate, DTPA Fe (11%), DTPA Fe (10%), EDTA Fe, EDDHA Fe (6%), MnSO4.H2O, CO2, fish, plants, diy, horticulture, aquaculture, aquascaping, estimative index, pps-pro, perpetual preservation system, pmdd, ei, copper, cu, toxic, toxicity, shrimp"}
     %meta{'name'=>"description", 'http-equiv'=>"description", 'content'=>"Calculators for all aspects of planted aquariums, including DIY fertilizers, dosing for every major method, CO2, and pictures."}
     //%script{'src'=>"http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"}
+    %script{'type'=>"text/javascript"}
+      var options={
+      target: '#result',
+      success: function(){
+      $('div#result').slideDown();
+      },
+      };
+      $('#yanc').ajaxForm(options);
+       
     %script{'type'=>"text/javascript"}
       function showDiv(method) {
       document.getElementById('dump').style.display = "none";
@@ -14,10 +25,10 @@
       if (method && document.getElementById(method)) {
       document.getElementById(method).style.display = "block";
       }
-      if (method && document.getElementByName(method)) {
-      document.getElementByName(method).style.display = "block";
+      if (method && document.getElementsByName(method)) {
+      document.getElementsByName(method).checked = true;
       }
-      }
+      };
     %script{'type'=>"text/javascript"}
       onload=function () {
       var source = document.getElementsByName('source');
@@ -25,29 +36,29 @@
       pie = source[i];
       if (pie.checked) {
       showDiv(pie.value);
-      }
-      }
+      };
+      };
       
       var method = document.getElementsByName('method');
       for (i=0; i < method.length; i++) {
       pie = method[i];
       if (pie.checked) {
       showDiv(pie.value);
-      }
-      }
+      };
+      };
       
       var calc_for = document.getElementById('calc_for1');
       if (calc_for.selectedIndex) {
       pie = calc_for.selectedIndex;
       showDiv(calc_for.options[pie].value);
-      }
+      };
       
       var premix_calc_for = document.getElementById('premix_calc_for');
       if (premix_calc_for.selectedIndex) {
       pie = premix_calc_for.selectedIndex;
       showDiv(premix_calc_for.options[pie].value);
-      }
-
+      };
+      };
     %script{'type'=>"text/javascript"}
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-25702552-1']);
@@ -61,22 +72,33 @@
       })();
   %body
     %h3= t.misc.calc
-    %p Testing/Alpha site!
-    #yield= yield
+    %p 
+      Testing/Alpha site! Go 
+      %a(href='http://calc.petalphile.com')here
+      for the stable version.
+    #calc
+      #yield
+        =yield
+        #footer
+          %a(href="#{request.url}")= t.misc.restart
+          %br
+          %a(href="/mobile")= t.misc.mobile_link
+          %p= t.misc.translations
+          %ul
+          %li
+            %a(href="/de/")Deutsch
+          %li
+            %a(href="/en/")English
+          %li
+            %a(href="/es/")Español
+          %li
+            %a(href="/nl/")Nederlands
+          %li
+            %a(href="/ro/")Română
+          %a(href="/contribute_translation")= t.misc.contribute
+          %br
+      #result
     %noscript= t.misc.noscript
     #footer
-      %a(href="#{request.url}")= t.misc.restart
-      %br
-      %a(href="/mobile")= t.misc.mobile_link
-      %p= t.misc.translations
-      %ul
-        %li
-          %a(href="/en/")English
-        %li
-          %a(href="/es/")Español
-        %li
-          %a(href="/ro/")Română
-      %a(href="/contribute_translation")= t.misc.contribute
-      %br
       %p
         %a(href='http://petalphile.com')petalphile.com

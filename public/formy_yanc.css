@@ -4,19 +4,35 @@
 */
 
 *
- { font-family: "Myriad Pro", Arial, sans-serif; }
+ { font-family: "Myriad Pro", Georgia, sans-serif; }
 
-#yield {
-    width: 30em; 
-    margin: 0 auto; 
-    margin-top: 3em;
+#calc {
+    margin: 0 auto;
+    width: 1000px;
+    align: center;
   }
 
-fieldset, form, label, legend, submit, div, yanc
- { font-weight:normal;font-size:100%; vertical-align:baseline; }
+#yield {
+    margin: 0 auto;
+    display: inline-block;
+    float: left;
+    padding: 0;
+    width: 650px;
+  }
+#result {
+    display: inline-block;
+    width: 330px;
+    margin: 1 auto;
+    
+  } 
+
+fieldset, label, legend, submit, div, yanc
+ { font-size: 1em; margin: auto; padding: 0;}
+
+form {margin-left: 0; margin: auto; }
 
 #footer
- { padding:0;border:0;font-weight:normal;font-size:0.9em; vertical-align:baseline; text-align: left}
+ { margin-top: 2em; border:0; font-weight:normal;font-size:0.9em; text-align: left; float: left; width: 100%;}
 
 /* 
 	Structural
@@ -24,14 +40,14 @@ fieldset, form, label, legend, submit, div, yanc
 
 
 fieldset
-	{ margin: 0 0 1.5em 0; padding: 1.4em;  }
+	{ margin: 0; padding: 0; }
 
 legend
 	{ padding: 0 .4em; font-size:1.2em;  }
 
 
 label	 
-	{ float:left; width:9em; display:block; clear:left; margin-right:1em; text-align:right;  cursor:hand; }
+	{ float:left; display:block; width: 15em; text-align:right; margin-right: 1em; }
 
 /*
 textarea, input, select, label, button, optgroup
@@ -64,15 +80,15 @@ textarea:focus, input[type="text"]:focus
 	{ border: 2px solid #666; }
 
 select
-	{  background-color: #fff; color: #000; font-weight:normal;font-size:100%; }
+	{  background-color: #fff; color: #000; font-weight:normal;font-size:100%; max-width: 20em;}
 
 input[type="text"]
 	{ border: 1px solid #666; }
 
 input[id="ask"]
-	{  margin-left: 5em; background-color: #fff; color: #000; width:20em; }
-input[id="results"]
-	{  margin-left: 0; background-color: #fff; color: #000; width:330px; }
+	{ background-color: #fff; color: #000; width: 300px; text-align: center;}
+//input[id="results"]
+//	{  margin-left: 0; background-color: #fff; color: #000; width:330px; }
 
 input[type="checkbox"]
 	{ color: #000; }

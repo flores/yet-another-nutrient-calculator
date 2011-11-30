@@ -5,11 +5,8 @@ class YANC < Sinatra::Base
 	register Sinatra::R18n
 	set :root, File.dirname(__FILE__)
 
-	get '/', :agent => /iphone|webos|mobile/i do
-                redirect '/mobile'
-        end
 
-	["/","/:locale/","/:locale/non-mobile"].each do |path|
+	["/","/:locale/","/:locale/non-mobile/"].each do |path|
 		get path do
 			haml :ask
 		end
@@ -34,7 +31,6 @@ class YANC < Sinatra::Base
 		
 			@tank_vol_orig		= tank_vol_calc
 			tank_vol 		= to_Liters(tank_vol_calc,@tank_units)
-	
 			cons 			= Hash.new
 	
 			if ( source =~ /diy/ )
@@ -156,7 +152,7 @@ class YANC < Sinatra::Base
 					pie="#{value}"
 					pie=pie.to_f
 					@results["#{conc}"] = dose_calc * pie / tank_vol
-       	                                 if ( @results["#{conc}"] > 0.005 )
+       	                                if ( @results["#{conc}"] > 0.005 )
        	                                         @results["#{conc}"] = sprintf( '%.2f', @results["#{conc}"] )
                	                        else
                        	                        @results["#{conc}"] = sprintf( '%.4f', @results["#{conc}"] )
@@ -187,32 +183,36 @@ class YANC < Sinatra::Base
                                         end
 				end
 
-				
+				# use grams when the output is over 1000 milligrams, liters when >1000 mL, etc	
 				if (@dose_amount.to_i > 1000 && source =~ /diy/)
 					@dose_amount = @dose_amount / 1000
 					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
-					@dose_units  = 'grams'
+					@dose_units  = t.units.grams
 				elsif (@dose_amount.to_i > 10000 && source =~ /premix/)
 					@dose_amount = @dose_amount / 10000
 					@dose_amount = (@dose_amount.to_f * 10**3).round.to_f / 10**3
-					@dose_units  = 'L'
+					@dose_units  = t.units.Liter
 				elsif (@dose_amount.to_i < 10)
 					@dose_amount = (@dose_amount.to_f * 10**2).round.to_f / 10**2
 					if (source =~ /diy/)
-						@dose_units = 'mg'
+						@dose_units = t.units.milligrams
 					else
 						@dose_amount = @dose_amount / 10
-						@dose_units  = 'mL'
+						@dose_units  = t.units.milliliter
 					end
 				else
 					@dose_amount = @dose_amount.to_i
 					if (source =~ /diy/)
-						@dose_units = 'mg'
+						@dose_units = t.units.milligrams
 					else
 						@dose_amount = @dose_amount / 10
-						@dose_units  = 'mL'
+						@dose_units  = t.units.milliliter
 					end
-					
+				end
+				if (@tank_units =~ /gal/)
+					@tank_units = t.units.us_gal
+				elsif (@tank_units =~ /L/)
+					@tank_units = t.units.Liter
 				end
 			end
 		
@@ -271,7 +271,7 @@ class YANC < Sinatra::Base
 				pie=Float(@results[@element])
 			end
 		# this will be our ppm at the highest pixel
-			@pixel_max=pie * 1.25
+			@pixel_max=pie * 1.1
 			@pixel_per_ppm=300/@pixel_max
 		# and convert the pixel/ppm to integers so our graph does not break
 			if @pixel_max > 1
@@ -299,9 +299,9 @@ class YANC < Sinatra::Base
 			@results_pixel=@results_pixel.to_int
 			
 			if (calc_for =~ /dump/)
-				haml :dump
+				haml :dump, :layout => false
 			else
-				haml :target
+				haml :target, :layout => false
 			end
 		end
 	end
@@ -323,6 +323,10 @@ class YANC < Sinatra::Base
 	end
 
 	get '/markdown.css' do
+		File.read(File.join('public', 'markdown.css'))
+	end
+
+	get '/ga.js' do
 		File.read(File.join('public', 'markdown.css'))
 	end
 

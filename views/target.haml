@@ -1,30 +1,28 @@
-%p
-<div style="position: relative; float:top; width: 330px; height: relative; center">
-<center>#{t.output.target(@target_amount.to_s + t.units.ppm, @dose_amount.to_s + @dose_units, @comp)} 
-- if @sol_vol > 0
-  #{@sol_vol} mL #{t.output.target_solution("#{@sol_dose}#{t.units.milliliter} ")}
-#{@tank_vol_orig}#{@tank_units} #{t.output.target_end}</center><br/>
-%table{:width => 330}
-  %tr
-    %th= t.units.element
-    %th #{t.units.ppm}/#{t.units.degree}
-  - @results.sort.each do |result,result_value|
+<div style="position: relative; float:top; height: relative; center">
+%center
+  - if ( @sol_vol > 0 )
+    = t.output.target_solution(@target_amount.to_s + " " + t.units.ppm, @dose_amount.to_s + " " + @dose_units + " " + @comp, @sol_vol.to_s + " " + t.units.milliliter, @sol_dose.to_s + " " + t.units.milliliter, @tank_vol_orig.to_s + " " + @tank_units)
+  - else
+    = t.output.target(@target_amount.to_s + " " + t.units.ppm, @dose_amount.to_s + " " + @dose_units + " " + @comp, @tank_vol_orig.to_s + " " + @tank_units)
+  %table{:width=> "330px"}
     %tr
-      %td{:align=> "center"} #{result}
-      %td{:align=> "center"} #{result_value}
+      %th= t.units.element
+      %th #{t.units.ppm}/#{t.units.degree}
+    - @results.sort.each do |result,result_value|
+      %tr
+        %td{:align=> "center"} #{result}
+        %td{:align=> "center"} #{result_value}
 %br <center><font color="red">#{@toxic} #{@sol_error}</font></center>
 %br <center> #{@method_instruct} </center>
 %br
-</div>
-<div style="position: relative; float:top; width: 330px; height: 75px; center">
+<div style="position: relative; float:top; height: 75px; center">
 <center>
-= t.chart.text(@element + " " + t.units.ppm) 
+= t.chart.text(@element + " " + t.units.ppm)
 <font color="purple">#{t.chart.pmdd}</font>, <font color="green">#{t.chart.walstad}</font>, <font color="orange">#{t.chart.pps}</font>,
 <font color="blue">#{t.chart.ei}</font>, <font color="red">#{t.chart.user}</font>:
 </center>
 </div>
-<div style="position: relative; float:top; width: 330px; height: 15px; center">
-<center>#{@element} ppm</center>
+<div style="position: relative; float:left; width: 330px; height: 15px; center">
 </div>
 <div style="position: relative; float:top; width: 330px; height: 35px;">
 <div style="position: absolute; top:1px; left: 15px; width:300px;">
@@ -54,13 +52,8 @@
 #{@pixel_max} #{t.units.ppm}
 </div>
 </div>
-<div style="float:top; width: 330px; height: 100px;">
-%form{:action => request.url, :method => "get", :id=>"yanc"}
-  %input{:type=> "submit", :value=> t.misc.restart, :id=>"results"}
-%br
-%br
-#{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
+%p
+  %center
+    #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
 </a>
 </div>
-%p
-%p

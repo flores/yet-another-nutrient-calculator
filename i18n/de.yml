@@ -1,0 +1,77 @@
+units:
+  element: Element
+  ppm: ppm
+  degree: Grad
+  us_gal: US Gallonen
+  imp_gal: Englische Gallonen
+  Liter: Liter
+  milliliter: ml
+  five_milliter: Teeloeffel
+  pump_bottle: Spruehflasche
+  grams: g
+  milligrams: mg
+input:
+  aquarium: Mein Aquarium ist
+  source:
+    text: mit
+    diy: selbstgemachten
+    commercial: fertiggemixten
+    label: Duengern
+  diy:
+    text: Ich dose mit
+    method_text: und benutze
+    solution: eine Loesung
+    dry: Pulver
+  solution:
+    text: Meine Mixflasche ist
+    container: Behaelter
+    dose: und jede Dosierung ist
+    tooltip: Wenn Du das Ergebnis benutzt, das ist die Menge die in diese Loesung geht.
+  dosing_method:
+    text: und ich berechne
+    target: die Dosierung um ein bestimmtes Niveau zu erreichen
+    dose: das Ergebnis der Dosierung
+    ei: den Estimativen Index
+    ei_daily: EI taeglich
+    ei_low: EI geringes Licht/woechentliche Dosierung
+    pps: Perpetual Preservation System
+    pmdd: PMDD
+  dose: 
+    text: Ich fuege hinzu
+    tooltip: Du kannst Nummern wie z.B. 1/8, 1.25, 2,50, or 3 verwenden
+  target: Mein Zielniveau ist
+output:
+  dose: Das Hinzufuegen von %1 zu Deinem %2 Aquarium erhoeht die Konzentration um
+  dose_solution: Das Hinzufuegen von %1 zu Deinem %2 Behaelter, und Dosierung von %3 in Dein %4 Aquarium erhoeht die Konzentration um
+  target: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 Aquarium um die folgende Konzentration zu erreichen
+  target_solution: Um das Zielniveau von %1 zu erreichen, must Du %2 von %3 zu Deinem Behaelter hinzufuegen. Fuege %4 von der Loesung zu Deinem %5 Aquarium um die folgende Konzentration zu erreichen
+warnings:
+  solubility: Die Loeslichkeit von %1 bei Raumtemperatur ist %2. Du solltest die Konzentration entsprechend verringern.
+  k3po4: K3PO4 Loesung hebt den pH Wert an weil KOH eine starke Base ist. ray-the-pilot erklaert das fuer uns Gaertner <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a> 
+  eddha: EDDHA faerbt das Wasser rosa bis rot selbst in maessiger Dosierung. Hier ist ein Video einer 0.2ppm Dosierung <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.
+  urea: Dieses Produkt hat eine unbekannte Menge von N als Urea und als NO3. Die Berechnung und Graphic unten funktionieren nur mit NO3 Equivalenten.
+  cu: Deine Cu Dosierung ist %1 % mehr als empfohlen fuer empfindliche Fische und Wirbellose. Reduziere Deine %2 Dosierung um %3 <a href='http://y.petalphile.com/cu' target='_blank'>Hier gibts mehr ueber Cu Vergiftungen zu lesen</a>
+chart:
+  text: Relative %1 fuer 
+  pmdd: PMDD
+  walstad: Walstad Methode
+  pps: PPS-Pro
+  ei: den Estimativen Index
+  user: Dein Aquarium
+  long_term_chart: Moechtest Du Langzeiteffekte von %1 Dosierung sehen? Klick %2 hier!
+methods_text: 
+  ei: Der klassische EI beinhaltet gute CO2 Konzentration, ausreichende Wasserzirkulation, und regelmaessige Wasserwechsel. Lichtstaerke ueber mittleren Niveau ist nicht erforderlich.
+  ei_daily: Das ist der klassische EI reduziert fuer taegliche Dosierung.
+  ei_low: Das ist EI angepasst fuer woechentliche Dosierung bei geringen Lichtstaerken. Die EI Ergebnisse unten stimmen fuer die meisten Aquarien.
+  pps: Wir haben das PPS-Pro fuer eine taegliche Dosierung berechnet. Der empfohlene Bereich ist fuer ein eingefahrenes, stabiles Aquarium angemessen.
+  pmdd: PMDD dosiert kein %1. Aber vielleicht solltest Du.
+  ada: Das ADA Duengungssystem enthaelt ein naehrstoffreiches Substrat, und die Fluessigduenger bereichern die Wassersaeule wenn die Naehrstoffe im Substrat erschoepft sind. Die ADA Bestandteilanalyse wurde von Plantbrain/Tom Barr durchgefuehrt und kann hier eingesehen werden <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+misc:
+  calc: Yet Another Nutrient Calculator
+  restart: Start over
+  submit_button: Ergebnis
+  translations: Uebersetzungen
+  contribute: Contribute a translation
+  mobile_link: Mobile Webseite
+  noscript: Dieser Rechner erfordert JavaScript um richtig zu arbeiten.
+  error: Ein Fehler ist aufgetreten! Bitte verwende nur Nummern (3, 3.0, 3/4, 0,75, etc) und ueberpruefe dass alle Fragen beantwortet sind.

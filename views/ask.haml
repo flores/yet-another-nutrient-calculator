@@ -34,22 +34,20 @@
       %label= t.input.solution.text
       %input{:type => "int", :name=> "sol_volume", :length => 4, :size => 4, :value => 500, :title => t.input.solution.tooltip}
       = t.units.milliliter
-      = t.input.solution.container
       %br
       %label= t.input.solution.dose
-      %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5, :title => "if you choose the result of your dose below, that's the dose that goes into this solution."}
+      %input{:type => "int", :name=> "sol_dose", :length => 4, :size => 4, :value => 5, :title => t.input.solution.tooltip}
       = t.units.milliliter
     %br
     %label= t.input.dosing_method.text
-    %br
-      %select{:name=> "calc_for", :id=> "calc_for1", :onChange=>"showDiv(this.value);"}
-        %option{:value=> "target"}= t.input.dosing_method.target
-        %option{:value=> "dump"}= t.input.dosing_method.dose
-        %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
-        %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
-        %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
-        %option{:value=> "pps"}= t.input.dosing_method.pps
-        %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
+    %select{:name=> "calc_for", :id=> "calc_for1", :onChange=>"showDiv(this.value);"}
+      %option{:value=> "target"}= t.input.dosing_method.target
+      %option{:value=> "dump"}= t.input.dosing_method.dose
+      %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
+      %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
+      %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
+      %option{:value=> "pps"}= t.input.dosing_method.pps
+      %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
     #dump{:style => 'display:none'}
       %label= t.input.dose.text
       %input{:type => "int", :name=> "dose_amount", :length => 6, :size => 6, :title => t.input.dose.tooltip}
@@ -71,15 +69,14 @@
     </select>
     %p
     %label= t.input.dosing_method.text
-    %p
-      %select{:name=> "premix_calc_for", :id=> "premix_calc_for", :onChange=>"showDiv(this.value);"}
-        %option{:value=> "premix_target"}= t.input.dosing_method.target
-        %option{:value=> "premix_dump"}= t.input.dosing_method.dose
-        %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
-        %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
-        %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
-        %option{:value=> "pps"}= t.input.dosing_method.pps
-        %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
+    %select{:name=> "premix_calc_for", :id=> "premix_calc_for", :onChange=>"showDiv(this.value);"}
+      %option{:value=> "premix_target"}= t.input.dosing_method.target
+      %option{:value=> "premix_dump"}= t.input.dosing_method.dose
+      %option{:value=> "ei", :selected=> "selected"}= t.input.dosing_method.ei
+      %option{:value=> "ei_daily"}= t.input.dosing_method.ei_daily
+      %option{:value=> "ei_low"}= t.input.dosing_method.ei_low
+      %option{:value=> "pps"}= t.input.dosing_method.pps
+      %option{:value=> "pmdd"}= t.input.dosing_method.pmdd
     #premix_dump{:style => 'display:none'}
       %label= t.input.dose.text
       %input{:type => "int", :name=> "premix_dose_amount", :length => 6, :size => 6, :title => t.input.dose.tooltip}
@@ -91,9 +88,10 @@
       = t.units.pump_bottle
     #premix_target{:style => 'display:none'}
       %label= t.input.target
-      %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4} 
+      %input{:type => "int", :name=> "premix_target_amount", :length => 2, :size => 4}
       = t.units.ppm
   %p
-  %input{:type => "submit", :value => t.misc.submit_button, :id => "ask"}
+  %center
+    %input{:type => "submit", :value => t.misc.submit_button, :id => "ask", :onclick=> "_gaq.push(['_trackPageview', '/yanc_submit']);"}
   %p
   %p
