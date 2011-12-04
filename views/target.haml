@@ -1,9 +1,9 @@
 <div style="position: relative; float:top; height: relative; center">
 %center
   - if ( @sol_vol > 0 )
-    = t.output.target_solution(@target_amount.to_s + " " + t.units.ppm, @dose_amount.to_s + " " + @dose_units + " " + @comp, @sol_vol.to_s + " " + t.units.milliliter, @sol_dose.to_s + " " + t.units.milliliter, @tank_vol_orig.to_s + " " + @tank_units)
+    = t.output.target_solution(@target_amount.to_s + " " + t.units.ppm + " " + @element, @dose_amount.to_s + " " + @dose_units + " " + @comp, @sol_vol.to_s + " " + t.units.milliliter, @sol_dose.to_s + " " + t.units.milliliter, @tank_vol_orig.to_s + " " + @tank_units)
   - else
-    = t.output.target(@target_amount.to_s + " " + t.units.ppm, @dose_amount.to_s + " " + @dose_units + " " + @comp, @tank_vol_orig.to_s + " " + @tank_units)
+    = t.output.target(@target_amount.to_s + " " + t.units.ppm + " " + @element, @dose_amount.to_s + " " + @dose_units + " " + @comp, @tank_vol_orig.to_s + " " + @tank_units)
   %table{:width=> "330px"}
     %tr
       %th= t.units.element
