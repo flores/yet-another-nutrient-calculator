@@ -3,6 +3,12 @@
 
 # Contribute a translation
 
+## How to contribute your translation
+
+* Fork this project on [GitHub](https://github.com/flores/yet-another-nutrient-calculator). You can make a regular old Git commit or edit an existing translation via GitHub's fancy web form.  For new translations, please feel free to edit [i18n/template.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/template.yml).    
+* Or [paste](http://contact.petalphile.com) your translation via a web form. I will credit you via the name and email address on the form.  Please let me know the language in the subject line.
+
+
 ## Template
 
 Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the context of the translations.
@@ -59,7 +65,7 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 	  k3po4: K3PO4 in solution tends to raise pH due to the nature of KOH, a strong base. ray-the-pilot explains this for us gardeners <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>
 	  eddha: Be aware that EDDHA will tint the water pink to red at even moderate doses.  You can check out a video of a 0.2ppm dose <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.
 	  urea: This product has some unknown percentage of N as Urea and as NO3.  The calculation and chart below works with NO3 equivalents.
-	  cu: Your Cu dose is %1 % more than recommended for sensitive fish and inverts. Consider reducing your %2 dose by %3 <a href='http://y.[petalphile.com/cu' target='_blank'>Read more about Cu toxicity here</a>
+	  cu: Your Cu dose is %1 % more than recommended for sensitive fish and inverts. Consider reducing your %2 dose by %3 <a href='http://y.petalphile.com/cu' target='_blank'>Read more about Cu toxicity here</a>
 	chart:
 	  text: Relative %1 for 
 	  pmdd: PMDD
@@ -87,7 +93,7 @@ Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the
 
 Notice some stuff has placeholders (%1, %2, etc) or links (<a href...) -- please leave these in place and incorporate them into your translation. Also, please don't edit any keys (everything to the left of a colon, ':' ).
 
-## Examples
+## Contributions and Examples
 
 ### Spanish
 Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/es.yml) contributed by [DanielSev](http://www.barrreport.com/member.php/34196-DanielSev) and [jagg81](http://github.com/jagg81).
@@ -144,7 +150,7 @@ Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient
 	  k3po4: El K3PO4 disuelto en una solución tiende a incrementar el pH debido a la naturaleza del KOH, que es una base fuerte. ray-the-pilot explica esto a sus jardineros <a href='http://bit.ly/ev7txA' target='_blank'>en APC</a>
 	  eddha: Ten presente que el EDDHA puede tenir el agua de rojo incluso usando dosis moderadas.  Puede ver este video de una dosis de 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aqui</a>.
 	  urea: Este producto tiene un porcentage desconocido de N como Urea y NO3.  El calculo y la tabla  de abajo funciona con equivalentes a NO3.
-	  cu: Tu dosis de Cu es %1 % de la recomendada para peces sensibles e invertebrados. Puedes considerar reducir tu dosis de %2 por una de %3 <a href='http://y.[petalphile.com/cu' target='_blank'>Mas información acerca de la toxicidad del Cu aqui</a>
+	  cu: Tu dosis de Cu es %1 % de la recomendada para peces sensibles e invertebrados. Puedes considerar reducir tu dosis de %2 por una de %3 <a href='http://y.petalphile.com/cu' target='_blank'>Mas información acerca de la toxicidad del Cu aqui</a>
 	chart:
 	  text: Concentraciones relativas %1 para los métodos 
 	  pmdd: PMDD
@@ -252,18 +258,18 @@ Romanian file [ro.yml](https://github.com/flores/yet-another-nutrient-calculator
 	  noscript: Acest calculator are nevoie de Javascript ca să funcţioneze corect.
 	  error: Am întâlnit o eroare! Te rog foloseşte doar numere (3, 3.0, 3/4, 0,75, etc) şi asigură-te că ai răspuns la toate întrebările vizibile.
 
-## How to contribute your translation
+### Dutch
 
-* Fork this project on [GitHub](https://github.com/flores/yet-another-nutrient-calculator). You can make a regular old Git commit or edit an existing translation via GitHub's fancy web form.  For new translations, please feel free to edit [i18n/template.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/template.yml).    
-* [Paste](http://contact.petalphile.com) your translation via a web form. I will credit you via the name and email address on the form.  Please let me know the language in the subject line.
+Dutch translation file [nl.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/nl.yml) contributed by [dutchy](http://www.barrreport.com/member.php/21013-dutchy).
+
+### German
+
+German translation file [de.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/de.yml) contributed by [WasserPest](https://github.com/wasserpest)
 
 ## Goals
 
 The goal here is to ambitiously build the best nutrient calculators for our hobby, ever.  Unlike other projects, these calculators are open source and will be improved long after any individual or site is gone from the hobby.  This calculator, with your help, will always be updated and improved upon over the years.
 
-## Additional translations
-
-dutchy from The Barr Report contributed Dutch.  Wasserpest over at The Planted Tank contributed German.  Full examples forthcoming.
 
 # Thanks!
 
