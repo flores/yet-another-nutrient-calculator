@@ -14,16 +14,17 @@
 
 #yield {
     margin: 0 auto;
+    position: fixed;
     display: inline-block;
     float: left;
     padding: 0;
     width: 650px;
   }
 #result {
-    display: inline-block;
     width: 330px;
     margin: 1 auto;
-    
+    float: right;
+    margin-left: 670px;
   } 
 
 fieldset, label, legend, submit, div, yanc
@@ -32,7 +33,7 @@ fieldset, label, legend, submit, div, yanc
 form {margin-left: 0; margin: auto; }
 
 #footer
- { margin-top: 2em; border:0; font-weight:normal;font-size:0.9em; text-align: left; float: left; width: 100%;}
+ { margin-top: 2em; border:0; font-weight:normal;font-size:0.9em; text-align: left; float: bottom; width: 100%; margin-bottom: 10px;}
 
 /* 
 	Structural
