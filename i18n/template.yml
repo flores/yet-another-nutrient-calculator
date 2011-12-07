@@ -1,43 +1,43 @@
-units:
-  element:
-  ppm:
-  degree:
-  us_gal:
-  imp_gal:
-  Liter:
-  milliliter:
-  five_milliter:
-  pump_bottle:
-  grams:
-  milligrams:
+units:単位
+  element:エレメント
+  ppm:百万分率
+  degree:デグリー
+  us_gal:ガロン（米）
+  imp_gal:ガロン（メトリック）
+  Liter:L
+  milliliter:mL
+  five_milliter:tsp/caps
+  pump_bottle:ポンプ
+  grams:g
+  milligrams:mg
 input:
-  aquarium:
+  aquarium:私の水槽は
   source:
-    text:
-    diy:
-    commercial:
-    label:
+    text:使用
+    diy:DIY
+    commercial:プレミックス
+    label:肥料
   diy:
-    text:
-    method_text:
-    solution:
-    dry:
+    text:化合物を投薬する：
+    method_text:利用物：
+    solution:溶液
+    dry:乾燥物
   solution:
-    text:
-    container:
-    dose:
-    tooltip:
+    text:溶液容器は
+    container:容器
+    dose:各用量は
+    tooltip:下記の結果から用量を選択すると、その値は溶液に入れる用量となります。
   dosing_method:
-    text:
-    target:
-    dose:
-    ei:
-    ei_daily:
-    ei_low:
-    pps:
-    pmdd:
+    text:計算する基準は
+    target:ターゲットに到達する用量
+    dose:用量の結果
+    ei:評価指標
+    ei_daily:評価指標（毎日）
+    ei_low:評価指標（週間）
+    pps:永久保存システム
+    pmdd:PMDD
   dose:
-    text:
+    text:追加物
     tooltip:
   target:
 output:
