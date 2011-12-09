@@ -1,77 +1,77 @@
-units:単位
-  element:エレメント
-  ppm:百万分率
-  degree:デグリー
-  us_gal:ガロン（米）
-  imp_gal:ガロン（メトリック）
-  Liter:L
-  milliliter:mL
-  five_milliter:tsp/caps
-  pump_bottle:ポンプ
-  grams:g
-  milligrams:mg
-input:
-  aquarium:私の水槽は
-  source:
-    text:使用
-    diy:DIY
-    commercial:プレミックス
-    label:肥料
-  diy:
-    text:化合物を投薬する：
-    method_text:利用物：
-    solution:溶液
-    dry:乾燥物
-  solution:
-    text:溶液容器は
-    container:容器
-    dose:各用量は
-    tooltip:下記の結果から用量を選択すると、その値は溶液に入れる用量となります。
-  dosing_method:
-    text:計算する基準は
-    target:ターゲットに到達する用量
-    dose:用量の結果
-    ei:評価指標
-    ei_daily:評価指標（毎日）
-    ei_low:評価指標（週間）
-    pps:永久保存システム
-    pmdd:PMDD
-  dose:
-    text:追加物
-    tooltip:数字を記入する事は可能です。例えば「1/8」「1.25」「2,50」「3」
-  target:ターゲットは
-output:
-  dose:%2アクアリウムに%1を追加すると、
-  dose_solution:%2容器に%1用量を追加して、%3用量を%4アクアリウムに追加すると、結果は
-  target:%1ターゲットに到達する為に、%3アクアリウムに%2を追加して下さい。
-  target_solution:%1ターゲットに到達する為に、%3容器に%2を追加する必要となります。このソルーションから、%5アクアリウムに%4分を追加して下さい。
-warnings:
-  solubility:%1の室温での溶解度は%2。用量を修正した方が良いです。
-  k3po4: 溶液中でのK3PO4はpHに対して「上がる」行う傾向に有ります。この効果の根本的な原因はKOH。KOHは強塩基特性。ガーデナー達の為に、「ray-the-pilot」さんが<a href='http://bit.ly/ev7txA' target='_blank'>APCで</a>説明します。
-  eddha: 注意！EDDHAが、少量でも、水を色合いピンク又は赤を努めます。0.2百万分率用量の影響をビデオで<a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>見て下さい</a>。
-  urea:この積は「N」の割合は「尿素」と「NO3」が有りますですけど、割合は未知です。下記の計算とチャートが「NO3」と同等物は互換です。
-  cu: あなたのCuの用量は、敏感な魚や反転のために推奨されるよりも%1以上の％です。 <a href='http://y.petalphile.com/cu' target='_blank'>Cuの毒性についての詳細をここに読む</a>。％3して、％2用量を減らすことを検討して下さい。
-chart:
-  text:%1の相対
-  pmdd:PMDD
-  walstad:Walstad
-  pps:PPS-Pro
-  ei:評価指標
-  user:あなた様
-  long_term_chart:%1用量の長期的影響をモデル化したいですか？%2をクリック！
-methods_text:
-  ei:古典的なEIは良いCO2、良い循環、および定期的な水の変化に依存します。光節度はそれほど重要ではありません。
-  ei_daily:これは毎日の投薬のレベルまで低減従来のEIです。
-  ei_low:これは、EI低光の下で週の投与一度のためにスケーリングされます。下記のEIの範囲は、ほとんどのタンクのための時間をかけています。
-  pps:PPS- Proの毎日の線量のために計算している。以下の推奨範囲は安定成熟した水槽用です。
-  pmdd:PMDDは、投与量の％1をしません。しかし、多分次のことを行う必要があります。
-  ada:基板がなくなるまでその液体肥料は水の列を補完しながらADAの施肥体系は、栄養豊富な基質が含まれています。ADA元素分析はPlantbrain/トムバールの礼儀であり、下記で入手可能です。<a href='http://barrreport.com' target='_blank'> Barrのレポート</ a>
-misc:
-  calc:さらにもう一つの栄養素計算機
-  restart:リスタート
-  submit_button:適用
-  translations:翻訳
-  contribute:翻訳を貢献します
-  mobile_link:モバイル版
-  noscript:この電卓は、Javascriptを正しく動作させる必要があります。
-  error:エラーが発生しました！数字のみを使用する（3、3.0、3 / 4、0,75、など）と表示されているすべての質問に答えていることを確認してください。
+units: 
+  element: 
+  ppm: 
+  degree: 
+  us_gal: 
+  imp_gal: 
+  Liter: 
+  milliliter: 
+  five_milliter: 
+  pump_bottle: 
+  grams: 
+  milligrams: 
+input: 
+  aquarium: 
+  source: 
+    text: 
+    diy: 
+    commercial: 
+    label: 
+  diy: 
+    text: 
+    method_text: 
+    solution: 
+    dry: 
+  solution: 
+    text: 
+    container: 
+    dose: 
+    tooltip: 
+  dosing_method: 
+    text: 
+    target: 
+    dose: 
+    ei: 
+    ei_daily: 
+    ei_low: 
+    pps: 
+    pmdd: 
+  dose: 
+    text: 
+    tooltip: 
+  target: 
+output: 
+  dose: 
+  dose_solution: 
+  target: 
+  target_solution: 
+warnings: 
+  solubility: 
+  k3po4:  
+  eddha:  
+  urea: 
+  cu:  
+chart: 
+  text: 
+  pmdd: 
+  walstad: 
+  pps: 
+  ei: 
+  user: 
+  long_term_chart: 
+methods_text: 
+  ei: 
+  ei_daily: 
+  ei_low: 
+  pps: 
+  pmdd: 
+  ada: 
+misc: 
+  calc: 
+  restart: 
+  submit_button: 
+  translations: 
+  contribute: 
+  mobile_link: 
+  noscript: 
+  error: 
