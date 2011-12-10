@@ -6,7 +6,7 @@
 ---
 NO3: 
   EI:
-    method:  6
+    method:  10
     low:     5
     high:    30
     margin:  25
@@ -35,7 +35,7 @@ NO3:
     method:  2.5
 PO4:
   EI:
-    method:  1.75
+    method:  1.5
     low:     1
     high:    3
     margin:  2
@@ -64,7 +64,7 @@ PO4:
     method:  0.75
 K:
   EI:
-    method:  8.5
+    method:  8
     low:     10
     high:    30
     margin:  20
