@@ -3,6 +3,8 @@
     %title #{t.misc.calc} - Alpha/Testing
     %script(type="text/javascript" src="http://cdn.petalphile.com/javascript/jquery-1.4.4.min.js")
     %script(type="text/javascript" src="http://cdn.petalphile.com/javascript/jquery.form.js")
+    %script(type="text/javascript" src="http://imakewebthings.github.com/jquery-waypoints/waypoints.min.js")
+    %script(type="text/javascript" src="http://alpha.ei.petalphile.com/js/highcharts.js")
     %link(rel="stylesheet" href="http://alpha.calc.petalphile.com/formy_yanc.css" type="text/css")
     %meta{'name'=>"keywords", 'http-equiv'=>"keywords", 'content'=>"planted, aquarium, fertilizer, ferts, calculator, KNO3, K2HPO4, KH2PO4, K3PO4, KCl, K2SO4, CaCl2.2H2O, CaSO4.1/2H2O, CaSO4.2H2O, CaMg(CO3)2, Ca(NO3)2.4H2O, 5Ca(NO3)2.NH4NO3.10H2O, MgSO4.7H2O, PlantedTanksUK Trace, Plantex CSM+B, Millers MicroPlex, Dutch Nutrient Formula, Rexolin APN, Rexolin BRA, Fe Gluconate, DTPA Fe (11%), DTPA Fe (10%), EDTA Fe, EDDHA Fe (6%), MnSO4.H2O, CO2, fish, plants, diy, horticulture, aquaculture, aquascaping, estimative index, pps-pro, perpetual preservation system, pmdd, ei, copper, cu, toxic, toxicity, shrimp"}
     %meta{'name'=>"description", 'http-equiv'=>"description", 'content'=>"Calculators for all aspects of planted aquariums, including DIY fertilizers, dosing for every major method, CO2, and pictures."}
@@ -11,7 +13,10 @@
       var options={
       target: '#result',
       success: function(){
-      $('div#result').slideDown();
+      return false;
+      },
+      error: function(xhr){
+      $('#result').html(xhr.responseText);
       },
       };
       $('#yanc').ajaxForm(options);
@@ -71,33 +76,46 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    %h3= t.misc.calc
     %p 
       Testing/Alpha site! Go 
       %a(href='http://calc.petalphile.com')here
       for the stable version.
-    #calc
-      #yield
-        =yield
-        #footer
-          %a(href="#{request.url}")= t.misc.restart
-          %br
-          %a(href="/mobile")= t.misc.mobile_link
-          %p= t.misc.translations
+    #something
+      #menu
+        #title
+          %h3= t.misc.calc
+        #translations
           %ul
-          %li
-            %a(href="/de/")Deutsch
-          %li
-            %a(href="/en/")English
-          %li
-            %a(href="/es/")Español
-          %li
-            %a(href="/ja/")日本語 Nihongo
-          %li
-            %a(href="/nl/")Nederlands
-          %li
-            %a(href="/ro/")Română
-          %a(href="/contribute_translation")= t.misc.contribute
-          %br
-      #result
+            %li
+              %a(href="/de/")Deutsch
+            %li
+              %a(href="/en/")English
+            %li
+              %a(href="/es/")Español
+            %li
+              %a(href="/ja/")日本語
+            %li
+              %a(href="/nl/")Nederlands
+            %li
+              %a(href="/ro/")Română
+            %li
+              %a(href="/contribute_translation")= t.misc.contribute
+      #calc
+        #yield
+          =yield
+          #footer
+            %a(href="#{request.url}")= t.misc.restart
+            %br
+            %a(href="/mobile")= t.misc.mobile_link
+            %br
+        #result
+      #fancy
+    %script
+      $(document).ready(function() {
+      $('#something').waypoint(function(event, direction) {
+      }).find('#fancy').waypoint(function(event, direction) {
+      $(this).parent().toggleClass('sticky', direction === "down");
+      $('yield').toggleClass('sticky', direction === "down");
+      event.stopPropagation();
+      });});
     %noscript= t.misc.noscript

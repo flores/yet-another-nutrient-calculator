@@ -54,6 +54,23 @@
 </div>
 %p
   %center
-    #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
+    #{t.chart.long_term_chart(@element, '<a href="http://alpha.ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s+ '">')}
 </a>
 </div>
+
+%script(type="text/javascript")
+  $(document).ready( function() {
+  var data = {
+  stuff: "#{@element}",
+  dose: #{@target_amount.to_s},
+  dose_freq: #{@dose_freq},
+  pwc: #{@pwc},
+  pwc_freq: "#{@pwc_freq}",
+  length: "three months",
+  graphstyle: "fancy",
+  }
+  $.post("http://alpha.calc.petalphile.com/model/", data, function(result) {
+  $("#fancy").empty().append($(result));
+  result false;
+  });
+  });

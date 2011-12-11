@@ -1,4 +1,4 @@
-%form{:action => "#{request.url}", :method => "post", :id=>"yanc"}
+%form{:action => "#{request.url}", :method => "post", :id=>"yanc", :onSubmit=>"return false;"}
   %p 
   %label= t.input.aquarium
   %input{:type => "text", :name => "tank_vol", :length => 4, :size => 4}
@@ -92,6 +92,6 @@
       = t.units.ppm
   %p
   %center
-    %input{:type => "submit", :value => t.misc.submit_button, :id => "ask", :onclick=> "_gaq.push(['_trackPageview', '/yanc_submit']);"}
+    %input{:type => "submit", :value => t.misc.submit_button, :id => "ask", :onclick=> "_gaq.push(['_trackPageview', '/yanc_submit'])"}
   %p
   %p

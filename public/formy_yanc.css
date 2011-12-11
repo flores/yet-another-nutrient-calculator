@@ -4,28 +4,65 @@
 */
 
 *
- { font-family: "Myriad Pro", Georgia, sans-serif; }
+ { font-family: Palatino, "Myriad Pro", Georgia, sans-serif; }
+
 
 #calc {
+    clear:both;
     margin: 0 auto;
-    width: 1000px;
+    width: 1010px;
     align: center;
   }
 
 #yield {
+    clear:both;
     margin: 0 auto;
-    position: fixed;
-    display: inline-block;
     float: left;
+    display: inline-block;
+    position: absolute;
     padding: 0;
     width: 650px;
   }
+
+.sticky #yield {
+    width:650px;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+}
+
 #result {
     width: 330px;
     margin: 1 auto;
     float: right;
     margin-left: 670px;
+    display: inline-block;
   } 
+
+#menu {
+}
+
+#title {
+  float: left;
+}
+
+#translations ul {
+  float: right;
+}
+
+#translations li {
+  font-size:0.9em;
+  text-align: right;
+  display: inline;
+  padding:2;
+}
+
+#fancy {
+    margin: 0 auto;
+    width: 1010px;
+    height: 400px;
+  }
+  
 
 fieldset, label, legend, submit, div, yanc
  { font-size: 1em; margin: auto; padding: 0;}

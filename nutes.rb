@@ -75,6 +75,9 @@ class YANC < Sinatra::Base
 			end
 		
 			@method_instruct = ''
+			@dose_freq	= 3
+                        @pwc            = 50
+                        @pwc_freq       = "every week"
 		# calculations on the onClick optional menu
 			if (calc_for =~ /dump/)
 				@dose_amount	= @dose_amount.sub(/,/, '.')
@@ -99,22 +102,37 @@ class YANC < Sinatra::Base
 				if (calc_for == 'ei')
 					@target_amount		= METHODS[@element]["EI"]["method"] 
 					@method_instruct	= t.methods_text.ei
+					@dose_freq		= 3
+					@pwc			= 50
+					@pwc_freq		= "every week"
 				elsif (calc_for == "pps")
 					@target_amount		= METHODS[@element]["PPS"]["method"] 
 					@method_instruct	= t.methods_text.pps
+	                                @dose_freq              = 7
+                                        @pwc                    = 20
+                                        @pwc_freq               = "every month"
 				elsif (calc_for == "pmdd")
 					@target_amount		= METHODS[@element]["PMDD"]["method"]
 					if (@target_amount == 0)
 						@method_instruct = t.methods_text.pmdd(@element)
 					end
+                                        @dose_freq              = 7
+                                        @pwc                    = 50
+                                        @pwc_freq               = "every two weeks"	
 				elsif (calc_for == "wet")
 					@target_amount  	= METHODS[@element]["Wet"]["method"]
 				elsif (calc_for == "ei_low")
 					@target_amount          = METHODS[@element]["EI_low"]["method"]
 					@method_instruct	= t.methods_text.ei_low
+                                        @dose_freq              = 1
+                                        @pwc                    = 50
+                                        @pwc_freq               = "every two weeks"
 				elsif (calc_for =="ei_daily")
 					@target_amount		= METHODS[@element]["EI_daily"]["method"]
                                         @method_instruct        = t.methods_text.ei_daily 
+                                        @dose_freq              = 7
+                                        @pwc                    = 50
+                                        @pwc_freq               = "every week"
 				end
 				@dose_amount		= 0
 			end	
@@ -335,7 +353,7 @@ class YANC < Sinatra::Base
 	end
 	
 	error do
-		haml :error
+		haml :error, :layout => false
 	end
 
 end	
