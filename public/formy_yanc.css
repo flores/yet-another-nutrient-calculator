@@ -69,11 +69,16 @@
   text-align: right;
 }
 
+#yield li {
+  align: center;
+  font-size:0.9em;
+}
+
 #fancy {
     margin: 0 auto;
     width: 80%;
-    height: 400px;
-    min-height: 400px;
+    height: 350px;
+    min-height: 350px;
   }
   
 
