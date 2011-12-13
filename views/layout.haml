@@ -9,16 +9,16 @@
     %meta{'name'=>"keywords", 'http-equiv'=>"keywords", 'content'=>"planted, aquarium, fertilizer, ferts, calculator, KNO3, K2HPO4, KH2PO4, K3PO4, KCl, K2SO4, CaCl2.2H2O, CaSO4.1/2H2O, CaSO4.2H2O, CaMg(CO3)2, Ca(NO3)2.4H2O, 5Ca(NO3)2.NH4NO3.10H2O, MgSO4.7H2O, PlantedTanksUK Trace, Plantex CSM+B, Millers MicroPlex, Dutch Nutrient Formula, Rexolin APN, Rexolin BRA, Fe Gluconate, DTPA Fe (11%), DTPA Fe (10%), EDTA Fe, EDDHA Fe (6%), MnSO4.H2O, CO2, fish, plants, diy, horticulture, aquaculture, aquascaping, estimative index, pps-pro, perpetual preservation system, pmdd, ei, copper, cu, toxic, toxicity, shrimp"}
     %meta{'name'=>"description", 'http-equiv'=>"description", 'content'=>"Calculators for all aspects of planted aquariums, including DIY fertilizers, dosing for every major method, CO2, and pictures."}
     //%script{'src'=>"http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"}
-    %script(type="text/javascript" src="js/toggle_input_fields.js")
-    %script(type="text/javascript" src="js/ga.js")
-    %script(type="text/javascript" src="js/ajax.js")
+    %script(type="text/javascript" src="/js/toggle_input_fields.js")
+    %script(type="text/javascript" src="/js/ga.js")
+    %script(type="text/javascript" src="/js/ajax.js")
        
   %body
     %p 
       Testing/Alpha site! Go 
       %a(href='http://calc.petalphile.com')here
       for the stable version.
-    #something
+    #yanc
       #menu
         #title
           %h2= t.misc.calc
@@ -47,13 +47,17 @@
             %a(href="/mobile")= t.misc.mobile_link
             %br
         #result
-      #fancy
+      #charts
+        #linkage
+        #fancy
     %script
       $(document).ready(function() {
-      $('#something').waypoint(function(event, direction) {
-      }).find('#fancy').waypoint(function(event, direction) {
-      $(this).parent().toggleClass('sticky', direction === "down");
+      $('#yanc').waypoint(function(event, direction) {
       $('yield').toggleClass('sticky', direction === "down");
+      });
+      $('#fancy').waypoint(function(event, direction) {
+      $(this).parent().toggleClass('sticky', direction === "down");
+      $('yield').toggleClass('bumpit', direction === "down");
       event.stopPropagation();
       });});
     %noscript= t.misc.noscript

@@ -26,6 +26,7 @@ onload=function () {
 		pie = premix_calc_for.selectedIndex;
 		showDiv(premix_calc_for.options[pie].value);
 	};
+
 };
 
 function showDiv(method) {

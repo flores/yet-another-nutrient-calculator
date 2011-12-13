@@ -4,7 +4,7 @@
 */
 
 *
- { font-family: Palatino, "Myriad Pro", Georgia, sans-serif; }
+ { font-family: "Myriad Pro", Georgia, sans-serif; }
 
 
 #calc {
@@ -31,6 +31,16 @@
     top: 0;
 }
 
+.bumpit #yield {
+    clear:both;
+    margin: 0 auto;
+    float: left;
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    width: 650px;
+  }
+
 #result {
     width: 330px;
     margin: 1 auto;
@@ -40,27 +50,30 @@
   } 
 
 #menu {
+  height: 7em;
 }
 
 #title {
-  float: left;
+  margin: 0 auto;
 }
 
 #translations ul {
-  float: right;
+  margin: 0 auto;
+  text-align: right;
 }
 
 #translations li {
   font-size:0.9em;
-  text-align: right;
   display: inline;
   padding:2;
+  text-align: right;
 }
 
 #fancy {
     margin: 0 auto;
-    width: 1010px;
+    width: 80%;
     height: 400px;
+    min-height: 400px;
   }
   
 

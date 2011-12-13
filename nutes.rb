@@ -345,7 +345,19 @@ class YANC < Sinatra::Base
 	end
 
 	get '/ga.js' do
-		File.read(File.join('public', 'markdown.css'))
+		File.read(File.join('public', 'js/ga.js'))
+	end
+	
+        get 'js/ga.js' do
+		File.read(File.join('public', 'js/ga.js'))
+	end
+	
+	get 'js/toggle_input_fields.js' do
+		File.read(File.join('public', 'js/toggle_input_fields.js'))
+	end
+	
+	get 'js/ajax.js' do
+		File.read(File.join('public', 'js/ajax.js'))
 	end
 
 	not_found do
