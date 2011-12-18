@@ -45,6 +45,15 @@ K2SO4:
   tsp:    6400
   sol:    120
   target: K
+Seachem Equilibrium:
+  K:      0.195
+  Ca:     0.0806
+  Mg:     0.0241
+  Fe:     0.0011
+  Mn:     0.0006
+  dGH:    0.0167770949
+  tsp:    5333
+  target: K
 CaCl2.2H2O:
   Ca:     0.27262091014216722
   Cl:     0.4823209305489423
