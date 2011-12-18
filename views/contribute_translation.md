@@ -270,6 +270,10 @@ German translation file [de.yml](https://github.com/flores/yet-another-nutrient-
 
 Japanese translation file [ja.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/ja.yml) contributed by [Tyler Merritt](https://github.com/tgmerritt)
 
+### Brazilian Portuguese
+
+Brazilian Portuguese file [pt-br.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/pt-br.yml) contributed by [Carlos Olivera](oliveiracarlos).  This translation is also an example of using HTML escape codes in your translation.
+
 ## Goals
 
 The goal here is to ambitiously build the best nutrient calculators for our hobby, ever.  Unlike other projects, these calculators are open source and will be improved long after any individual or site is gone from the hobby.  This calculator, with your help, will always be updated and improved upon over the years.

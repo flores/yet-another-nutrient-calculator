@@ -1,0 +1,78 @@
+units:
+  element: Elemento
+  ppm: ppm
+  degree: graus
+  us_gal: gal&otilde;es EUA
+  imp_gal: gal&otilde;es UK
+  Liter: Litros
+  milliliter: mL
+  five_milliter: colher de ch&aacute;/tampas
+  pump_bottle: pumps
+  grams: g
+  milligrams: mg
+input:
+  aquarium: O volume do meu aqu&aacute;rio &eacute; de
+  source:
+    text: uso
+    diy: fa&ccedil;a voc&ecirc; mesmo (FVM)
+    commercial: fertilizante comercial
+    label: " "
+  diy:
+    text: Eu estou dosando
+    method_text: usando
+    solution: dissolvido em l&iacute;quido
+    dry: diretamente ao aqu&aacute;rio
+  solution:
+    text: volume da solu&ccedil;&atilde;o l&iacute;quida
+    container: solução l&iacute;quida
+    dose: e dosando
+    tooltip: se voc&ecirc; selecionar "o resultado da minha dosagem" na op&ccedil;&atilde;o abaixo, essa ser&aacute; a dose que ir&aacute; na solu&ccedil;&atilde;o.
+  dosing_method:
+    text: m&eacute;todo de c&aacute;lculo
+    target: quanto dosar para alcan&ccedil;ar um valor
+    dose: o resultado da minha dosagem
+    ei: M&eacute;todo "The Estimative Index" (por Tom Barr)
+    ei_daily: M&eacute;todo EI daily (EI em dosagem diária)
+    ei_low: EI para n&iacute;veis de baixa ilumina&ccedil;&atilde;o/semanal
+    pps: M&eacute;todo Perpetual Preservation System (PPS)
+    pmdd: M&eacute;todo PMDD
+  dose: 
+    text: Estou utilizando
+    tooltip: Voc&ecirc; pode informar n&uacute;meros fracionados como 1/8, 1.25, 2,50, ou 3
+  target: Meu objetivo &eacute;
+output:
+  dose: Com o uso de %1 para o seu aqu&aacute;rio de %2 adiciona
+  dose_solution: Com o uso de %1 para %2 de solu&ccedil;&atilde;o l&iacute;quida, dosando %3 para o seu aqu&aacute;rio de %4 resulta em
+  target: Para chegar ao valor de %1 voc&ecirc; precisa adicionar %2 para o seu aqu&aacute;rio de %3
+  target_solution: Para alcan&ccedil;ar o objetivo de %1 voc&ecirc; precisa adicionar %2 &agrave; solução l&iacute;quida de %3.  Dosando %4 desta mistura ao seu aqu&aacute;rio de %5
+warnings:
+  solubility: A solubilidade de %1 &agrave; temperatura ambiente &eacute; de %2.  Voc&ecirc; dever&aacute; ajustar sua dosagem.
+  k3po4: K3PO4 em uma solu&ccedil;&atilde;o tende a elevar o PH devido a natureza do KOH, que &eacute; uma base forte.  ray-the-pilot explica isso aos aquapaisagistas <a href='http://bit.ly/ev7txA' target='_blank'>em APC</a>
+  eddha: Esteja ciente de que EDDHA ir&aacute; tingir a &aacute;gua do aqu&aacute;rio de tons de rosa para vermelho, mesmo em doses pequenas.  Voc&ecirc; pode ver um v&iacute;deo de uma dosagem de 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>aqui</a>.
+  urea: Este produto cont&eacute;m uma porcentagem de N vindo de Ur&eacute;ia e NO3.  O c&aacute;lculo e a tabela abaixo utiliza equivalentes a NO3.
+  cu: Sua dosagem de Cu &eacute; %1 % maior do que a recomendada para peixes sens&iacute;veis e invertebrados.  Considere reduzir sua dose de %2 em %3 <a href='http://y.petalphile.com/cu' target='_blank'>Leia mais sobre a toxidade do Cu aqui</a>
+chart:
+  text: Concentra&ccedil;&otilde;es relativas de %1 para os m&eacute;todos 
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: The Estimative Index
+  user: e sua dosagem
+  long_term_chart: Se voc&ecirc; quiser estimar os efeitos a longo prazo da sua dosagem de %1, Clique %2 Aqui!
+methods_text:  
+  ei: O método The Estimative Index depende do n&iacute;vel ideal de CO2, boa circula&ccedil;&atilde;o, e trocas parciais regulares. A ilumina&ccedil;&atilde;o ultrapassando o n&iacute;vel moderado n&atilde;o &eacute; t&atilde;o importante.
+  ei_daily: Este &eacute; o m&eacute;todo The Estimative Index divido em doses di&aacute;rias.
+  ei_low: Este &eacute; o m&eacute;todo The Estimative Index com dosagem semanal sob condin&ccedil;&otilde;es de baixa ilumina&ccedil;&atilde;o.
+  pps: Foi calculada a dose PPS-Pro para uso di&aacute;rio.  A faixa de valores abaixo &eacute; recomendada para aqu&aacute;rios ciclados(maduros e est&aacute;veis).
+  pmdd: No m&eacute;todo PMDD n&atilde;o &eacute; dosado %1. Mas n&oacute;s indicamos que voc&ecirc; dose.
+  ada: O sistema de fertilização ADA inclui substrato f&eacute;rtil, enquanto que seus fertilizantes l&iacute;quidos suplementam a coluna d&aacute;gua at&eacute; o que o substrato f&eacute;rtil seja consumido por completo. A an&aacute;lise elementar ADA &eacute; uma cortesia de Plantbrain/Tom Barr e est&aacute; dispon&iacute;vel em <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+misc:
+  calc: Yet Another Nutrient Calculator (Apenas Mais Uma Calculadora de Nutrientes)
+  restart: Iniciar novo c&aacute;lculo
+  submit_button: Calcular
+  translations: Tradu&ccedil;&otilde;es
+  contribute: Contribua com as tradu&ccedil;&otilde;es
+  mobile_link: Vers&atilde;o para dispositivos m&oacute;veis
+  noscript: Esta calculadora requer que o Javascript esteja corretamente habilitado.
+  error: Houve um erro!Por favor use somente n&uacute;mero(3, 3.0, 3/4, 0,75, etc) e confirme se todas as perguntas foram respondidas.
+  
