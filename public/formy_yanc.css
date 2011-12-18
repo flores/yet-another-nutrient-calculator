@@ -6,6 +6,10 @@
 *
  { font-family: "Myriad Pro", Georgia, sans-serif; }
 
+#container {
+  width: 80%;
+  min-width: 1020px;
+}
 
 #calc {
     clear:both;
@@ -77,8 +81,8 @@
 #fancy {
     margin: 0 auto;
     width: 80%;
+    min-width: 1010px;
     height: 350px;
-    min-height: 350px;
   }
   
 

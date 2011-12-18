@@ -11,7 +11,7 @@
 
 ## Template
 
-Please use [alpha.calc.petalphile.com](http://alpha.calc.petalphile.com) for the context of the translations.
+Please use [calc.petalphile.com](http://calc.petalphile.com) for the context of the translations.
 
 	units:
 	  element: Element
@@ -96,7 +96,7 @@ Notice some stuff has placeholders (%1, %2, etc) or links (<a href...) -- please
 ## Contributions and Examples
 
 ### Spanish
-Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/es.yml) contributed by [DanielSev](http://www.barrreport.com/member.php/34196-DanielSev) and [jagg81](http://github.com/jagg81).
+Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/es.yml) contributed by [DanielSev](http://www.barrreport.com/member.php/34196-DanielSev) and [Jorge Gonzalez](http://github.com/jagg81).
 
 	units:
 	  element: Elemento/Compuesto
@@ -265,6 +265,10 @@ Dutch translation file [nl.yml](https://github.com/flores/yet-another-nutrient-c
 ### German
 
 German translation file [de.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/de.yml) contributed by [WasserPest](https://github.com/wasserpest)
+
+### Japanese
+
+Japanese translation file [ja.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/ja.yml) contributed by [Tyler Merritt](https://github.com/tgmerritt)
 
 ## Goals
 

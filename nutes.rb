@@ -5,8 +5,47 @@ class YANC < Sinatra::Base
 	register Sinatra::R18n
 	set :root, File.dirname(__FILE__)
 
+        get '/', :agent => /iphone|webos|mobile/i do
+                redirect '/mobile'
+        end
+	
+	get '/cu' do
+		markdown :cu
+	end
 
-	["/","/:locale/","/:locale/non-mobile/"].each do |path|
+	get '/readme' do
+		markdown :README
+	end
+	
+	get '/contribute_translation' do
+		markdown :contribute_translation
+	end
+
+	get '/formy_yanc.css' do
+		File.read(File.join('public', 'formy_yanc.css'))
+	end
+
+	get '/markdown.css' do
+		File.read(File.join('public', 'markdown.css'))
+	end
+
+	get '/ga.js' do
+		File.read(File.join('public', 'js/ga.js'))
+	end
+	
+        get 'js/ga.js' do
+		File.read(File.join('public', 'js/ga.js'))
+	end
+	
+	get 'js/toggle_input_fields.js' do
+		File.read(File.join('public', 'js/toggle_input_fields.js'))
+	end
+	
+	get 'js/ajax.js' do
+		File.read(File.join('public', 'js/ajax.js'))
+	end
+
+	["/","/non-mobile/?","/:locale/","/:locale/non-mobile/?"].each do |path|
 		get path do
 			haml :ask
 		end
@@ -324,44 +363,9 @@ class YANC < Sinatra::Base
 		end
 	end
 	
-	get '/cu' do
-		markdown :cu
-	end
-
-	get '/readme' do
-		markdown :README
-	end
-	
-	get '/contribute_translation' do
-		markdown :contribute_translation
-	end
-
-	get '/formy_yanc.css' do
-		File.read(File.join('public', 'formy_yanc.css'))
-	end
-
-	get '/markdown.css' do
-		File.read(File.join('public', 'markdown.css'))
-	end
-
-	get '/ga.js' do
-		File.read(File.join('public', 'js/ga.js'))
-	end
-	
-        get 'js/ga.js' do
-		File.read(File.join('public', 'js/ga.js'))
-	end
-	
-	get 'js/toggle_input_fields.js' do
-		File.read(File.join('public', 'js/toggle_input_fields.js'))
-	end
-	
-	get 'js/ajax.js' do
-		File.read(File.join('public', 'js/ajax.js'))
-	end
 
 	not_found do
-		haml :not_found
+		haml :not_found, :layout => false
 	end
 	
 	error do
