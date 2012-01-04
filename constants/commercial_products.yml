@@ -202,6 +202,30 @@ RootMedic Macro:
   urea:   yes
   pump:   0.5
   target: NO3
+Green Thumb Good S. Macro:
+  K:      3.804726
+  NO3:    4.088667
+  N:      0.929243
+  PO4:    1.163167
+  P:      0.380214
+  Mg:     0.109569
+  dGH:    0.025097
+  S:      0.144557
+  Glutaraldehyde:   0.26
+  target: NO3
+Green Thumb Good S. Micro:
+  B:      0.012465
+  Co:     0.000305
+  Cu:     0.009715
+  Fe:     0.131548
+  Mo:     0.000915
+  Mg:     0.041731
+  dGH:    0.009558
+  Mn:     0.049106
+  S:      0.007728
+  Zn:     0.010815
+  Glutaraldehyde: 0.26
+  target: Fe 
 RootMedic Micro:
   Fe:     1.16
   Mn:     0.06
