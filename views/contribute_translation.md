@@ -272,7 +272,7 @@ Japanese translation file [ja.yml](https://github.com/flores/yet-another-nutrien
 
 ### Brazilian Portuguese
 
-Brazilian Portuguese file [pt-br.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/pt-br.yml) contributed by [Carlos Olivera](oliveiracarlos).  This translation is also an example of using HTML escape codes in your translation.
+Brazilian Portuguese file [pt-br.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/pt-br.yml) contributed by [Carlos Olivera](https://github.com/oliveiracarlos).  This translation is also an example of using HTML escape codes in your translation.
 
 ## Goals
 
