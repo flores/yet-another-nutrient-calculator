@@ -68,7 +68,7 @@
   pwc: #{@pwc},
   pwc_freq: "#{@pwc_freq}",
   length: "month",
-  graphstyle: "fancy",
+  graphstyle: "fancy"
   }
   $.post("http://calc.petalphile.com/model/", data, function(result) {
   $("#fancy").empty().append($(result));

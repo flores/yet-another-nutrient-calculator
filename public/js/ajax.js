@@ -5,7 +5,7 @@ var options={
 	},
 	error: function(xhr){
 		$('#result').html(xhr.responseText);
-	},
+	}
 };
 
 $('#yanc').ajaxForm(options);
