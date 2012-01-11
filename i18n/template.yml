@@ -26,24 +26,24 @@ input:
     text: Il mio contenitore è da
     container: contenitore
     dose: ed ogni dose è
-    tooltip: se selezioni "il risultato della tua dose" nella selezione successiva, otterrai la dose da immettere nella soluzione
+    tooltip: se selezioni "il risultato della mia dose" nella selezione successiva, otterrai la dose da immettere nella soluzione
   dosing_method: 
-    text: 
-    target: 
-    dose: 
-    ei: 
-    ei_daily: 
-    ei_low: 
-    pps: 
-    pmdd: 
+    text: e voglio calcolare
+    target: la dose necessaria per raggiungere il mio target
+    dose: il risultato della mia dose
+    ei: Metodo EI (The Estimative Index)
+    ei_daily: Metodo EI giornaliearo
+    ei_low: Metodo EI poca luce/settimanale
+    pps: Metodo Perpetual Preservation System
+    pmdd: Metodo PMDD
   dose: 
-    text: 
-    tooltip: 
-  target: 
+    text: Sto aggiungendo
+    tooltip: puoi usare numberi come 1/8, 1.25, 2,50, or 3
+  target: Il mio target è
 output: 
-  dose: 
-  dose_solution: 
-  target: 
+  dose: Aggiungendo %1 sul tuo acquario da %2 aggiungi
+  dose_solution: Aggiungendo %1 al tuo contenitore da %2 , con dosi da %3 al tuo acquario da %4 aggiungi 
+  target: Per ottenere il tuo target di %1 avrai bisogno di aggiungere %2 to your %3 aquarium to yield
   target_solution: 
 warnings: 
   solubility: 
