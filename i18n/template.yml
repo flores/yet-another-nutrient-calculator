@@ -1,32 +1,32 @@
 units: 
-  element: 
-  ppm: 
-  degree: 
-  us_gal: 
-  imp_gal: 
-  Liter: 
-  milliliter: 
-  five_milliter: 
-  pump_bottle: 
-  grams: 
-  milligrams: 
+  element: Elemento 
+  ppm: ppm
+  degree: grado
+  us_gal: Galloni US
+  imp_gal: Galloni UK
+  Liter: L
+  milliliter: mL
+  five_milliter: tsp/tappo/5ml
+  pump_bottle: pumps
+  grams: g
+  milligrams: mg
 input: 
-  aquarium: 
+  aquarium: Il mio acquario è
   source: 
-    text: 
-    diy: 
-    commercial: 
-    label: 
+    text: uso
+    diy: diy
+    commercial: fertilizzante
+    label: commerciale
   diy: 
-    text: 
-    method_text: 
-    solution: 
-    dry: 
+    text: Sto dosando
+    method_text: usando
+    solution: una soluzione
+    dry: in polvere
   solution: 
-    text: 
-    container: 
-    dose: 
-    tooltip: 
+    text: Il mio contenitore è da
+    container: contenitore
+    dose: ed ogni dose è
+    tooltip: se selezioni "il risultato della tua dose" nella selezione successiva, otterrai la dose da immettere nella soluzione
   dosing_method: 
     text: 
     target: 
