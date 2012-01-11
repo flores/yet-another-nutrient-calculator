@@ -67,11 +67,11 @@ methods_text:
   pmdd: PMDD non dosa %1. Ma magari tu potresti.
   ada: Il sistema di fertilizzazione ADA include un substrato molto ricco di nutientri, i loro fertilizzanti liquidi integrano la colonna d'acqua affinche il substrato non sia consumato. Le analisi degli elementi nei fertilizzanti ADA è una cortesia di Plantbrain/Tom Barr ed è disponibile su <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc: 
-  calc: 
-  restart: 
-  submit_button: 
-  translations: 
-  contribute: 
-  mobile_link: 
-  noscript: 
-  error: 
+  calc: Yet Another Nutrient Calculator
+  restart: Ricominciare da zero
+  submit_button: Calcolo
+  translations: Traduzione
+  contribute: Contribuisci alla traduzione
+  mobile_link: Sito Mobile
+  noscript: Questo calcolatore richiesde Javascript per funzionare correttamente.
+  error: Si è verificato un errore! Usa solo numeri (3, 3.0, 3/4, 0,75, etc) a fai attenzione che vi sia una risposta selezionata a tutte le domande.
