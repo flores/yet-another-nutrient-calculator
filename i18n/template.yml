@@ -1,77 +1,77 @@
 units: 
-  element: Elemento 
-  ppm: ppm
-  degree: grado
-  us_gal: Galloni US
-  imp_gal: Galloni UK
-  Liter: L
-  milliliter: mL
-  five_milliter: tsp/tappo/5ml
-  pump_bottle: pumps
-  grams: g
-  milligrams: mg
+  element: 
+  ppm: 
+  degree: 
+  us_gal: 
+  imp_gal: 
+  Liter: 
+  milliliter: 
+  five_milliter: 
+  pump_bottle: 
+  grams: 
+  milligrams: 
 input: 
-  aquarium: Il mio acquario è
+  aquarium: 
   source: 
-    text: uso
-    diy: diy
-    commercial: fertilizzante
-    label: commerciale
+    text: 
+    diy: 
+    commercial: 
+    label: 
   diy: 
-    text: Sto dosando
-    method_text: usando
-    solution: una soluzione
-    dry: in polvere
+    text: 
+    method_text: 
+    solution: 
+    dry: 
   solution: 
-    text: Il mio contenitore è da
-    container: contenitore
-    dose: ed ogni dose è
-    tooltip: se selezioni "il risultato della mia dose" nella selezione successiva, otterrai la dose da immettere nella soluzione
+    text: 
+    container: 
+    dose: 
+    tooltip: 
   dosing_method: 
-    text: e voglio calcolare
-    target: la dose necessaria per raggiungere il mio target
-    dose: il risultato della mia dose
-    ei: Metodo EI (The Estimative Index)
-    ei_daily: Metodo EI giornaliearo
-    ei_low: Metodo EI poca luce/settimanale
-    pps: Metodo Perpetual Preservation System
-    pmdd: Metodo PMDD
+    text: 
+    target: 
+    dose: 
+    ei: 
+    ei_daily: 
+    ei_low: 
+    pps: 
+    pmdd: 
   dose: 
-    text: Sto aggiungendo
-    tooltip: puoi usare numberi come 1/8, 1.25, 2,50, or 3
-  target: Il mio target è
+    text: 
+    tooltip: 
+  target: 
 output: 
-  dose: Aggiungendo %1 sul tuo acquario da %2 aggiungi
-  dose_solution: Aggiungendo %1 al tuo contenitore da %2 , con dosi da %3 al tuo acquario da %4 aggiungi 
-  target: Per ottenere il tuo target di %1 avrai bisogno di aggiungere %2 al tuo acquario da %3 per avere
-  target_solution: Per ottenere il tuo target di %1 avrai bisogno di aggiungere %2 al tuo contenitore da %3.  Aggiungendo %4 di questa soluzione al tuo acquario da %5 per avere
+  dose: 
+  dose_solution: 
+  target: 
+  target_solution: 
 warnings: 
-  solubility: La solubilità di %1 a temperatura ambiente è di %2.  Potresti aver bisogno di modificare la dose.
-  k3po4:  K3PO4 in soluzione tende ad alazare il pH a causa della natura del KOH, una base forte. ray-the-pilot spiega il perchè ai giardinieri us <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>
-  eddha:  Far attenzione che l'EDDHA potrebbe colorare l'acqua dal viola al rosso se non usato in dose moderate.  Puoi guardare in video in cui si dosano 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>qui</a>.
-  urea: Questo prodotto possiede alcune quantità non definite di N come Urea e come NO3.  Il calcolo della tabella sottostante funziona con l'equivalenti NO3.
-  cu: La tua dose Cu di %1 è in % maggiore di quella raccomandata per persci e invertebrati delicati. Considera di ridurre la tua dose %2 di %3 <a href='http://y.petalphile.com/cu' target='_blank'>Leggi maggiori info sulla tossicità del Cu qui</a>
+  solubility: 
+  k3po4:  
+  eddha:  
+  urea: 
+  cu:  
 chart: 
-  text: Concentrazione relativa %1 per 
-  pmdd: PMDD
-  walstad: Walstad
-  pps: PPS-Pro
-  ei: Estimative Index
-  user: e i tuoi dosaggi
-  long_term_chart: Vuoi un modello grafico di effetti a lungo termine dosando %1 ? Clickka %2 qui!
+  text: 
+  pmdd: 
+  walstad: 
+  pps: 
+  ei: 
+  user: 
+  long_term_chart: 
 methods_text: 
-  ei: EI classico, diepende da valori di alta CO2, buona circolazione e cambi regolari.  La quantità di luce superato il livello moderato non è importante.
-  ei_daily: Metodo tradizionale EI ridotto a dosaggi giornalieri
-  ei_low: Metodo EI con dosi settimalari con acquari con polca luce. Per la maggior parte delle vasche i valori EI sottostanti sono intesi in lungo periodo.
-  pps: Abbiamo calcolato per una dose PPS-Pro giornaliera.  Il range raccomandato sottostante è per acquari maturi e stabilizati.
-  pmdd: PMDD non dosa %1. Ma magari tu potresti.
-  ada: Il sistema di fertilizzazione ADA include un substrato molto ricco di nutientri, i loro fertilizzanti liquidi integrano la colonna d'acqua affinche il substrato non sia consumato. Le analisi degli elementi nei fertilizzanti ADA è una cortesia di Plantbrain/Tom Barr ed è disponibile su <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+  ei: 
+  ei_daily: 
+  ei_low: 
+  pps: 
+  pmdd: 
+  ada: 
 misc: 
-  calc: Yet Another Nutrient Calculator
-  restart: Ricominciare da zero
-  submit_button: Calcolo
-  translations: Traduzione
-  contribute: Contribuisci alla traduzione
-  mobile_link: Sito Mobile
-  noscript: Questo calcolatore richiesde Javascript per funzionare correttamente.
-  error: Si è verificato un errore! Usa solo numeri (3, 3.0, 3/4, 0,75, etc) a fai attenzione che vi sia una risposta selezionata a tutte le domande.
+  calc: 
+  restart: 
+  submit_button: 
+  translations: 
+  contribute: 
+  mobile_link: 
+  noscript: 
+  error: 
