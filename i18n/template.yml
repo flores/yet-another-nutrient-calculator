@@ -64,8 +64,8 @@ methods_text:
   ei_daily: Metodo tradizionale EI ridotto a dosaggi giornalieri
   ei_low: Metodo EI con dosi settimalari con acquari con polca luce. Per la maggior parte delle vasche i valori EI sottostanti sono intesi in lungo periodo.
   pps: Abbiamo calcolato per una dose PPS-Pro giornaliera.  Il range raccomandato sottostante è per acquari maturi e stabilizati.
-  pmdd: PMDD does not dose %1. But maybe you should.
-  ada: 
+  pmdd: PMDD non dosa %1. Ma magari tu potresti.
+  ada: Il sistema di fertilizzazione ADA include un substrato molto ricco di nutientri, i loro fertilizzanti liquidi integrano la colonna d'acqua affinche il substrato non sia consumato. Le analisi degli elementi nei fertilizzanti ADA è una cortesia di Plantbrain/Tom Barr ed è disponibile su <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc: 
   calc: 
   restart: 
