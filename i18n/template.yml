@@ -52,19 +52,19 @@ warnings:
   urea: Questo prodotto possiede alcune quantità non definite di N come Urea e come NO3.  Il calcolo della tabella sottostante funziona con l'equivalenti NO3.
   cu: La tua dose Cu di %1 è in % maggiore di quella raccomandata per persci e invertebrati delicati. Considera di ridurre la tua dose %2 di %3 <a href='http://y.petalphile.com/cu' target='_blank'>Leggi maggiori info sulla tossicità del Cu qui</a>
 chart: 
-  text: 
-  pmdd: 
-  walstad: 
-  pps: 
-  ei: 
-  user: 
-  long_term_chart: 
+  text: Concentrazione relativa %1 per 
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: Estimative Index
+  user: e i tuoi dosaggi
+  long_term_chart: Vuoi un modello grafico di effetti a lungo termine dosando %1 ? Clickka %2 qui!
 methods_text: 
-  ei: 
-  ei_daily: 
-  ei_low: 
-  pps: 
-  pmdd: 
+  ei: EI classico, diepende da valori di alta CO2, buona circolazione e cambi regolari.  La quantità di luce superato il livello moderato non è importante.
+  ei_daily: Metodo tradizionale EI ridotto a dosaggi giornalieri
+  ei_low: Metodo EI con dosi settimalari con acquari con polca luce. Per la maggior parte delle vasche i valori EI sottostanti sono intesi in lungo periodo.
+  pps: Abbiamo calcolato per una dose PPS-Pro giornaliera.  Il range raccomandato sottostante è per acquari maturi e stabilizati.
+  pmdd: PMDD does not dose %1. But maybe you should.
   ada: 
 misc: 
   calc: 
