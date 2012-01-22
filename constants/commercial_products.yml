@@ -36,7 +36,38 @@ API Leaf Zone:
   K:      2.49
   Fe:     0.1
   target: Fe
-Hagen Plant Grow NPK:
+VIMI All In One:
+  K:      2.665
+  NO3:    4.906
+  N:      1.112
+  P:      1.0
+  PO4:    3.05
+  Fe:     0.075
+  dGH:    0.0143
+  Mg:     0.0625
+  Mn:     0.01875
+  B:      0.006325
+  Zn:     0.001875
+  Cu:     0.001875
+  Mo:     0.000625
+  Co:     0.0001875
+  Ni:     0.000063
+  urea:   yes
+  target: NO3
+VIMI Micro:
+  K:      1.0
+  Fe:     0.15
+  Mg:     0.125
+  dGH:    0.0286
+  Mn:     0.0375
+  B:      0.0125
+  Zn:     0.00375
+  Cu:     0.00375
+  Mo:     0.00125
+  Co:     0.000375
+  Ni:     0.000125
+  target: Fe
+Hagen Plant Gro NPK:
   NO3:    0.6
   N:      0.136
   P2O5:   0.3
@@ -45,7 +76,7 @@ Hagen Plant Grow NPK:
   K2O:    2.4
   K:      1.99
   Cu:     0.01
-  target: Fe
+  target: K
 Nutrafin Plant Gro:
   N:      0.15
   NO3:    0.66
@@ -244,6 +275,7 @@ Pfertz K:
   target: K
 Pfertz N:
   N:      1.75
+  NO3:    7.67
   K2O:    5
   K:      4.15
   urea:   yes
