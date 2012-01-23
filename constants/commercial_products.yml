@@ -107,6 +107,14 @@ Mikroplant Expert:
   Se:     0.001
   Si:     0.002
   target: Fe
+Toby's Spezial N:
+  NO3:    5.0
+  N:      1.136
+  K:      1.0
+  Ca:     0.5
+  Mg:     0.165
+  urea:   yes
+  target: NO3 
 Tropica Plant Nutrition +:
   N:      1.34
   NO3:    5.90
