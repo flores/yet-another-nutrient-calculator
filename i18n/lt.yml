@@ -1,0 +1,77 @@
+units:
+  element: Elementai
+  ppm: ppm
+  degree: laispnis
+  us_gal: JAV galonas
+  imp_gal: UK galonas
+  Liter: L
+  milliliter: ml
+  five_milliter: arbatinis šaukštelis / 5 mililitrai
+  pump_bottle: butelius turintis dozatorių
+  grams: g
+  milligrams: mg
+input:
+  aquarium: Mano akvariumas
+  source:
+    text: naudojimas
+    diy: DIY
+    commercial: paruoštos trąšos
+    label: Komapija / Brendas
+  diy:
+    text: Dozuoju naudodamas
+    method_text: naudojimas
+    solution: mikstūra
+    dry: sausas dozavimas
+  solution:
+    text: Mano mikstūros talpa
+    container: talpa
+    dose: kiekviena dozė yra
+    tooltip: Jei pasirenkami esamo dozavimo sprendiniai, tai ir yra kas įskaičiuojama į panaudojamą mikstūrą.
+  dosing_method:
+    text: Aš apskaičiuoju
+    target: kokia dozė pasiekia norimą tikslą
+    dose: mano dozavimo rezultatas
+    ei: The Estimative Index / EI
+    ei_daily: EI kasdien
+    ei_low: EI su menku apšvietimu / dozuojama kas savaitę
+    pps: Perpetual Preservation System / PPS
+    pmdd: PMDD
+  dose:
+    text: Aš pateikiu
+    tooltip: Jūs taip pat galite naudoti tokius skaičius, kaip 1/8, 1.25, 2,50, ar 3
+  target: Mano tikslas yra
+output:
+  dose: Jūsų pasirinkimas nuo %1 iki %2 ką įnešti į akvariumą
+  dose_solution: Jūsų pasirinkimas nuo %1 iki %2 mikstūros talpos, kad būtų paduodama nuo %3 iki %4 akvariumo reikmių.
+  target: pasiekti %1 tikslo reikės įdėti nuo %2 iki %3 mikstūros išeigos
+  target_solution: Kad pasiekti %1 tikslo reikės įdėti %2 - %3 talpos su tokiu dozavimu – atitinkamo dozatoriaus su tokia išeiga.
+warnings:
+  solubility: %1 tirpumas kambario temperatūroje yra %2.  Jūs turite koreguoti dozavimą
+  k3po4: K3PO4 mikstūroje linkęs kelti pH dėl KOH stiprios bazės. Čia paaiškinimas (angl.)  <a href='http://bit.ly/ev7txA' target='_blank'>at APC</a>
+  eddha: Reikia žinoti, kad EDTA gali paveikti vandens spalvą nuo pilkos iki rausvos net nuo vidutinių dozių. Jūs galite pasižiūrėti video su 0,2 ppm / mg/l dozavimu  <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>here</a>.
+  urea: Šis produktas savo sudėtyje turi nežinomą kiekį N (azoto), URĖJOS formoje išreikštu atitikmeniu NO3 kiekiui.
+  cu: Jūsų Cu (vario) dozė gali bųti %1 % didesnė nei rekomenduojama dozė jautriai akvariumo faunai. Pagalvokite apie dozės sumažinimą %2 iki %3 Your Cu dose is %1 % <a href='http://y.petalphile.com/cu' target='_blank'>Apie Cu (vario) daugiau galimama paskaityti čia </a>
+chart:
+  text: Panašus  %1  
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: The Estimative Index /EI
+  user: naudotojas
+  long_term_chart:  Ilgo laikotarpio dozavimo efektingumo modeliavimas %1 dozavimui? Paspauskite %2 čia!
+methods_text: 
+  ei Klasikinis EI labai priklauso nuo subalansuoto CO2, geros vandens cirkuliacijos ir reguliarių vandens keitimų. Apšvietimo trukmės laikotarpis tampa ne toks svarbus.
+  ei_daily: Tradicinis sumažintas EI modelis kasdieniam dozavimui.
+  ei_low: Šis EI modelis subalansuotas dozavimui vieną kartą per savaitę, akvariumui su menku apšvietimu. Čia sumodeliuotos EI reikšmės tinka daugeliui akvariumų.
+  pps: Paskaičiuota PPS-Pro kasdieninė dozė. Rekomenduojami kiekiai tinka stabilizuotam – subrendusiam akvariumui.
+  pmdd: PMDD nedozuojama %1. Bet gal ir verta.
+  ada: ADA tręšimo metodika susideda iš maistingo substrato, o jų trąšų skysčiai tik papildo visą sistemą, kol neišsieikvoja substratas.  ADA sudėtis yra pateikta ir analizuojama Tom Barr puslapyje <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+misc:
+  calc: Kitokia trąšų skaičiuoklė
+  restart: Restartas
+  submit_button: Skaičiuoti / duoti rodmenis
+  translations: Vertimai
+  contribute: prisidėti prie vertimo
+  mobile_link: Mobili svetainė
+  noscript: Šis kalkuliarius, kad gerai funkcionuotų reikalauja Javascript
+  error: Rasta klaida! Prašome naudoti tik šiuos skaičus (3, 3.0, 3/4, 0,75, ir t.t.) taip pat įsitikinkite, kad visi matomi klausimai jau atsakyti. Ačiū! 
