@@ -184,6 +184,22 @@ Flourish Nitrogen:
   K:      1.66
   urea:   yes
   target: NO3
+AquaVitro Propel:
+  Fe:     1.0
+  target: Fe
+AquaVitro Synthesis:
+  N:      3.2
+  NO3:    14.08
+  urea:   yes
+  target: NO3
+AquaVitro Activate:
+  P:      0.6
+  PO4:    1.84
+  target: PO4
+AquaVitro Carbonate:
+  K:      7.83
+  dKH:    0.56
+  target: K
 ADA Green Brighty lights:
   K:      0.24
   N:      0.166
