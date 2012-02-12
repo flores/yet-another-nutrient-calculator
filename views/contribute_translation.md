@@ -95,6 +95,8 @@ Notice some stuff has placeholders (%1, %2, etc) or links (<a href...) -- please
 
 ## Contributions and Examples
 
+Ordered by the date they were contributed.
+
 ### Spanish
 Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/es.yml) contributed by [DanielSev](http://www.barrreport.com/member.php/34196-DanielSev) and [Jorge Gonzalez](http://github.com/jagg81).
 
@@ -277,6 +279,10 @@ Brazilian Portuguese file [pt-br.yml](https://github.com/flores/yet-another-nutr
 ### Italian
 
 Italian translation [it.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/it.yml) contributed by [rickertikari](https://github.com/rickertikari)
+
+### Lithuanian
+
+Lithuanian translation [lt.yml](https://github.com/flores/yet-another-nutrient-calculator/blob/master/i18n/lt.yml) contributed by Tautvilas.
 
 ## Goals
 
