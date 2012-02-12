@@ -45,6 +45,22 @@ class YANC < Sinatra::Base
 		File.read(File.join('public', 'js/ajax.js'))
 	end
 
+	get 'api/compounds.json' do
+		File.read(File.join('public', 'api/compounds.json'))
+	end
+
+	get 'api/commercial_products.json' do
+		File.read(File.join('public', 'api/commercial_products.json'))
+	end
+
+	get 'api/dosing_methods.json' do
+		File.read(File.join('public', 'api/dosing_methods.json'))
+	end
+
+	get 'api/resources.json' do
+		File.read(File.join('public', 'api/resources.json'))
+	end
+
 	["/","/non-mobile/?","/:locale/","/:locale/non-mobile/?"].each do |path|
 		get path do
 			haml :ask
