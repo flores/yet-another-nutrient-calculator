@@ -1,0 +1,77 @@
+units:
+ element: Składnik
+ ppm: ppm
+ degree: stopień
+ us_gal: galon amerykański
+ imp_gal: galon brytyjski
+ Liter: L
+ milliliter: ml
+ five_milliter: łyżeczka/zakrętka
+ pump_bottle: naciśnięcie dozownika
+ grams: g
+ milligrams: mg
+input:
+ aquarium: Pojemność mojego akwarium to
+ source:
+   text: używam
+   diy: DIY
+   commercial: gotowych
+   label: nawozów
+ diy:
+   text: Dozuję
+   method_text: używając
+   solution: roztworu
+   dry: suchej soli
+ solution:
+   text: Pojemność mojego pojemnika to
+   container: pojemnik
+   dose: a każda dawka to
+   tooltip: Jeśli wybierzesz poniżej "rezultat mojej dawki", będzie to dawka, która zostanie przyjęta do kalkulacji stężenia roztworu
+ dosing_method:
+   text: Wyliczam dozowanie dla
+   target: ile dozować aby osiągnąć cel
+   dose: rezultatu mojej dawki
+   ei: metody (Estimative Index)
+   ei_daily: metody EI (dozowanie codzienne)
+   ei_low: metody EI (niskie światło/dozowanie raz w tygodniu)
+   pps: metody PPS (Perpetual Preservation System)
+   pmdd: metody PMDD
+ dose:
+   text: dozuję
+   tooltip: Możesz używać liczb takich jak 1/8, 1.25, 2,50, lub 3
+ target: Mój cel to
+output:
+ dose: Dodanie %1 do Twojego %2 akwarium daje
+ dose_solution: Dodanie %1 do Twojego %2 pojemnika i następnie dodanie %3 roztworu do Twojego %4 akwarium daje
+ target: Aby uzyskać Twój cel wynoszący %1 musisz dodać %2 do Twojego %3 akwarium uzyskując
+ target_solution: Aby uzyskać Twój cel wynoszący %1 musisz dodać %2 do Twojego %3 pojemnika. Dodanie %4 tego roztworu do Twojego %5 akwarium daje
+warnings:
+ solubility: Rozpuszczalność %1 w temperaturze pokojowej wynosi %2. Powinieneś poprawić swoje dozowanie.
+ k3po4: K3PO4 w roztworze wodnym ma skłonności do podnoszenia poziomu pH z uwagi na działanie KOH, które jest silną zasadą. Użytkownik ray-the-pilot wyjaśnia problemy z tym związane <a href='http://bit.ly/ev7txA' target='_blank'>na forum APC</a>.
+ eddha: Należy zwrócić uwagę na to, iż EDDHA będzie barwił wodę na kolor różowy do czerwonego nawet przy umiarkowanym dozowaniu. Możesz zobaczyć film obrazując podanie dawki 0.2ppm <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>tutaj</a>.
+ urea: Ten produkt zawiera pewną nieznaną ilość azotu jako mocznik oraz jako NO3. Kalkulacja i wykres poniżej są oparte na równoważniku NO3.
+ cu: Twoja dawka miedzi jest o %1 % większa niż rekomendacje dla delikatnych ryb i bezkręgowców. Rozważ zmniejszenie Twojej dawki wynoszącej %2 o %3. <a href='http://y.petalphile.com/cu' target='_blank'>Tutaj możesz przeczytać więcej informacji o toksyczności miedzi</a>.
+chart:
+ text: Porównanie dozowania %1 dla
+ pmdd: PMDD
+ walstad: Diana Walstad
+ pps: PPS
+ ei: Estimative Index
+ user: i Twojej dawki
+ long_term_chart: Chcesz zobaczyć model prezentujący skutki długoterminowego dozowania %1? Kliknij %2 tutaj!
+methods_text:
+ ei: Klasyczne EI jest oparte o wysokie poziomy CO2, dobrą cyrkulację i regularne podmiany wody. Światło większe niż umiarkowane nie jest czynnikiem krytycznym.
+ ei_daily: To klasyczne EI przeliczone na dozowanie codziennych dawek.
+ ei_low: To klasyczne EI przeliczone na dozowanie raz w tygodniu w zbiorniku z niskim światłem. Poziomy dozowania EI na wykresie poniżej są zawyżone dla większości zbiorników.
+ pps: Została skalkulowana dawka dzienna dla metody PPS. Rekomendowane poniżej zakresy nawożenia dotyczą dojrzałego, ustabilizowanego zbiornika.
+ pmdd: W metodzie PMDD nie dozuje się %1. Ale być może powinieneś.
+ ada: System nawożenia ADA opiera się na bogatym w składniki nawozowe podłożu, podczas gdy nawozy płynne służą do uzupełniania nawożenia kolumny wody, dopóki składniki w podłożu się nie wyczerpią.<br />Analiza nawozów ADA została podarowana dzięki uprzejmości Plantbrain/Tom Barr i jest dostępna na <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+misc:
+ calc: Yet Another Nutrient Calculator
+ restart: Zacznij od nowa
+ submit_button: Wylicz
+ translations: Tłumaczenia
+ contribute: Podaruj tłumaczenie
+ mobile_link: Wersja mobilna
+ noscript: Ten kalkulator wymaga Javascript do poprawnej pracy.
+ error: Wystąpił błąd! Proszę używać jedynie liczb (3, 3.0, 3/4, 0,75, itp.) i upewnić się, iż zostały udzielone odpowiedzi na wszystkie widoczne pytania.
