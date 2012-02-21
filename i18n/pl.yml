@@ -14,7 +14,7 @@ input:
  aquarium: Pojemność mojego akwarium to
  source:
    text: używam
-   diy: DIY
+   diy: własnoręcznie wykonanych
    commercial: gotowych
    label: nawozów
  diy:
@@ -23,7 +23,7 @@ input:
    solution: roztworu
    dry: suchej soli
  solution:
-   text: Pojemność mojego pojemnika to
+   text: Pojemność pojemnika na nawóz to
    container: pojemnik
    dose: a każda dawka to
    tooltip: Jeśli wybierzesz poniżej "rezultat mojej dawki", będzie to dawka, która zostanie przyjęta do kalkulacji stężenia roztworu
@@ -31,9 +31,9 @@ input:
    text: Wyliczam dozowanie dla
    target: ile dozować aby osiągnąć cel
    dose: rezultatu mojej dawki
-   ei: metody (Estimative Index)
-   ei_daily: metody EI (dozowanie codzienne)
-   ei_low: metody EI (niskie światło/dozowanie raz w tygodniu)
+   ei: metody EI (Estimative Index - dozowanie klasyczne)
+   ei_daily: metody EI (Estimative Index - dozowanie codzienne)
+   ei_low: metody EI (Estimative Index - dozowanie raz w tygodniu)
    pps: metody PPS (Perpetual Preservation System)
    pmdd: metody PMDD
  dose:
@@ -61,9 +61,9 @@ chart:
  long_term_chart: Chcesz zobaczyć model prezentujący skutki długoterminowego dozowania %1? Kliknij %2 tutaj!
 methods_text:
  ei: Klasyczne EI jest oparte o wysokie poziomy CO2, dobrą cyrkulację i regularne podmiany wody. Światło większe niż umiarkowane nie jest czynnikiem krytycznym.
- ei_daily: To klasyczne EI przeliczone na dozowanie codziennych dawek.
- ei_low: To klasyczne EI przeliczone na dozowanie raz w tygodniu w zbiorniku z niskim światłem. Poziomy dozowania EI na wykresie poniżej są zawyżone dla większości zbiorników.
- pps: Została skalkulowana dawka dzienna dla metody PPS. Rekomendowane poniżej zakresy nawożenia dotyczą dojrzałego, ustabilizowanego zbiornika.
+ ei_daily: Klasyczne EI przeliczone na dozowanie codzienne.
+ ei_low: Klasyczne EI przeliczone na dozowanie raz w tygodniu w zbiorniku z niskim światłem. Poziomy dozowania EI na wykresie poniżej są zawyżone dla większości takich zbiorników.
+ pps: Kalkulacja dawki dziennej dla metody PPS. Rekomendowane poniżej zakresy nawożenia dotyczą dojrzałego, ustabilizowanego zbiornika.
  pmdd: W metodzie PMDD nie dozuje się %1. Ale być może powinieneś.
  ada: System nawożenia ADA opiera się na bogatym w składniki nawozowe podłożu, podczas gdy nawozy płynne służą do uzupełniania nawożenia kolumny wody, dopóki składniki w podłożu się nie wyczerpią.<br />Analiza nawozów ADA została podarowana dzięki uprzejmości Plantbrain/Tom Barr i jest dostępna na <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
 misc:

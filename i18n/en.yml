@@ -60,7 +60,7 @@ chart:
   user: and you
   long_term_chart: Want to model long term effects of %1 dosing? Click %2 here!
 methods_text:  
-  ei: Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.
+  ei: Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.
   ei_daily: This is traditional EI reduced to daily dosing levels.
   ei_low: This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.
   pps: We have calculated for a PPS-Pro daily dose.  The recommended range below is for a stabilized mature tank.
