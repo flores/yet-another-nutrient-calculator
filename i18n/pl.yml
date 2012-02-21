@@ -31,7 +31,7 @@ input:
    text: Wyliczam dozowanie dla
    target: ile dozować aby osiągnąć cel
    dose: rezultatu mojej dawki
-   ei: metody (Estimative Index)
+   ei: metody EI (Estimative Index)
    ei_daily: metody EI (dozowanie codzienne)
    ei_low: metody EI (niskie światło/dozowanie raz w tygodniu)
    pps: metody PPS (Perpetual Preservation System)
