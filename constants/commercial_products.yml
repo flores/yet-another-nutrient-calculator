@@ -322,3 +322,22 @@ Pfertz Micros:
   S:      0.0043
   Zn:     0.00044
   target: Fe
+Floramix:
+  B:      0.027
+  Cu:     0.014
+  Fe:     0.23
+  Mn:     0.095
+  Mo:     0.005
+  Zn:     0.033
+  MgO:    0.95
+  Mg:     0.57
+  dGH:    0.13
+  target: Fe
+Mikro Plus:
+  B:      0.2
+  Cu:     0.1
+  Fe:     2.0
+  Mn:     0.8
+  Mo:     0.05
+  Zn:     0.3
+  target: Fe
