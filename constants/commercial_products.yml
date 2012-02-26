@@ -322,7 +322,7 @@ Pfertz Micros:
   S:      0.0043
   Zn:     0.00044
   target: Fe
-Floramix:
+INTERMAG Floramix Rośliny Wodne:
   B:      0.027
   Cu:     0.014
   Fe:     0.23
@@ -333,7 +333,15 @@ Floramix:
   Mg:     0.57
   dGH:    0.13
   target: Fe
-Mikro Plus:
+INTERMAG Mikro:
+  B:      0.2
+  Cu:     0.1
+  Fe:     1.5
+  Mn:     0.54
+  Mo:     0.03
+  Zn:     0.1
+  target: Fe
+INTERMAG Mikro Plus:
   B:      0.2
   Cu:     0.1
   Fe:     2.0
