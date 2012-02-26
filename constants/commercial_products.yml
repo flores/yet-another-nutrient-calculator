@@ -342,10 +342,10 @@ INTERMAG Mikro:
   Zn:     0.1
   target: Fe
 INTERMAG Mikro Plus:
-  B:      0.2
-  Cu:     0.1
-  Fe:     2.0
-  Mn:     0.8
-  Mo:     0.05
-  Zn:     0.3
+  B:      0.28
+  Cu:     0.15
+  Fe:     2.45
+  Mn:     1.01
+  Mo:     0.06
+  Zn:     0.35
   target: Fe
