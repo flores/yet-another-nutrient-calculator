@@ -166,14 +166,16 @@ Plant-Prod Chelated:
   tsp:    4480
   target: Fe
 CIFO MIKROM:
-  Mg:     0.03
+  Mg:     0.0181
+  dGH:    0.00414
   B:      0.005
   Cu:     0.005
   Zn:     0.01
   Mn:     0.04
   Mo:     0.002
   SO3:    0.06
-  tsp:    5000
+  Fe:     0.04
+  tsp:    5170
   target: Fe
 Dutch Nutrient Formula:
   Fe:     0.07
