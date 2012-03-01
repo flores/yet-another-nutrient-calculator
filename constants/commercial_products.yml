@@ -27,6 +27,14 @@ Easy Life Ferro:
 Easy Life Potassium:
   K:      4.0
   target: K
+Easy Life Nitro:
+  NO3:    10.004
+  K:      6.316
+  target: NO3
+Easy Life Fosfo:
+  PO4:    0.502
+  K:      0.207
+  target: PO4
 Sera Florena:
   Fe:     0.306
   Mn:     0.0017
