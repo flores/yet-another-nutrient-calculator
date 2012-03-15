@@ -235,9 +235,9 @@ class YANC < Sinatra::Base
 				@mydose=@dose_amount
 				case @dose_units
 				  when "caps"
-				    @dose_units = t.units.five_milliter
+				    @dose_units = t.units.five_milliliter
 				  when "tsp"
-				    @dose_units = t.units.five_milliter
+				    @dose_units = t.units.five_milliliter
 				  when "pumps"
 				    @dose_units = t.units.pump_bottle
 				  when "g"

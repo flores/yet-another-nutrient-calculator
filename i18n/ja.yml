@@ -6,7 +6,7 @@ units:
   imp_gal: ガロン（メトリック）
   Liter: L
   milliliter: mL
-  five_milliter: tsp/caps
+  five_milliliter: tsp/caps
   pump_bottle: ポンプ
   grams: g
   milligrams: mg
@@ -38,9 +38,9 @@ input:
     pmdd: PMDD
   dose: 
     text: 追加物
-    tooltip: 数字を記入する事は可能です。例えば「1/8」「1.25」「2,50」「3」
+    tooltip: "数字を記入する事は可能です。例えば「1/8」「1.25」「2,50」「3」"
   target: ターゲットは
-output: 
+output:
   dose: %2アクアリウムに%1を追加すると、
   dose_solution: %2容器に%1用量を追加して、%3用量を%4アクアリウムに追加すると、結果は
   target: %1ターゲットに到達する為に、%3アクアリウムに%2を追加して下さい。

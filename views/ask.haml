@@ -56,7 +56,7 @@
       %input{:type => "radio", :name=> "dose_units", :value=> "g"}
       =t.units.grams
       %input{:type => "radio", :name=> "dose_units", :value=> "tsp"}
-      =t.units.five_milliter
+      =t.units.five_milliliter
     #target{:style => 'display:none'}
       %label= t.input.target
       %input{:type => "int", :name=> "target_amount", :length => 2, :size => 4} 
@@ -83,7 +83,7 @@
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "mL"}
       = t.units.milliliter
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "caps"}
-      = t.units.five_milliter
+      = t.units.five_milliliter
       %input{:type => "radio", :name=> "premix_dose_units", :value=> "pumps"}
       = t.units.pump_bottle
     #premix_target{:style => 'display:none'}

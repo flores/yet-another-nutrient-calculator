@@ -21,7 +21,7 @@ Please use [calc.petalphile.com](http://calc.petalphile.com) for the context of 
 	  imp_gal: Imp gal
 	  Liter: L
 	  milliliter: mL
-	  five_milliter: tsp/caps
+	  five_milliliter: tsp/caps
 	  pump_bottle: pumps
 	  grams: g
 	  milligrams: mg
@@ -108,7 +108,7 @@ Spanish translation file [es.yml](https://github.com/flores/yet-another-nutrient
 	  imp_gal: galones imperiales (UK)
 	  Liter: L
 	  milliliter: mL
-	  five_milliter: cucharilla de té/tapón/5 ml
+	  five_milliliter: cucharilla de té/tapón/5 ml
 	  pump_bottle: pumps
 	  grams: g
 	  milligrams: mg
@@ -190,7 +190,7 @@ Romanian file [ro.yml](https://github.com/flores/yet-another-nutrient-calculator
 	  imp_gal: gal UK
 	  Liter: L
 	  milliliter: mL
-	  five_milliter: linguriţe
+	  five_milliliter: linguriţe
 	  pump_bottle: pompe
 	  grams: g
 	  milligrams: mg
