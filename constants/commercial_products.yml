@@ -3,15 +3,15 @@
   # elements = concentration in solution
 ---
 Easy Life ProFito:
-  Fe:     0.12
-  K:      0.7
+  Fe:     0.24
+  K:      0.48
   Mg:     0.09
   dGH:    0.0206606943
-  Mg:     0.09
+  Mg:     
   Mn:     0.04
   I:      0.02
   B:      0.008
-  Cu:     0.002
+  Cu:     0.0002
   Mo:     0.002
   Zn:     0.002
   Li:     0.002
