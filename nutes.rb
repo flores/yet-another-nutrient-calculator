@@ -351,7 +351,15 @@ class YANC < Sinatra::Base
     'api/commercial_products.json', 
     'api/dosing_methods.json', 
     'api/resources.json',
-    'bootstrap/js/bootstrap.min.js',
+    ].each do |staticfile|
+    
+    get staticfile do
+      File.read(File.join('public', staticfile))
+    end
+  
+  end
+
+  [ 'bootstrap/js/bootstrap.min.js',
     'bootstrap/js/bootstrap.js',
     'bootstrap/css/bootstrap-responsive.css',
     'bootstrap/css/bootstrap-responsive.min.css',
@@ -362,7 +370,7 @@ class YANC < Sinatra::Base
     ].each do |staticfile|
     
     get staticfile do
-      File.read(File.join('public', staticfile))
+      File.read(File.join('public/vendor', staticfile))
     end
   
   end
