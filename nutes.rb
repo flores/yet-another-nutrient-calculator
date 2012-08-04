@@ -2,63 +2,12 @@ require 'lib/conversions'
 include Conversions
 
 class YANC < Sinatra::Base
+  
   register Sinatra::R18n
   set :root, File.dirname(__FILE__)
 
   get '/', :agent => /iphone|webos|mobile/i do
     redirect '/mobile'
-  end
-  
-  get '/cu' do
-    markdown :cu
-  end
-
-  get '/readme' do
-    markdown :README
-  end
-  
-  get '/contribute_translation' do
-    markdown :contribute_translation
-  end
-
-  get '/formy_yanc.css' do
-    File.read(File.join('public', 'formy_yanc.css'))
-  end
-
-  get '/markdown.css' do
-    File.read(File.join('public', 'markdown.css'))
-  end
-
-  get '/ga.js' do
-    File.read(File.join('public', 'js/ga.js'))
-  end
-  
-  get 'js/ga.js' do
-    File.read(File.join('public', 'js/ga.js'))
-  end
-  
-  get 'js/toggle_input_fields.js' do
-    File.read(File.join('public', 'js/toggle_input_fields.js'))
-  end
-  
-  get 'js/ajax.js' do
-    File.read(File.join('public', 'js/ajax.js'))
-  end
-
-  get 'api/compounds.json' do
-    File.read(File.join('public', 'api/compounds.json'))
-  end
-
-  get 'api/commercial_products.json' do
-    File.read(File.join('public', 'api/commercial_products.json'))
-  end
-
-  get 'api/dosing_methods.json' do
-    File.read(File.join('public', 'api/dosing_methods.json'))
-  end
-
-  get 'api/resources.json' do
-    File.read(File.join('public', 'api/resources.json'))
   end
 
   ["/","/non-mobile/?","/:locale/","/:locale/non-mobile/?"].each do |path|
@@ -389,6 +338,29 @@ class YANC < Sinatra::Base
     end
   end
   
+  [ "/cu", "/readme", "/contribute_translation/" ].each do |md|
+    get md do 
+      markdown :"#{md}"
+    end
+  end
+
+  
+  [ '/formy_yanc.css',
+    '/markdown.css', 
+    '/ga.js', 
+    'js/ga.js', 
+    'js/toggle_input_fields.js', 
+    'js/ajax.js', 
+    'api/compounds.json', 
+    'api/commercial_products.json', 
+    'api/dosing_methods.json', 
+    'api/resources.json' ].each do |staticfile|
+    
+    get staticfile do
+      File.read(File.join('public', staticfile))
+    end
+  
+  end
 
   not_found do
     haml :not_found, :layout => false
