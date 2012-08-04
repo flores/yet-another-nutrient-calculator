@@ -6,11 +6,7 @@ class YANC < Sinatra::Base
   register Sinatra::R18n
   set :root, File.dirname(__FILE__)
 
-  get '/', :agent => /iphone|webos|mobile/i do
-    redirect '/mobile'
-  end
-
-  ["/","/non-mobile/?","/:locale/","/:locale/non-mobile/?"].each do |path|
+  ["/","/:locale/","/:locale/non-mobile/?"].each do |path|
     get path do
       haml :ask
     end
@@ -354,7 +350,16 @@ class YANC < Sinatra::Base
     'api/compounds.json', 
     'api/commercial_products.json', 
     'api/dosing_methods.json', 
-    'api/resources.json' ].each do |staticfile|
+    'api/resources.json',
+    'bootstrap/js/bootstrap.min.js',
+    'bootstrap/js/bootstrap.js',
+    'bootstrap/css/bootstrap-responsive.css',
+    'bootstrap/css/bootstrap-responsive.min.css',
+    'bootstrap/css/bootstrap.min.css',
+    'bootstrap/css/bootstrap.css',
+    'bootstrap/img/glyphicons-halflings-white.png',
+    'bootstrap/img/glyphicons-halflings.png' 
+    ].each do |staticfile|
     
     get staticfile do
       File.read(File.join('public', staticfile))
