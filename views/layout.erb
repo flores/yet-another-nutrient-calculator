@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title><%= t.misc.calc %></title>
+    <script src='http://cdn.petalphile.com/javascript/jquery-1.4.4.min.js' type='text/javascript'></script>
+    <script src='http://cdn.petalphile.com/javascript/jquery.form.js' type='text/javascript'></script>
+    <script src='http://cdn.petalphile.com/js/waypoints.min.js' type='text/javascript'></script>
+    <script src='http://cdn.petalphile.com/js/highcharts.js' type='text/javascript'></script>
+    <link href='bootstrap/css/bootstrap-responsive.css' rel='stylesheet' type='text/css' />
+    <link href='bootstrap/css/bootstrap.css' rel='stylesheet' type='text/css' />
+    <meta name="robots" content="noindex">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <meta content='mRmJs36lfQgLiQL09slVLG65uD4PFIMTcxUXog8q1r4' name='google-site-verification' />
+    <!-- /%script{'src'=>"http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"} -->
+    <script src='http://cdn.petalphile.com/js/toggle_input_fields.js' type='text/javascript'></script>
+    <script src='http://cdn.petalphile.com/js/ga.js' type='text/javascript'></script>
+    <script src='http://calc.petalphile.com/js/ajax.js' type='text/javascript'></script>
+  </head>
+
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span2'>
+          <div id='title'>
+            <h2>Yet Another Nutrient Calculator</h2>
+          </div>
+          <div id='translations'>
+            <ul>
+              <li>
+                <a href='/de/'>Deutsch</a>
+              </li>
+              <li>
+                <a href='/en/'>English</a>
+              </li>
+              <li>
+                <a href='/es/'>Español</a>
+              </li>
+              <li>
+                <a href='/ja/'>日本語</a>
+              </li>
+              <li>
+                <a href='/it/'>Italiano</a>
+              </li>
+              <li>
+                <a href='/lt/'>Lietuvių kalba</a>
+              </li>
+              <li>
+                <a href='/nl/'>Nederlands</a>
+              </li>
+              <li>
+                <a href='/pl/'>Polski</a>
+              </li>
+              <li>
+                <a href='/pt-br/'>Português do Brasil</a>
+              </li>
+              <li>
+                <a href='/ro/'>Română</a>
+              </li>
+              <li>
+	      <a href='/contribute_translation'><%= t.misc.contribute %></a>
+              </li>
+            </ul>
+          </div>
+           
+          <div id='menu'>
+            <ul>
+              <li>
+                <a href='<%= request.url %>'><%= t.misc.restart %></a>
+              </li>
+              <li>
+                <a href='/mobile'><%= t.misc.mobile_link %></a>
+              </li>
+              <li>
+                <a href='http://tinycalc.petalphile.com'>tinycalc</a>
+              </li>
+              <li>
+                <a href='http://petalphile.com'>petalphile.com</a>
+              </li>
+            </ul>
+          </div> 
+	<div class="span10">  
+          <%= yield %>
+          <div id="result">
+	  </div>
+	  <div id="fancy">
+	  </div>
+	</div>
+      </div>
+    </div>
+    
+    <script>
+      $(document).ready(function() {
+      $('#container').waypoint(function(event, direction) {
+      $('yield').toggleClass('sticky', direction === "down");
+      });
+      $('#fancy').waypoint(function(event, direction) {
+      $(this).parent().toggleClass('sticky', direction === "down");
+      $('yield').toggleClass('bumpit', direction === "down");
+      event.stopPropagation();
+      });});
+    </script>    
+    
+    <noscript><%= t.misc.noscript %></noscript>
+  
+  </body>
+</html>
