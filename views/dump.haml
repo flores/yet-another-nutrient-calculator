@@ -1,4 +1,4 @@
-<div style="position: float:top; height: relative; center">
+<div>
 %center
   - if @sol_vol > 0
     #{t.output.dose_solution(@dose_amount.to_s + " " + @dose_units + " " + @comp, @sol_vol.to_s + " " + t.units.milliliter, @sol_dose.to_s + " " + t.units.milliliter, @tank_vol_orig.to_s + " " + @tank_units)}

@@ -33,6 +33,7 @@ class YANC < Sinatra::Base
 
   [ '/bootstrap/js/bootstrap.min.js',
     '/bootstrap/js/bootstrap.js',
+    '/bootstrap/js/bootstrap-dropdown.js',
     '/bootstrap/css/bootstrap-responsive.css',
     '/bootstrap/css/bootstrap-responsive.min.css',
     '/bootstrap/css/bootstrap.min.css',

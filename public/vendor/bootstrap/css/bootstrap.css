@@ -165,7 +165,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #990033;
   text-decoration: none;
 }
 
@@ -1090,7 +1090,7 @@ input[type="checkbox"][readonly] {
 .control-group.warning > label,
 .control-group.warning .help-block,
 .control-group.warning .help-inline {
-  color: #c09853;
+  color: #FFFF00;
 }
 
 .control-group.warning .checkbox,
@@ -1098,8 +1098,8 @@ input[type="checkbox"][readonly] {
 .control-group.warning input,
 .control-group.warning select,
 .control-group.warning textarea {
-  color: #c09853;
-  border-color: #c09853;
+  color: #FFFF00;
+  border-color: #FFFF00;
 }
 
 .control-group.warning .checkbox:focus,
@@ -1115,9 +1115,9 @@ input[type="checkbox"][readonly] {
 
 .control-group.warning .input-prepend .add-on,
 .control-group.warning .input-append .add-on {
-  color: #c09853;
+  color: #FFFF00;
   background-color: #fcf8e3;
-  border-color: #c09853;
+  border-color: #FFFF00;
 }
 
 .control-group.error > label,
@@ -3147,7 +3147,7 @@ input[type="submit"].btn.btn-mini {
 .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 18px;
-  color: #c09853;
+  color: #FFFF00;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
