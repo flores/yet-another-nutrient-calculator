@@ -5,10 +5,51 @@ class YANC < Sinatra::Base
   
   register Sinatra::R18n
   set :root, File.dirname(__FILE__)
+  
+  [ "/cu", "/readme", "/contribute_translation/" ].each do |md|
+    get md do 
+      markdown :"#{md}"
+    end
+  end
+
+  
+  [ '/formy_yanc.css',
+    '/markdown.css', 
+    '/ga.js', 
+    '/js/ga.js', 
+    '/js/toggle_input_fields.js', 
+    '/js/ajax.js', 
+    '/api/compounds.json', 
+    '/api/commercial_products.json', 
+    '/api/dosing_methods.json', 
+    '/api/resources.json',
+    ].each do |staticfile|
+    
+    get staticfile do
+      File.read(File.join('public', staticfile))
+    end
+  
+  end
+
+  [ '/bootstrap/js/bootstrap.min.js',
+    '/bootstrap/js/bootstrap.js',
+    '/bootstrap/css/bootstrap-responsive.css',
+    '/bootstrap/css/bootstrap-responsive.min.css',
+    '/bootstrap/css/bootstrap.min.css',
+    '/bootstrap/css/bootstrap.css',
+    '/bootstrap/img/glyphicons-halflings-white.png',
+    '/bootstrap/img/glyphicons-halflings.png' 
+    ].each do |staticfile|
+    
+    get staticfile do
+      File.read(File.join('public/vendor', staticfile))
+    end
+  
+  end
 
   ["/","/:locale/","/:locale/non-mobile/?"].each do |path|
     get path do
-      haml :ask
+      erb :ask
     end
       
     post path do
@@ -334,46 +375,6 @@ class YANC < Sinatra::Base
     end
   end
   
-  [ "/cu", "/readme", "/contribute_translation/" ].each do |md|
-    get md do 
-      markdown :"#{md}"
-    end
-  end
-
-  
-  [ '/formy_yanc.css',
-    '/markdown.css', 
-    '/ga.js', 
-    'js/ga.js', 
-    'js/toggle_input_fields.js', 
-    'js/ajax.js', 
-    'api/compounds.json', 
-    'api/commercial_products.json', 
-    'api/dosing_methods.json', 
-    'api/resources.json',
-    ].each do |staticfile|
-    
-    get staticfile do
-      File.read(File.join('public', staticfile))
-    end
-  
-  end
-
-  [ 'bootstrap/js/bootstrap.min.js',
-    'bootstrap/js/bootstrap.js',
-    'bootstrap/css/bootstrap-responsive.css',
-    'bootstrap/css/bootstrap-responsive.min.css',
-    'bootstrap/css/bootstrap.min.css',
-    'bootstrap/css/bootstrap.css',
-    'bootstrap/img/glyphicons-halflings-white.png',
-    'bootstrap/img/glyphicons-halflings.png' 
-    ].each do |staticfile|
-    
-    get staticfile do
-      File.read(File.join('public/vendor', staticfile))
-    end
-  
-  end
 
   not_found do
     haml :not_found, :layout => false
