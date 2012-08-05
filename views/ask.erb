@@ -1,10 +1,10 @@
 <form action='<%= request.url %>' class='form-horizontal' id='yanc' method='post' onSubmit='return false;'>
   <label><%= t.input.aquarium %></label>
     <input length='4' name='tank_vol' size='4' type='text' />
-  <label class="radio">
-    <input name='tank_units' type='radio' value='gal' />
+    <label class="radio"></label>
+    <input name='tank_units' type='radio' value='gal' >
       <%= t.units.us_gal %>
-    <input name='tank_units' type='radio' value='L' />
+    <input name='tank_units' type='radio' value='L' >
       <%= t.units.Liter %>
   <label><%= t.input.source.label %></label>
     <input name='source' onClick="document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';" type='radio' value='diy' />
@@ -12,7 +12,7 @@
     <input name='source' onClick="document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';" type='radio' value='premix' />
     <%= t.input.source.commercial %>
   
-  <div id='diy' style='display:none' class="control-group">
+  <div id='diy' style='display:none'>
     <label><%= t.input.diy.text %></label>
     <select name="compound">
       <% COMPOUNDS.keys.sort.each do |c| %>
@@ -30,7 +30,7 @@
     <input name='method' onClick="document.getElementById('solution').style.display='none';" type='radio' value='dry' />
     <%= t.input.diy.dry %>
 
-    <div id='solution' style='display:none' class='control-group'>
+    <div id='solution' style='display:none'>
       <label><%= t.input.solution.text %></label>
       <input length='4' name='sol_volume' size='4' type='int' value='500' />
       <%= t.units.milliliter %>
@@ -50,7 +50,7 @@
       <option value='pmdd'><%= t.dosing_method.pmdd %></option>
     </select>
 
-    <div id='dump' style='display:none' class='control-group'>
+    <div id='dump' style='display:none'>
       <label><%= t.input.dose.text %></label>
       <input length='6' name='dose_amount' size='6' type='int' class="radio"/>
       <input name='dose_units' type='radio' value='mg' />
@@ -61,7 +61,7 @@
       <%= t.units.five_milliliter %>
       <span class="help-block"><%= t.input.dose.tooltip %></span>
     </div>
-    <div id='target' style='display:none' class='control-group'>
+    <div id='target' style='display:none'>
       <label><%= t.input.target %></label>
       <input length='2' name='target_amount' size='4' type='int' />
       <%= t.units.ppm %>
@@ -69,7 +69,7 @@
 
   </div>
 
-  <div id='premix' style='display:none' class="control-group">
+  <div id='premix' style='display:none'>
     <label><%= t.input.diy.text %></label>
     <select name="premix">
       <% COMMERCIAL.keys.sort.each do |c| %>
@@ -88,7 +88,7 @@
       <option value='pmdd'><%= t.dosing_method.pmdd %></option>
     </select>
     
-    <div id='premix_dump' style='display:none' class='control-group'>
+    <div id='premix_dump' style='display:none'>
       <label><%= t.input.dose.text %></label>
       <input length='6' name='premix_dose_amount' size='6' type='int' class="radio"/>
       <input name='premix_dose_units' type='radio' value='mL' />
@@ -99,7 +99,7 @@
       <%= t.units.pump_bottle %>
       <span class="help-block"><%= t.input.dose.tooltip %></span>
     </div>
-    <div id='premix_target' style='display:none' class='control-group'>
+    <div id='premix_target' style='display:none'>
       <label><%= t.input.target %></label>
       <input length='2' name='premix_target_amount' size='4' type='int' />
       <%= t.units.ppm %>
