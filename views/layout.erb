@@ -18,104 +18,96 @@
 
   <body>
 
-
-      <div class='row-fluid'>
-      <div class="navbar">
-        <div class="navbar-inner">
-          <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">rota.la</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
-                <a href="ei.petalphile.com">the accumulation of fertilizers vs time and plant uptake</a>
-              </li>
-              <li class="active">
-                <a href="calc.petalphile.com">nutrient calc</a>
-              </li>
-              <li class="">
-                <a href="dropcheck.petalphile.com">drop checkers</a>
-              </li>
-              <li class="">
-                <a href="glut.petalphile.com">glutaladehyde converter</a>
-              </li>
-              <li class="">
-                <a href="y.petalphile.com">wiki</a>
-              </li>
-            </ul>
-          </div>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="/">rota.la</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="">
+              <a href="http://ei.petalphile.com">the accumulation of fertilizers vs time and plant uptake</a>
+            </li>
+            <li class="active">
+              <a href="/">nutrient calc</a>
+            </li>
+            <li class="">
+              <a href="http://dropcheck.petalphile.com">drop checkers</a>
+            </li>
+            <li class="">
+              <a href="http://glut.petalphile.com">glutaladehyde converter</a>
+            </li>
+            <li class="">
+              <a href="http://y.petalphile.com">wiki</a>
+            </li>
+          </ul>
         </div>
       </div>
-      </div>
-      
+    </div>
+
+    
+    <div class='subnav'>
+      <ul class='nav nav-pills'>
+        <li><a href='<%= request.url %>'><%= t.misc.restart %></a></li>
+        <li>
+          <a href='/mobile'><%= t.misc.mobile_link %></a>
+        </li>
+        <li>
+          <a href='http://tinycalc.petalphile.com'>tinycalc</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">translate <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href='/de/'>Deutsch</a>
+            </li>
+            <li>
+              <a href='/en/'>English</a>
+            </li>
+            <li>
+              <a href='/es/'>Español</a>
+            </li>
+            <li>
+              <a href='/ja/'>日本語</a>
+            </li>
+            <li>
+              <a href='/it/'>Italiano</a>
+            </li>
+            <li>
+              <a href='/lt/'>Lietuvių kalba</a>
+            </li>
+            <li>
+              <a href='/nl/'>Nederlands</a>
+            </li>
+            <li>
+              <a href='/pl/'>Polski</a>
+            </li>
+            <li>
+              <a href='/pt-br/'>Português do Brasil</a>
+            </li>
+            <li>
+              <a href='/ro/'>Română</a>
+            </li>
+            <li>
+  	      <a href='/contribute_translation'><%= t.misc.contribute %></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+	
     <div class='container'>
       <div class='row-fluid'>
-        <div class='span2'>
-          <div id='translations'>
-            <ul>
-              <li>
-                <a href='/de/'>Deutsch</a>
-              </li>
-              <li>
-                <a href='/en/'>English</a>
-              </li>
-              <li>
-                <a href='/es/'>Español</a>
-              </li>
-              <li>
-                <a href='/ja/'>日本語</a>
-              </li>
-              <li>
-                <a href='/it/'>Italiano</a>
-              </li>
-              <li>
-                <a href='/lt/'>Lietuvių kalba</a>
-              </li>
-              <li>
-                <a href='/nl/'>Nederlands</a>
-              </li>
-              <li>
-                <a href='/pl/'>Polski</a>
-              </li>
-              <li>
-                <a href='/pt-br/'>Português do Brasil</a>
-              </li>
-              <li>
-                <a href='/ro/'>Română</a>
-              </li>
-              <li>
-	      <a href='/contribute_translation'><%= t.misc.contribute %></a>
-              </li>
-            </ul>
-          </div>
-           
-          <div id='menu'>
-            <ul>
-              <li>
-                <a href='<%= request.url %>'><%= t.misc.restart %></a>
-              </li>
-              <li>
-                <a href='/mobile'><%= t.misc.mobile_link %></a>
-              </li>
-              <li>
-                <a href='http://tinycalc.petalphile.com'>tinycalc</a>
-              </li>
-              <li>
-                <a href='http://petalphile.com'>petalphile.com</a>
-              </li>
-            </ul>
-	  </div>
-	</div>
 
-	<div class="span10">  
-          <%= yield %>
-          <div id="result">
-	  </div>
-	  <div id="fancy">
-	  </div>
+	<div class="span4">  
+	  <%= yield %>
+	</div>
+        <div id="result" class="span6">
+	</div>
+        <div id="fancy" class="span10">
 	</div>
       </div>
     </div>

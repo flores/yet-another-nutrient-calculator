@@ -1,11 +1,16 @@
 <form action='<%= request.url %>' class='form-horizontal' id='yanc' method='post' onSubmit='return false;'>
-  <label><%= t.input.aquarium %></label>
-    <input length='4' name='tank_vol' size='4' type='text' />
-    <label class="radio"></label>
-    <input name='tank_units' type='radio' value='gal' >
-      <%= t.units.us_gal %>
-    <input name='tank_units' type='radio' value='L' >
-      <%= t.units.Liter %>
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label" for="tank"><%= t.input.aquarium %></label>
+      <div class="controls">
+        <input length='4' name='tank_vol' size='4' type='text' id='tank'/>
+          <label class="radio"></label>
+        <input name='tank_units' type='radio' value='gal' id='tank'>
+          <%= t.units.us_gal %>
+        <input name='tank_units' type='radio' value='L' id='tank'>
+          <%= t.units.Liter %>
+      </div>	
+    </div>
   <label><%= t.input.source.label %></label>
     <input name='source' onClick="document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';" type='radio' value='diy' />
     <%= t.input.source.diy %>
@@ -108,4 +113,5 @@
   </div>
 
   <input type='submit' value='<%= t.misc.submit_button %>' id='ask' onlick="_gaq.push(['_trackPageview', '/yanc_submit'])" />
+  </fieldset>
 </form>
