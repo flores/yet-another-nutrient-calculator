@@ -1,5 +1,6 @@
 <form action='<%= request.url %>' class='form-horizontal' id='yanc' method='post' onSubmit='return false;'>
   <fieldset>
+    
     <div class="control-group">
       <label class="control-label" for="tank"><%= t.input.aquarium %></label>
       <div class="controls">
@@ -11,67 +12,73 @@
           <%= t.units.Liter %>
       </div>	
     </div>
-  <label><%= t.input.source.label %></label>
-    <input name='source' onClick="document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';" type='radio' value='diy' />
-    <%= t.input.source.diy %>
-    <input name='source' onClick="document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';" type='radio' value='premix' />
-    <%= t.input.source.commercial %>
+
+    <div class="control-group">
+      <label class="control-label" for="source"><%= t.input.source.label %></label>
+      <div class="controls">
+        <input id="source" name='source' onClick="document.getElementById('diy').style.display='block';document.getElementById('premix').style.display='none';" type='radio' value='diy' />
+          <%= t.input.source.diy %>
+        <input id="source" name='source' onClick="document.getElementById('diy').style.display='none';document.getElementById('premix').style.display='block';" type='radio' value='premix' />
+          <%= t.input.source.commercial %>
+      
+        <div id='diy' style='display:none'>
+          <label><%= t.input.diy.text %></label>
+            <select name="compound">
+              <% COMPOUNDS.keys.sort.each do |c| %>
+	        <% if c =~ /KNO3/ %>
+                  <option value="<%= c %>" selected="selected"><%= c %></option>
+	        <% else %>
+	          <option value="<%= c %>"><%= c %></option>
+                <% end %>
+              <% end %>
+            </select>
   
-  <div id='diy' style='display:none'>
-    <label><%= t.input.diy.text %></label>
-    <select name="compound">
-      <% COMPOUNDS.keys.sort.each do |c| %>
-	<% if c =~ /KNO3/ %>
-	  <option value="<%= c %>" selected="selected"><%= c %></option>
-	<% else %>
-	  <option value="<%= c %>"><%= c %></option>
-        <% end %>
-      <% end %>
-    </select>
-  
-    <label class="radio"><%= t.input.diy.method_text %></label>
-    <input name='method' onClick="document.getElementById('solution').style.display='block';" type='radio' value='solution' />
-    <%= t.input.diy.solution %>
-    <input name='method' onClick="document.getElementById('solution').style.display='none';" type='radio' value='dry' />
-    <%= t.input.diy.dry %>
+          <label class="radio"><%= t.input.diy.method_text %></label>
+            <input name='method' onClick="document.getElementById('solution').style.display='block';" type='radio' value='solution' />
+               <%= t.input.diy.solution %>
+            <input name='method' onClick="document.getElementById('solution').style.display='none';" type='radio' value='dry' />
+               <%= t.input.diy.dry %>
 
-    <div id='solution' style='display:none'>
-      <label><%= t.input.solution.text %></label>
-      <input length='4' name='sol_volume' size='4' type='int' value='500' />
-      <%= t.units.milliliter %>
-      <label><%= t.input.solution.dose %></label>
-      <input length='4' name='sol_dose' size='4' type='int' value='5' />
-      <%= t.units.milliliter %>
+          <div id='solution' style='display:none'>
+          
+	    <label><%= t.input.solution.text %></label>
+	    
+	    <input length='4' name='sol_volume' size='4' type='int' value='500' />
+	      <%= t.units.milliliter %>
+            <label><%= t.input.solution.dose %></label>
+            <input length='4' name='sol_dose' size='4' type='int' value='5' />
+              <%= t.units.milliliter %>
+          </div>
+
+          <label><%= t.input.dosing_method.text %></label>
+          <select id='calc_for1' name='calc_for' onChange='showDiv(this.value);'>
+            <option value='target'><%= t.input.dosing_method.target %></option>
+            <option value='dump'><%= t.input.dosing_method.dose %></option>
+            <option selected='selected' value='ei'><%= t.input.dosing_method.ei %></option>
+            <option value='ei_daily'><%= t.dosing_method.ei_daily %></option>
+            <option value='ei_low'><%= t.dosing_method.ei_low %></option>
+            <option value='pps'><%= t.dosing_method.pps %></option>
+            <option value='pmdd'><%= t.dosing_method.pmdd %></option>
+          </select>
+      
+          <div id='dump' style='display:none'>
+            <label><%= t.input.dose.text %></label>
+            <input length='6' name='dose_amount' size='6' type='int' class="radio"/>
+            <input name='dose_units' type='radio' value='mg' />
+            <%= t.units.milligrams %>
+            <input name='dose_units' type='radio' value='g' />
+            <%= t.units.grams %>
+            <input name='dose_units' type='radio' value='tsp' />
+            <%= t.units.five_milliliter %>
+            <span class="help-block"><%= t.input.dose.tooltip %></span>
+          </div>
+          <div id='target' style='display:none'>
+            <label><%= t.input.target %></label>
+            <input length='2' name='target_amount' size='4' type='int' />
+            <%= t.units.ppm %>
+          </div>
+       </div>
     </div>
-
-    <label><%= t.input.dosing_method.text %></label>
-    <select id='calc_for1' name='calc_for' onChange='showDiv(this.value);'>
-      <option value='target'><%= t.input.dosing_method.target %></option>
-      <option value='dump'><%= t.input.dosing_method.dose %></option>
-      <option selected='selected' value='ei'><%= t.input.dosing_method.ei %></option>
-      <option value='ei_daily'><%= t.dosing_method.ei_daily %></option>
-      <option value='ei_low'><%= t.dosing_method.ei_low %></option>
-      <option value='pps'><%= t.dosing_method.pps %></option>
-      <option value='pmdd'><%= t.dosing_method.pmdd %></option>
-    </select>
-
-    <div id='dump' style='display:none'>
-      <label><%= t.input.dose.text %></label>
-      <input length='6' name='dose_amount' size='6' type='int' class="radio"/>
-      <input name='dose_units' type='radio' value='mg' />
-      <%= t.units.milligrams %>
-      <input name='dose_units' type='radio' value='g' />
-      <%= t.units.grams %>
-      <input name='dose_units' type='radio' value='tsp' />
-      <%= t.units.five_milliliter %>
-      <span class="help-block"><%= t.input.dose.tooltip %></span>
-    </div>
-    <div id='target' style='display:none'>
-      <label><%= t.input.target %></label>
-      <input length='2' name='target_amount' size='4' type='int' />
-      <%= t.units.ppm %>
-    </div>
-
   </div>
 
   <div id='premix' style='display:none'>
