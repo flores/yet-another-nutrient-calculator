@@ -22,12 +22,11 @@
 <font color="blue">#{t.chart.ei}</font>, <font color="red">#{t.chart.user}</font>:
 </center>
 </div>
-<div style="position: relative; float:left; width: 330px; height: 15px; center">
+<div style="position: relative; float:left; width: 330px; height: 15px; center;">
 </div>
-<div style="position: relative; float:top; width: 330px; height: 35px;">
+<div style="position: relative; float:top; width: 330px; height: 35px; margin: 0px auto;">
 <div style="position: absolute; top:1px; left: 15px; width:300px;">
 <div style="position: absolute; top:7px; left: 0; width:300px;">
-<hr width=100%>
 </div>
 <div style="position: absolute; top:4px; left: #{METHODS[@element]['EI']['low']}px; width:  #{METHODS[@element]['EI']['margin']}px; height: 20px; background-color: blue; fiter:alpha(opacity=50); opacity:.5; center">
 </div>
@@ -41,7 +40,7 @@
 </div>
 </div>
 </div>
-<div style="position: relative; float:top; width: 330px; height: 50px">
+<div style="position: relative; float:top; width: 330px; height: 50px; margin: 0px auto;">
 <div style="position:relative; float:left; left: 10px; height 15px">
 0
 </div>
@@ -55,23 +54,24 @@
 %p
   %center
     %strong
-      #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @results[@element].to_s+ '">')}
+      #{t.chart.long_term_chart(@element, '<a href="http://rota.la/ei/?stuff=' + @element + ';dose=' + @results[@element].to_s+ '">')}
 </a>
 </div>
 
 %script(type="text/javascript")
   $(document).ready( function() {
-  var data = {
+  var eiform = {
   stuff: "#{@element}",
-  dose: #{@results[@element]},
-  dose_freq: #{@dose_freq},
-  pwc: #{@pwc},
+  dose: "#{@results[@element]}",
+  dose_freq: "#{@dose_freq}",
+  pwc: "#{@pwc}",
   pwc_freq: "#{@pwc_freq}",
   length: "month",
-  graphstyle: "fancy"
+  graphstyle: "fancy",
   }
-  $.post("http://calc.petalphile.com/model/", data, function(result) {
-  $("#fancy").empty().append($(result));
+  var data = $.param(eiform);
+  $.post("http://rota.la/ei/?" + data, function(result) {
+  $("#fancy").empty().append(result);
   return false;
   });
   });

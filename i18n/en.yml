@@ -38,7 +38,7 @@ input:
     pmdd: PMDD
   dose: 
     text: I am adding
-    tooltip: you can use numbers like 1/8, 1.25, 2,50, or 3
+    tooltip: you can use numbers like<br/>"1/8", "1.25", "2,50", "3"
   target: My target is
 output:
   dose: Your addition of %1 to your %2 aquarium adds
