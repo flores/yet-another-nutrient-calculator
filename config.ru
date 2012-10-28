@@ -14,4 +14,4 @@ require 'nutes'
 COMPOUNDS = YAML.load_file 'constants/compounds.yml'
 COMMERCIAL = YAML.load_file 'constants/commercial_products.yml'
 
-YANC.run! :environment => :production, :bind => '0.0.0.0', :logging => 'true', :port => 5050
+YANC.run! :environment => :production, :bind => '0.0.0.0', :logging => 'true', :port => 6050

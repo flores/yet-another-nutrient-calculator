@@ -134,22 +134,24 @@
     <script>
       function show(thing) {
         if (thing == 'diy') {
-          var opposite = 'premix';
+          var opposite = ['premix'];
 	} else if (thing == 'premix') {
-          var opposite = 'diy';
+          var opposite = ['diy', 'solution'];
 	} else if (thing == 'solution') {
-          var opposite = 'pies';
+          var opposite = ['pies'];
 	} else {
-          var opposite = 'solution';
+          var opposite = ['solution'];
 	}
         var set = document.getElementsByName(thing);
         for (var i = 0; i < set.length; i++) {
           set[i].style.display='block';
-        }
-        var oppset = document.getElementsByName(opposite);
-        for (var i = 0; i < oppset.length; i++) {
-          oppset[i].style.display='none';
-        }
+	}
+	for (var x =0; x < opposite.length; x++) {
+          var oppset = document.getElementsByName(opposite[x]);
+          for (var i = 0; i < oppset.length; i++) {
+            oppset[i].style.display='none';
+          }
+	}
       } 
     </script>
     <noscript><%= t.misc.noscript %></noscript>

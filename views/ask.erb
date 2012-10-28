@@ -61,6 +61,8 @@
         <input length='4' name='sol_volume' id='sol_volume' size='4' type='int' value='500' />
           <%= t.units.milliliter %>
       </div>
+    </div>
+    <div name='solution' style='display:none' class="control-group">
       <label class="control-label" for="sol_dose"><%= t.input.solution.dose %></label>
       <div class="controls">
 	<input length='4' name='sol_dose' id="sol_dose" size='4' type='int' value='5' />
@@ -76,10 +78,10 @@
           <option value='target'><%= t.input.dosing_method.target %></option>
           <option value='dump'><%= t.input.dosing_method.dose %></option>
           <option selected='selected' value='ei'><%= t.input.dosing_method.ei %></option>
-          <option value='ei_daily'><%= t.dosing_method.ei_daily %></option>
-          <option value='ei_low'><%= t.dosing_method.ei_low %></option>
-          <option value='pps'><%= t.dosing_method.pps %></option>
-          <option value='pmdd'><%= t.dosing_method.pmdd %></option>
+          <option value='ei_daily'><%= t.input.dosing_method.ei_daily %></option>
+          <option value='ei_low'><%= t.input.dosing_method.ei_low %></option>
+          <option value='pps'><%= t.input.dosing_method.pps %></option>
+          <option value='pmdd'><%= t.input.dosing_method.pmdd %></option>
         </select>
       </div>
     </div>
@@ -131,10 +133,10 @@
           <option value='premix_target'><%= t.input.dosing_method.target %></option>
           <option value='premix_dump'><%= t.input.dosing_method.dose %></option>
           <option value='ei'><%= t.input.dosing_method.ei %></option>
-          <option value='ei_daily'><%= t.dosing_method.ei_daily %></option>
-          <option value='ei_low'><%= t.dosing_method.ei_low %></option>
-          <option value='pps'><%= t.dosing_method.pps %></option>
-          <option value='pmdd'><%= t.dosing_method.pmdd %></option>
+          <option value='ei_daily'><%= t.input.dosing_method.ei_daily %></option>
+          <option value='ei_low'><%= t.input.dosing_method.ei_low %></option>
+          <option value='pps'><%= t.input.dosing_method.pps %></option>
+          <option value='pmdd'><%= t.input.dosing_method.pmdd %></option>
         </select>
       </div>
     </div>  
