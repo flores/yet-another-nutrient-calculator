@@ -36,6 +36,8 @@ class YANC < Sinatra::Base
     '/bootstrap/js/bootstrap-dropdown.js',
     '/bootstrap/css/bootstrap-responsive.css',
     '/bootstrap/css/bootstrap-responsive.min.css',
+    '/bootstrap/js/bootstrap-collapse.js',
+    '/bootstrap/js/bootstrap-transition.js',
     '/bootstrap/css/bootstrap.min.css',
     '/bootstrap/css/bootstrap.css',
     '/bootstrap/img/glyphicons-halflings-white.png',
