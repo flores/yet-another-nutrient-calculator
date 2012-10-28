@@ -54,7 +54,7 @@
 %p
   %center
     %strong
-      #{t.chart.long_term_chart(@element, '<a href="http://ei.petalphile.com/?stuff=' + @element + ';dose=' + @target_amount.to_s + '">')}
+      #{t.chart.long_term_chart(@element, '<a href="http://rota.la/ei/?stuff=' + @element + ';dose=' + @target_amount.to_s + '">')}
 </a>
 </div>
 
@@ -69,7 +69,7 @@
   length: "month",
   graphstyle: "fancy"
   }
-  $.post("http://calc.petalphile.com/model/", data, function(result) {
+  $.post("http://rota.la/ei/", data, function(result) {
   $("#fancy").empty().append($(result));
   return false;
   });
