@@ -60,7 +60,7 @@
 
 %script(type="text/javascript")
   $(document).ready( function() {
-  var data = {
+  var eiform = {
   stuff: "#{@element}",
   dose: #{@target_amount.to_s},
   dose_freq: #{@dose_freq},
@@ -69,8 +69,9 @@
   length: "month",
   graphstyle: "fancy"
   }
-  $.post("http://rota.la/ei/", data, function(result) {
-  $("#fancy").empty().append($(result));
-  return false;
+  var data = $.param(eiform);
+  $.post("http://rota.la/ei/?" + data, function(result) {
+  $("#fancy").empty().append(result);
+  return false;  
   });
   });

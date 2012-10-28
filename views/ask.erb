@@ -1,4 +1,4 @@
-<form action='<%= request.url %>' class='form-horizontal' id='yanc' method='post' onSubmit='return false;'>
+<form action='<%= request.url %>' class='form-horizontal' id='yanc' method='post'>
   <fieldset>
     
     <div class="control-group">
@@ -110,7 +110,7 @@
     <div id='target' style='display:none' class="control-group">
       <label class="control-label" for="target_amount"><%= t.input.target %></label>
       <div class="controls">
-        <input length='2' name='target_amount' id="target_amount" size='4' type='int' />
+        <input length='4' name='target_amount' id="target_amount" size='4' type='int' />
           <%= t.units.ppm %>
       </div>
     </div>
@@ -163,7 +163,7 @@
     <div id='premix_target' style='display:none' class='control-group'>
       <label class='control-label' for='premix_target_amount'><%= t.input.target %></label>
       <div class='controls'>
-        <input length='2' name='premix_target_amount' size='4' type='int' />
+        <input length='4' name='premix_target_amount' size='4' type='int' />
           <%= t.units.ppm %>
       </div>
     </div>

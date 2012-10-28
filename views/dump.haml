@@ -60,17 +60,18 @@
 
 %script(type="text/javascript")
   $(document).ready( function() {
-  var data = {
+  var eiform = {
   stuff: "#{@element}",
-  dose: #{@results[@element]},
-  dose_freq: #{@dose_freq},
-  pwc: #{@pwc},
+  dose: "#{@results[@element]}",
+  dose_freq: "#{@dose_freq}",
+  pwc: "#{@pwc}",
   pwc_freq: "#{@pwc_freq}",
   length: "month",
-  graphstyle: "fancy"
+  graphstyle: "fancy",
   }
-  $.post("http://rota.la/ei/", data, function(result) {
-  $("#fancy").empty().append($(result));
+  var data = $.param(eiform);
+  $.post("http://rota.la/ei/?" + data, function(result) {
+  $("#fancy").empty().append(result);
   return false;
   });
   });

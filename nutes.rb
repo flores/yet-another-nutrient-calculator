@@ -50,6 +50,7 @@ class YANC < Sinatra::Base
 
   ["/","/:locale/","/:locale/non-mobile/?"].each do |path|
     get path do
+
       erb :ask
     end
       
