@@ -219,6 +219,11 @@ DTPA Fe (10%):
   Fe:     0.1
   tsp:    4290
   target: Fe
+DTPA Fe (7%):
+  Fe:     0.07
+  tsp:    4290
+  target: Fe
+  sol:    150
 EDTA Fe (13%):
   Fe:     0.130
   tsp:    5100
