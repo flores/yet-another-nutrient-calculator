@@ -79,7 +79,7 @@ class YANC < Sinatra::Base
         concentrations = COMPOUNDS
         @comp         = params["compound"]
         @dose_method  = params["method"]
-        @dose_units   = unfractionify(params["dose_units"])
+        @dose_units   = params["dose_units"]
         @dose_amount  = unfractionify(params["dose_amount"])
         @target_amount = unfractionify(params["target_amount"])
         calc_for      = params["calc_for"]
@@ -87,7 +87,7 @@ class YANC < Sinatra::Base
         concentrations = COMMERCIAL
         @comp         = params["premix"]
         @dose_method  = params["premix_method"]
-        @dose_units   = unfractionify(params["premix_dose_units"])
+        @dose_units   = params["premix_dose_units"]
         @dose_amount  = unfractionify(params["premix_dose_amount"])
         @target_amount = unfractionify(params["premix_target_amount"])
         calc_for      = params["premix_calc_for"]
@@ -165,7 +165,7 @@ class YANC < Sinatra::Base
         end
       end  
                 
-      if (@comp =~ /ADA/)
+      if (@comp == 'ADA')
         @method_instruct    = @method_instruct + "<br /> <br />" + t.methods_text.ada
       end
 
@@ -178,6 +178,7 @@ class YANC < Sinatra::Base
         @sol_dose    = 0
         dose_calc     = @dose_amount
       end
+
 
       if (@dose_units == 'tsp')
         sol_check = @dose_amount * concentrations[@comp]['tsp']
