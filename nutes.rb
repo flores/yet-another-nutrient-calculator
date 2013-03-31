@@ -116,28 +116,27 @@ class YANC < Sinatra::Base
       @dose_freq      = 3
       @pwc            = 50
       @pwc_freq       = "every week"
-    
-    # OMG FIX ME
-    # calculations on the onClick optional menu
-      if (calc_for == "dump")
-        @dose_amount = @dose_amount.to_f
-      elsif (calc_for =~ /target/)
-        @dose_amount  = 0
-      else
-    # some warnings dependent on method
-        if (calc_for == 'ei')
+
+      # OMG FIX ME: what's up with dose_amount needing to get to 0 explicitly?
+      # Why is not just nil?   
+      case calc_for
+	when "target"
+	  @dose_amount  = 0
+	when "ei"	
           @target_amount = METHODS[@element]["EI"]["method"] 
           @method_instruct = t.methods_text.ei
           @dose_freq = 3
           @pwc = 50
           @pwc_freq = "every week"
-        elsif (calc_for == "pps")
+	  @dose_amount  = 0
+	when "pps"
           @target_amount = METHODS[@element]["PPS"]["method"] 
           @method_instruct = t.methods_text.pps
           @dose_freq = 7
           @pwc = 20
           @pwc_freq = "every month"
-      elsif (calc_for == "pmdd")
+	  @dose_amount  = 0
+	when "pmdd"
           @target_amount    = METHODS[@element]["PMDD"]["method"]
           if (@target_amount == 0)
             @method_instruct = t.methods_text.pmdd(@element)
@@ -145,22 +144,25 @@ class YANC < Sinatra::Base
           @dose_freq = 7
           @pwc = 50
           @pwc_freq = "every two weeks"  
-        elsif (calc_for == "wet")
+	  @dose_amount  = 0
+        when "wet")
           @target_amount    = METHODS[@element]["Wet"]["method"]
-        elsif (calc_for == "ei_low")
+	  @dose_amount  = 0
+        when "ei_low")
           @target_amount = METHODS[@element]["EI_low"]["method"]
           @method_instruct = t.methods_text.ei_low
           @dose_freq = 1
           @pwc = 50
           @pwc_freq = "every two weeks"
-        elsif (calc_for =="ei_daily")
+	  @dose_amount  = 0
+        when "ei_daily")
           @target_amount    = METHODS[@element]["EI_daily"]["method"]
           @method_instruct        = t.methods_text.ei_daily 
           @dose_freq              = 7
           @pwc                    = 50
           @pwc_freq               = "every week"
+	  @dose_amount  = 0
         end
-        @dose_amount    = 0
       end  
                 
       if (@comp =~ /ADA/)
