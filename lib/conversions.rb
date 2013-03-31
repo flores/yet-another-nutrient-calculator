@@ -20,9 +20,9 @@ module Conversions
       mass *= 1000
     elsif (units =~ /^(milli|m)L/)
       mass *= 10
-    elsif (units =~ /pump/)
+    elsif (units == 'pump')
       mass *= 12
-    elsif (units =~ /cap/)
+    elsif (units == 'cap')
       mass *= 50 
     end
     return mass
@@ -47,6 +47,23 @@ module Conversions
     end
 
     return value.to_f
+  end
+
+  def translate_units(units)
+    case units
+      when "caps"
+        t.units.five_milliliter
+      when "tsp"
+        t.units.five_milliliter
+      when "pumps"
+        t.units.pump_bottle
+      when "g"
+        t.units.grams
+      when "mg"
+        t.units.milligrams
+      when "ml"
+        t.units.milliliter
+    end
   end
 end
 

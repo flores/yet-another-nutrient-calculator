@@ -207,20 +207,9 @@ class YANC < Sinatra::Base
         end
         @target_amount = @results["#{@element}"]
         @mydose=@dose_amount
-        case @dose_units
-          when "caps"
-            @dose_units = t.units.five_milliliter
-          when "tsp"
-            @dose_units = t.units.five_milliliter
-          when "pumps"
-            @dose_units = t.units.pump_bottle
-          when "g"
-            @dose_units = t.units.grams
-          when "mg"
-            @dose_units = t.units.milligrams
-          when "ml"
-            @dose_units = t.units.milliliter
-        end
+        
+  	@dose_units=translate_units(@dose_units)
+      
       else (calc_for =~ /target|ei|pps|pmdd|wet|daily|low/)
         pie=Float(cons["#{@element}"])
         @mydose = @target_amount * tank_vol / pie
