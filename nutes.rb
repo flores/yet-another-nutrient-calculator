@@ -75,21 +75,21 @@ class YANC < Sinatra::Base
       tank_vol        = to_Liters(tank_vol_calc,@tank_units)
       cons            = Hash.new
   
-      if ( source =~ /diy/ )
+      if ( source == "diy" )
         concentrations = COMPOUNDS
         @comp         = params["compound"]
         @dose_method  = params["method"]
-        @dose_units   = params["dose_units"]
-        @dose_amount  = params["dose_amount"]
-        @target_amount = params["target_amount"].sub(/,/, '.').to_f
+        @dose_units   = unfractionify(params["dose_units"])
+        @dose_amount  = unfractionify(params["dose_amount"])
+        @target_amount = unfractionify(params["target_amount"])
         calc_for      = params["calc_for"]
       else
         concentrations = COMMERCIAL
         @comp         = params["premix"]
         @dose_method  = params["premix_method"]
-        @dose_units   = params["premix_dose_units"]
-        @dose_amount  = params["premix_dose_amount"]
-        @target_amount = params["premix_target_amount"].sub(/,/, '.').to_f
+        @dose_units   = unfractionify(params["premix_dose_units"])
+        @dose_amount  = unfractionify(params["premix_dose_amount"])
+        @target_amount = unfractionify(params["premix_target_amount"])
         calc_for      = params["premix_calc_for"]
       end
     
@@ -97,22 +97,18 @@ class YANC < Sinatra::Base
       
       pop=concentrations[@comp]
       pop.each do |junk,value|
-        if (junk =~ /tsp/)
+        if (junk == 'tsp')
           tsp_con = Float("#{value}")
-        elsif (junk =~ /sol/)
+        elsif (junk == 'sol')
           @solubility = value
-        elsif (junk =~ /target/)
+        elsif (junk == 'target')
           @element = value
-        elsif (junk =~ /urea/)
+        elsif (junk == 'urea')
           urea = 'yes'
-        elsif (junk =~ /pump/)
+        elsif (junk == 'pump')
           pump = value
         else
-          if (source =~ /diy/)
-            cons["#{junk}"]=Float("#{value}")
-          else
-            cons["#{junk}"]=Float("#{value}")
-          end
+          cons["#{junk}"]=Float("#{value}")
         end
       end
     
@@ -120,24 +116,12 @@ class YANC < Sinatra::Base
       @dose_freq      = 3
       @pwc            = 50
       @pwc_freq       = "every week"
+    
+    # OMG FIX ME
     # calculations on the onClick optional menu
-      if (calc_for =~ /dump/)
-        @dose_amount  = @dose_amount.sub(/,/, '.')
-    # is dose amount a fraction?
-        if (@dose_amount =~ /^(\d+\s*\d?)\/(\d+)$/)
-          num = $1
-          den = $2.to_f
-          if ( num =~ /^(\d+)\s+(\d?)/ )
-            wholenumber = $1.to_i;
-            num = $2.to_f;
-            @dose_amount = wholenumber + ( num / den )
-          else
-            @dose_amount = num.to_f/den
-          end
-        end
+      if (calc_for == "dump")
         @dose_amount = @dose_amount.to_f
       elsif (calc_for =~ /target/)
-        @target_amount   = @target_amount
         @dose_amount  = 0
       else
     # some warnings dependent on method
@@ -153,7 +137,7 @@ class YANC < Sinatra::Base
           @dose_freq = 7
           @pwc = 20
           @pwc_freq = "every month"
-        elsif (calc_for == "pmdd")
+      elsif (calc_for == "pmdd")
           @target_amount    = METHODS[@element]["PMDD"]["method"]
           if (@target_amount == 0)
             @method_instruct = t.methods_text.pmdd(@element)
@@ -183,9 +167,9 @@ class YANC < Sinatra::Base
         @method_instruct    = @method_instruct + "<br /> <br />" + t.methods_text.ada
       end
 
-      if (@dose_method =~ /sol/ && source =~ /diy/)
-        @sol_vol    = Float(params["sol_volume"].sub(/,/, '.'))
-        @sol_dose    = Float(params["sol_dose"].sub(/,/, '.')) 
+      if (@dose_method == 'sol' && source == 'diy')
+        @sol_vol    = unfractionify(Float(params["sol_volume"]))
+        @sol_dose    = unfractionify(Float(params["sol_dose"]))
         dose_calc     = @dose_amount * @sol_dose / @sol_vol
       else
         @sol_vol     = 0
@@ -193,9 +177,9 @@ class YANC < Sinatra::Base
         dose_calc     = @dose_amount
       end
 
-      if (@dose_units =~ /tsp/)
+      if (@dose_units == 'tsp')
         sol_check = @dose_amount * concentrations[@comp]['tsp']
-      elsif (@dose_units =~ /^g$/)
+      elsif (@dose_units == 'g')
         sol_check = @dose_amount * 1000
       else
         sol_check = 0
@@ -304,10 +288,11 @@ class YANC < Sinatra::Base
       end
       
     #copper toxicity
+      cu_toxicity = 0.072
       if (concentrations[@comp]['Cu'])
-        if(@results['Cu'].to_f > 0.072)
-          toxic = ( @results['Cu'].to_f - 0.072 ) / 0.072 
-          less_dose = @dose_amount - ( @dose_amount * 0.072 / @results['Cu'].to_f )
+        if(@results['Cu'].to_f > cu_toxicity)
+          toxic = ( @results['Cu'].to_f - cu_toxicity ) / cu_toxicity 
+          less_dose = @dose_amount - ( @dose_amount * cu_toxicity / @results['Cu'].to_f )
           if (@dose_amount =~ /\./)
             less_dose = less_dose.round_to(3)
           else
