@@ -63,7 +63,7 @@ class YANC < Sinatra::Base
       @results    = Hash.new
     
     # the Stuff while trying to limit what's global
-      tank_vol_calc    = Float(params["tank_vol"].sub(/,/, '.')) || 0
+      tank_vol_calc    = unfractionify(params["tank_vol"])
       @tank_units      = params["tank_units"]
       source           = params["source"]
       
@@ -112,11 +112,6 @@ class YANC < Sinatra::Base
         end
       end
     
-      @method_instruct = ''
-      @dose_freq      = 3
-      @pwc            = 50
-      @pwc_freq       = "every week"
-
       # OMG FIX ME: what's up with dose_amount needing to get to 0 explicitly?
       # Why is not just nil?   
       case calc_for
@@ -162,6 +157,11 @@ class YANC < Sinatra::Base
           @pwc                    = 50
           @pwc_freq               = "every week"
 	  @dose_amount  = 0
+	else
+          @method_instruct = ''
+	  @dose_freq      = 3
+	  @pwc            = 50
+	  @pwc_freq       = "every week"
         end
       end  
                 
@@ -212,9 +212,7 @@ class YANC < Sinatra::Base
       
       else (calc_for =~ /target|ei|pps|pmdd|wet|daily|low/)
         pie=Float(cons["#{@element}"])
-        @mydose = @target_amount * tank_vol / pie
-        #@mydose = sprintf("%.2f", @mydose)
-        @mydose = Float(@mydose)
+        @mydose = sprintf("%.2f", target_amount * tank_vol / pie)
         if (@dose_method=~ /sol/)
           @dose_amount   = @mydose * @sol_vol / @sol_dose
           sol_check  = @dose_amount
