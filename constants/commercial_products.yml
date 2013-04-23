@@ -93,29 +93,6 @@ Nutrafin Plant Gro:
   Fe:     0.26
   Mn:     0.05
   target: Fe
-Mikroplant Expert:
-  Fe:     0.15
-  Mg:     0.2
-  K:      2.0
-  N:      0.113
-  NO3:    0.4972
-  Mn:     0.04
-  B:      0.015
-  Cu:     0.005
-  Zn:     0.002
-  Mo:     0.002
-  Na:     0.0016
-  I:      0.02
-  Ni:     0.001
-  Cl:     0.0023
-  Co:     0.001
-  Br:     0.001
-  Li:     0.002
-  Sn:     0.001
-  F:      0.001
-  Se:     0.001
-  Si:     0.002
-  target: Fe
 Aqua Rebell Spezial N:
   NO3:    5.0
   N:      1.136
