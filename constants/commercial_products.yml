@@ -21,7 +21,7 @@ Easy Life ProFito:
   F:      0.001
   target: Fe
 Easy Life Ferro:
-  Fe:     0.5
+  Fe:     1.0
   target: Fe
 Easy Life Potassium:
   K:      4.0
