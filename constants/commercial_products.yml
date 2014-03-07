@@ -159,9 +159,9 @@ Flourish Potassium:
 Flourish Phosphorus:
   K2O:    0.2
   K:      0.166
-  P2O5:   0.2
-  P:      0.0872
-  PO4:    0.267
+  P2O5:   0.3
+  P:      0.1304
+  PO4:    0.4004
   target: PO4
 Flourish Nitrogen:
   N:      1.5
