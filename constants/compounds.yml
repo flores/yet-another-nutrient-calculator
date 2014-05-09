@@ -9,40 +9,40 @@ KNO3:
   NO3:    0.6133
   N:      0.138539
   K:      0.3867
-  tsp:    10545
+  tsp:    5200
   sol:    360
   target: NO3
 K2HPO4:
   PO4:    0.545271861
   P:      0.177837745
   K:      0.448963656
-  tsp:    12200
+  tsp:    5800
   sol:    1492
   target: PO4
 KH2PO4:
   PO4:    0.6979
   P:      0.227605
   K:      0.2873
-  tsp:    11700
+  tsp:    5600
   sol:    220
   target: PO4
 K3PO4:
   PO4:    0.447416
   P:      0.145925
   K:      0.552596
-  tsp:    12800
+  tsp:    6000
   sol:    900
   target: PO4
 KCl:
   K:      0.524447
   Cl:     0.18401
-  tsp:    9900
+  tsp:    4500
   sol:    344
   target: K
 K2SO4:
   K:      0.448736
   S:      0.18401
-  tsp:    13300
+  tsp:    6400
   sol:    120
   target: K
 Seachem Equilibrium:
