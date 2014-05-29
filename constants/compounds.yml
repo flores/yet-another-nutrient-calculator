@@ -143,6 +143,7 @@ Plantex CSM+B:
   B:      0.008
   dGH:    0.00320670391
   tsp:    4300
+  sol:    170
   target: Fe
 Miller's MicroPlex:
   Fe:     0.04
