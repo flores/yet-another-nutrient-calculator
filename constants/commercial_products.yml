@@ -46,21 +46,21 @@ API Leaf Zone:
   Fe:     0.1
   target: Fe
 VIMI All In One:
-  K:      2.665
+  K:      2.7
   NO3:    4.906
   N:      1.112
-  P:      1.0
-  PO4:    3.05
+  P:      0.10
+  PO4:    0.305
   Fe:     0.075
   dGH:    0.0143
   Mg:     0.0625
   Mn:     0.01875
-  B:      0.006325
+  B:      0.00875
   Zn:     0.001875
   Cu:     0.001875
   Mo:     0.000625
   Co:     0.0001875
-  Ni:     0.000063
+  Ni:     0.0000625
   urea:   yes
   target: NO3
 VIMI Micro:
