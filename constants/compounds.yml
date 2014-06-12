@@ -240,3 +240,12 @@ MnSO4.H2O:
   tsp:    7490
   sol:    393
   target: Mn
+Aquagreen's Amgrow Trace Mix:
+  Fe:     0.075
+  Mn:     0.037
+  Zn:     0.006
+  B:      0.007
+  Mo:     0.002
+  Cu:     0.003
+  tsp:    4500
+  target: Fe
