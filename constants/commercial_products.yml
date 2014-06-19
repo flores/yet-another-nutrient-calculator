@@ -335,3 +335,10 @@ INTERMAG Mikro Plus:
   Mo:     0.06
   Zn:     0.35
   target: Fe
+Tetra Florapride:
+  K2O:    3.0
+  K:      2.49
+  Fe:     0.15
+  target: Fe
+
+  
