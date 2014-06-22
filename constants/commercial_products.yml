@@ -112,7 +112,7 @@ Tropica Plant Nutrition +:
   B:      0.004
   Cu:     0.006
   Fe:     0.07
-  Mn:     0.002
+  Mn:     0.04
   Mo:     0.002
   Zn:     0.002
   urea:   yes
@@ -124,7 +124,7 @@ Tropica Plant Nutrition:
   Fe:     0.07
   Mn:     0.04
   B:      0.004
-  Cu:     0.0006
+  Cu:     0.006
   Mo:     0.002
   Zn:     0.002
   target: Fe
