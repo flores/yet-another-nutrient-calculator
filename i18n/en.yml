@@ -36,13 +36,14 @@ input:
     ei_low: EI low light/weekly
     pps: Perpetual Preservation System
     pmdd: PMDD
-  dose: 
+  dose:
     text: I am adding
     tooltip: you can use numbers like<br/>"1/8", "1.25", "2,50", "3"
   target: My target is
+  round_to: Round to digits past the decimal
 output:
   dose: Your addition of %1 to your %2 aquarium adds
-  dose_solution: Your addition of %1 to your %2 container, with doses of %3 to your %4 aquarium adds 
+  dose_solution: Your addition of %1 to your %2 container, with doses of %3 to your %4 aquarium adds
   target: To reach your target of %1 you will need to add %2 to your %3 aquarium to yield
   target_solution: To reach your target of %1 you will need to add %2 to your %3 dosing container.  Add %4 of that mix to your %5 aquarium to yield
 warnings:
@@ -52,14 +53,14 @@ warnings:
   urea: This product has some unknown percentage of N as Urea and as NO3.  The calculation and chart below works with NO3 equivalents.
   cu: Your Cu dose is %1 % more than recommended for sensitive fish and inverts. Consider reducing your %2 dose by %3 <a href='http://y.petalphile.com/cu' target='_blank'>Read more about Cu toxicity here</a>
 chart:
-  text: Relative %1 for 
+  text: Relative %1 for
   pmdd: PMDD
   walstad: Walstad
   pps: PPS-Pro
   ei: The Estimative Index
   user: and you
   long_term_chart: Want to model long term effects of %1 dosing? Click %2 here!
-methods_text:  
+methods_text:
   ei: Dose these levels 2-4 times a week for EI.  Classic EI depends on good CO2, good circulation, and regular water changes.  Light past moderation is not so important.
   ei_daily: This is traditional EI reduced to daily dosing levels.
   ei_low: This is EI scaled for once a week dosing under low light. The EI ranges below are over time for most tanks.

@@ -1,4 +1,4 @@
-units: 
+units:
   element: 
   ppm: 
   degree: 
@@ -10,24 +10,24 @@ units:
   pump_bottle: 
   grams: 
   milligrams: 
-input: 
+input:
   aquarium: 
   source: 
     text: 
     diy: 
     commercial: 
     label: 
-  diy: 
+  diy:
     text: 
     method_text: 
     solution: 
     dry: 
-  solution: 
+  solution:
     text: 
     container: 
     dose: 
     tooltip: 
-  dosing_method: 
+  dosing_method:
     text: 
     target: 
     dose: 
@@ -36,22 +36,23 @@ input:
     ei_low: 
     pps: 
     pmdd: 
-  dose: 
+  dose:
     text: 
     tooltip: 
   target: 
-output: 
+  round_to: 
+output:
   dose: 
   dose_solution: 
   target: 
   target_solution: 
-warnings: 
+warnings:
   solubility: 
-  k3po4:  
-  eddha:  
+  k3po4: 
+  eddha: 
   urea: 
-  cu:  
-chart: 
+  cu: 
+chart:
   text: 
   pmdd: 
   walstad: 
@@ -59,14 +60,14 @@ chart:
   ei: 
   user: 
   long_term_chart: 
-methods_text: 
+methods_text:
   ei: 
   ei_daily: 
   ei_low: 
   pps: 
   pmdd: 
   ada: 
-misc: 
+misc:
   calc: 
   restart: 
   submit_button: 
