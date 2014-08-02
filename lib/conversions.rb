@@ -1,6 +1,6 @@
 module Conversions
   def to_Liters(vol,units)
-  
+
     vol = vol.to_f
 
     if (units =~ /gal/)
@@ -23,14 +23,17 @@ module Conversions
     elsif (units == 'pump')
       mass *= 12
     elsif (units == 'cap')
-      mass *= 50 
+      mass *= 50
     end
     return mass
   end
 
   def unfractionify(value)
     return nil if ! value
-    value = value.sub(/,/, '.')
+    if value.is_a? Numeric
+    else
+      value = value.gsub(/,/, '.')
+    end
     # is it a fraction
     if (value =~ /^(\d+\s*\d?)\/(\d+)$/)
       num = $1

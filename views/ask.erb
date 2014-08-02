@@ -2,9 +2,9 @@
   <fieldset>
     
     <div class="control-group">
-      <label class="control-label" for="tank"><%= t.input.aquarium %></label>
+      <label class="control-label" for="tank_vol"><%= t.input.aquarium %></label>
       <div class="controls">
-        <input length='4' name='tank_vol' size='4' type='text' id='tank'/>
+        <input length='4' name='tank_vol' size='4' type='int' id='tank'/>
 	<label class="radio">
 	<input name='tank_units' type='radio' value='gal' id='tank' class='btn'>
 	  <%= t.units.us_gal %>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="source"><%= t.input.source.label %></label>
+      <label class="control-label" for="source"><%= t.input.source.text %> <%= t.input.source.label %></label>
       <div class="controls">
 	<label class="radio">
         <input id="source" name='source' onClick="show('diy');" type='radio' value='diy' />
@@ -167,6 +167,22 @@
           <%= t.units.ppm %>
       </div>
     </div>
+    <div class='control-group'>
+      <label class='control-label' for='round_to'><%= t.input.round_to %></label>
+      <div class="controls">
+        <select id="round_to" name="round_to">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2 selected='selected'>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+        </select>
+      </div>
+    </div>  
     <center>
     <input type='submit' value='<%= t.misc.submit_button %>' id='ask' onlick="_gaq.push(['_trackPageview', '/yanc_submit'])" />
     </center>
