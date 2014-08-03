@@ -19,3 +19,4 @@ Features
 * Modelling projections for your first month of dosing by method (EI, PPS-Pro, etc) as well as suggested guidelines for each method.
 * Translations in Dutch, German, Japanese, Brazillian Portuguese, Romanian, and Spanish
 * [Open source!](https://github.com/flores/yet-another-nutrient-calculator)
+* Super gross and the code is all over the place, thanks for understanding :)
