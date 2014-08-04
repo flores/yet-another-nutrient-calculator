@@ -1,0 +1,78 @@
+units:
+  element: Prvek
+  ppm: ppm
+  degree: množství
+  us_gal: US gal
+  imp_gal: Imp gal
+  Liter: L
+  milliliter: ml
+  five_milliliter: tsp/caps
+  pump_bottle: zmáčknutí
+  grams: g
+  milligrams: mg
+input:
+  aquarium: Moje nádrž je
+  source:
+    text: použití
+    diy: DIY
+    commercial: komerční směs
+    label: hnojiva
+  diy:
+    text: Dávkuji
+    method_text: použití
+    solution: roztok
+    dry: suché dávkování
+  solution:
+    text: Obsah nádoby
+    container: nádoba
+    dose: a každá dávka je
+    tooltip: if you choose the result of your dose below, that's the dose that goes into this solution.
+  dosing_method:
+    text: spočítat pro
+    target: dávka k dosažení hodnoty
+    dose: výsledek mé dávky
+    ei: Estimative Index
+    ei_daily: EI denně
+    ei_low: EI nízké světlo/týdně
+    pps: Perpetual Preservation System (PPS)
+    pmdd: PMDD
+  dose:
+    text: Přidám
+    tooltip: můžete použít čísla<br/>"1/8", "1.25", "2,50", "3"
+  target: Můj cíl je
+  round_to: Round to digits past the decimal
+output:
+  dose: Vaše přidání %1 do Vaší %2 nádrže dodá
+  dose_solution: Vaše přidání %1 do Vaší %2 dávkovací nádoby, s dávkami %3 do Vaší %4 nádrže přidá
+  target: Chcete-li dosáhnout svého cíle %1 budete muset přidat %2 do Vaší %3 nádrže pro získání
+  target_solution: Chcete-li dosáhnout svého cíle %1 budete muset přidat %2 do Vaší %3 dávkovací nádoby. Přidejte %4 této směsi do Vaší %5 nádrže, čímž získáte
+warnings:
+  solubility: Rozpustnost %1 při pokojové teplotě, je %2. M ěli byste upravit Vaši dávku.
+  k3po4: K3PO4 v roztoku má tendenci ke zvýšení pH vzhledem k povaze KOH, silné báze. ray-the-pilot explains this for us gardeners <a href='http://bit.ly/ev7txA' target='_blank'>APC</a>
+  eddha: Uvědomte si, že EDDHA obarví vodu do růžové až červené i při mírných dávkách. Můžete se podívat na video s 0.2ppm dávkou <a href='http://www.youtube.com/watch?v=ZCTu8ClcMKc' target='_blank'>zde</a>.
+  urea: Tento produkt má neznámé procento N, jako je močovina a NO3. Výpočet a graf níže pracuje s NO3 ekvivalenty.
+  cu: Vaše Cu dávka je %1 % více, než je doporučeno pro citlivé ryby a obratlovc e. Zvažte snížení %2 dávky o %3 <a href='http://y.petalphile.com/cu' target='_blank'>Přečtěte si více o Cu toxicity zde</a>
+chart:
+  text: Relativní %1 pro
+  pmdd: PMDD
+  walstad: Walstad
+  pps: PPS-Pro
+  ei: Estimative Index
+  user: a Vy
+  long_term_chart: Chcete model dlouhodobého účinku %1 dávkování? Klikněte %2 zde!
+methods_text:
+  ei: Dávky 2-4 krát týdně pro EI. Klasické EI závisí na dobrém CO2, dobré cirkulaci a pravidelné výměny vody. Světlo není tak důležité.
+  ei_daily: To je tradiční EI snížené na denní dávkování.
+  ei_low: To je EI dávkování snížené na jedenkrát týdně při nízké hladině osvětlení. EI s nižším rozsahem jsou pro většinu nádrží.
+  pps: Spočítali jsme pro PPS-Pro denní dávku. Doporučený rozsah níže je pro stabilizované a zralé nádrže.
+  pmdd: V PMDD není dávka %1. Ale možná byste měli.
+  ada: Hnojící systém ADA obsahuje substrát bohatý na živiny, zatím co jejich kapalná hnojiva doplňují živiny do vodního sloupce, až je substrát vyčerpán. ADA elementární analýza je s laskavým svolením Plantbrain / Tom Barr a je k dispozici na adrese <a href='http://barrreport.com' target='_blank'>The Barr Report</a>
+misc:
+  calc: Kalkulačka živin
+  restart: Začít znovu
+  submit_button: Spočítat
+  translations: Překlady
+  contribute: Pomoc s překladem
+  mobile_link: Mobilní verze
+  noscript: Tato kalkulačka vyžaduje Javascript, aby správně fungovala.
+  error: Došlo k chybě! Prosím, používejte pouze číslice (3, 3.0, 3/4, 0,75, etc) a ujistěte se, že všechna pole jsou vyplněna.
