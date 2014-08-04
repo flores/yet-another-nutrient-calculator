@@ -40,7 +40,7 @@ input:
     text: Přidám
     tooltip: můžete použít čísla<br/>"1/8", "1.25", "2,50", "3"
   target: Můj cíl je
-  round_to: Round to digits past the decimal
+  round_to: Na kolik desetinných míst zaokrouhlit
 output:
   dose: Vaše přidání %1 do Vaší %2 nádrže dodá
   dose_solution: Vaše přidání %1 do Vaší %2 dávkovací nádoby, s dávkami %3 do Vaší %4 nádrže přidá
