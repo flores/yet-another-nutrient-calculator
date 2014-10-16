@@ -22,16 +22,16 @@
 ## Contributors
 Ordered by number of commits
 
-* @flores
-* @tmaciak
-* @zorfox
-* @rickertikari
-* @Wasserpest
-* @FlorinI
-* @raghauler
-* @tgmerritt
-* @josephsydee
-* @Webunity
-* @cosalich
-* @romanholba
+* [@flores](https://github.com/flores)
+* [@tmaciak](https://github.com/tmaciak)
+* [@zorfox](https://github.com/zorfox)
+* [@rickertikari](https://github.com/rickertikari)
+* [@Wasserpest](https://github.com/Wasserpest)
+* [@FlorinI](https://github.com/FlorinI)
+* [@raghauler](https://github.com/raghauler)
+* [@tgmerritt](https://github.com/tgmerritt)
+* [@josephsydee](https://github.com/josephsydee)
+* [@Webunity](https://github.com/Webunity)
+* [@cosalich](https://github.com/cosalich)
+* [@romanholba](https://github.com/romanholba)
 
