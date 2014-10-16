@@ -1,8 +1,6 @@
-[Yet Another Nutrient Calculator](http://calc.petalphile.com)
---------
+# [Yet Another Nutrient Calculator](http://rota.la)
 
-Features
---------
+## Features
 
 * Support for more than 25 compounds/DIY fertilizers.
 * Support for more than 30 commerical products.
@@ -20,3 +18,20 @@ Features
 * Translations in Dutch, German, Japanese, Brazillian Portuguese, Romanian, and Spanish
 * [Open source!](https://github.com/flores/yet-another-nutrient-calculator)
 * Super gross and the code is all over the place, thanks for understanding :)
+
+## Contributors
+Ordered by number of commits
+
+* @flores
+* @tmaciak
+* @zorfox
+* @rickertikari
+* @Wasserpest
+* @FlorinI
+* @raghauler
+* @tgmerritt
+* @josephsydee
+* @Webunity
+* @cosalich
+* @romanholba
+
